@@ -1,8 +1,5 @@
 Character Stats:
 
-Example stats:
-    HP: Health Points ATK: Damage/hit(bonus to hit) DEF: Number to beat when trying to hit MP: Magic Power (MP gained per turn) SPD: P2SPD = P2SPD + P2SPDBON
-
 Knight stats:
     HP: 42  ATK: 12(+2)  DEF: 14  MP: 4(+1)  SPD: 3 SPDBON: 2 
 

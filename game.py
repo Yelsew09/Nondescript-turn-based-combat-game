@@ -238,7 +238,7 @@ while roundnumber < 10:
     else:
         print("")
         if P1SPD > P2SPD:
-            print("player 1 is faster")
+            print("player 1's turn")
             print("player 1 has "+ str(P1MP) +" MP left")
             print("do one of the following")
             print("1: Attack")
@@ -318,39 +318,39 @@ while roundnumber < 10:
                 else:
                     print("please try again")
         elif P1SPD < P2SPD:
-            print("player 1 is faster")
-            print("player 1 has "+ str(P1MP) +" MP left")
+            print("player 2's turn")
+            print("player 2 has "+ str(P2MP) +" MP left")
             print("do one of the following")
             print("1: Attack")
             print("2: Magic")
             print("3: Run Away")
             while turn == 1:
-                option=int(input("what would player 1 like to do?: "))
+                option=int(input("what would player 2 like to do?: "))
                 critnumber=random.randint(1,20)
                 if option == 1 and critnumber==20:
                     print("")
-                    print("Player 1 used Attack")
+                    print("Player 2 used Attack")
                     print("Its a Criticle hit!!!")
-                    print("Player 1 did " + str(P1ATK*2) + "Damage to Player 2")
-                    P2HP = P2HP-(P1ATK*2)
-                    print("player 2 has " + str(P2HP) + " HP Left")
-                    P2SPD = P2SPD + P2SPDBON
-                    if dmgp1==2:
-                        P1ATK==P1ATK-P1ATKBON
-                        dmgp1=1
+                    print("Player 2 did " + str(P2ATK*2) + "Damage to Player 1")
+                    P1HP = P1HP-(P2ATK*2)
+                    print("player 1 has " + str(P1HP) + " HP Left")
+                    P1SPD = P1SPD + P1SPDBON
+                    if dmgp2==2:
+                        P2ATK==P2ATK-P2ATKBON
+                        dmgp2=1
                     turn=2
-                    P2SPD = P2SPD + P2SPDBON
+                    P1SPD = P1SPD + P1SPDBON
                     roundnumber=roundnumber+1
                 elif option == 1 and not critnumber==20:
-                    print("Player 1 used Attack")
-                    print("Player 1 did " + str(P1ATK) + " Damage to Player 2")
-                    P2HP = P2HP-P1ATK
-                    print("Player 2 has " + str(P2HP) + " HP left")
-                    P2SPD = P2SPD + P2SPDBON
-                    if dmgp1==2:
-                        P1ATK==P1ATK-P1ATKBON
+                    print("Player 2 used Attack")
+                    print("Player 2 did " + str(P2ATK) + " Damage to Player 1")
+                    P1HP = P1HP-P2ATK
+                    print("Player 1 has " + str(P1HP) + " HP left")
+                    P1SPD = P1SPD + P1SPDBON
+                    if dmgp2==2:
+                        P2ATK==P2ATK-P2ATKBON
                     turn=2
-                    P2SPD=P2SPD+P2SPDBON
+                    P1SPD=P1SPD+P1SPDBON
                     roundnumber=roundnumber+1
                 elif option == 2:
                     print("Please do one of the following")
@@ -361,12 +361,12 @@ while roundnumber < 10:
                     print("5: Cancel")
                     magic_option=int(input("What would you like to do?: "))
                     if magic_option==1:
-                        print("Player 1 used Damage boost")
-                        DMGBUFFP1=P1ATKBON
-                        dmgp1=2
+                        print("Player 2 used Damage boost")
+                        DMGBUFFP2=P1ATKBON
+                        dmgp2=2
                         turn = 2
-                        P1ATK=DMGBUFFP1 + P1ATK
-                        P2SPD=P2SPD+P2SPDBON
+                        P2ATK=DMGBUFFP2 + P2ATK
+                        P1SPD=P1SPD+P1SPDBON
                     elif magic_option==2:
                         print("this feature is coming soon try again")
                         turn = 1
@@ -377,7 +377,7 @@ while roundnumber < 10:
                     elif magic_option==4:
                         print("heal")
                         turn = 2
-                        P2SPD = P2SPD + P2SPDBON
+                        P1SPD = P1SPD + P1SPDBON
                     elif magic_option==5:
                         print("")
                     else:
@@ -389,7 +389,7 @@ while roundnumber < 10:
                         yesorno=int(input("select an answer: "))
                         if yesorno==1:
                             print("you forfiet the game and run away")
-                            print("Player 2 wins")
+                            print("Player 1 wins")
                             break
                         elif yesorno==2:
                             print("")

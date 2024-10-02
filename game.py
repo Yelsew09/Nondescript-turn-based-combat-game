@@ -1,6 +1,8 @@
 import random
+import time
 print("Welcome to insert game title here")
 print("")
+time.sleep(.5)
 print("Please select a class, player 1.")
 print("1: Knight")
 print("2: Peashooter")
@@ -14,6 +16,7 @@ allcorrect = 1
 while allcorrect == 1:
     while cc == 1:
         player1class = int(input("Choose a class from the list above (please choose a number): "))
+        time.sleep(.5)
         if player1class == 1:
             player1class = "Knight"
             P1HP = 42
@@ -110,10 +113,12 @@ while allcorrect == 1:
     print("1: Yes")
     print("2: No")
     yesorno = int(input("You have chosen " + str(player1class) + ". Is this correct?: "))
+    time.sleep(.5)
     if yesorno == 1:
         print("Player 1 has chosen the " + str(player1class) + " class.")
         print("")
-        ac=2
+        time.sleep(.5)
+        allcorrect=2
     elif yesorno == 2:
         print("repick your charcter.")
         cc=1
@@ -245,9 +250,11 @@ print("")
 #round start
 print("Player 1 Speed ",P1SPD)
 print("Player 2 Speed ",P2SPD )
+time.sleep(.5)
 while roundnumber < 10:
     turn = 1
     print("Round " + str(roundnumber) + " ")
+    time.sleep(.5)
     if P1HP <= 0:
         print("Player 2 wins the game")
         winner=player2class
@@ -429,3 +436,4 @@ while roundnumber < 10:
     print("")
     print("Player 1 HP left ",P1HP)
     print("Player 2 HP left ",P2HP)
+print(winner," wins")

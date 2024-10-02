@@ -26,7 +26,4 @@ Character ideas:
     Druid - Taking a turn to turn into a different form with wildly different stats
     
 Gameplay ideas:
-    items, every charcter has unique items
-    SPDBON everyturn the next player increases that much P2SPD = P2SPD + P2SPDBON
-possible titles for the game?
-    not really a name guy, do you got any ideas -
+Items

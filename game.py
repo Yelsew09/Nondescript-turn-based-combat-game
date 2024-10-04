@@ -10,6 +10,7 @@ print("3: Mage")
 print("4: Rouge")
 print("5: Sans")
 print("6: Bard")
+print("7: Barbarain")
 #Player 1 selects a class
 cc=1
 allcorrect=1
@@ -71,11 +72,11 @@ while allcorrect==1:
             cc=2
         elif player1class == 5:
             player1class = "Sans"
-            P1HP = 33
+            P1HP = 1
             P1MAXHP = P1HP
-            P1ATK = 10
-            P1ATKBON = 2
-            P1DEF = 11
+            P1ATK = 20
+            P1ATKBON = 4
+            P1DEF = 20
             P1MP = 15
             P1MAXMP = P1MP
             P1MPBON = 3
@@ -186,11 +187,11 @@ while allcorrect==1:
             cc=2
         elif player2class == 5:
             player2class = "Sans"
-            P2HP = 33
+            P2HP = 1
             P2MAXHP = P2HP
-            P2ATK = 10
-            P2ATKBON = 2
-            P2DEF = 11
+            P2ATK = 20
+            P2ATKBON = 4
+            P2DEF = 20
             P2MP = 15
             P2MAXMP = P2MP
             P2MPBON = 3
@@ -279,8 +280,11 @@ while roundnumber < 10:
                     print("")
                     print("Player 1 used Attack")
                     print("Its a Criticle hit!!!")
-                    print("Player 1 did " + str(P1ATK*2) + "Damage to Player 2")
-                    P2HP = P2HP-(P1ATK*2)
+                    TOTDMG = (critnumber+(P1ATK*2))-P2DEF
+                    if TOTDMG < 0:
+                        TOTDMG = 0
+                    print("Player 1 did " + str(TOTDMG) + "Damage to Player 2")
+                    P2HP = P2HP-TOTDMG
                     print("player 2 has " + str(P2HP) + " HP Left")
                     P2SPD = P2SPD + P2SPDBON
                     if dmgp1==2:
@@ -288,11 +292,14 @@ while roundnumber < 10:
                         dmgp1=1
                     turn=2
                     P2SPD = P2SPD + P2SPDBON
-                    roundnumber=roundnumber+1
+                    roundnumber=roundnumber + 1
                 elif option == 1 and not critnumber==20:
                     print("Player 1 used Attack")
-                    print("Player 1 did " + str(P1ATK) + " Damage to Player 2")
-                    P2HP = P2HP-P1ATK
+                    TOTDMG = (critnumber+(P1ATK))-P2DEF
+                    if TOTDMG < 0:
+                        TOTDMG = 0
+                    print("Player 1 did " + str(TOTDMG) + "Damage to Player 2")
+                    P2HP = P2HP-TOTDMG
                     print("Player 2 has " + str(P2HP) + " HP left")
                     P2SPD = P2SPD + P2SPDBON
                     if dmgp1==2:
@@ -302,34 +309,76 @@ while roundnumber < 10:
                     roundnumber=roundnumber+1
                 elif option == 2:
                     print("Please do one of the following")
-                    print("1: Damage boost for one turn-2MP")
-                    print("2: Gain advantage-3MP")
-                    print("3: FireBall-5MP")
-                    print("4: Heal 20% of max health-4MP")
-                    print("5: Cancel")
+                    print("0: Cancel")
+                    print("1: Gain +1 perma defence")
+                    print("2: Damage boost for one turn-2MP")
+                    print("3: Gain advantage-3MP")
+                    print("4: Heal 20 percent of max health-4MP")
+                    print("5: FireBall-5MP")
                     magic_option=int(input("What would you like to do?: "))
-                    if magic_option==1:
-                        print("Player 1 used Damage boost")
-                        DMGBUFFP1=P1ATKBON
-                        dmgp1=2
-                        turn = 2
-                        P1ATK=DMGBUFFP1 + P1ATK
-                        P2SPD=P2SPD+P2SPDBON
-                    elif magic_option==2:
-                        print("this feature is coming soon try again")
-                        turn = 1
-                    elif magic_option==3:
-                        print("fireball")
-                        turn = 2
-                        P2SPD = P2SPD + P2SPDBON
-                    elif magic_option==4:
-                        print("heal")
-                        turn = 2
-                        P2SPD = P2SPD + P2SPDBON
-                    elif magic_option==5:
-                        print("")
+                    if P1MP < magic_option:
+                        print("you dont have enough Mana")
+                    elif P1MP >= magic_option:
+                        if magic_option == 1:
+                            P1DEF=P1DEF+1
+                            P1MP = P1MP - magic_option
+                            turn = 2
+                            P2SPD = P2SPD + P2SPDBON
+                            P1MP = P1MP + P1MPBON
+                            print("")
+                            print("Player 1 gained " + str(P1MPBON) + " MP back")
+                            if P1MAXMP > P1MP:
+                                P1MP = P1MAXMP
+                            print("Player 1 has " + str(P1MP) + " MP left") 
+                        elif magic_option==2:
+                            print("Player 1 used Damage boost")
+                            DMGBUFFP1=P1ATKBON
+                            dmgp1 = 2
+                            P1ATK=DMGBUFFP1 + P1ATK
+                            P1MP = P1MP - magic_option
+                            turn = 2
+                            P2SPD = P2SPD + P2SPDBON
+                            P1MP = P1MP + P1MPBON
+                            print("")
+                            print("Player 1 gained " + str(P1MPBON) + " MP back")
+                            if P1MAXMP > P1MP:
+                                P1MP = P1MAXMP
+                            print("Player 1 has " + str(P1MP) + " MP left") 
+                        elif magic_option==3:
+                            print("this feature is coming soon try again")
+                            turn = 1
+                        elif magic_option==5:
+                            print("Player 1 used fireball")
+                            fireballdmg = random.randint(12,18)
+                            print("Player 1 did " + str(fireballdmg) + " Damage to Player 2")
+                            P2HP=P2HP-fireballdmg
+                            print("Player 2 has " + str(P2HP) + " HP left")
+                            P1MP = P1MP - magic_option
+                            turn = 2
+                            P2SPD = P2SPD + P2SPDBON
+                            P1MP = P1MP + P1MPBON
+                            print("")
+                            print("Player 1 gained " + str(P1MPBON) + " MP back")
+                            if P1MAXMP > P1MP:
+                                P1MP = P1MAXMP
+                            print("Player 1 has " + str(P1MP) + " MP left") 
+                        elif magic_option==4:
+                            print("Player 1 used heal")
+                            P1HP = P1HP + (P1MAXHP/5)
+                            P1MP = P1MP - magic_option
+                            turn = 2
+                            P2SPD = P2SPD + P2SPDBON
+                            P1MP = P1MP + P1MPBON
+                            if P1MAXMP < P1MP:
+                                P1MP = P1MAXMP
+                            if P1MAXHP < P1HP:
+                                P1HP = P1MAXHP
+                        elif magic_option==0:
+                            print("")
+                        else:
+                            print("somthing went wrong please try again")
                     else:
-                        print("somthing went wrong please try again")
+                        print("try again")
                 elif option == 3:        
                         print("Are you SURE you want to run away??")
                         print("1: Yes")
@@ -359,9 +408,12 @@ while roundnumber < 10:
                     print("")
                     print("Player 2 used Attack")
                     print("Its a Criticle hit!!!")
-                    print("Player 2 did " + str(P2ATK*2) + "Damage to Player 1")
-                    P1HP = P1HP-(P2ATK*2)
-                    print("player 1 has " + str(P1HP) + " HP Left")
+                    TOTDMG= (critnumber+(P2ATK*2))-P1DEF
+                    if TOTDMG < 0:
+                        TOTDMG=0
+                    print("Player 2 did " + str(TOTDMG) + "Damage to Player 1")
+                    P1HP = P1HP-TOTDMG
+                    print("player 2 has " + str(P1HP) + " HP Left")
                     P1SPD = P1SPD + P1SPDBON
                     if dmgp2==2:
                         P2ATK==P2ATK-P2ATKBON
@@ -371,9 +423,12 @@ while roundnumber < 10:
                     roundnumber=roundnumber+1
                 elif option == 1 and not critnumber==20:
                     print("Player 2 used Attack")
-                    print("Player 2 did " + str(P2ATK) + " Damage to Player 1")
-                    P1HP = P1HP-P2ATK
-                    print("Player 1 has " + str(P1HP) + " HP left")
+                    TOTDMG= (critnumber+P2ATK)-P2DEF
+                    if TOTDMG < 0:
+                        TOTDMG=0
+                    print("Player 2 did " + str(TOTDMG) + "Damage to Player 1")
+                    P1HP = P1HP-TOTDMG
+                    print("Player 2 has " + str(P1HP) + " HP left")
                     P1SPD = P1SPD + P1SPDBON
                     if dmgp2==2:
                         P2ATK==P2ATK-P2ATKBON
@@ -386,38 +441,55 @@ while roundnumber < 10:
                     print("1: Gain +1 perma defence")
                     print("2: Damage boost for one turn-2MP")
                     print("3: Gain advantage-3MP")
-                    print("4: Heal 20% of max health-4MP")
+                    print("4: Heal 20 percent of max health-4MP")
                     print("5: FireBall-5MP")
                     magic_option=int(input("What would you like to do?: "))
                     if P2MP < magic_option:
                         print("you dont have enough Mana")
+                    elif P2MP >= magic_option:
                         if magic_option == 1:
                             P2DEF=P2DEF+1
-
+                            P2MP = P2MP - magic_option
+                            turn = 2
+                            P1SPD = P1SPD + P1SPDBON
+                            P2MP = P2MP + P2MPBON
+                            print("")
+                            print("Player 2 gained " + str(P2MPBON) + " MP back")
+                            if P2MAXMP > P2MP:
+                                P2MP = P2MAXMP
+                            print("Player 2 has " + str(P2MP) + " MP left") 
                         elif magic_option==2:
                             print("Player 2 used Damage boost")
-                            DMGBUFFP2=P1ATKBON
-                            dmgp2=2
-                            turn = 2
+                            DMGBUFFP2=P2ATKBON
+                            dmgp2 = 2
                             P2ATK=DMGBUFFP2 + P2ATK
-                            P1SPD=P1SPD+P1SPDBON
+                            P2MP = P2MP - magic_option
+                            turn = 2
+                            P1SPD = P1SPD + P1SPDBON
+                            P2MP = P2MP + P2MPBON
+                            print("")
+                            print("Player 2 gained " + str(P2MPBON) + " MP back")
+                            if P2MAXMP > P2MP:
+                                P2MP = P2MAXMP
+                            print("Player 2 has " + str(P2MP) + " MP left") 
                         elif magic_option==3:
                             print("this feature is coming soon try again")
                             turn = 1
                         elif magic_option==5:
                             print("Player 2 used fireball")
-                            fireballdmg = random.randint(12,15)
+                            fireballdmg = random.randint(12,18)
                             print("Player 2 did " + str(fireballdmg) + " Damage to Player 1")
                             P1HP=P1HP-fireballdmg
+                            print("Player 1 has " + str(P1HP) + " HP left")
                             P2MP = P2MP - magic_option
                             turn = 2
-                            print("Player 2 has " + str(P2MP) + " MP left")
                             P1SPD = P1SPD + P1SPDBON
                             P2MP = P2MP + P2MPBON
-                            print("Player 2 gained " + str(P2MPBON) + " ") 
+                            print("")
+                            print("Player 2 gained " + str(P2MPBON) + " MP back")
                             if P2MAXMP > P2MP:
                                 P2MP = P2MAXMP
-                            
+                            print("Player 2 has " + str(P2MP) + " MP left") 
                         elif magic_option==4:
                             print("Player 2 used heal")
                             P2HP = P2HP + (P2MAXHP/5)
@@ -425,14 +497,16 @@ while roundnumber < 10:
                             turn = 2
                             P1SPD = P1SPD + P1SPDBON
                             P2MP = P2MP + P2MPBON
-                            if P2MAXMP > P2MP:
+                            if P2MAXMP < P2MP:
                                 P2MP = P2MAXMP
-                            if P2MAXHP > P2HP:
+                            if P2MAXHP < P2HP:
                                 P2HP = P2MAXHP
                         elif magic_option==0:
                             print("")
                         else:
                             print("somthing went wrong please try again")
+                    else:
+                        print("try again")
                 elif option == 3:        
                         print("Are you SURE you want to run away??")
                         print("1: Yes")

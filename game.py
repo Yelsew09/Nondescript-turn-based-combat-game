@@ -1,3 +1,4 @@
+errmsg = "If you are seeing this, something went wrong. Please restart the program."
 import random
 print("Welcome to insert game title here")
 print("")
@@ -68,11 +69,11 @@ while ac == 0:
             cc = 1
         elif player1class == 5:
             player1class = "Sans"
-            P1HP = 33
+            P1HP = 1
             P1MAXHP = P1HP
-            P1ATK = 10
-            P1ATKBON = 2
-            P1DEF = 11
+            P1ATK = 20
+            P1ATKBON = 4
+            P1DEF = 20
             P1MP = 15
             P1MPBON = 3
             P1MAXMP = P1MP
@@ -182,11 +183,11 @@ while ac == 0:
             cc = 1
         elif player2class == 5:
             player2class = "Sans"
-            P2HP = 33
+            P2HP = 1
             P2MAXHP = P2HP
-            P2ATK = 10
-            P2ATKBON = 2
-            P2DEF = 11
+            P2ATK = 20
+            P2ATKBON = 4
+            P2DEF = 20
             P2MP = 15
             P2MPBON = 3
             P2MAXMP = P2MP
@@ -206,17 +207,17 @@ while ac == 0:
             P2SPD = 5
             P2SPDBON = 2
             cc = 1
-        elif player2class ==7:
+        elif player2class == 7:
             player2class = "Barbrian"
-            P2HP= 52
+            P2HP = 52
             P2MAXHP = P2HP
-            P2ATK= 14
-            P2ATKBON= 2
-            P2DEF= 11
-            P2MP= 2
-            P2MPBON= 0
+            P2ATK = 14
+            P2ATKBON = 2
+            P2DEF = 11
+            P2MP = 2
+            P2MPBON = 0
             P2MAXMP = P2MP
-            P2SPD= 4
+            P2SPD = 4
             P2SPDBON = 2
             cc = 1
         else:
@@ -234,3 +235,40 @@ while ac == 0:
     else:
         print("Please try again")
         cc = 0
+ac = 1
+P1DMGBOOST = 0
+while ac == 1:
+    if P1HP <= 0:
+        ac = 0
+        winner = "Player 2"
+    elif P2HP <= 0:
+        ac = 0
+        winner = "Player 1"
+        if P1SPD > P2SPD:
+            print("1: Attack")
+            print("2: Magic")
+            print("3: Run away (fortifit)")
+            option = int(input("What would you like to do (give a number): "))
+            if option == 1:
+                critnumber = random.randint(1,20)
+                if critnumber == 20:
+                    print("Player 1 landed a critical hit, doing " + str((P1ATK+P1DMGBOOST)*2) + " damage to player 2")
+                    P2HP = P2HP - (P1ATK + P1DMGBOOST)*2
+                    print("Player 2 has " + str(P2HP) + "HP left.")
+            elif option == 2:
+                print("I need to import the magic system from Emilio's branch.")
+            elif option == 3:
+                print("1: Yes")
+                print("2: No")
+                yesorno = int(input("Are you sure you want to fortifit the match"))
+        elif P2SPD > P1SPD:
+            print("1: Attack")
+        elif P1SPD == P2SPD:
+            first = random.randint(1,2)
+            if first == 1:
+                P1SPD = P1SPD + 1
+            elif first == 2:
+                P2SPD = P2SPD + 1
+        else:
+            print(errmsg)
+print(winner + " won the game!")

@@ -20,10 +20,12 @@ while allcorrect==1:
         if player1class == 1:
             player1class = "Knight"
             P1HP = 42
+            P1MAXHP = P1HP
             P1ATK = 12
             P1ATKBON = 2
             P1DEF = 14
             P1MP = 4
+            P1MAXMP = P1MP
             P1MPBON = 1
             P1SPD = 3
             P1SPDBON = 2
@@ -31,10 +33,12 @@ while allcorrect==1:
         elif player1class == 2:
             player1class = "Peashooter"
             P1HP = 35
+            P1MAXHP = P1HP
             P1ATK = 10
             P1ATKBON = 1
             P1DEF = 14
             P1MP = 5
+            P1MAXMP = P1MP
             P1MPBON = 1
             P1SPD = 6
             P1SPDBON = 2
@@ -42,10 +46,12 @@ while allcorrect==1:
         elif player1class == 3:
             player1class = "Mage"
             P1HP = 29
+            P1MAXHP = P1HP
             P1ATK = 7
             P1ATKBON = 2
             P1DEF = 10
             P1MP = 20
+            P1MAXMP = P1MP
             P1MPBON = 5
             P1SPD = 2
             P1SPDBON = 2
@@ -53,10 +59,12 @@ while allcorrect==1:
         elif player1class == 4:
             player1class = "Rouge"
             P1HP = 31
+            P1MAXHP = P1HP
             P1ATK = 13
             P1ATKBON = 4
             P1DEF = 14
             P1MP = 6
+            P1MAXMP = P1MP
             P1MPBON = 1
             P1SPD = 7
             P1SPDBON = 3
@@ -64,10 +72,12 @@ while allcorrect==1:
         elif player1class == 5:
             player1class = "Sans"
             P1HP = 33
+            P1MAXHP = P1HP
             P1ATK = 10
             P1ATKBON = 2
             P1DEF = 11
             P1MP = 15
+            P1MAXMP = P1MP
             P1MPBON = 3
             P1SPD = 4
             P1SPDBON = 2
@@ -75,10 +85,12 @@ while allcorrect==1:
         elif player1class == 6:
             player1class = "Bard"
             P1HP = 37
+            P1MAXHP = P1HP
             P1ATK = 7
             P1ATKBON = 1
             P1DEF = 13
             P1MP = 17
+            P1MAXMP = P1MP
             P1MPBON = 4
             P1SPD = 5
             P1SPDBON = 2
@@ -86,10 +98,12 @@ while allcorrect==1:
         elif player1class == 7:
             player1class = "Barbarian"
             P1HP = 52
+            P1MAXHP = P1HP
             P1ATK = 14
             P1ATKBON = 2
             P1DEF = 11
             P1MP = 2
+            P1MAXMP = P1MP
             P1MPBON = .25
             P1SPD = 4
             P1SPDBON = 2
@@ -121,10 +135,12 @@ while allcorrect==1:
         if player2class == 1:
             player2class = "Knight"
             P2HP = 42
+            P2MAXHP = P2HP
             P2ATK = 12
             P2ATKBON = 2 
             P2DEF = 14
             P2MP = 4
+            P2MAXMP = P2MP
             P2MPBON = 1
             P2SPD = 3
             P2SPDBON = 2
@@ -132,10 +148,12 @@ while allcorrect==1:
         elif player2class == 2:
             player2class = "Peashooter"
             P2HP = 35
+            P2MAXHP = P2HP
             P2ATK = 10
             P2ATKBON = 1 
             P2DEF = 14
             P2MP = 5
+            P2MAXMP = P2MP
             P2MPBON = 1
             P2SPD = 6
             P2SPDBON = 2
@@ -143,10 +161,12 @@ while allcorrect==1:
         elif player2class == 3:
             player2class = "Mage"
             P2HP = 29
+            P2MAXHP = P2HP
             P2ATK = 7
             P2ATKBON = 2
             P2DEF = 10
             P2MP = 20
+            P2MAXMP = P2MP
             P2MPBON = 5
             P2SPD = 2
             P2SPDBON = 2
@@ -154,10 +174,12 @@ while allcorrect==1:
         elif player2class == 4:
             player2class = "Rouge"
             P2HP = 31
+            P2MAXHP = P2HP
             P2ATK = 13
             P2ATKBON = 4 
             P2DEF = 14
             P2MP = 6
+            P2MAXMP = P2MP
             P2MPBON = 1
             P2SPD = 7
             P2SPDBON = 3
@@ -165,10 +187,12 @@ while allcorrect==1:
         elif player2class == 5:
             player2class = "Sans"
             P2HP = 33
+            P2MAXHP = P2HP
             P2ATK = 10
             P2ATKBON = 2
             P2DEF = 11
             P2MP = 15
+            P2MAXMP = P2MP
             P2MPBON = 3
             P2SPD = 4
             P2SPDBON = 2
@@ -176,10 +200,12 @@ while allcorrect==1:
         elif player2class == 6:
             player2class = "Bard"
             P2HP = 37
+            P2MAXHP = P2HP
             P2ATK = 7
             P2ATKBON = 1
             P2DEF = 13
             P2MP = 17
+            P2MAXMP = P2MP
             P2MPBON = 4
             P2SPD = 5
             P2SPDBON = 2
@@ -187,10 +213,12 @@ while allcorrect==1:
         elif player2class ==7:
             player2class = "Barbrian"
             P2HP= 52
+            P2MAXHP = P2HP
             P2ATK= 14
             P2ATKBON= 2
             P2DEF= 11
             P2MP= 2
+            P2MAXMP = P2MP
             P2MPBON= 0
             P2SPD= 4
             P2SPDBON = 2
@@ -354,34 +382,57 @@ while roundnumber < 10:
                     roundnumber=roundnumber+1
                 elif option == 2:
                     print("Please do one of the following")
-                    print("1: Damage boost for one turn-2MP")
-                    print("2: Gain advantage-3MP")
-                    print("3: FireBall-5MP")
+                    print("0: Cancel")
+                    print("1: Gain +1 perma defence")
+                    print("2: Damage boost for one turn-2MP")
+                    print("3: Gain advantage-3MP")
                     print("4: Heal 20% of max health-4MP")
-                    print("5: Cancel")
+                    print("5: FireBall-5MP")
                     magic_option=int(input("What would you like to do?: "))
-                    if magic_option==1:
-                        print("Player 2 used Damage boost")
-                        DMGBUFFP2=P1ATKBON
-                        dmgp2=2
-                        turn = 2
-                        P2ATK=DMGBUFFP2 + P2ATK
-                        P1SPD=P1SPD+P1SPDBON
-                    elif magic_option==2:
-                        print("this feature is coming soon try again")
-                        turn = 1
-                    elif magic_option==3:
-                        print("fireball")
-                        turn = 2
-                        P2SPD = P2SPD + P2SPDBON
-                    elif magic_option==4:
-                        print("heal")
-                        turn = 2
-                        P1SPD = P1SPD + P1SPDBON
-                    elif magic_option==5:
-                        print("")
-                    else:
-                        print("somthing went wrong please try again")
+                    if P2MP < magic_option:
+                        print("you dont have enough Mana")
+                        if magic_option == 1:
+                            P2DEF=P2DEF+1
+
+                        elif magic_option==2:
+                            print("Player 2 used Damage boost")
+                            DMGBUFFP2=P1ATKBON
+                            dmgp2=2
+                            turn = 2
+                            P2ATK=DMGBUFFP2 + P2ATK
+                            P1SPD=P1SPD+P1SPDBON
+                        elif magic_option==3:
+                            print("this feature is coming soon try again")
+                            turn = 1
+                        elif magic_option==5:
+                            print("Player 2 used fireball")
+                            fireballdmg = random.randint(12,15)
+                            print("Player 2 did " + str(fireballdmg) + " Damage to Player 1")
+                            P1HP=P1HP-fireballdmg
+                            P2MP = P2MP - magic_option
+                            turn = 2
+                            print("Player 2 has " + str(P2MP) + " MP left")
+                            P1SPD = P1SPD + P1SPDBON
+                            P2MP = P2MP + P2MPBON
+                            print("Player 2 gained " + str(P2MPBON) + " ") 
+                            if P2MAXMP > P2MP:
+                                P2MP = P2MAXMP
+                            
+                        elif magic_option==4:
+                            print("Player 2 used heal")
+                            P2HP = P2HP + (P2MAXHP/5)
+                            P2MP = P2MP - magic_option
+                            turn = 2
+                            P1SPD = P1SPD + P1SPDBON
+                            P2MP = P2MP + P2MPBON
+                            if P2MAXMP > P2MP:
+                                P2MP = P2MAXMP
+                            if P2MAXHP > P2HP:
+                                P2HP = P2MAXHP
+                        elif magic_option==0:
+                            print("")
+                        else:
+                            print("somthing went wrong please try again")
                 elif option == 3:        
                         print("Are you SURE you want to run away??")
                         print("1: Yes")

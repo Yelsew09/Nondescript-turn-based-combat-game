@@ -245,22 +245,33 @@ while ac == 1:
         ac = 0
         winner = "Player 1"
         if P1SPD > P2SPD:
-            print("1: Attack")
-            print("2: Magic")
-            print("3: Run away (fortifit)")
-            option = int(input("What would you like to do (give a number): "))
-            if option == 1:
-                critnumber = random.randint(1,20)
-                if critnumber == 20:
-                    print("Player 1 landed a critical hit, doing " + str((P1ATK+P1DMGBOOST)*2) + " damage to player 2")
-                    P2HP = P2HP - (P1ATK + P1DMGBOOST)*2
-                    print("Player 2 has " + str(P2HP) + "HP left.")
-            elif option == 2:
-                print("I need to import the magic system from Emilio's branch.")
-            elif option == 3:
-                print("1: Yes")
-                print("2: No")
-                yesorno = int(input("Are you sure you want to fortifit the match"))
+            while cc = 0:
+                print("1: Attack")
+                print("2: Magic")
+                print("3: Run away (fortifit)")
+                option = int(input("What would you like to do (give a number): "))
+                if option == 1:
+                    if advantage == 1:
+                        critnumber1 = random.randint(1,20)
+                        critnumber2 = random.randint(1,20)
+                    if critnumber == 20:
+                        print("Player 1 landed a critical hit, doing " + str((P1ATK+P1DMGBOOST)*2) + " damage to player 2")
+                        P2HP = P2HP - (P1ATK + P1DMGBOOST)*2
+                        print("Player 2 has " + str(P2HP) + "HP left.")
+                        cc = 1
+                    elif critnumber + P1ATKBON > P2DEF:
+                        print("Player 1 rolled a " + str(critnumber) + ", landing a hit and doing" + str(P1ATK+P1DMGBOOST) + " damage to player 2.")
+                        P2HP = P2HP - (P1ATK + P1DMGBOOST)
+                        print("Player 2 has " + str(P2HP) + "HP left.")
+                        cc = 1
+                    elif critnumber + P1ATKBON < P2DEF:
+                        print("Player 2 missed thier attack")
+                elif option == 2:
+                    print("I need to import the magic system from Emilio's branch.")
+                elif option == 3:
+                    print("1: Yes")
+                    print("2: No")
+                    yesorno = int(input("Are you sure you want to fortifit the match"))
         elif P2SPD > P1SPD:
             print("1: Attack")
         elif P1SPD == P2SPD:

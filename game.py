@@ -282,7 +282,7 @@ print("Player 1 Speed ",P1SPD)
 s()
 print("Player 2 Speed ",P2SPD )
 s()
-while roundnumber < 10:
+while roundnumber < 100:
     turn=1
     print("Round " + str(roundnumber) + " ")
     s()
@@ -616,8 +616,13 @@ while roundnumber < 10:
                             turn = 2
                             P1SPD = P1SPD + P1SPDBON
                             P2MP = P2MP + P2MPBON
+                            print("")
+                            print("Player 2 gained " + str(P2MPBON) + " MP back")
+                            s()
                             if P2MAXMP < P2MP:
                                 P2MP = P2MAXMP
+                            print("Player 2 has " + str(P2MP) + " MP left") 
+                            s()
                             if P2MAXHP < P2HP:
                                 P2HP = P2MAXHP
                         elif magic_option==0:

@@ -236,6 +236,7 @@ while ac == 0:
         print("Please try again")
         cc = 0
 ac = 1
+advantage = 0
 P1DMGBOOST = 0
 while ac == 1:
     if P1HP <= 0:
@@ -254,6 +255,23 @@ while ac == 1:
                     if advantage == 1:
                         critnumber1 = random.randint(1,20)
                         critnumber2 = random.randint(1,20)
+                        if critnumber1 > critnumber2:
+                            critnumber = critnumber1
+                        elif critnumber2 > critnumber1:
+                            critnumber = critnumber2
+                        else:
+                            critnumber = critnumber1
+                    elif advantage == 2:
+                        critnumber1 = random.randint(1,20)
+                        critnumber2 = random.randint(1,20)
+                        if critnumber1 > critnumber2:
+                            critnumber = critnumber2
+                        elif critnumber2 > critnumber1:
+                            critnumber = critnumber1
+                        else:
+                            critnumber = critnumber2
+                    else:
+                        critnumber = random.randint(1,20)
                     if critnumber == 20:
                         print("Player 1 landed a critical hit, doing " + str((P1ATK+P1DMGBOOST)*2) + " damage to player 2")
                         P2HP = P2HP - (P1ATK + P1DMGBOOST)*2
@@ -266,12 +284,21 @@ while ac == 1:
                         cc = 1
                     elif critnumber + P1ATKBON < P2DEF:
                         print("Player 2 missed thier attack")
+                        cc = 1
                 elif option == 2:
                     print("I need to import the magic system from Emilio's branch.")
                 elif option == 3:
                     print("1: Yes")
                     print("2: No")
                     yesorno = int(input("Are you sure you want to fortifit the match"))
+                if advantageturn == 2:
+                    advantageturn == advantageturn - 1
+                elif advantageturn == 1:
+                    advantage = 0
+                    advantageturn = 0
+                else:
+                    advantageturn = 0
+                
         elif P2SPD > P1SPD:
             print("1: Attack")
         elif P1SPD == P2SPD:

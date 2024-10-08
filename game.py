@@ -279,11 +279,12 @@ while roundnumber < 10:
                 if option == 1 and critnumber==20:
                     print("")
                     print("Player 1 used Attack")
+                    print("Player 1 Rolled a ",critnumber)
                     print("Its a Criticle hit!!!")
                     TOTDMG = (critnumber+(P1ATK*2))-P2DEF
                     if TOTDMG < 0:
                         TOTDMG = 0
-                    print("Player 1 did " + str(TOTDMG) + "Damage to Player 2")
+                    print("Player 1 did " + str(TOTDMG) + " Damage to Player 2")
                     P2HP = P2HP-TOTDMG
                     print("player 2 has " + str(P2HP) + " HP Left")
                     P2SPD = P2SPD + P2SPDBON
@@ -295,10 +296,11 @@ while roundnumber < 10:
                     roundnumber=roundnumber + 1
                 elif option == 1 and not critnumber==20:
                     print("Player 1 used Attack")
+                    print("Player 1 Rolled a ",critnumber)
                     TOTDMG = (critnumber+(P1ATK))-P2DEF
                     if TOTDMG < 0:
                         TOTDMG = 0
-                    print("Player 1 did " + str(TOTDMG) + "Damage to Player 2")
+                    print("Player 1 did " + str(TOTDMG) + " Damage to Player 2")
                     P2HP = P2HP-TOTDMG
                     print("Player 2 has " + str(P2HP) + " HP left")
                     P2SPD = P2SPD + P2SPDBON
@@ -407,11 +409,12 @@ while roundnumber < 10:
                 if option == 1 and critnumber==20:
                     print("")
                     print("Player 2 used Attack")
+                    print("Player 2 Rolled a ",critnumber)
                     print("Its a Criticle hit!!!")
                     TOTDMG= (critnumber+(P2ATK*2))-P1DEF
                     if TOTDMG < 0:
                         TOTDMG=0
-                    print("Player 2 did " + str(TOTDMG) + "Damage to Player 1")
+                    print("Player 2 did " + str(TOTDMG) + " Damage to Player 1")
                     P1HP = P1HP-TOTDMG
                     print("player 2 has " + str(P1HP) + " HP Left")
                     P1SPD = P1SPD + P1SPDBON
@@ -423,10 +426,11 @@ while roundnumber < 10:
                     roundnumber=roundnumber+1
                 elif option == 1 and not critnumber==20:
                     print("Player 2 used Attack")
+                    print("Player 2 Rolled a ", critnumber)
                     TOTDMG= (critnumber+P2ATK)-P2DEF
                     if TOTDMG < 0:
                         TOTDMG=0
-                    print("Player 2 did " + str(TOTDMG) + "Damage to Player 1")
+                    print("Player 2 did " + str(TOTDMG) + " Damage to Player 1")
                     P1HP = P1HP-TOTDMG
                     print("Player 2 has " + str(P1HP) + " HP left")
                     P1SPD = P1SPD + P1SPDBON

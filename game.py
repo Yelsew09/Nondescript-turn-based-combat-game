@@ -392,6 +392,9 @@ while roundnumber < 100:
                     print("Player 2 has " + str(P2HP) + " HP left")
                     s()
                     P2SPD = P2SPD + P2SPDBON
+                    if rolladp1==2:
+                        rolladp1=1
+                        rollp1=1
                     if dmgp1==2:
                         P1ATK==P1ATK-P1ATKBON
                     turn=2
@@ -404,7 +407,7 @@ while roundnumber < 100:
                         P1MP = P1MAXMP
                     print("Player 1 has " + str(P1MP) + " MP left") 
                     s()
-                elif option == 1 and critnumber==1:
+                elif option == 1 and critnumber == 1:
                     print("Player 1 used Attack")
                     s()
                     print("Player 1 Rolled a 1")
@@ -435,7 +438,7 @@ while roundnumber < 100:
                     s()
                     print("1: Gain +1 DEF")
                     s()
-                    print("2: Damage boost for one turn-2MP")
+                    print("2: Damage boost for every MP you have-2MP")
                     s()
                     print("3: Better Roll Next Turn-3MP")
                     s()
@@ -463,12 +466,15 @@ while roundnumber < 100:
                             print("Player 1 has " + str(P1MP) + " MP left")
                             s()
                         elif magic_option==2:
+                            if dmgp1 == 2:
+                                print("sorry you already have Damage buff")
                             print("Player 1 used Damage boost")
                             s()
-                            DMGBUFFP1=P1ATKBON
+                            P1MP = P1MP - magic_option
+                            DMGBUFFP1=P1ATKBON+P1MP
+                            P1MP=0
                             dmgp1 = 2
                             P1ATK=DMGBUFFP1 + P1ATK
-                            P1MP = P1MP - magic_option
                             turn = 2
                             P2SPD = P2SPD + P2SPDBON
                             P1MP = P1MP + P1MPBON
@@ -480,9 +486,21 @@ while roundnumber < 100:
                             print("Player 1 has " + str(P1MP) + " MP left")
                             s()
                         elif magic_option==3:
-                            print("this feature is coming soon try again")
+                            print("Player 1 used Advantage")
+                            rolladp1=2
+                            rollp1=10
+                            P1MP = P1MP - magic_option
+                            turn = 2
+                            P2SPD = P2SPD + P2SPDBON
+                            P1MP = P1MP + P1MPBON
+                            print("")
+                            print("Player 1 gained " + str(P1MPBON) + " MP back")
                             s()
-                            turn = 1
+                            if P1MAXMP < P1MP:
+                                P1MP = P1MAXMP
+                            print("Player 1 has " + str(P1MP) + " MP left")
+                            s()
+                            turn = 2
                         elif magic_option==5:
                             print("Player 1 used fireball")
                             s()
@@ -584,6 +602,9 @@ while roundnumber < 100:
                     print("player 1 has " + str(P1HP) + " HP Left")
                     s()
                     P1SPD = P1SPD + P1SPDBON
+                    if rolladp2==2:
+                        rolladp2=1
+                        rollp2=1
                     if dmgp2==2:
                         P2ATK==P2ATK-P2ATKBON
                         dmgp2=1
@@ -611,6 +632,9 @@ while roundnumber < 100:
                     print("Player 1 has " + str(P1HP) + " HP left")
                     s()
                     P1SPD = P1SPD + P1SPDBON
+                    if rolladp2==2:
+                        rolladp2=1
+                        rollp2=1
                     if dmgp2==2:
                         P2ATK==P2ATK-P2ATKBON
                     turn=2
@@ -699,9 +723,21 @@ while roundnumber < 100:
                             print("Player 2 has " + str(P2MP) + " MP left") 
                             s()
                         elif magic_option==3:
-                            print("this feature is coming soon try again")
+                            print("Player 2 used Advantage")
+                            rolladp2=2
+                            rollp2=10
+                            P2MP = P2MP - magic_option
+                            turn = 2
+                            P1SPD = P1SPD + P1SPDBON
+                            P2MP = P2MP + P2MPBON
+                            print("")
+                            print("Player 2 gained " + str(P2MPBON) + " MP back")
                             s()
-                            turn = 1
+                            if P2MAXMP < P2MP:
+                                P2MP = P2MAXMP
+                            print("Player 2 has " + str(P2MP) + " MP left")
+                            s()
+                            turn = 2
                         elif magic_option==5:
                             print("Player 2 used fireball")
                             s()

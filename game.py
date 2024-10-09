@@ -250,6 +250,7 @@ while ac == 1:
     elif P2HP <= 0:
         ac = 0
         winner = "Player 1"
+    else:
         if P1SPD > P2SPD:
             while cc == 0:
                 print("1: Attack")

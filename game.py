@@ -284,7 +284,7 @@ while ac == 1:
                         print("Player 2 has " + str(P2HP) + "HP left.")
                         cc = 1
                     elif critnumber + P1ATKBON > P2DEF:
-                        print("Player 1 rolled a " + str(critnumber) + ", landing a hit and doing" + str(P1ATK+P1DMGBOOST) + " damage to player 2.")
+                        print("Player 1 rolled a " + str(critnumber) + ", landing a hit and doing " + str(P1ATK+P1DMGBOOST) + " damage to player 2.")
                         P2HP = P2HP - (P1ATK + P1DMGBOOST)
                         print("Player 2 has " + str(P2HP) + "HP left.")
                         cc = 1
@@ -318,7 +318,7 @@ while ac == 1:
             while cc == 0:
                 print("1: Attack")
                 print("2: Magic")
-                print("3: Run away (forfeit")
+                print("3: Run away (forfeit)")
                 option = int(input("What would you like to do (give a number): "))
                 if option == 1:
                     if P2AD == 1:
@@ -382,7 +382,7 @@ while ac == 1:
             while cc == 0:
                 print("1: Attack")
                 print("2: Magic")
-                print("3: Run away (forfeit")
+                print("3: Run away (forfeit)")
                 option = int(input("What would you like to do (give a number): "))
                 if option == 1:
                     if P2AD == 1:

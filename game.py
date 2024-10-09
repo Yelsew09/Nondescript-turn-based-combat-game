@@ -338,6 +338,14 @@ while roundnumber < 100:
                     turn=2
                     P2SPD = P2SPD + P2SPDBON
                     roundnumber=roundnumber + 1
+                    P1MP = P1MP + P1MPBON
+                    print("")
+                    print("Player 1 gained " + str(P1MPBON) + " MP back")
+                    s()
+                    if P1MAXMP < P1MP:
+                        P1MP = P1MAXMP
+                    print("Player 1 has " + str(P1MP) + " MP left") 
+                    s()
                 elif option == 1 and not critnumber==20:
                     print("Player 1 used Attack")
                     s()
@@ -357,6 +365,14 @@ while roundnumber < 100:
                     turn=2
                     P2SPD=P2SPD+P2SPDBON
                     roundnumber=roundnumber+1
+                    P1MP = P1MP + P1MPBON
+                    print("")
+                    print("Player 1 gained " + str(P1MPBON) + " MP back")
+                    s()
+                    if P1MAXMP < P1MP:
+                        P1MP = P1MAXMP
+                    print("Player 1 has " + str(P1MP) + " MP left") 
+                    s()
                 elif option == 2:
                     print("Please do one of the following")
                     s()
@@ -514,6 +530,14 @@ while roundnumber < 100:
                     turn=2
                     P1SPD = P1SPD + P1SPDBON
                     roundnumber=roundnumber+1
+                    P2MP = P2MP + P2MPBON
+                    print("")
+                    print("Player 2 gained " + str(P2MPBON) + " MP back")
+                    s()
+                    if P2MAXMP < P2MP:
+                        P2MP = P2MAXMP
+                    print("Player 2 has " + str(P2MP) + " MP left") 
+                    s()
                 elif option == 1 and not critnumber==20:
                     print("Player 2 used Attack")
                     s()
@@ -533,6 +557,14 @@ while roundnumber < 100:
                     turn=2
                     P1SPD=P1SPD+P1SPDBON
                     roundnumber=roundnumber+1
+                    P2MP = P2MP + P2MPBON
+                    print("")
+                    print("Player 2 gained " + str(P2MPBON) + " MP back")
+                    s()
+                    if P2MAXMP < P2MP:
+                        P2MP = P2MAXMP
+                    print("Player 2 has " + str(P2MP) + " MP left") 
+                    s()
                 elif option == 2:
                     print("Please do one of the following")
                     s()

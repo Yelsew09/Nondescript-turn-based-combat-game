@@ -1,7 +1,7 @@
 import random
 import time
 def s():
-    time.sleep(.1)
+    time.sleep(.2)
 print("Welcome to insert game title here")
 s()
 print("")
@@ -35,7 +35,7 @@ while allcorrect==1:
             P1HP = 42
             P1MAXHP = P1HP
             P1ATK = 12
-            P1ATKBON = 2
+            P1ATKBON = P1ATK + 2
             P1DEF = 14
             P1MP = 4
             P1MAXMP = P1MP
@@ -48,7 +48,7 @@ while allcorrect==1:
             P1HP = 35
             P1MAXHP = P1HP
             P1ATK = 10
-            P1ATKBON = 1
+            P1ATKBON = P1ATK + 2
             P1DEF = 14
             P1MP = 5
             P1MAXMP = P1MP
@@ -61,7 +61,7 @@ while allcorrect==1:
             P1HP = 29
             P1MAXHP = P1HP
             P1ATK = 7
-            P1ATKBON = 2
+            P1ATKBON = P1ATK + 2
             P1DEF = 10
             P1MP = 20
             P1MAXMP = P1MP
@@ -74,7 +74,7 @@ while allcorrect==1:
             P1HP = 31
             P1MAXHP = P1HP
             P1ATK = 13
-            P1ATKBON = 4
+            P1ATKBON = P1ATK + 2
             P1DEF = 14
             P1MP = 6
             P1MAXMP = P1MP
@@ -87,7 +87,7 @@ while allcorrect==1:
             P1HP = 1
             P1MAXHP = P1HP
             P1ATK = 20
-            P1ATKBON = 4
+            P1ATKBON = P1ATK + 2
             P1DEF = 20
             P1MP = 15
             P1MAXMP = P1MP
@@ -100,7 +100,7 @@ while allcorrect==1:
             P1HP = 37
             P1MAXHP = P1HP
             P1ATK = 7
-            P1ATKBON = 1
+            P1ATKBON = P1ATK + 2
             P1DEF = 13
             P1MP = 17
             P1MAXMP = P1MP
@@ -113,13 +113,26 @@ while allcorrect==1:
             P1HP = 52
             P1MAXHP = P1HP
             P1ATK = 14
-            P1ATKBON = 2
+            P1ATKBON = P1ATK + 2
             P1DEF = 11
             P1MP = 2
             P1MAXMP = P1MP
             P1MPBON = .25
             P1SPD = 4
             P1SPDBON = 2
+            cc=2
+        elif player1class ==3145178740:
+            player1class = "Sigma"
+            P1HP= 100000
+            P1MAXHP = P1HP
+            P1ATK= 1
+            P1ATKBON = 1000000
+            P1DEF= 10
+            P1MP= 2
+            P1MAXMP = P1MP
+            P1MPBON= 1
+            P1SPD= 1
+            P1SPDBON = 1
             cc=2
         else:
             print("Please give a valid number.")
@@ -158,7 +171,7 @@ while allcorrect==1:
             P2HP = 42
             P2MAXHP = P2HP
             P2ATK = 12
-            P2ATKBON = 2 
+            P2ATKBON = P2ATK + 2
             P2DEF = 14
             P2MP = 4
             P2MAXMP = P2MP
@@ -171,7 +184,7 @@ while allcorrect==1:
             P2HP = 35
             P2MAXHP = P2HP
             P2ATK = 10
-            P2ATKBON = 1 
+            P2ATKBON = P2ATK + 2
             P2DEF = 14
             P2MP = 5
             P2MAXMP = P2MP
@@ -184,7 +197,7 @@ while allcorrect==1:
             P2HP = 29
             P2MAXHP = P2HP
             P2ATK = 7
-            P2ATKBON = 2
+            P2ATKBON = P2ATK + 2
             P2DEF = 10
             P2MP = 20
             P2MAXMP = P2MP
@@ -197,7 +210,7 @@ while allcorrect==1:
             P2HP = 31
             P2MAXHP = P2HP
             P2ATK = 13
-            P2ATKBON = 4 
+            P2ATKBON = P2ATK + 2
             P2DEF = 14
             P2MP = 6
             P2MAXMP = P2MP
@@ -210,7 +223,7 @@ while allcorrect==1:
             P2HP = 1
             P2MAXHP = P2HP
             P2ATK = 20
-            P2ATKBON = 4
+            P2ATKBON = P2ATK + 2
             P2DEF = 20
             P2MP = 15
             P2MAXMP = P2MP
@@ -223,7 +236,7 @@ while allcorrect==1:
             P2HP = 37
             P2MAXHP = P2HP
             P2ATK = 7
-            P2ATKBON = 1
+            P2ATKBON = P2ATK + 2
             P2DEF = 13
             P2MP = 17
             P2MAXMP = P2MP
@@ -236,13 +249,26 @@ while allcorrect==1:
             P2HP= 52
             P2MAXHP = P2HP
             P2ATK= 14
-            P2ATKBON= 2
+            P2ATKBON = P2ATK + 2
             P2DEF= 11
             P2MP= 2
             P2MAXMP = P2MP
             P2MPBON= 0
             P2SPD= 4
             P2SPDBON = 2
+            cc=2
+        elif player2class ==3145178740:
+            player2class = "Sigma"
+            P2HP= 100000
+            P2MAXHP = P2HP
+            P2ATK= 1
+            P2ATKBON= 1000000
+            P2DEF= 10
+            P2MP= 2
+            P2MAXMP = P2MP
+            P2MPBON= 1
+            P2SPD= 1
+            P2SPDBON = 1
             cc=2
         else:
             print("Please give a valid number.")
@@ -272,6 +298,10 @@ DMGBUFFP1=0
 DMGBUFFP2=0
 dmgp1=1
 dmgp2=1
+rollp1=1
+rollp2=1
+rolladp1=1
+rolladp2=2
 print("Player 1 HP ",P1HP)
 s()
 print("Player 2 HP ",P2HP)
@@ -314,7 +344,7 @@ while roundnumber < 100:
             while turn == 1:
                 option=int(input("what would player 1 like to do?: "))
                 s()
-                critnumber=random.randint(1,20)
+                critnumber=random.randint(rollp1,20)
                 if option == 1 and critnumber==20:
                     print("")
                     print("Player 1 used Attack")
@@ -332,11 +362,13 @@ while roundnumber < 100:
                     print("player 2 has " + str(P2HP) + " HP Left")
                     s()
                     P2SPD = P2SPD + P2SPDBON
+                    if rolladp1==2:
+                        rolladp1=1
+                        rollp1=1
                     if dmgp1==2:
                         P1ATK==P1ATK-P1ATKBON
                         dmgp1=1
                     turn=2
-                    P2SPD = P2SPD + P2SPDBON
                     roundnumber=roundnumber + 1
                     P1MP = P1MP + P1MPBON
                     print("")
@@ -363,11 +395,34 @@ while roundnumber < 100:
                     if dmgp1==2:
                         P1ATK==P1ATK-P1ATKBON
                     turn=2
-                    P2SPD=P2SPD+P2SPDBON
                     roundnumber=roundnumber+1
                     P1MP = P1MP + P1MPBON
                     print("")
                     print("Player 1 gained " + str(P1MPBON) + " MP back")
+                    s()
+                    if P1MAXMP < P1MP:
+                        P1MP = P1MAXMP
+                    print("Player 1 has " + str(P1MP) + " MP left") 
+                    s()
+                elif option == 1 and critnumber==1:
+                    print("Player 1 used Attack")
+                    s()
+                    print("Player 1 Rolled a 1")
+                    s()
+                    print("Player 1 missed")
+                    s()
+                    print("Player 1 did 0 Damage to Player 2")
+                    s()
+                    print("Player 2 has " + str(P2HP) + " HP left")
+                    s()
+                    P2SPD = P2SPD + P2SPDBON
+                    if dmgp1==2:
+                        P1ATK==P1ATK-P1ATKBON
+                    turn=2
+                    roundnumber=roundnumber+1
+                    P1MP = P1MP + P1MPBON
+                    print("")
+                    print("Player 1 gained "+ str(P1MPBON) + " MP back")
                     s()
                     if P1MAXMP < P1MP:
                         P1MP = P1MAXMP
@@ -378,11 +433,11 @@ while roundnumber < 100:
                     s()
                     print("0: Cancel")
                     s()
-                    print("1: Gain +1 perma defence")
+                    print("1: Gain +1 DEF")
                     s()
                     print("2: Damage boost for one turn-2MP")
                     s()
-                    print("3: Gain advantage-3MP")
+                    print("3: Better Roll Next Turn-3MP")
                     s()
                     print("4: Heal 20 percent of max health-4MP")
                     s()
@@ -482,7 +537,12 @@ while roundnumber < 100:
                             s()
                             print("Player 2 wins")
                             s()
-                            break
+                            crash=1
+                            while crash==1:
+                                escape=input(": ")
+                                if escape=="DEVUNLOCK":
+                                    crash=2
+                                    print("unlocked")
                         elif yesorno==2:
                             print("")
                         else:
@@ -506,7 +566,7 @@ while roundnumber < 100:
             while turn == 1:
                 option=int(input("what would player 2 like to do?: "))
                 s()
-                critnumber=random.randint(1,20)
+                critnumber=random.randint(rollp2,20)
                 if option == 1 and critnumber==20:
                     print("")
                     print("Player 2 used Attack")
@@ -521,14 +581,13 @@ while roundnumber < 100:
                     print("Player 2 did " + str(TOTDMG) + " Damage to Player 1")
                     s()
                     P1HP = P1HP-TOTDMG
-                    print("player 2 has " + str(P1HP) + " HP Left")
+                    print("player 1 has " + str(P1HP) + " HP Left")
                     s()
                     P1SPD = P1SPD + P1SPDBON
                     if dmgp2==2:
                         P2ATK==P2ATK-P2ATKBON
                         dmgp2=1
                     turn=2
-                    P1SPD = P1SPD + P1SPDBON
                     roundnumber=roundnumber+1
                     P2MP = P2MP + P2MPBON
                     print("")
@@ -549,17 +608,40 @@ while roundnumber < 100:
                     print("Player 2 did " + str(TOTDMG) + " Damage to Player 1")
                     s()
                     P1HP = P1HP-TOTDMG
-                    print("Player 2 has " + str(P1HP) + " HP left")
+                    print("Player 1 has " + str(P1HP) + " HP left")
                     s()
                     P1SPD = P1SPD + P1SPDBON
                     if dmgp2==2:
                         P2ATK==P2ATK-P2ATKBON
                     turn=2
-                    P1SPD=P1SPD+P1SPDBON
                     roundnumber=roundnumber+1
                     P2MP = P2MP + P2MPBON
                     print("")
                     print("Player 2 gained " + str(P2MPBON) + " MP back")
+                    s()
+                    if P2MAXMP < P2MP:
+                        P2MP = P2MAXMP
+                    print("Player 2 has " + str(P2MP) + " MP left") 
+                    s()
+                elif option == 1 and critnumber==1:
+                    print("Player 2 used Attack")
+                    s()
+                    print("Player 2 Rolled a 1")
+                    s()
+                    print("Player 2 missed")
+                    s()
+                    print("Player 2 did 0 Damage to Player 1")
+                    s()
+                    print("Player 1 has " + str(P1HP) + " HP left")
+                    s()
+                    P1SPD = P1SPD + P1SPDBON
+                    if dmgp2==2:
+                        P2ATK==P2ATK-P2ATKBON
+                    turn=2
+                    roundnumber=roundnumber+1
+                    P2MP = P2MP + P2MPBON
+                    print("")
+                    print("Player 2 gained "+ str(P2MPBON) + " MP back")
                     s()
                     if P2MAXMP < P2MP:
                         P2MP = P2MAXMP
@@ -574,7 +656,7 @@ while roundnumber < 100:
                     s()
                     print("2: Damage boost for one turn-2MP")
                     s()
-                    print("3: Gain advantage-3MP")
+                    print("3: Better roll next turn-3MP")
                     s()
                     print("4: Heal 20 percent of max health-4MP")
                     s()
@@ -678,7 +760,12 @@ while roundnumber < 100:
                             print("you forfiet the game and run away")
                             s()
                             print("Player 1 wins")
-                            break
+                            crash=1
+                            while crash==1:
+                                escape=input(": ")
+                                if escape=="DEVUNLOCK":
+                                    crash=2
+                                    print("unlocked")
                         elif yesorno==2:
                             print("")
                         else:
@@ -700,4 +787,4 @@ while roundnumber < 100:
     print("Player 1 HP left ",P1HP)
     s()
     print("Player 2 HP left ",P2HP)
-print(winner," wins")
+print("winner winner chicken dinner")

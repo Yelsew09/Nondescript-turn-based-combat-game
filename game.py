@@ -246,7 +246,7 @@ while ac == 1:
         ac = 0
         winner = "Player 1"
         if P1SPD > P2SPD:
-            while cc = 0:
+            while cc == 0:
                 print("1: Attack")
                 print("2: Magic")
                 print("3: Run away (fortifit)")

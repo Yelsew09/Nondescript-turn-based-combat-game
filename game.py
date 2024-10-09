@@ -9,6 +9,7 @@ print("3: Mage")
 print("4: Rouge")
 print("5: Sans")
 print("6: Bard")
+print("7: Barbarian")
 #Player 1 selects a class
 cc = 0
 ac = 0

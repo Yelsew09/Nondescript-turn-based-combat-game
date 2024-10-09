@@ -236,8 +236,12 @@ while ac == 0:
         print("Please try again")
         cc = 0
 ac = 1
-advantage = 0
+P1AD = 0
+P2AD = 0
+P1ADTR = 0
+P2ADTR = 0
 P1DMGBOOST = 0
+P2DMGBOOST = 0
 while ac == 1:
     if P1HP <= 0:
         ac = 0
@@ -249,10 +253,10 @@ while ac == 1:
             while cc == 0:
                 print("1: Attack")
                 print("2: Magic")
-                print("3: Run away (fortifit)")
+                print("3: Run away (forfeit)")
                 option = int(input("What would you like to do (give a number): "))
                 if option == 1:
-                    if advantage == 1:
+                    if P1AD == 1:
                         critnumber1 = random.randint(1,20)
                         critnumber2 = random.randint(1,20)
                         if critnumber1 > critnumber2:
@@ -261,7 +265,7 @@ while ac == 1:
                             critnumber = critnumber2
                         else:
                             critnumber = critnumber1
-                    elif advantage == 2:
+                    elif P1AD == 2:
                         critnumber1 = random.randint(1,20)
                         critnumber2 = random.randint(1,20)
                         if critnumber1 > critnumber2:
@@ -285,20 +289,81 @@ while ac == 1:
                     elif critnumber + P1ATKBON < P2DEF:
                         print("Player 2 missed thier attack")
                         cc = 1
+                    P1DMGBOOST = 0
                 elif option == 2:
                     print("I need to import the magic system from Emilio's branch.")
                 elif option == 3:
                     print("1: Yes")
                     print("2: No")
-                    yesorno = int(input("Are you sure you want to fortifit the match"))
-                if advantageturn == 2:
-                    advantageturn == advantageturn - 1
-                elif advantageturn == 1:
-                    advantage = 0
-                    advantageturn = 0
+                    yesorno = int(input("Are you sure you want to forfeit the match"))
+                    if yesorno == 1:
+                        break
+                    else:
+                        print("You do not run away")
                 else:
-                    advantageturn = 0
-                
+                    print("Please provide a valid number.")
+                if P1ADTR == 2:
+                    P1ADTR == P1ADTR - 1
+                elif P1ADTR == 1:
+                    P1AD = 0
+                    P1ADTR = 0
+                else:
+                    P1ADTR = 0
+            P1MP = P1MP + P1MPBON
+            if P1MP > P1MAXMP:
+                P1MP = P1MAXMP
+            cc = 0
+            while cc == 0:
+                print("1: Attack")
+                print("2: Magic")
+                print("3: Run away (forfeit")
+                option = int(input("What would you like to do (give a number): "))
+                if option == 1:
+                    if P2AD == 1:
+                        critnumber1 = random.randint(1,20)
+                        critnumber2 = random.randint(1,20)
+                        if critnumber1 > critnumber2:
+                            critnumber = critnumber1
+                        elif critnumber2 > critnumber1:
+                            critnumber = critnumber2
+                        else:
+                            critnumber = critnumber1
+                    elif P2AD == 2:
+                        critnumber1 = random.randint(1,20)
+                        critnumber2 = random.randint(1,20)
+                        if critnumber1 > critnumber2:
+                            critnumber = critnumber2
+                        elif critnumber2 > critnumber1:
+                            critnumber = critnumber1
+                        else:
+                            critnumber = critnumber2
+                    else:
+                        critnumber = random.randint(1,20)
+                    if critnumber == 20:
+                        print("Player 2 landed a critical hit, doing " + str((P2ATK+P2DMGBOOST)*2) + " damage to player 1")
+                        P1HP = P1HP - (P2ATK+P2DMGBOOST)*2
+                        print("Player 1 has " + str(P1HP) + "HP left")
+                        cc = 1
+                    elif critnumber + P2ATKBON > P1DEF:
+                        print("Player 2 did " + str(P2ATK + P2DMGBOOST))
+                        P1HP = P1HP - (P2ATK+P2DMGBOOST)
+                        print("Player 1 has " + str(P1HP) + "HP left")
+                        cc = 1
+                    elif critnumber + P2ATKBON < P1DEF:
+                        print("Player 2 missed their attack")
+                        cc = 1
+                    else:
+                        print(errmsg)
+                elif option == 2:
+                    print("I need to import the magic system from Emilio's branch")
+                elif option == 3:
+                    print("1: Yes")
+                    print("2: No")
+                    yesorno = int(input("Are you sure you want to forfeit the match"))
+                    if yesorno == 1:
+                        break
+                    else:
+                        print("You do not run away")
         elif P2SPD > P1SPD:
             print("1: Attack")
         elif P1SPD == P2SPD:

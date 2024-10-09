@@ -237,6 +237,8 @@ while ac == 0:
         print("Please try again")
         cc = 0
 ac = 1
+mc = 0
+cc = 0
 P1AD = 0
 P2AD = 0
 P1ADTR = 0
@@ -421,7 +423,39 @@ while ac == 1:
                     else:
                         print(errmsg)
                 elif option == 2:
-                    print("I need to import the magic system from Emilio's branch")
+                    while mc == 0:
+                        print("0: Cancel")
+                        print("1: Gain +1 permanent defence (Max of 15) - 1MP")
+                        print("2: Damage boost on your next attack - Varies")
+                        print("3: Gain advantage on your next turn - 3MP")
+                        print("4: Heal 20 percent of your maximum HP - 4MP")
+                        print("5: Fireball - 5MP")
+                        print("6: Provide descriptions")
+                        magicOption = int(input("What would you like to do?"))
+                        if magicOption == 0:
+                            print("You canceled your magic")
+                        elif magicOption == 1:
+                            if P2MP < 1:
+                                print("You don't have enough MP for that")
+                            else:
+                                print("You got a boost to your defence")
+                                P1DEF = P1DEF + 1
+                                if P1DEF > 15:
+                                    P1DEF = 15
+                                    print("Nope. Too much")
+                                else:
+                                    mc = 1
+                        elif magicOption == 2:
+                            P2DMGBOOST = int(input("The amount of MP you spend on this is doubled and added to your next attack: "))*2
+                            if P2DMGBOOST/2 > P2MP:
+                                print("You don't have enough MP for that")
+                            else:
+                                P2MP = P2MP - (P2DMGBOOST/2)
+                                if P2MP < 0:
+                                    P2MP = 0
+                                print("P2 will do " + str(P2DMGBOOST) + " more damage with their next attack")
+                                mc = 1
+                                cc = 1
                 elif option == 3:
                     print("1: Yes")
                     print("2: No")
@@ -441,6 +475,7 @@ while ac == 1:
             if P1MP > P1MAXMP:
                 P1MP = P1MAXMP
             cc = 0
+            mc = 0
             while cc == 0:
                 print("1: Attack")
                 print("2: Magic")

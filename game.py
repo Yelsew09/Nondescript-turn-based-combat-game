@@ -1,7 +1,7 @@
 import random
 import time
 def s():
-    time.sleep(.2)
+    time.sleep(.1)
 print("Welcome to insert game title here")
 s()
 print("")
@@ -22,142 +22,159 @@ print("6: Bard")
 s()
 print("7: Barbarain")
 s()
+print("8: Random")
 #Player 1 selects a class
 cc=1
+rc=1
 allcorrect=1
 while allcorrect==1:
     while cc==1:
         player1class = int(input("Choose a class from the list above (please choose a number): "))
         s()
+        while rc==1:
+            if player1class == 1:
+                player1class = "Knight"
+                P1HP = 42
+                P1MAXHP = P1HP
+                P1ATK = 12
+                P1ATKBON = P1ATK + 2
+                P1DEF = 14
+                P1MP = 4
+                P1MAXMP = P1MP
+                P1MPBON = 1
+                P1SPD = 3
+                P1SPDBON = 2
+                cc=2
+                rc=2
+            elif player1class == 2:
+                player1class = "Peashooter"
+                P1HP = 35
+                P1MAXHP = P1HP
+                P1ATK = 10
+                P1ATKBON = P1ATK + 2
+                P1DEF = 14
+                P1MP = 5
+                P1MAXMP = P1MP
+                P1MPBON = 1
+                P1SPD = 6
+                P1SPDBON = 2
+                cc=2
+                rc=2
+            elif player1class == 3:
+                player1class = "Mage"
+                P1HP = 29
+                P1MAXHP = P1HP
+                P1ATK = 7
+                P1ATKBON = P1ATK + 2
+                P1DEF = 10
+                P1MP = 20
+                P1MAXMP = P1MP
+                P1MPBON = 5
+                P1SPD = 2
+                P1SPDBON = 2
+                cc=2
+                rc=2
+            elif player1class == 4:
+                player1class = "Rouge"
+                P1HP = 31
+                P1MAXHP = P1HP
+                P1ATK = 13
+                P1ATKBON = P1ATK + 2
+                P1DEF = 14
+                P1MP = 6
+                P1MAXMP = P1MP
+                P1MPBON = 1
+                P1SPD = 7
+                P1SPDBON = 3
+                cc=2
+                rc=2
+            elif player1class == 5:
+                player1class = "Sans"
+                P1HP = 19
+                P1MAXHP = P1HP
+                P1ATK = 20
+                P1ATKBON = P1ATK + 2
+                P1DEF = 20
+                P1MP = 15
+                P1MAXMP = P1MP
+                P1MPBON = 3
+                P1SPD = 4
+                P1SPDBON = 2
+                cc=2
+                rc=2
+            elif player1class == 6:
+                player1class = "Bard"
+                P1HP = 37
+                P1MAXHP = P1HP
+                P1ATK = 7
+                P1ATKBON = P1ATK + 2
+                P1DEF = 13
+                P1MP = 17
+                P1MAXMP = P1MP
+                P1MPBON = 4
+                P1SPD = 5
+                P1SPDBON = 2
+                cc=2
+                rc=2
+            elif player1class == 7: 
+                player1class = "Barbarian"
+                P1HP = 52
+                P1MAXHP = P1HP
+                P1ATK = 14
+                P1ATKBON = P1ATK + 2
+                P1DEF = 11
+                P1MP = 2
+                P1MAXMP = P1MP
+                P1MPBON = .25
+                P1SPD = 4
+                P1SPDBON = 2
+                cc=2
+                rc=2
+            elif player1class ==3145178740:
+                player1class = "Sigma"
+                P1HP= 100000
+                P1MAXHP = P1HP
+                P1ATK= 1
+                P1ATKBON = 1000000
+                P1DEF= 10
+                P1MP= 2
+                P1MAXMP = P1MP
+                P1MPBON= 1
+                P1SPD= 1
+                P1SPDBON = 1
+                cc=2
+                rc=2
+            elif player1class == 8:
+                player1class=random.randint(1,7)
+                cc=2
+            else:
+                print("Please give a valid number.")
+                cc=1
+                rc=1
+                s()
+        print("1: Yes")
         s()
-        if player1class == 1:
-            player1class = "Knight"
-            P1HP = 42
-            P1MAXHP = P1HP
-            P1ATK = 12
-            P1ATKBON = P1ATK + 2
-            P1DEF = 14
-            P1MP = 4
-            P1MAXMP = P1MP
-            P1MPBON = 1
-            P1SPD = 3
-            P1SPDBON = 2
-            cc=2
-        elif player1class == 2:
-            player1class = "Peashooter"
-            P1HP = 35
-            P1MAXHP = P1HP
-            P1ATK = 10
-            P1ATKBON = P1ATK + 2
-            P1DEF = 14
-            P1MP = 5
-            P1MAXMP = P1MP
-            P1MPBON = 1
-            P1SPD = 6
-            P1SPDBON = 2
-            cc=2
-        elif player1class == 3:
-            player1class = "Mage"
-            P1HP = 29
-            P1MAXHP = P1HP
-            P1ATK = 7
-            P1ATKBON = P1ATK + 2
-            P1DEF = 10
-            P1MP = 20
-            P1MAXMP = P1MP
-            P1MPBON = 5
-            P1SPD = 2
-            P1SPDBON = 2
-            cc=2
-        elif player1class == 4:
-            player1class = "Rouge"
-            P1HP = 31
-            P1MAXHP = P1HP
-            P1ATK = 13
-            P1ATKBON = P1ATK + 2
-            P1DEF = 14
-            P1MP = 6
-            P1MAXMP = P1MP
-            P1MPBON = 1
-            P1SPD = 7
-            P1SPDBON = 3
-            cc=2
-        elif player1class == 5:
-            player1class = "Sans"
-            P1HP = 1
-            P1MAXHP = P1HP
-            P1ATK = 20
-            P1ATKBON = P1ATK + 2
-            P1DEF = 20
-            P1MP = 15
-            P1MAXMP = P1MP
-            P1MPBON = 3
-            P1SPD = 4
-            P1SPDBON = 2
-            cc=2
-        elif player1class == 6:
-            player1class = "Bard"
-            P1HP = 37
-            P1MAXHP = P1HP
-            P1ATK = 7
-            P1ATKBON = P1ATK + 2
-            P1DEF = 13
-            P1MP = 17
-            P1MAXMP = P1MP
-            P1MPBON = 4
-            P1SPD = 5
-            P1SPDBON = 2
-            cc=2
-        elif player1class == 7:
-            player1class = "Barbarian"
-            P1HP = 52
-            P1MAXHP = P1HP
-            P1ATK = 14
-            P1ATKBON = P1ATK + 2
-            P1DEF = 11
-            P1MP = 2
-            P1MAXMP = P1MP
-            P1MPBON = .25
-            P1SPD = 4
-            P1SPDBON = 2
-            cc=2
-        elif player1class ==3145178740:
-            player1class = "Sigma"
-            P1HP= 100000
-            P1MAXHP = P1HP
-            P1ATK= 1
-            P1ATKBON = 1000000
-            P1DEF= 10
-            P1MP= 2
-            P1MAXMP = P1MP
-            P1MPBON= 1
-            P1SPD= 1
-            P1SPDBON = 1
-            cc=2
-        else:
-            print("Please give a valid number.")
+        print("2: No")
+        s()
+        yesorno = int(input("You have chosen " + str(player1class) + ". Is this correct?: "))
+        s()
+        if yesorno == 1:
+            print("Player 1 has chosen the " + str(player1class) + " class.")
             s()
-    print("1: Yes")
-    s()
-    print("2: No")
-    s()
-    yesorno = int(input("You have chosen " + str(player1class) + ". Is this correct?: "))
-    s()
-    if yesorno == 1:
-        print("Player 1 has chosen the " + str(player1class) + " class.")
-        s()
-        print("")
-        s()
-        allcorrect=2
-    elif yesorno == 2:
-        print("repick your charcter.")
-        s()
-        cc=1
-    else:
-        print("Something went wrong please try again")
-        s()
-        cc=1
+            print("")
+            s()
+            allcorrect=2
+        elif yesorno == 2:
+            print("repick your charcter.")
+            s()
+            cc=1
+            rc=1
+        else:
+            print("Something went wrong please try again")
+            s()
+            cc=1
 cc=1
+rc=1
 allcorrect=1
 #Player 2 selects a class
 while allcorrect==1:
@@ -165,133 +182,147 @@ while allcorrect==1:
         print("Please select a classs, player 2")
         s()
         player2class = int(input("Choose 1 from the list above (please choose a number): "))
-        s()
-        if player2class == 1:
-            player2class = "Knight"
-            P2HP = 42
-            P2MAXHP = P2HP
-            P2ATK = 12
-            P2ATKBON = P2ATK + 2
-            P2DEF = 14
-            P2MP = 4
-            P2MAXMP = P2MP
-            P2MPBON = 1
-            P2SPD = 3
-            P2SPDBON = 2
-            cc=2
-        elif player2class == 2:
-            player2class = "Peashooter"
-            P2HP = 35
-            P2MAXHP = P2HP
-            P2ATK = 10
-            P2ATKBON = P2ATK + 2
-            P2DEF = 14
-            P2MP = 5
-            P2MAXMP = P2MP
-            P2MPBON = 1
-            P2SPD = 6
-            P2SPDBON = 2
-            cc=2
-        elif player2class == 3:
-            player2class = "Mage"
-            P2HP = 29
-            P2MAXHP = P2HP
-            P2ATK = 7
-            P2ATKBON = P2ATK + 2
-            P2DEF = 10
-            P2MP = 20
-            P2MAXMP = P2MP
-            P2MPBON = 5
-            P2SPD = 2
-            P2SPDBON = 2
-            cc=2
-        elif player2class == 4:
-            player2class = "Rouge"
-            P2HP = 31
-            P2MAXHP = P2HP
-            P2ATK = 13
-            P2ATKBON = P2ATK + 2
-            P2DEF = 14
-            P2MP = 6
-            P2MAXMP = P2MP
-            P2MPBON = 1
-            P2SPD = 7
-            P2SPDBON = 3
-            cc=2
-        elif player2class == 5:
-            player2class = "Sans"
-            P2HP = 1
-            P2MAXHP = P2HP
-            P2ATK = 20
-            P2ATKBON = P2ATK + 2
-            P2DEF = 20
-            P2MP = 15
-            P2MAXMP = P2MP
-            P2MPBON = 3
-            P2SPD = 4
-            P2SPDBON = 2
-            cc=2
-        elif player2class == 6:
-            player2class = "Bard"
-            P2HP = 37
-            P2MAXHP = P2HP
-            P2ATK = 7
-            P2ATKBON = P2ATK + 2
-            P2DEF = 13
-            P2MP = 17
-            P2MAXMP = P2MP
-            P2MPBON = 4
-            P2SPD = 5
-            P2SPDBON = 2
-            cc=2
-        elif player2class ==7:
-            player2class = "Barbrian"
-            P2HP= 52
-            P2MAXHP = P2HP
-            P2ATK= 14
-            P2ATKBON = P2ATK + 2
-            P2DEF= 11
-            P2MP= 2
-            P2MAXMP = P2MP
-            P2MPBON= 0
-            P2SPD= 4
-            P2SPDBON = 2
-            cc=2
-        elif player2class ==3145178740:
-            player2class = "Sigma"
-            P2HP= 100000
-            P2MAXHP = P2HP
-            P2ATK= 1
-            P2ATKBON= 1000000
-            P2DEF= 10
-            P2MP= 2
-            P2MAXMP = P2MP
-            P2MPBON= 1
-            P2SPD= 1
-            P2SPDBON = 1
-            cc=2
-        else:
-            print("Please give a valid number.")
+        while rc==1:
             s()
-    print("1: Yes")
-    s()
-    print("2: No")
-    s()
-    yesorno = int(input("you have chosen " + str(player2class) + ". Is this correct?: "))
-    s()
-    if yesorno == 1:
-        print("Player 2 has chosen the " + str(player2class) + " class.")
+            if player2class == 1:
+                player2class = "Knight"
+                P2HP = 42
+                P2MAXHP = P2HP
+                P2ATK = 12
+                P2ATKBON = P2ATK + 2
+                P2DEF = 14
+                P2MP = 4
+                P2MAXMP = P2MP
+                P2MPBON = 1
+                P2SPD = 3
+                P2SPDBON = 2
+                cc=2
+                rc=2
+            elif player2class == 2:
+                player2class = "Peashooter"
+                P2HP = 35
+                P2MAXHP = P2HP
+                P2ATK = 10
+                P2ATKBON = P2ATK + 2
+                P2DEF = 14
+                P2MP = 5
+                P2MAXMP = P2MP
+                P2MPBON = 1
+                P2SPD = 6
+                P2SPDBON = 2
+                cc=2
+                rc=2
+            elif player2class == 3:
+                player2class = "Mage"
+                P2HP = 29
+                P2MAXHP = P2HP
+                P2ATK = 7
+                P2ATKBON = P2ATK + 2
+                P2DEF = 10
+                P2MP = 20
+                P2MAXMP = P2MP
+                P2MPBON = 5
+                P2SPD = 2
+                P2SPDBON = 2
+                cc=2
+                rc=2
+            elif player2class == 4:
+                player2class = "Rouge"
+                P2HP = 31
+                P2MAXHP = P2HP
+                P2ATK = 13
+                P2ATKBON = P2ATK + 2
+                P2DEF = 14
+                P2MP = 6
+                P2MAXMP = P2MP
+                P2MPBON = 1
+                P2SPD = 7
+                P2SPDBON = 3
+                cc=2
+            elif player2class == 5:
+                player2class = "Sans"
+                P2HP = 19
+                P2MAXHP = P2HP
+                P2ATK = 20
+                P2ATKBON = P2ATK + 2
+                P2DEF = 20
+                P2MP = 15
+                P2MAXMP = P2MP
+                P2MPBON = 3
+                P2SPD = 8
+                P2SPDBON = 4
+                cc=2
+                rc=2
+            elif player2class == 6:
+                player2class = "Bard"
+                P2HP = 37
+                P2MAXHP = P2HP
+                P2ATK = 7
+                P2ATKBON = P2ATK + 2
+                P2DEF = 13
+                P2MP = 17
+                P2MAXMP = P2MP
+                P2MPBON = 4
+                P2SPD = 5
+                P2SPDBON = 2
+                cc=2
+                rc=2
+            elif player2class ==7:
+                player2class = "Barbrian"
+                P2HP= 52
+                P2MAXHP = P2HP
+                P2ATK= 14
+                P2ATKBON = P2ATK + 2
+                P2DEF= 11
+                P2MP= 2
+                P2MAXMP = P2MP
+                P2MPBON= 0
+                P2SPD= 4
+                P2SPDBON = 2
+                cc=2
+                rc=2
+            elif player2class ==3145178740:
+                player2class = "Sigma"
+                P2HP= 100000
+                P2MAXHP = P2HP
+                P2ATK= 1
+                P2ATKBON= 1000000
+                P2DEF= 10
+                P2MP= 2
+                P2MAXMP = P2MP
+                P2MPBON= 1
+                P2SPD= 1
+                P2SPDBON = 1
+                cc=2
+                rc=2
+            elif player2class==8:
+                print("you have chosen random")
+                player2class=random.randint(1,7)
+                cc=2
+            else:
+                print("Please give a valid number.")
+                s()
+        print("1: Yes")
         s()
-        print("")
-        allcorrect=2
-    elif yesorno == 2:
-        print("repick your charcter.")
+        print("2: No")
         s()
-        cc=1
-    else:
-        print("please try again")
+        yesorno = int(input("you have chosen " + str(player2class) + ". Is this correct?: "))
         s()
-        cc=1
+        if yesorno == 1:
+            print("Player 2 has chosen the " + str(player2class) + " class.")
+            s()
+            print("")
+            allcorrect=2
+        elif yesorno == 2:
+            print("repick your charcter.")
+            s()
+            cc=1
+            rc=1
+        else:
+            print("please try again")
+            s()
+            cc=1
+            rc=1
 winner=1
 roundnumber = 1  
 DMGBUFFP1=0
@@ -365,9 +396,9 @@ while roundnumber < 100:
                     if rolladp1==2:
                         rolladp1=1
                         rollp1=1
-                    if dmgp1==2:
-                        P1ATK==P1ATK-P1ATKBON
-                        dmgp1=1
+                    if dmgp1 >= 2:
+                        P1ATK=P1ATK-P1ATKBON
+                        dmgp1=dmgp1-1
                     turn=2
                     roundnumber=roundnumber + 1
                     P1MP = P1MP + P1MPBON
@@ -395,7 +426,7 @@ while roundnumber < 100:
                     if rolladp1==2:
                         rolladp1=1
                         rollp1=1
-                    if dmgp1==2:
+                    if dmgp1 >= 2:
                         P1ATK==P1ATK-P1ATKBON
                     turn=2
                     roundnumber=roundnumber+1
@@ -419,8 +450,9 @@ while roundnumber < 100:
                     print("Player 2 has " + str(P2HP) + " HP left")
                     s()
                     P2SPD = P2SPD + P2SPDBON
-                    if dmgp1==2:
-                        P1ATK==P1ATK-P1ATKBON
+                    if dmgp1 >= 2:
+                        P1ATK=P1ATK-P1ATKBON
+                        dmgp1 = dmgp1-1
                     turn=2
                     roundnumber=roundnumber+1
                     P1MP = P1MP + P1MPBON
@@ -466,14 +498,12 @@ while roundnumber < 100:
                             print("Player 1 has " + str(P1MP) + " MP left")
                             s()
                         elif magic_option==2:
-                            if dmgp1 == 2:
-                                print("sorry you already have Damage buff")
                             print("Player 1 used Damage boost")
                             s()
                             P1MP = P1MP - magic_option
                             DMGBUFFP1=P1ATKBON+P1MP
                             P1MP=0
-                            dmgp1 = 2
+                            dmgp1 = dmgp1+1
                             P1ATK=DMGBUFFP1 + P1ATK
                             turn = 2
                             P2SPD = P2SPD + P2SPDBON
@@ -605,9 +635,9 @@ while roundnumber < 100:
                     if rolladp2==2:
                         rolladp2=1
                         rollp2=1
-                    if dmgp2==2:
-                        P2ATK==P2ATK-P2ATKBON
-                        dmgp2=1
+                    if dmgp2 >= 2:
+                        P2ATK=P2ATK-P2ATKBON
+                        dmgp2=dmgp2-1
                     turn=2
                     roundnumber=roundnumber+1
                     P2MP = P2MP + P2MPBON
@@ -635,8 +665,9 @@ while roundnumber < 100:
                     if rolladp2==2:
                         rolladp2=1
                         rollp2=1
-                    if dmgp2==2:
-                        P2ATK==P2ATK-P2ATKBON
+                    if dmgp2 >= 2:
+                        P2ATK=P2ATK-P2ATKBON
+                        dmgp2 = dmgp2 - 1
                     turn=2
                     roundnumber=roundnumber+1
                     P2MP = P2MP + P2MPBON
@@ -659,7 +690,7 @@ while roundnumber < 100:
                     print("Player 1 has " + str(P1HP) + " HP left")
                     s()
                     P1SPD = P1SPD + P1SPDBON
-                    if dmgp2==2:
+                    if dmgp2 >= 2:
                         P2ATK==P2ATK-P2ATKBON
                     turn=2
                     roundnumber=roundnumber+1
@@ -708,10 +739,11 @@ while roundnumber < 100:
                         elif magic_option==2:
                             print("Player 2 used Damage boost")
                             s()
-                            DMGBUFFP2=P2ATKBON
-                            dmgp2 = 2
-                            P2ATK=DMGBUFFP2 + P2ATK
                             P2MP = P2MP - magic_option
+                            DMGBUFFP2=P2ATKBON+P2MP
+                            P2MP=0
+                            dmgp2 = dmgp2+1
+                            P2ATK=DMGBUFFP2 + P2ATK
                             turn = 2
                             P1SPD = P1SPD + P1SPDBON
                             P2MP = P2MP + P2MPBON

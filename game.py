@@ -376,7 +376,7 @@ while roundnumber < 100:
                     s()
                     if P1MAXMP < P1MP:
                         P1MP = P1MAXMP
-                    print("Player 1 has " + str(P1MP) + " MP left") 
+                    print("Player 1 has " + str(P1MP) + " MP left")
                     s()
                 elif option == 1 and not critnumber==20:
                     print("Player 1 used Attack")
@@ -405,7 +405,7 @@ while roundnumber < 100:
                     s()
                     if P1MAXMP < P1MP:
                         P1MP = P1MAXMP
-                    print("Player 1 has " + str(P1MP) + " MP left") 
+                    print("Player 1 has " + str(P1MP) + " MP left")
                     s()
                 elif option == 1 and critnumber == 1:
                     print("Player 1 used Attack")
@@ -429,7 +429,7 @@ while roundnumber < 100:
                     s()
                     if P1MAXMP < P1MP:
                         P1MP = P1MAXMP
-                    print("Player 1 has " + str(P1MP) + " MP left") 
+                    print("Player 1 has " + str(P1MP) + " MP left")
                     s()
                 elif option == 2:
                     print("Please do one of the following")
@@ -519,7 +519,7 @@ while roundnumber < 100:
                             s()
                             if P1MAXMP < P1MP:
                                 P1MP = P1MAXMP
-                            print("Player 1 has " + str(P1MP) + " MP left") 
+                            print("Player 1 has " + str(P1MP) + " MP left")
                             s()
                         elif magic_option==4:
                             print("Player 1 used heal")
@@ -616,7 +616,7 @@ while roundnumber < 100:
                     s()
                     if P2MAXMP < P2MP:
                         P2MP = P2MAXMP
-                    print("Player 2 has " + str(P2MP) + " MP left") 
+                    print("Player 2 has " + str(P2MP) + " MP left")
                     s()
                 elif option == 1 and not critnumber==20:
                     print("Player 2 used Attack")
@@ -645,7 +645,7 @@ while roundnumber < 100:
                     s()
                     if P2MAXMP < P2MP:
                         P2MP = P2MAXMP
-                    print("Player 2 has " + str(P2MP) + " MP left") 
+                    print("Player 2 has " + str(P2MP) + " MP left")
                     s()
                 elif option == 1 and critnumber==1:
                     print("Player 2 used Attack")
@@ -669,7 +669,7 @@ while roundnumber < 100:
                     s()
                     if P2MAXMP < P2MP:
                         P2MP = P2MAXMP
-                    print("Player 2 has " + str(P2MP) + " MP left") 
+                    print("Player 2 has " + str(P2MP) + " MP left")
                     s()
                 elif option == 2:
                     print("Please do one of the following")
@@ -703,7 +703,7 @@ while roundnumber < 100:
                             s()
                             if P2MAXMP < P2MP:
                                 P2MP = P2MAXMP
-                            print("Player 2 has " + str(P2MP) + " MP left") 
+                            print("Player 2 has " + str(P2MP) + " MP left")
                             s()
                         elif magic_option==2:
                             print("Player 2 used Damage boost")
@@ -720,7 +720,7 @@ while roundnumber < 100:
                             s()
                             if P2MAXMP < P2MP:
                                 P2MP = P2MAXMP
-                            print("Player 2 has " + str(P2MP) + " MP left") 
+                            print("Player 2 has " + str(P2MP) + " MP left")
                             s()
                         elif magic_option==3:
                             print("Player 2 used Advantage")
@@ -756,7 +756,7 @@ while roundnumber < 100:
                             s()
                             if P2MAXMP < P2MP:
                                 P2MP = P2MAXMP
-                            print("Player 2 has " + str(P2MP) + " MP left") 
+                            print("Player 2 has " + str(P2MP) + " MP left")
                             s()
                         elif magic_option==4:
                             print("Player 2 used heal")
@@ -771,7 +771,7 @@ while roundnumber < 100:
                             s()
                             if P2MAXMP < P2MP:
                                 P2MP = P2MAXMP
-                            print("Player 2 has " + str(P2MP) + " MP left") 
+                            print("Player 2 has " + str(P2MP) + " MP left")
                             s()
                             if P2MAXHP < P2HP:
                                 P2HP = P2MAXHP

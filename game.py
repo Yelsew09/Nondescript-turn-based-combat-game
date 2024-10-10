@@ -3,6 +3,7 @@ import time
 def s():
     time.sleep(.1)
 print("Welcome to insert game title here")
+print("or the more commonly used name HELL")
 s()
 print("")
 s()
@@ -470,13 +471,15 @@ while roundnumber < 100:
                     s()
                     print("1: Gain +1 DEF")
                     s()
-                    print("2: Damage boost for every MP you have-2MP")
+                    print("2: Gain an item")
                     s()
                     print("3: Better Roll Next Turn-3MP")
                     s()
                     print("4: Heal 20 percent of max health-4MP")
                     s()
                     print("5: FireBall-5MP")
+                    s()
+                    print("6: Damage boost for every MP you have-2MP")
                     s()
                     magic_option=int(input("What would you like to do?: "))
                     s()
@@ -497,7 +500,7 @@ while roundnumber < 100:
                                 P1MP = P1MAXMP
                             print("Player 1 has " + str(P1MP) + " MP left")
                             s()
-                        elif magic_option==2:
+                        elif magic_option==6:
                             print("Player 1 used Damage boost")
                             s()
                             P1MP = P1MP - magic_option

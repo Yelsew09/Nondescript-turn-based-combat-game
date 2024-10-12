@@ -1,10 +1,7 @@
-
-from os import supports_follow_symlinks
-from pdb import post_mortem
 import random
 import time
 def s():
-        time.sleep(.1)
+        time.sleep(.3)
 print("Welcome to insert game title here")
 print("or the more commonly used name HELL")
 playagain=1
@@ -861,6 +858,8 @@ while playagain==1:
                         s()
                         magic_option=int(input("What would you like to do?: "))
                         s()
+                        if P2MP <= magic_option:
+                            print("You don't have enough Mana")
                         elif P2MP >= magic_option:
                             if magic_option == 1:
                                 P2DEF=P2DEF+1
@@ -875,7 +874,7 @@ while playagain==1:
                                     P2MP = P2MAXMP
                                 print("Player 2 has " + str(P2MP) + " MP left")
                                 s()
-                            elif magic_option==2:
+                            elif magic_option==6:
                                 print("Player 2 used Damage boost")
                                 s()
                                 P2MP = P2MP - magic_option
@@ -1030,6 +1029,75 @@ while playagain==1:
                                 print("")
                             else:
                                 print("")
+                    elif option == 3:
+                        pots=0
+                        spoons=0
+                        glocks=0
+                        if p2pots >= 1:
+                            print("Player 2 has " + str(p2pots) + " Healing Potions left")
+                            pots=1
+                            s()
+                        if p2spoons >=1:
+                            spoons=1
+                            print("Player 2 has " + str(p2spoons) + " Rusty spoons left")
+                        if p2GLOCK19s >=1:
+                            print("THEY HAVE A GUNNN!!!!!!!!")
+                            glocks=1
+                        if pots==1:
+                            print("1: Heal 5 Health")
+                            s()
+                        if spoons == 1:
+                            print("2: Throw a Spoon")
+                            s()
+                        if glocks==1:
+                            print("3: Shoot")
+                            s()
+                        print("0: cancel")
+                        s()
+                        itemchoice=int(input("What would you like to do?"))
+                        s()
+                        if itemchoice==1:
+                            print("Player 2 Heals 5 health")
+                            s()
+                            P2HP=P2HP+5
+                            if P2MAXHP<=P2HP:
+                                P2HP=P2MAXHP
+                            print("Player 2 has " + str(P2HP) + " HP")
+                            s()
+                            p2pots=p2pots-1
+                            P1SPD=P1SPD+P1SPDBON
+                            turn=2
+                            P2MP = P2MP + P2MPBON
+                            print("")
+                            print("Player 2 gained " + str(P2MPBON) + " MP back")
+                            s()
+                            if P2MAXMP < P2MP:
+                                P2MP = P2MAXMP
+                            print("Player 2 has " + str(P2MP) + " MP left")
+                            s()
+                        elif itemchoice==2:
+                            print("Player 2 threw a Spoon")
+                            s()
+                            spooncrit=random.randint(1,100)
+                            if spooncrit>=1 and spooncrit<=70:
+                                print("the spoon gave Player 1 a small cut and did 1 damage")
+                                s()
+                                P1HP=P1HP-1
+                                print("Player 1 has " + str(P1HP) + " HP left")
+                                s()
+                            elif spooncrit>=71 and spooncrit<=99:
+                                spoondamage=random.randint(2,10)
+                                print("the spoon gave Player 1 a cut and did " + str(spoondamage) + " Damge to Player 1")
+                                s()
+                                P1HP=P1HP-spoondamage
+                                print("Player 1 Has " + str(P1HP) + " HP left")
+                                s()
+                            elif spooncrit==100:
+                                print("Player 2 threw the spoon and cut Player 1")
+                                s()
+                                print("Player 1 got tetanites and died")
+                                s()
+                                P2HP=-99999999999999999999
                     else:
                         print("please try again")
                         s()

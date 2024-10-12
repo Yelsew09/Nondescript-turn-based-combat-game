@@ -698,6 +698,7 @@ while playagain==1:
                             if P1MAXHP<=P1HP:
                                 P1HP=P1MAXHP
                             print("Player 1 has " + str(P1HP) + " HP")
+                            s()
                             p1pots=p1pots-1
                             P2SPD=P2SPD+P2SPDBON
                             turn=2
@@ -711,16 +712,27 @@ while playagain==1:
                             s()
                         elif itemchoice==2:
                             print("Player 1 threw a Spoon")
+                            s()
                             spooncrit=random.randint(1,100)
                             if spooncrit>=1 and spooncrit<=70:
                                 print("the spoon gave Player 2 a small cut and did 1 damage")
+                                s()
                                 P2HP=P2HP-1
                                 print("Player 2 has " + str(P2HP) + " HP left")
+                                s()
                             elif spooncrit>=71 and spooncrit<=99:
                                 spoondamage=random.randint(2,10)
                                 print("the spoon gave Player 2 a cut and did " + str(spoondamage) + " Damge to Player 2")
+                                s()
                                 P2HP=P2HP-spoondamage
                                 print("Player 2 Has " + str(P2HP) + " HP left")
+                                s()
+                            elif spooncrit==100:
+                                print("Player 1 threw the spoon and cut Player 2")
+                                s()
+                                print("Player 2 got tetanites and died")
+                                s()
+                                P2HP=-99999999999999999999
                     else:
                         print("please try again")
                         s()
@@ -735,7 +747,9 @@ while playagain==1:
                 s()
                 print("2: Magic")
                 s()
-                print("3: Run Away")
+                print("3: Use an item")
+                s()
+                print("4: Run Away")
                 s()
                 while turn == 1:
                     option=int(input("what would player 2 like to do?: "))
@@ -833,21 +847,20 @@ while playagain==1:
                         s()
                         print("0: Cancel")
                         s()
-                        print("1: Gain +1 perma defence")
+                        print("1: Gain +1 DEF")
                         s()
-                        print("2: Damage boost for one turn-2MP")
+                        print("2: Gain an item")
                         s()
-                        print("3: Better roll next turn-3MP")
+                        print("3: Better Roll Next Turn-3MP")
                         s()
                         print("4: Heal 20 percent of max health-4MP")
                         s()
                         print("5: FireBall-5MP")
                         s()
+                        print("6: Damage boost for every MP you have-2MP")
+                        s()
                         magic_option=int(input("What would you like to do?: "))
                         s()
-                        if P2MP < magic_option:
-                            print("you dont have enough Mana")
-                            s()
                         elif P2MP >= magic_option:
                             if magic_option == 1:
                                 P2DEF=P2DEF+1
@@ -935,13 +948,66 @@ while playagain==1:
                                     P2HP = P2MAXHP
                             elif magic_option==0:
                                 print("")
+                            elif magic_option==2:
+                                print("Player 2 used gain a random item")
+                                s()
+                                P2MP = P2MP - magic_option
+                                itemspin=random.randint(1,100)
+                                if itemspin >= 1 and itemspin<= 5:
+                                    print("Player 2 Conjured a rusty spoon")
+                                    s()
+                                    print("what a waste of a turn")
+                                    s()
+                                    p2spoons=p2spoons+1
+                                
+                                elif itemspin >= 6 and itemspin<= 99:
+                                    print("Player 2 Conjured a healing potion")
+                                    s()
+                                    p2pots=p2pots+1
+                                
+                                elif itemspin == 100:
+                                    print("Player 2 Conjured a...")
+                                    s()
+                                    s()
+                                    s()
+                                    s()
+                                    s()
+                                    print("wait what..")
+                                    s()
+                                    s()
+                                    print("how... why!?!!?")
+                                    s()
+                                    print("why is the in the game (sigh)")
+                                    s()
+                                    s()
+                                    print("i don't get paid enough for this")
+                                    s()
+                                    print("Player 2 Conjured a Glock-19")
+                                    s()
+                                    s()
+                                    print("...This was not supposed to happen")
+                                    s()
+                                    print("")
+                                    p2GLOCK19s=p2GLOCK19s+1
+                                else:
+                                    print("THIS SHOULDN'T BE POSSIBLE HOW DID I MESS UP THIS BADLY")
+                                turn = 2
+                                P1SPD = P1SPD + P1SPDBON
+                                P2MP = P2MP + P2MPBON
+                                print("")
+                                print("Player 2 gained " + str(P1MPBON) + " MP back")
+                                s()
+                                if P2MAXMP < P2MP:
+                                    P2MP = P2MAXMP
+                                print("Player 2 has " + str(P2MP) + " MP left")
+                                s()
                             else:
                                 print("somthing went wrong please try again")
                                 s()
                         else:
                             print("try again")
                             s()
-                    elif option == 3:        
+                    elif option == 4:        
                             print("Are you SURE you want to run away??")
                             s()
                             print("1: Yes")

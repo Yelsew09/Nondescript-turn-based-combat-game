@@ -697,16 +697,6 @@ while playagain==1:
                             print("Player 1 has " + str(P1HP) + " HP")
                             s()
                             p1pots=p1pots-1
-                            P2SPD=P2SPD+P2SPDBON
-                            turn=2
-                            P1MP = P1MP + P1MPBON
-                            print("")
-                            print("Player 1 gained " + str(P1MPBON) + " MP back")
-                            s()
-                            if P1MAXMP < P1MP:
-                                P1MP = P1MAXMP
-                            print("Player 1 has " + str(P1MP) + " MP left")
-                            s()
                         elif itemchoice==2:
                             print("Player 1 threw a Spoon")
                             s()
@@ -729,7 +719,15 @@ while playagain==1:
                                 s()
                                 print("Player 2 got tetanites and died")
                                 s()
-                                P2HP=-99999999999999999999
+                                P2HP=0
+                            else:
+                                print("ERROR ERROR")
+                        elif itemchoice==3:
+                            print("player 2 was shot and died")
+                            P2HP=0
+                            print("stop gun voilence")
+                        else:
+                            print("Please use a valid number")
                     else:
                         print("please try again")
                         s()
@@ -1065,16 +1063,6 @@ while playagain==1:
                             print("Player 2 has " + str(P2HP) + " HP")
                             s()
                             p2pots=p2pots-1
-                            P1SPD=P1SPD+P1SPDBON
-                            turn=2
-                            P2MP = P2MP + P2MPBON
-                            print("")
-                            print("Player 2 gained " + str(P2MPBON) + " MP back")
-                            s()
-                            if P2MAXMP < P2MP:
-                                P2MP = P2MAXMP
-                            print("Player 2 has " + str(P2MP) + " MP left")
-                            s()
                         elif itemchoice==2:
                             print("Player 2 threw a Spoon")
                             s()
@@ -1097,7 +1085,15 @@ while playagain==1:
                                 s()
                                 print("Player 1 got tetanites and died")
                                 s()
-                                P2HP=-99999999999999999999
+                                P2HP=0
+                            else:
+                                print("please choose a valid number")
+                        elif itemchoice==3:
+                            print("player 1 was shot and died")
+                            P1HP=0
+                            print("stop gun voilence")
+                        else:
+                            print("Please use a valid number")
                     else:
                         print("please try again")
                         s()

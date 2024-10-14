@@ -695,6 +695,8 @@ while playagain==1:
                         if glocks==1:
                             print("10: Shoot")
                             s()
+                        if knives==1:
+                            print("3: Throw a knife")
                         print("0: cancel")
                         s()
                         itemchoice=int(input("What would you like to do?"))
@@ -1083,7 +1085,7 @@ while playagain==1:
                             print("10: Shoot")
                             s()
                         if knives==1:
-                            print("Throw a knife")
+                            print("3: Throw a knife")
                         print("0: cancel")
                         s()
                         itemchoice=int(input("What would you like to do?"))

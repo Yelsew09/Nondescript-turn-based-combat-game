@@ -1,7 +1,7 @@
 import random
 import time
 def s():
-        time.sleep(.3)
+        time.sleep(.15)
 print("Welcome to insert game title here")
 print("or the more commonly used name HELL")
 playagain=1
@@ -341,7 +341,9 @@ while playagain==1:
     p1spoons=0
     p2spoons=0
     p1GLOCK19s=0
-    p2GLOCK19s=0 
+    p2GLOCK19s=0
+    p1knives=0
+    p2knives=0 
     print("Player 1 HP ",P1HP)
     s()
     print("Player 2 HP ",P2HP)
@@ -385,6 +387,7 @@ while playagain==1:
                 s()
                 while turn == 1:
                     option=int(input("what would player 1 like to do?: "))
+                    print("")
                     s()
                     critnumber=random.randint(rollp1,20)
                     if option == 1 and critnumber==20:
@@ -492,6 +495,7 @@ while playagain==1:
                         print("6: Damage boost for every MP you have-2MP")
                         s()
                         magic_option=int(input("What would you like to do?: "))
+                        print("")
                         s()
                         if P1MP < magic_option:
                             print("you dont have enough Mana")
@@ -589,8 +593,11 @@ while playagain==1:
                                     print("what a waste of a turn")
                                     s()
                                     p1spoons=p1spoons+1
-                                
-                                elif itemspin >= 6 and itemspin<= 99:
+                                elif itemspin >= 6 and itemspin<= 49:
+                                    print("You Conjured Throwing knives")
+                                    s()
+                                    p1knives=p1knives+3
+                                elif itemspin >= 50 and itemspin<= 99:
                                     print("Player 1 Conjured a healing potion")
                                     s()
                                     p1pots=p1pots+1
@@ -665,6 +672,7 @@ while playagain==1:
                         pots=0
                         spoons=0
                         glocks=0
+                        knives=0
                         if p1pots >= 1:
                             print("Player 1 has " + str(p1pots) + " Healing Potions left")
                             pots=1
@@ -675,6 +683,9 @@ while playagain==1:
                         if p1GLOCK19s >=1:
                             print("THEY HAVE A GUNNN!!!!!!!!")
                             glocks=1
+                        if p1knives >=1:
+                            print("Player 1 has " + str(p1knives) + " Knives left")
+                            knives=1
                         if pots==1:
                             print("1: Heal 5 Health")
                             s()
@@ -682,13 +693,13 @@ while playagain==1:
                             print("2: Throw a Spoon")
                             s()
                         if glocks==1:
-                            print("3: Shoot")
+                            print("10: Shoot")
                             s()
                         print("0: cancel")
                         s()
                         itemchoice=int(input("What would you like to do?"))
                         s()
-                        if itemchoice==1:
+                        if itemchoice==1 and pots >= 1:
                             print("Player 1 Heals 5 health")
                             s()
                             P1HP=P1HP+5
@@ -697,7 +708,17 @@ while playagain==1:
                             print("Player 1 has " + str(P1HP) + " HP")
                             s()
                             p1pots=p1pots-1
-                        elif itemchoice==2:
+                        elif itemchoice==3 and knives>=1:
+                            print("Player 1 threw a knife")
+                            s()
+                            knifedamage=random.randint(1,5)
+                            P2HP=P2HP-knifedamage
+                            print("Player 1 did " + str(knifedamage) + " Damage to Player 2")
+                            s()
+                            print("Player 2 has " + str(P2HP) + " HP left")
+                            s()
+                            p1knives=p1knives-1
+                        elif itemchoice==2 and spoons>=1:
                             print("Player 1 threw a Spoon")
                             s()
                             spooncrit=random.randint(1,100)
@@ -722,10 +743,12 @@ while playagain==1:
                                 P2HP=0
                             else:
                                 print("ERROR ERROR")
-                        elif itemchoice==3:
+                        elif itemchoice==10 and glocks>=1:
                             print("player 2 was shot and died")
                             P2HP=0
                             print("stop gun voilence")
+                        elif itemchoice==0:
+                            print("")
                         else:
                             print("Please use a valid number")
                     else:
@@ -748,6 +771,7 @@ while playagain==1:
                 s()
                 while turn == 1:
                     option=int(input("what would player 2 like to do?: "))
+                    print("")
                     s()
                     critnumber=random.randint(rollp2,20)
                     if option == 1 and critnumber==20:
@@ -855,6 +879,7 @@ while playagain==1:
                         print("6: Damage boost for every MP you have-2MP")
                         s()
                         magic_option=int(input("What would you like to do?: "))
+                        print("")
                         s()
                         if P2MP <= magic_option:
                             print("You don't have enough Mana")
@@ -956,8 +981,11 @@ while playagain==1:
                                     print("what a waste of a turn")
                                     s()
                                     p2spoons=p2spoons+1
-                                
-                                elif itemspin >= 6 and itemspin<= 99:
+                                elif itemspin >= 6 and itemspin<= 49:
+                                    print("You Conjured Throwing knives")
+                                    s()
+                                    p2knives=p2knives+3
+                                elif itemspin >= 50 and itemspin<= 99:
                                     print("Player 2 Conjured a healing potion")
                                     s()
                                     p2pots=p2pots+1
@@ -1031,6 +1059,7 @@ while playagain==1:
                         pots=0
                         spoons=0
                         glocks=0
+                        knives=0
                         if p2pots >= 1:
                             print("Player 2 has " + str(p2pots) + " Healing Potions left")
                             pots=1
@@ -1038,6 +1067,9 @@ while playagain==1:
                         if p2spoons >=1:
                             spoons=1
                             print("Player 2 has " + str(p2spoons) + " Rusty spoons left")
+                        if p2knives >1:
+                            knives=1
+                            print("Player 1 has " + str(p2knives) + " Knives left")
                         if p2GLOCK19s >=1:
                             print("THEY HAVE A GUNNN!!!!!!!!")
                             glocks=1
@@ -1048,13 +1080,15 @@ while playagain==1:
                             print("2: Throw a Spoon")
                             s()
                         if glocks==1:
-                            print("3: Shoot")
+                            print("10: Shoot")
                             s()
+                        if knives==1:
+                            print("Throw a knife")
                         print("0: cancel")
                         s()
                         itemchoice=int(input("What would you like to do?"))
                         s()
-                        if itemchoice==1:
+                        if itemchoice==1 and pots>=1:
                             print("Player 2 Heals 5 health")
                             s()
                             P2HP=P2HP+5
@@ -1063,7 +1097,17 @@ while playagain==1:
                             print("Player 2 has " + str(P2HP) + " HP")
                             s()
                             p2pots=p2pots-1
-                        elif itemchoice==2:
+                        elif itemchoice==3 and knives>=1:
+                            print("Player 2 threw a knife")
+                            s()
+                            knifedamage=random.randint(1,5)
+                            P1HP=P1HP-knifedamage
+                            print("Player 2 did " + str(knifedamage) + " Damage to Player 1")
+                            s()
+                            print("Player 1 has " + str(P1HP) + " HP left")
+                            s()
+                            p2knives=p2knives-1
+                        elif itemchoice==2 and spoons>=1:
                             print("Player 2 threw a Spoon")
                             s()
                             spooncrit=random.randint(1,100)
@@ -1086,9 +1130,11 @@ while playagain==1:
                                 print("Player 1 got tetanites and died")
                                 s()
                                 P2HP=0
+                            elif itemchoice==0:
+                                print("")
                             else:
                                 print("please choose a valid number")
-                        elif itemchoice==3:
+                        elif itemchoice==10 and glocks>=1:
                             print("player 1 was shot and died")
                             P1HP=0
                             print("stop gun voilence")

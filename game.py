@@ -385,6 +385,7 @@ while playagain==1:
                 s()
                 print("4: Run Away")
                 s()
+                print("5: pass turn")
                 while turn == 1:
                     option=int(input("what would player 1 like to do?: "))
                     print("")
@@ -411,7 +412,7 @@ while playagain==1:
                             rolladp1=1
                             rollp1=1
                         if dmgp1 >= 2:
-                            P1ATK=P1ATK-P1ATKBON
+                            P1ATK=P1ATK-DMGBUFFP1
                             dmgp1=dmgp1-1
                         turn=2
                         roundnumber=roundnumber + 1
@@ -423,7 +424,7 @@ while playagain==1:
                             P1MP = P1MAXMP
                         print("Player 1 has " + str(P1MP) + " MP left")
                         s()
-                    elif option == 1 and not critnumber==20:
+                    elif option == 1 and critnumber<20 and critnumber>=2:
                         print("Player 1 used Attack")
                         s()
                         print("Player 1 Rolled a ",critnumber)
@@ -441,7 +442,8 @@ while playagain==1:
                             rolladp1=1
                             rollp1=1
                         if dmgp1 >= 2:
-                            P1ATK==P1ATK-P1ATKBON
+                            P1ATK==P1ATK-DMGBUFFP1
+                            dmgp1=dmgp1-1
                         turn=2
                         roundnumber=roundnumber+1
                         P1MP = P1MP + P1MPBON
@@ -465,7 +467,7 @@ while playagain==1:
                         s()
                         P2SPD = P2SPD + P2SPDBON
                         if dmgp1 >= 2:
-                            P1ATK=P1ATK-P1ATKBON
+                            P1ATK=P1ATK-DMGBUFFP1
                             dmgp1 = dmgp1-1
                         turn=2
                         roundnumber=roundnumber+1
@@ -699,7 +701,7 @@ while playagain==1:
                             print("3: Throw a knife")
                         print("0: cancel")
                         s()
-                        itemchoice=int(input("What would you like to do?"))
+                        itemchoice=int(input("What would you like to do?: "))
                         s()
                         if itemchoice==1 and pots >= 1:
                             print("Player 1 Heals 5 health")
@@ -753,6 +755,18 @@ while playagain==1:
                             print("")
                         else:
                             print("Please use a valid number")
+                    elif option==5:
+                        print("You pass you're turn")
+                        turn = 2
+                        P2SPD = P2SPD + P2SPDBON
+                        P1MP = P1MP + P1MPBON
+                        print("")
+                        print("Player 1 gained " + str(P1MPBON) + " MP back")
+                        s()
+                        if P1MAXMP < P1MP:
+                           P1MP = P1MAXMP
+                        print("Player 1 has " + str(P1MP) + " MP left")
+                        s()
                     else:
                         print("please try again")
                         s()
@@ -771,6 +785,7 @@ while playagain==1:
                 s()
                 print("4: Run Away")
                 s()
+                print("5: pass turn")
                 while turn == 1:
                     option=int(input("what would player 2 like to do?: "))
                     print("")
@@ -797,7 +812,7 @@ while playagain==1:
                             rolladp2=1
                             rollp2=1
                         if dmgp2 >= 2:
-                            P2ATK=P2ATK-P2ATKBON
+                            P2ATK=P2ATK-DMGBUFFP2
                             dmgp2=dmgp2-1
                         turn=2
                         roundnumber=roundnumber+1
@@ -809,7 +824,7 @@ while playagain==1:
                             P2MP = P2MAXMP
                         print("Player 2 has " + str(P2MP) + " MP left")
                         s()
-                    elif option == 1 and not critnumber==20:
+                    elif option == 1 and critnumber<20 and critnumber>=2:
                         print("Player 2 used Attack")
                         s()
                         print("Player 2 Rolled a ", critnumber)
@@ -827,7 +842,7 @@ while playagain==1:
                             rolladp2=1
                             rollp2=1
                         if dmgp2 >= 2:
-                            P2ATK=P2ATK-P2ATKBON
+                            P2ATK=P2ATK-DMGBUFFP2
                             dmgp2 = dmgp2 - 1
                         turn=2
                         roundnumber=roundnumber+1
@@ -852,7 +867,8 @@ while playagain==1:
                         s()
                         P1SPD = P1SPD + P1SPDBON
                         if dmgp2 >= 2:
-                            P2ATK==P2ATK-P2ATKBON
+                            P2ATK==P2ATK-DMGBUFFP2
+                            dmgp2=dmgp2-1
                         turn=2
                         roundnumber=roundnumber+1
                         P2MP = P2MP + P2MPBON
@@ -883,7 +899,7 @@ while playagain==1:
                         magic_option=int(input("What would you like to do?: "))
                         print("")
                         s()
-                        if P2MP <= magic_option:
+                        if P2MP < magic_option:
                             print("You don't have enough Mana")
                         elif P2MP >= magic_option:
                             if magic_option == 1:
@@ -1088,7 +1104,7 @@ while playagain==1:
                             print("3: Throw a knife")
                         print("0: cancel")
                         s()
-                        itemchoice=int(input("What would you like to do?"))
+                        itemchoice=int(input("What would you like to do?: "))
                         s()
                         if itemchoice==1 and pots>=1:
                             print("Player 2 Heals 5 health")
@@ -1142,6 +1158,18 @@ while playagain==1:
                             print("stop gun voilence")
                         else:
                             print("Please use a valid number")
+                    elif option==5:
+                        print("You pass you're turn")
+                        turn = 2
+                        P1SPD = P1SPD + P1SPDBON
+                        P2MP = P2MP + P2MPBON
+                        print("")
+                        print("Player 2 gained " + str(P2MPBON) + " MP back")
+                        s()
+                        if P2MAXMP < P2MP:
+                           P2MP = P2MAXMP
+                        print("Player 2 has " + str(P2MP) + " MP left")
+                        s()
                     else:
                         print("please try again")
                         s()

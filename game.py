@@ -1,4 +1,6 @@
-def P1critnum(AD):
+import random
+import time
+def critnum(AD):
     if AD == 1:
         critnumber1 = random.randint(1,20)
         critnumber2 = random.randint(1,20)
@@ -20,12 +22,10 @@ def P1critnum(AD):
     else:
         critnumber = random.randint(1,20)
     return critnumber
-
 def sleep(time):
     time.sleep(time)
 errmsg = "If you are seeing this, something went wrong. Please restart the program."
-import random
-import time
+
 print("Welcome to insert game title here")
 print("")
 print("Please select a class, player 1.")
@@ -263,6 +263,7 @@ while ac == 0:
         cc = 0
 ac = 1
 mc = 0
+ic = 0
 cc = 0
 P1AD = 0
 P2AD = 0
@@ -278,6 +279,8 @@ P1POTS = 0
 P2POTS = 0
 P1GLOCK = 0
 P2GLOCK = 0
+P1SEEGUN = 0
+P2SEEGUN = 0
 
 
 
@@ -292,10 +295,13 @@ while ac == 1:
     else:
         if P1SPD > P2SPD:
             print("Player 1's turn")
+            cc = 0
             while cc == 0:
                 print("1: Attack")
                 print("2: Magic")
-                print("3: Run away (forfeit)")
+                print("3: Use an item")
+                print("4: Pass turn")
+                print("5: Run away (forfeit)")
                 option = int(input("What would you like to do (give a number): "))
                 if option == 1:
                     P1critnum(P1AD)
@@ -314,6 +320,7 @@ while ac == 1:
                         cc = 1
                     P1DMGBOOST = 0
                 elif option == 2:
+                    mc = 0
                     while mc == 0:
                         print("1: Cancel")
                         print("2: Firball - 5MP")
@@ -333,17 +340,166 @@ while ac == 1:
                             else:
                                 critnumber = random.randint(12,18)
                                 print("Player 1 casted fireball, doing " + str(critnumber) + " damage to Player 2")
+                                P2HP = P2HP - critnumber
                                 P1MP = P1MP - 5
                         elif magicOption == 3:
                             if P1MP < 2:
                                 print("You don't have enough MP for that")
                             else:
                                 itemSpin = random.randint(1,100)
+                                P1MP = P1MP - 2
                                 if itemSpin >= 1 and itemSpin <= 20:
                                     print("You conjured a... rusty spoon?")
                                     print("This exists?")
                                     P1SPOON = P1SPOON + 1
+                                elif itemSpin >= 21 and itemSpin <= 65:
+                                    print("You conjured up a few throwing knives")
+                                    P1KNIVES = P1KNIVES + 3
+                                    mc = 1
+                                elif itemSpin >= 66 and itemSpin <= 99:
+                                    print("You conjured up a Healing Potion")
+                                    P1POTS = P1POTS + 1
+                                    mc = 1
+                                elif itemSpin == 100:
+                                    if P1GLOCK == 0 and P2NARRATORS == 1:
+                                        print("Ok. Wow. Now the other guy has a gun")
+                                        print("I'm leaving")
+                                        P1NARRATORS = 1
+                                        P1GLOCK = 1
+                                    elif P1GLOCK == 0 and not P2NARRATORS == 1:
+                                        print("You conjured a...")
+                                        print("I'm sorry but wtf")
+                                        print("That's a gun")
+                                        print("Not even an old gun just a Glock-19")
+                                        print("Alright I quit")
+                                        P1NARRATORS = 1
+                                        P1GLOCK = 1
+                                    elif P1NARRATORS == 1:
+                                        print("You did it again.")
+                                        print("Land a 1 in 100 chance to make a gun appear")
+                                        print("That thing could've instantly won you the game")
+                                        print("And you KEPT GOING. WHY?")
+                                        print("Alright, I'm ending this game for you now")
+                                        P2HP = -999
+                                    else:
+                                        print(errmsg)
+                                else:
+                                    print("Making something failed. Somhow")
+                        elif magicOption == 4:
+                            if P1MP < 5:
+                                print("You don't have enough MP for that")
+                            else:
+                                print("You gained advantage on your next turn")
+                                P1AD = 1
+                                P1ADTR = 2
+                                mc = 1
+                                cc = 1
+                        elif magicOption == 5:
+                            if P1MP < 6:
+                                print("You don't have enough MP for that.")
+                            else:
+                                print("You gave Player 2 disadvantage on their next turn")
+                                P2AD = 2
+                                P2ADTR = 1
+                                mc = 1
+                                cc = 1
+                        elif magicOption == 6:
+                            if P1MP < 6:
+                                print("You don't have enough MP for that")
+                            else:
+                                HEAL = int(P1MAXHP/5)
+                                print("Player 1 healed" + str(HEAL) + " HP")
+                                P1HP = P1HP + HEAL
+                                if P1HP > P1MAXHP:
+                                    print("But, you would've gone over your HP maximum if you did that")
+                                    P1HP = P1MAXHP
+                                else:
+                                    P1HP = P1HP
+                                mc = 1
+                                cc = 1
+                        elif magicOption == 7:
+                            if P1MP < 1:
+                                print("You have no MP, and therfore cannot use this")
+                            else:
+                                print("The amount of MP you use for this will be doubled and added to your next attack")
+                                MPUSE = int(input("How much MP would you like to use for this? "))
+                                if MPUSE > P1MP:
+                                    print("You don't have enough MP for doing that")
+                                else:
+                                    P1DMGBOOST = MPUSE * 2
+                                    print("Player 1 spent" + str(MPUSE) + " adding " + str(P1DMGBOOST) + " damage to their next attack")
+                                    P1MP = P1MP - MPUSE
+                                    mc = 1
+                                    cc = 1
+                        elif magicOption == 8:
+                            print("Spell #2: Cast a fireball, doing 12-18 damage and ignoring all defence. Costs 5MP")
+                            print("Spell #3: Summon a random item, being a rusty spoon, 3 throwing knvies, or a healing potion. Costs 2MP")
+                            print("Spell #4: When attacking, you add your attack bonus to a random number, being 1-20. Advantage lets you roll twice and take the higher number. Costs 5MP")
+                            print("Spell #5: When attacking, you add your attack bonus to a random number, being 1-20. Disadvantage forces you to roll twice and take the lower number. This spell puts disadvantage on your opponent Costs 6MP")
+                            print("Spell #6: You may heal 20 percent of your max HP, rounded down. Costs 6MP")
+                            print("Spell #7: For every point of MP you put into this spell, your next attack will do 2 more damage. Costs however much MP you want it to")
+                        else:
+                            print("Please choose a valid option")
                 elif option == 3:
+                    ic = 0
+                    while ic == 0:
+                        print("1: Spoons: ", str(P1SPOON))
+                        print("2: Knives: ", + str(P1KNIVES))
+                        print("3: Healing Potions: ", str(P1POTS))
+                        if P1GLOCK > 0:
+                            print("4: Glock-19")
+                            P1SEEGUN = 1
+                            print("5: Cancel")
+                        else:
+                            print("4: Cancel")
+                        itemOption = int(input("What would you like to use? "))
+                        if itemOption == 1:
+                            if P1SPOON == 0:
+                                print("You have no spoons. That's kinda sad. No soup for you")
+                            else:
+                                print("Player 1 threw a rusty spoon, maybe giving Player 2 tetanus, but doing 1 point of damage for sure.")
+                                P2HP = P2HP - 1
+                                P1SPOON = P1SPOON - 1
+                        elif itemOption == 2:
+                            if P1KNIVES == 0:
+                                print("You don't have anything to cut people with.")
+                            else:
+                                print("Player 1 threw a knife, doing")
+                                critnumber = random.randint(1,5)
+                                P2HP - P2HP - critnumber
+                                print("Player 1 did " + str(critnumber) + " damage to Player 2")
+                                P1KNIVES = P1KNIVES - 1
+                        elif itemOption == 3:
+                            if P1POTS == 0:
+                                print("You have no healing. Skill issue")
+                            else:
+                                HEAL = random.randint(3,7)
+                                print("Player 1 healed " + str(HEAL) + " HP.")
+                                P1HP = P1HP + HEAL
+                                if P1HP > P1MAXHP:
+                                    print("But that would bring you over your max HP")
+                                    P1HP = P1MAXHP
+                                else:
+                                    P1HP = P1HP
+                        elif itemOption == 4:
+                            if P1SEEGUN == 1:
+                                print("Player 1 used their Glock-19, killing Player 2")
+                                P2HP = 0
+                                ic = 1
+                                cc = 1
+                            elif P1SEEGUN == 0:
+                                print("Player 1 canceled their item usage")
+                                ic = 0
+                        elif itemOption == 5 and P1SEEGUN == 1:
+                            print("Player 1 canceled their item usage")
+                            ic = 0
+                        else:
+                            print("Please choose a valid option")
+                elif option == 4:
+                    print("Player 1 passed their turn")
+                    mc = 0
+                    cc = 0
+                elif option == 5:
                     print("1: Yes")
                     print("2: No")
                     yesorno = int(input("Are you sure you want to forfeit the match"))
@@ -373,56 +529,214 @@ while ac == 1:
             else:
                 print("Player 1 has " + str(P1HP) + " HP remaining, and " + str(P1MP) + " MP remaining")
                 print("Player 2 has " + str(P2HP) + " HP remaining, and " + str(P2MP) + " MP remaining")
-                
-                
-                
-                
-                
-                
                 print("Player 2's turn")
+                cc = 0
+                mc = 0
+                ic = 0
                 while cc == 0:
                     print("1: Attack")
                     print("2: Magic")
-                    print("3: Run away (forfeit)")
+                    print("3: Use an item")
+                    print("4: Pass turn")
+                    print("5: Run away (forfeit)")
                     option = int(input("What would you like to do (give a number): "))
                     if option == 1:
-                        if P2AD == 1:
-                            critnumber1 = random.randint(1,20)
-                            critnumber2 = random.randint(1,20)
-                            if critnumber1 > critnumber2:
-                                critnumber = critnumber1
-                            elif critnumber2 > critnumber1:
-                                critnumber = critnumber2
-                            else:
-                                critnumber = critnumber1
-                        elif P2AD == 2:
-                            critnumber1 = random.randint(1,20)
-                            critnumber2 = random.randint(1,20)
-                            if critnumber1 > critnumber2:
-                                critnumber = critnumber2
-                            elif critnumber2 > critnumber1:
-                                critnumber = critnumber1
-                            else:
-                                critnumber = critnumber2
-                        else:
-                            critnumber = random.randint(1,20)
+                        critnum(P2AD)
                         if critnumber == 20:
                             print("Player 2 landed a critical hit, doing " + str((P2ATK+P2DMGBOOST)*2) + " damage to player 1")
                             P1HP = P1HP - (P2ATK + P2DMGBOOST)*2
                             print("Player 1 has " + str(P1HP) + " HP left.")
                             cc = 1
-                        elif critnumber + P1ATKBON > P2DEF:
+                        elif critnumber + P2ATKBON > P1DEF:
                             print("Player 2 rolled a " + str(critnumber) + ", landing a hit and doing " + str(P2ATK+P2DMGBOOST) + " damage to player 1.")
                             P1HP = P1HP - (P2ATK + P2DMGBOOST)
                             print("Player 1 has " + str(P1HP) + " HP left.")
                             cc = 1
-                        elif critnumber + P1ATKBON < P2DEF:
-                            print("Player 2 missed thier attack")
+                        elif critnumber + P2ATKBON < P2DEF:
+                            print("Player 2 missed their attack")
                             cc = 1
                         P2DMGBOOST = 0
                     elif option == 2:
-                        print("I need to import the magic system from Emilio's branch.")
+                        mc = 0
+                        while mc == 0:
+                            print("1: Cancel")
+                            print("2: Firball - 5MP")
+                            print("3: Summon a random item - 2MP")
+                            print("4: Gain advantage on your next turn - 5MP")
+                            print("5: Impose disadvantage on your opponent's  - 6MP")
+                            print("6: Heal 20 percent of your max health - 6MP")
+                            print("7: Gain a damage boost on your next attack - Varies")
+                            print("Currently 8 - Descriptions")
+                            magicOption = int(input("What would you like to do? "))
+                            if magicOption == 1:
+                                print("You canceled your magic")
+                                mc = 1
+                            elif magicOption == 2:
+                                if P2MP < 5:
+                                    print("You don't have enough MP for that")
+                                else:
+                                    critnumber = random.randint(12,18)
+                                    print("Player 2 casted fireball, doing " + str(critnumber) + " damage to Player 2")
+                                    P1HP = P1HP - critnumber
+                                    P2MP = P2MP - 5
+                            elif magicOption == 3:
+                                if P2MP < 2:
+                                    print("You don't have enough MP for that")
+                                else:
+                                    itemSpin = random.randint(1,100)
+                                    P2MP = P2MP - 2
+                                    if itemSpin >= 1 and itemSpin <= 20:
+                                        print("You conjured a... rusty spoon?")
+                                        print("This exists?")
+                                        P2SPOON = P2SPOON + 1
+                                    elif itemSpin >= 21 and itemSpin <= 65:
+                                        print("You conjured up a few throwing knives")
+                                        P2KNIVES = P2KNIVES + 3
+                                    elif itemSpin >= 66 and itemSpin <= 99:
+                                        print("You conjured up a Healing Potion")
+                                        P2POTS = P2POTS + 1
+                                    elif itemSpin == 100:
+                                        if P2GLOCK == 0 and P1NARRATORS == 1:
+                                            print("Wow. Ok. Now the other guy has a gun")
+                                            print("I'm leaving")
+                                            P2NARRATORS = 1
+                                            P2GLOCK = 1
+                                        elif P2GLOCK == 0 and not P1NARRATORS == 1:
+                                            print("You conjured a...")
+                                            print("I'm sorry but wtf")
+                                            print("That's a gun")
+                                            print("Not even an old gun just a Glock-19")
+                                            print("Alright I quit")
+                                            P2NARRATORS = 1
+                                            P2GLOCK = 1
+                                        elif P2NARRATORS == 1:
+                                            print("You did it again.")
+                                            print("Land a 1 in 100 chance to make a gun appear")
+                                            print("That thing could've instantly won you the game")
+                                            print("And you KEPT GOING. WHY?")
+                                            print("Alright, I'm ending this game for you now")
+                                            P2HP = -999
+                                        else:
+                                            print(errmsg)
+                                    else:
+                                        print("Making something failed. Somhow")
+                                    mc = 1
+                                    cc = 1
+                            elif magicOption == 4:
+                                if P2MP < 5:
+                                    print("You don't have enough MP for that")
+                                else:
+                                    print("You gained advantage on your next turn")
+                                    P2AD = 1
+                                    P2ADTR = 2
+                                    mc = 1
+                                    cc = 1
+                            elif magicOption == 5:
+                                if P2MP < 6:
+                                    print("You don't have enough MP for that.")
+                                else:
+                                    print("You gave Player 2 disadvantage on their next turn")
+                                    P1AD = 2
+                                    P1ADTR = 1
+                                    mc = 1
+                                    cc = 1
+                            elif magicOption == 6:
+                                if P2MP < 6:
+                                    print("You don't have enough MP for that")
+                                else:
+                                    HEAL = int(P2MAXHP/5)
+                                    print("Player 2 healed" + str(HEAL) + " HP")
+                                    P2HP = P2HP + HEAL
+                                    if P2HP > P2MAXHP:
+                                        print("But, you would've gone over your HP maximum if you did that")
+                                        P2HP = P2MAXHP
+                                    else:
+                                        P2HP = P2HP
+                                    mc = 1
+                                    cc = 1
+                            elif magicOption == 7:
+                                if P2MP < 1:
+                                    print("You have no MP, and therfore cannot use this")
+                                else:
+                                    print("The amount of MP you use for this will be doubled and added to your next attack")
+                                    MPUSE = int(input("How much MP would you like to use for this? "))
+                                    if MPUSE > P2MP:
+                                        print("You don't have enough MP to do that")
+                                    else:
+                                        P2DMGBOOST = MPUSE * 2
+                                        print("Player 2 spent" + str(MPUSE) + " adding " + str(P2DMGBOOST) + " damage to their next attack")
+                                        P2MP = P2MP - MPUSE
+                                        mc = 1
+                                        cc = 1
+                            elif magicOption == 8:
+                                print("Spell #2: Cast a fireball, doing 12-18 damage and ignoring all defence. Costs 5MP")
+                                print("Spell #3: Summon a random item, being a rusty spoon, 3 throwing knvies, or a healing potion. Costs 2MP")
+                                print("Spell #4: When attacking, you add your attack bonus to a random number, being 1-20. Advantage lets you roll twice and take the higher number. Costs 5MP")
+                                print("Spell #5: When attacking, you add your attack bonus to a random number, being 1-20. Disadvantage forces you to roll twice and take the lower number. This spell puts disadvantage on your opponent Costs 6MP")
+                                print("Spell #6: You may heal 20 percent of your max HP, rounded down. Costs 6MP")
+                                print("Spell #7: For every point of MP you put into this spell, your next attack will do 2 more damage. Costs however much MP you want it to")
+                            else:
+                                print("Please choose a valid option")
                     elif option == 3:
+                        ic = 0
+                        while ic == 0:
+                            print("1: Spoons: ", str(P2SPOON))
+                            print("2: Knives: ", + str(P2KNIVES))
+                            print("3: Healing Potions: ", str(P2POTS))
+                            if P2GLOCK > 0:
+                                print("4: Glock-19")
+                                P2SEEGUN = 1
+                                print("5: Cancel")
+                            else:
+                                print("4: Cancel")
+                            itemOption = int(input("What would you like to use? "))
+                            if itemOption == 1:
+                                if P1SPOON == 0:
+                                    print("You have no spoons. That's kinda sad. No soup for you")
+                                else:
+                                    print("Player 1 threw a rusty spoon, maybe giving Player 2 tetanus, but doing 1 point of damage for sure.")
+                                    P2HP = P2HP - 1
+                                    P1SPOON = P1SPOON - 1
+                            elif itemOption == 2:
+                                if P1KNIVES == 0:
+                                    print("You don't have anything to cut people with.")
+                                else:
+                                    print("Player 1 threw a knife, doing")
+                                    critnumber = random.randint(1,5)
+                                    P2HP - P2HP - critnumber
+                                    print("Player 1 did " + str(critnumber) + " damage to Player 2")
+                                    P1KNIVES = P1KNIVES - 1
+                            elif itemOption == 3:
+                                if P1POTS == 0:
+                                    print("You have no healing. Skill issue")
+                                else:
+                                    HEAL = random.randint(3,7)
+                                    print("Player 1 healed " + str(HEAL) + " HP.")
+                                    P1HP = P1HP + HEAL
+                                    if P1HP > P1MAXHP:
+                                        print("But that would bring you over your max HP")
+                                        P1HP = P1MAXHP
+                                    else:
+                                        P1HP = P1HP
+                            elif itemOption == 4:
+                                if P1SEEGUN == 1:
+                                    print("Player 1 used their Glock-19, killing Player 2")
+                                    P2HP = 0
+                                    ic = 1
+                                    cc = 1
+                                elif P1SEEGUN == 0:
+                                    print("Player 1 canceled their item usage")
+                                    ic = 0
+                            elif itemOption == 5 and P1SEEGUN == 1:
+                                print("Player 1 canceled their item usage")
+                                ic = 0
+                            else:
+                                print("Please choose a valid option")
+                    elif option == 4:
+                        print("Player 1 passed their turn")
+                        mc = 0
+                        cc = 0
+                    elif option == 5:
                         print("1: Yes")
                         print("2: No")
                         yesorno = int(input("Are you sure you want to forfeit the match"))
@@ -432,5 +746,23 @@ while ac == 1:
                             print("You do not run away")
                     else:
                         print("Please provide a valid number.")
-
-print(winner + " won the game!")
+                if P1ADTR == 2:
+                    P1ADTR == P1ADTR - 1
+                elif P1ADTR == 1:
+                    P1AD = 0
+                    P1ADTR = 0
+                else:
+                    P1ADTR = 0
+                P1MP = P1MP + P1MPBON
+                if P1MP > P1MAXMP:
+                    P1MP = P1MAXMP
+                cc = 0
+                if P1HP <= 0:
+                    ac = 0
+                    winner = "Player 2"
+                elif P2HP <= 0:
+                    ac = 0
+                    winner = "Player 1"
+                else:
+                    print("Player 1 has " + str(P1HP) + " HP remaining, and " + str(P1MP) + " MP remaining")
+                    print("Player 2 has " + str(P2HP) + " HP remaining, and " + str(P2MP) + " MP remaining")

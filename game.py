@@ -270,8 +270,14 @@ P1ADTR = 0
 P2ADTR = 0
 P1DMGBOOST = 0
 P2DMGBOOST = 0
-
-
+P1SPOON = 0
+P2SPOON = 0
+P1KNIVES = 0
+P2KNIVES = 0
+P1POTS = 0
+P2POTS = 0
+P1GLOCK = 0
+P2GLOCK = 0
 
 
 
@@ -304,11 +310,39 @@ while ac == 1:
                         print("Player 2 has " + str(P2HP) + " HP left.")
                         cc = 1
                     elif critnumber + P1ATKBON < P2DEF:
-                        print("Player 1 missed thier attack")
+                        print("Player 1 missed their attack")
                         cc = 1
                     P1DMGBOOST = 0
                 elif option == 2:
-                    print("I need to import the magic system from Emilio's branch.")
+                    while mc == 0:
+                        print("1: Cancel")
+                        print("2: Firball - 5MP")
+                        print("3: Summon a random item - 2MP")
+                        print("4: Gain advantage on your next turn - 5MP")
+                        print("5: Impose disadvantage on your opponent's  - 6MP")
+                        print("6: Heal 20 percent of your max health - 6MP")
+                        print("7: Gain a damage boost on your next attack - Varies")
+                        print("Currently 8 - Descriptions")
+                        magicOption = int(input("What would you like to do? "))
+                        if magicOption == 1:
+                            print("You canceled your magic")
+                            mc = 1
+                        elif magicOption == 2:
+                            if P1MP < 5:
+                                print("You don't have enough MP for that")
+                            else:
+                                critnumber = random.randint(12,18)
+                                print("Player 1 casted fireball, doing " + str(critnumber) + " damage to Player 2")
+                                P1MP = P1MP - 5
+                        elif magicOption == 3:
+                            if P1MP < 2:
+                                print("You don't have enough MP for that")
+                            else:
+                                itemSpin = random.randint(1,100)
+                                if itemSpin >= 1 and itemSpin <= 20:
+                                    print("You conjured a... rusty spoon?")
+                                    print("This exists?")
+                                    P1SPOON = P1SPOON + 1
                 elif option == 3:
                     print("1: Yes")
                     print("2: No")
@@ -339,6 +373,12 @@ while ac == 1:
             else:
                 print("Player 1 has " + str(P1HP) + " HP remaining, and " + str(P1MP) + " MP remaining")
                 print("Player 2 has " + str(P2HP) + " HP remaining, and " + str(P2MP) + " MP remaining")
+                
+                
+                
+                
+                
+                
                 print("Player 2's turn")
                 while cc == 0:
                     print("1: Attack")

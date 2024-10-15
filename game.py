@@ -3,10 +3,13 @@ import time
 def s():
     time.sleep(.15)
 game=1
-while game==1    
+playagain=0
+while game==1:    
     print("Welcome to insert game title here")
     s()
     print("or the more commonly used name HELL")
+    print("")
+    print("")
     s()
     print("1: Start")
     s()
@@ -16,16 +19,119 @@ while game==1
     s()
     print("4: Exit")
     s()
-    start=int(input("What would you like to do?"))
+    start=int(input("What would you like to do?: "))
     s()
     if start==1:
         playagain=1
     elif start==2:
-        print("coming soon")
+        print("What would you like to know about?")
+        s()
+        print("1: How to play?")
+        s()
+        print("2: Characters")
+        s()
+        print("3: Attack System")
+        s()
+        print("4: Magic System")
+        s()
+        print("5: Item system")
+        s()
+        print("6: Other features")
+        print("0: Back")
+        s()
+        print("")
+        info=int(input("What would you like to do?: "))
+        s()
+        if info==1:
+            print("You will start by selecting your charcters, once you have picked your charcter you will fight you can attack use magic use items forfiet or pass your turn when someone runs out of health the other player wins.")
+            time.sleep(5)
+        elif info==2:
+            print("what would you like to know about the characters?")
+            s()
+            print("1: Stats")
+            s()
+            print("2: Backstories")
+            s()
+            print("0: Back")
+            s()
+            info=int(input("What would you like to do?: "))
+            s()
+        elif info==3:
+            print("what would you like to know about attacking?")
+            s()
+            print("1: Damage system")
+            s()
+            print("2: Crit system")
+            s()
+            print("3: Damage boost")
+            s()
+            print("4: Advantage")
+            s()
+            print("0: Back")
+            s()
+            info=int(input("What would you like to do?: "))
+            s()
+        elif info==4:
+            print("what would you like to know about magic?")
+            s()
+            print("1: MP system")
+            s()
+            print("2: Gain defense")
+            s()
+            print("3: Gain an item")
+            s()
+            print("4: Advantage")
+            s()
+            print("5: Heal")
+            s()
+            print("6: Fireball")
+            s()
+            print("7: Damage Boost")
+            s()
+            print("0: Back")
+            s()
+            info=int(input("What would you like to do?: "))
+            s()
+        elif info==5:
+            print("What would you like to know about items?")
+            s()
+            print("1: item chances")
+            s()
+            print("2: Heal potion")
+            s()
+            print("3: Knives")
+            s()
+            print("4: Rusty spoon")
+            s()
+            print("0: Back")
+            s()
+            info=int(input("What would you like to do?: "))
+            s()
+        elif info==6:
+            print("What would you like to know about other features")
+            s()
+            print("1: Healing")
+            s()
+            print("2: Speed")
+            s()
+            print("3: coming soon")
+            s()
+            print("0: Back")
+            s()
+            info=int(input("What would you like to do?: "))
+            s()
+        elif info==0:
+            print("")
+        else:
+            print("ERROR")
     elif start==3:
         print("coming soon")
+        s()
     elif start==4:
         print("")
+        s()
+        playagain=0
+        game=2
     while playagain==1:
         s()
         print("")
@@ -40,7 +146,7 @@ while game==1
         s()
         print("4: Rouge")
         s()
-        print("5: Sans")
+        print("5: Skele")
         s()
         print("6: Bard")
         s()
@@ -113,17 +219,17 @@ while game==1
                         cc=2
                         rc=2
                     elif player1class == 5:
-                        player1class = "Sans"
-                        P1HP = 19
+                        player1class = "skele"
+                        P1HP = 20
                         P1MAXHP = P1HP
                         P1ATK = 20
                         P1ATKBON = P1ATK + 2
-                        P1DEF = 20
+                        P1DEF = 10
                         P1MP = 15
                         P1MAXMP = P1MP
                         P1MPBON = 3
-                        P1SPD = 4
-                        P1SPDBON = 2
+                        P1SPD = 8
+                        P1SPDBON = 4
                         cc=2
                         rc=2
                     elif player1class == 6:
@@ -154,18 +260,18 @@ while game==1
                         P1SPDBON = 2
                         cc=2
                         rc=2
-                    elif player1class ==3145178740:
+                    elif player1class ==88224646790:
                         player1class = "Sigma"
-                        P1HP= 100000
+                        P1HP= 88224646790
                         P1MAXHP = P1HP
-                        P1ATK= 1
-                        P1ATKBON = 1000000
-                        P1DEF= 10
-                        P1MP= 2
+                        P1ATK= 88224646790
+                        P1ATKBON = 88224646790
+                        P1DEF= 88224646790
+                        P1MP= 88224646790
                         P1MAXMP = P1MP
-                        P1MPBON= 1
-                        P1SPD= 1
-                        P1SPDBON = 1
+                        P1MPBON= 88224646790
+                        P1SPD= 88224646790
+                        P1SPDBON = 88224646790
                         cc=2
                         rc=2
                     elif player1class == 8:
@@ -264,12 +370,12 @@ while game==1
                         P2SPDBON = 3
                         cc=2
                     elif player2class == 5:
-                        player2class = "Sans"
-                        P2HP = 19
+                        player2class = "Skele"
+                        P2HP = 20
                         P2MAXHP = P2HP
                         P2ATK = 20
                         P2ATKBON = P2ATK + 2
-                        P2DEF = 20
+                        P2DEF = 10
                         P2MP = 15
                         P2MAXMP = P2MP
                         P2MPBON = 3
@@ -305,18 +411,18 @@ while game==1
                         P2SPDBON = 2
                         cc=2
                         rc=2
-                    elif player2class ==3145178740:
+                    elif player2class ==88224646790:
                         player2class = "Sigma"
-                        P2HP= 100000
+                        P2HP= 88224646790
                         P2MAXHP = P2HP
-                        P2ATK= 1
-                        P2ATKBON= 1000000
-                        P2DEF= 10
-                        P2MP= 2
+                        P2ATK= 88224646790
+                        P2ATKBON= 88224646790
+                        P2DEF= 88224646790
+                        P2MP= 88224646790
                         P2MAXMP = P2MP
-                        P2MPBON= 1
-                        P2SPD= 1
-                        P2SPDBON = 1
+                        P2MPBON= 88224646790
+                        P2SPD= 88224646790
+                        P2SPDBON = 88224646790
                         cc=2
                         rc=2
                     elif player2class==8:
@@ -785,7 +891,7 @@ while game==1
                             print("Player 1 gained " + str(P1MPBON) + " MP back")
                             s()
                             if P1MAXMP < P1MP:
-                            P1MP = P1MAXMP
+                                P1MP = P1MAXMP
                             print("Player 1 has " + str(P1MP) + " MP left")
                             s()
                         else:
@@ -1188,7 +1294,7 @@ while game==1
                             print("Player 2 gained " + str(P2MPBON) + " MP back")
                             s()
                             if P2MAXMP < P2MP:
-                            P2MP = P2MAXMP
+                                P2MP = P2MAXMP
                             print("Player 2 has " + str(P2MP) + " MP left")
                             s()
                         else:
@@ -1204,6 +1310,8 @@ while game==1
                         P1SPD=P1SPD+1
                     else:
                         P2SPD=P2SPD+1
+                else:
+                    print("UH OH")
             print("")
             print("Player 1 HP left ",P1HP)
             s()
@@ -1220,4 +1328,4 @@ while game==1
         print("2: No")
         s()
         playagain=int(input("Play again?: "))
-    print("OvO")
+print("OvO")

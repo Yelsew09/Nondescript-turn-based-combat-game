@@ -37,6 +37,7 @@ while game==1:
         print("5: Item system")
         s()
         print("6: Other features")
+        s()
         print("0: Back")
         s()
         print("")
@@ -44,7 +45,9 @@ while game==1:
         s()
         if info==1:
             print("You will start by selecting your charcters, once you have picked your charcter you will fight you can attack use magic use items forfiet or pass your turn when someone runs out of health the other player wins.")
-            time.sleep(5)
+            s()
+            placeholder=int(input("Are you done reading?"))
+            s()
         elif info==2:
             print("what would you like to know about the characters?")
             s()
@@ -56,6 +59,75 @@ while game==1:
             s()
             info=int(input("What would you like to do?: "))
             s()
+            if info==1:
+                print("Which Charcter's stats would you like to see")
+                s()
+                print("1: General")
+                s()
+                print("2: Knight")
+                s()
+                print("3: Peashooter")
+                s()
+                print("4: Mage")
+                s()
+                print("5: Rouge")
+                s()
+                print("6: Skele")
+                s()
+                print("7: Bard")
+                s()
+                print("8: Barbarain")
+                s()
+                print("9: Random system")
+                s()
+                print("0: Back")
+                s()
+                info=int(input("What would you like to know about?: "))
+                if info==1:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==2:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==3:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==4:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==5:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==6:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==7:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==8:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==9:
+                    print("coming soon")
+                    placeholder=int(input("Are you done reading?"))
+                    s()
+                elif info==0:
+                    print("")
+            elif info==2:
+                print("coming soon")
+            elif info==0:
+                print("")
+            else:
+                print("try again")
+                s()
         elif info==3:
             print("what would you like to know about attacking?")
             s()

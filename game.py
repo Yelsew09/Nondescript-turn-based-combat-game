@@ -5,10 +5,10 @@ def s():
 game=1
 playagain=0
 while game==1:    
+    print("")
     print("Welcome to insert game title here")
     s()
     print("or the more commonly used name HELL")
-    print("")
     print("")
     s()
     print("1: Start")
@@ -46,7 +46,7 @@ while game==1:
         if info==1:
             print("You will start by selecting your charcters, once you have picked your charcter you will fight you can attack use magic use items forfiet or pass your turn when someone runs out of health the other player wins.")
             s()
-            placeholder=int(input("Are you done reading?"))
+            placeholder=input("Are you done reading")
             s()
         elif info==2:
             print("what would you like to know about the characters?")
@@ -84,40 +84,53 @@ while game==1:
                 s()
                 info=int(input("What would you like to know about?: "))
                 if info==1:
-                    print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
-                    s()
+                    print("Every Charcter has 10 stats most are hidden the stats are")
+                    print("1: HP")
+                    print("2: MAXHP")
+                    print("3: ATK")
+                    print("4: ATKBON")
+                    print("5: DEF")
+                    print("6: MP")
+                    print("7: MAXMP")
+                    print("8: MPBON")
+                    print("9: SPD")
+                    print("10: SPDBON")
+                    info=int(input("What would you like to know about"))
+                    if info==1:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
                 elif info==2:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==3:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==4:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==5:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==6:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==7:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==8:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==9:
                     print("coming soon")
-                    placeholder=int(input("Are you done reading?"))
+                    placeholder=input("Are you done reading")
                     s()
                 elif info==0:
                     print("")

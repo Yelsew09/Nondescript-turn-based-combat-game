@@ -1,3 +1,10 @@
+
+old stats (alot has changed)
+
+
+
+
+
 Character Stats:
 
 Knight stats:
@@ -20,10 +27,3 @@ Bard stats:
 
 Barbarian stats:
     HP: 52 ATK: 14(+2) DEF: 11 MP: 2(0) SPD: 1 SPDBON: 2
-
-Character ideas:
-    Cleric/healer - I could see this working, but in a doubles format which I will not be coding any time soon
-    Druid - Taking a turn to turn into a different form with wildly different stats
-    
-Gameplay ideas:
-Items

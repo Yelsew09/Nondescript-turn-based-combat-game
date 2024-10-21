@@ -371,11 +371,11 @@ while playagain==1:
         else:
             print("")
             if P1SPD > P2SPD:
-                print("player 1's turn")
+                print("Player 1's turn")
                 s()
-                print("player 1 has "+ str(P1MP) +" MP left")
+                print("Player 1 has "+ str(P1MP) +" MP left")
                 s()
-                print("do one of the following")
+                print("Do one of the following")
                 s()
                 print("1: Attack")
                 s()
@@ -387,7 +387,7 @@ while playagain==1:
                 s()
                 print("5: pass turn")
                 while turn == 1:
-                    option=int(input("what would player 1 like to do?: "))
+                    option = int(input("What would player 1 like to do?: "))
                     print("")
                     s()
                     critnumber=random.randint(rollp1,20)

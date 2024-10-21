@@ -3,9 +3,9 @@ import time
 def s():
     time.sleep(.15)
 game=1
-playagain=0
 while game==1:    
     print("")
+    playagain=0
     print("Welcome to insert game title here")
     s()
     print("or the more commonly used name HELL")
@@ -22,7 +22,18 @@ while game==1:
     start=int(input("What would you like to do?: "))
     s()
     if start==1:
-        playagain=1
+        print("1: PVP")
+        print("2: PVC")
+        print("0: Back")
+        start=int(input("what would you ;ike to play: "))
+        if start==1:
+            playagain=1
+        elif start==2:
+            print("coming soon")
+        elif start==0:
+            print("")
+        else:
+            print("error")
     elif start==2:
         print("What would you like to know about?")
         s()
@@ -100,6 +111,72 @@ while game==1:
                         print("coming soon")
                         placeholder=input("Are you done reading")
                         s()
+                    elif info==2:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==3:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==4:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==5:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==6:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==7:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==8:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==9:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==10:
+                        print("coming soon")
+                        placeholder=input("Are you done reading")
+                        s()
+                    elif info==0:
+                        print("")
+                    else:
+                        print("error")
+            elif info==2:
+                print("Which Charcter's would you like to know about")
+                s()
+                print("1: General")
+                s()
+                print("2: Knight")
+                s()
+                print("3: Peashooter")
+                s()
+                print("4: Mage")
+                s()
+                print("5: Rouge")
+                s()
+                print("6: Skele")
+                s()
+                print("7: Bard")
+                s()
+                print("8: Barbarain")
+                s()
+                print("0: Back")
+                s()
+                info=int(input("What would you like to know about?: "))
+                if info==1:
+                    print("coming soon")
+                    placeholder=input("Are you done reading")
+                    s()
                 elif info==2:
                     print("coming soon")
                     placeholder=input("Are you done reading")
@@ -132,10 +209,14 @@ while game==1:
                     print("coming soon")
                     placeholder=input("Are you done reading")
                     s()
+                elif info==10:
+                    print("coming soon")
+                    placeholder=input("Are you done reading")
+                    s()
                 elif info==0:
                     print("")
-            elif info==2:
-                print("coming soon")
+                else:
+                    print("error")
             elif info==0:
                 print("")
             else:
@@ -210,7 +291,7 @@ while game==1:
         else:
             print("ERROR")
     elif start==3:
-        print("coming soon")
+        print("No Options at the moment")
         s()
     elif start==4:
         print("")
@@ -555,7 +636,11 @@ while game==1:
         p1GLOCK19s=0
         p2GLOCK19s=0
         p1knives=0
-        p2knives=0 
+        p2knives=0
+        p1bows=0
+        p1bows=0 
+        p2arrows=0
+        p2arrows=0
         print("Player 1 HP ",P1HP)
         s()
         print("Player 2 HP ",P2HP)
@@ -801,6 +886,8 @@ while game==1:
                                     s()
                                     P1MP = P1MP - magic_option
                                     itemspin=random.randint(1,100)
+                                    print("You rolled a " + str(itemspin) + " ")
+                                    s()
                                     if itemspin >= 1 and itemspin<= 5:
                                         print("Player 1 Conjured a rusty spoon")
                                         s()
@@ -815,7 +902,16 @@ while game==1:
                                         print("Player 1 Conjured a healing potion")
                                         s()
                                         p1pots=p1pots+1
-                                    
+                                    elif itemspin >=0 and itemspin<=0:
+                                        arrow=random.randint(1,3)
+                                        if p1bows>1:
+                                            print("Player 1 conjured " + )
+                                        print("player 1 conjured a bow and arrow")
+                                        s()
+                                        p1bows = p1bows + 1
+                                        p1arrows=p1arrows+1
+                                        
+
                                     elif itemspin == 100:
                                         print("Player 1 Conjured a...")
                                         s()
@@ -1205,6 +1301,8 @@ while game==1:
                                     s()
                                     P2MP = P2MP - magic_option
                                     itemspin=random.randint(1,100)
+                                    print("You rolled a " + str(itemspin) + " ")
+                                    s()
                                     if itemspin >= 1 and itemspin<= 5:
                                         print("Player 2 Conjured a rusty spoon")
                                         s()

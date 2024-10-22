@@ -915,11 +915,15 @@ while game==1:
                                         else:
                                             print("ERROR")
                                             """
-                                            mana potion
-                                            fancy hat
-                                            sheild
-                                            poisun mechanic
-                                            shoes
+                                            mana potion- regain mana 
+                                            fancy hat-idk
+                                            sheild-+def
+                                            poisun mechanic-damage every turn
+                                            shoes-+spd
+                                            avocado-heal and gain pit
+                                            pit-throw for damage
+                                            can of whipped cream-heal 5 + 1 spd
+                                            slowdown- slow enemy
                                             """
                                     elif itemspin == 100:
                                         print("Player 1 Conjured a...")

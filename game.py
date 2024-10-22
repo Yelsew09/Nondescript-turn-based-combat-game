@@ -1,3 +1,4 @@
+
 import random
 import time
 def s():
@@ -894,7 +895,7 @@ while game==1:
                                         print("what a waste of a turn")
                                         s()
                                         p1spoons=p1spoons+1
-                                    elif itemspin >= 6 and itemspin<= 49:
+                                    elif itemspin >= 6 and itemspin<= 39:
                                         print("You Conjured Throwing knives")
                                         s()
                                         p1knives=p1knives+3
@@ -902,16 +903,24 @@ while game==1:
                                         print("Player 1 Conjured a healing potion")
                                         s()
                                         p1pots=p1pots+1
-                                    elif itemspin >=0 and itemspin<=0:
+                                    elif itemspin >=40 and itemspin<=49:
                                         arrow=random.randint(1,3)
                                         if p1bows>1:
-                                            print("Player 1 conjured " + )
-                                        print("player 1 conjured a bow and arrow")
-                                        s()
-                                        p1bows = p1bows + 1
-                                        p1arrows=p1arrows+1
-                                        
-
+                                            print("Player 1 conjured " + str(arrow) + " arrow")
+                                        elif p1bows==0:
+                                            print("player 1 conjured a bow and arrow")
+                                            s()
+                                            p1bows = p1bows + 1
+                                            p1arrows=p1arrows+1
+                                        else:
+                                            print("ERROR")
+                                            """
+                                            mana potion
+                                            fancy hat
+                                            sheild
+                                            poisun mechanic
+                                            shoes
+                                            """
                                     elif itemspin == 100:
                                         print("Player 1 Conjured a...")
                                         s()

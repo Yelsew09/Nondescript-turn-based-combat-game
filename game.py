@@ -61,6 +61,7 @@
                                             safty pin- reset both player to max health
                                             sheet of paper- write down enemy weaknesses -enemy defense
                                             mirror- you mirror your enemys health
+                                            confetti-swap health with enemy
                                             """
 import random
 import time

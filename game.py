@@ -1,9 +1,5 @@
 """
-                                            mana potion- regain mana 
-                                            fancy hat-idk
-                                            sheild-+def
                                             poisun mechanic-damage every turn
-                                            shoes-+spd
                                             avocado-heal and gain pit
                                             pit-throw for damage
                                             can of whipped cream-heal 5 + 1 spd
@@ -88,9 +84,13 @@ while game==1:
     s()
     if start==1:
         print("1: PVP")
+        s()
         print("2: PVC")
+        s()
         print("0: Back")
+        s()
         start=int(input("what would you ;ike to play: "))
+        s()
         if start==1:
             playagain=1
         elif start==2:
@@ -542,6 +542,7 @@ while game==1:
             while cc==1:
                 print("Please select a classs, player 2")
                 s()
+                rc=1
                 player2class = int(input("Choose 1 from the list above (please choose a number): "))
                 while rc==1:
                     s()
@@ -637,7 +638,7 @@ while game==1:
                         P2DEF= 11
                         P2MP= 2
                         P2MAXMP = P2MP
-                        P2MPBON= 0
+                        P2MPBON= 0.25
                         P2SPD= 4
                         P2SPDBON = 2
                         cc=2
@@ -661,7 +662,7 @@ while game==1:
                         player2class=random.randint(1,7)
                         cc=2
                     else:
-                        print("Please give a valid number.")
+                        print("Next time put in a valid number ")
                         s()
                 print("1: Yes")
                 s()
@@ -713,6 +714,14 @@ while game==1:
             p2hats=0
             p1sheilds=0
             p2sheilds=0
+            p1shoes=0
+            p2shoes=0
+            p1avocado=0
+            p2avocado=0
+            p1pits=0
+            p2pits=0
+            p1creams=0
+            p2creams=0
         print("Player 1 HP ",P1HP)
         s()
         print("Player 2 HP ",P2HP)
@@ -955,11 +964,6 @@ while game==1:
                                     print("")
                                 elif magic_option==2:
                                     """
-                                            poisun mechanic-damage every turn
-                                            shoes-+spd
-                                            avocado-heal and gain pit
-                                            pit-throw for damage
-                                            can of whipped cream-heal 5 + 1 spd
                                             slowdown- slow enemy
                                             bandana-+1 def - 1 to enemy atk
                                             plastic fork- throw to -1hp
@@ -1010,32 +1014,35 @@ while game==1:
                                             thread- chance to gain 2def
                                             shell- it crumbles into dust
                                             glass- throw to deal 2 damage but they gain 1-3 broken glass
-                                            stop sign- both players reset to 0 spd
+                                            stop sign- both players reset to 0 spd 2spd bon
                                             safty pin- reset both player to max health
                                             sheet of paper- write down enemy weaknesses -enemy defense
                                             mirror- you mirror your enemys health
+                                            poisun mechanic-damage every turn
+                                            plastic vampire teeth- heal 5 damage 5
                                             """
                                     print("Player 1 used gain a random item")
                                     s()
                                     P1MP = P1MP - magic_option
-                                    itemspin=random.randint(1,1000)
+                                    bestitem=191
+                                    itemspin=random.randint(1,bestitem)
                                     print("You rolled a " + str(itemspin) + " ")
                                     s()
-                                    if itemspin >= 1 and itemspin<= 5:
+                                    if itemspin >= 1 and itemspin<= 20:
                                         print("Player 1 Conjured a rusty spoon")
                                         s()
                                         print("what a waste of a turn")
                                         s()
                                         p1spoons=p1spoons+1
-                                    elif itemspin >= 6 and itemspin<= 10:
+                                    elif itemspin >= 21 and itemspin<= 40:
                                         print("You Conjured Throwing knives")
                                         s()
                                         p1knives=p1knives+3
-                                    elif itemspin >= 11 and itemspin<= 15:
+                                    elif itemspin >= 41 and itemspin<= 60:
                                         print("Player 1 Conjured a healing potion")
                                         s()
                                         p1pots=p1pots+1
-                                    elif itemspin >=16 and itemspin<=20:
+                                    elif itemspin >=61 and itemspin<=80:
                                         arrow=random.randint(2,4)
                                         if p1bows>=1:
                                             print("Player 1 conjured " + str(arrow) + " arrows")
@@ -1046,19 +1053,33 @@ while game==1:
                                             p1arrows=p1arrows+1
                                         else:
                                             print("ERROR")
-                                    elif itemspin ==21:
+                                    elif itemspin >=81 and itemspin <=90:
                                         print("Player 1 Conjured a fancy hat")
                                         s()
                                         p1hats=p1hats+1
-                                    elif itemspin >= 22 and itemspin<= 26:
+                                    elif itemspin >= 91 and itemspin<= 110:
                                         print("Player 1 Conjured a mana potion")
                                         s()
                                         p1mpots=p1mpots+1
-                                    elif itemspin >= 27 and itemspin<= 31:
+                                    elif itemspin >= 111 and itemspin<= 130:
                                         print("Player 1 Conjured a sheild")
                                         s()
                                         p1sheilds=p1sheilds+1
-                                    elif itemspin == 1000:
+                                    elif itemspin >= 131 and itemspin<= 150:
+                                        print("Player 1 Conjured a pair of new sneakers")
+                                        s()
+                                        p1shoes=p1shoes+1
+                                    elif itemspin >= 151 and itemspin<= 170:
+                                        print("Player 1 Conjured a...")
+                                        s()
+                                        print("a avocado")
+                                        s()
+                                        p1avocado=p1avocado+1
+                                    elif itemspin >= 171 and itemspin<= 190:
+                                        print("Player 1 Conjured a can of whipped cream")
+                                        s()                                        
+                                        p1creams=p1creams+1
+                                    elif itemspin == bestitem:
                                         print("Player 1 Conjured a...")
                                         s()
                                         s()
@@ -1125,49 +1146,70 @@ while game==1:
                                 else:
                                     print("")
                         elif option == 3:
-                            pots=0
-                            spoons=0
                             glocks=0
-                            knives=0
-                            sheilds=0
-                            hats=0
-                            bows=0
-                            mpots=0
-                            if p1pots >= 1:
-                                print("Player 1 has " + str(p1pots) + " Healing Potions left")
-                                pots=1
-                                s()
-                            if p1spoons >=1:
-                                spoons=1
-                                print("Player 1 has " + str(p1spoons) + " Rusty spoons left")
-                            if p1GLOCK19s >=1:
+                            print("Player 1 has " + str(p1pots) + " Healing Potions left")
+                            s()
+                            print("Player 1 has " + str(p1spoons) + " Rusty spoons left")
+                            s()
+                            if p1GLOCK19s>=1:
                                 print("THEY HAVE A GUNNN!!!!!!!!")
+                                s()
                                 glocks=1
-                            if p1knives >=1:
-                                print("Player 1 has " + str(p1knives) + " Knives left")
-                                knives=1
-                            if p1bows >=1:
-                                print("Player 1 has a bow")
-                                bows=1
-                            if p1mpots >=1:
-                                print("Player 1 has " + str(p1mpots) + "  ") 
+                            print("Player 1 has " + str(p1knives) + " Knives left")
+                            s()
+                            if p1bows==1:
+                                print("Player 1 has a bow and has " + str(p1arrows) + " arrows left")
+                                s()
+                            elif p1bows==0:
+                                print("player 1 doesnt have a bow and has " + str(p1arrows) + " arrows left")
+                            print("player 1 has " + str(p1hats) + " Fancy hats left")    
+                            print("Player 1 has " + str(p1mpots) + " Mana potions left")
+                            s()
+                            print("player 1 had " + str(p1sheilds) + " sheilds left")
+                            s()
+                            print("player 1 has " + str(p1shoes) + " pairs of sneaker left")
+                            s()
+                            print("player 1 has " + str(p1avocado) + " avocado's left")
+                            s()
+                            print("player 1 has " + str(p1pits) + " Pits left")
+                            s()
+                            print("player 1 has " + str(p1creams) + " Cans of whipped cream left")
+                            s()
+
+
+
+
+
                             print("")
-                            if pots==1:
-                                print("1: Heal 5 Health")
-                                s()
-                            if spoons == 1:
-                                print("2: Throw a Spoon")
-                                s()
-                            if glocks==1:
-                                print("10: Shoot")
-                                s()
-                            if knives==1:
-                                print("3: Throw a knife")
+                            print("1: Use healing potion")
+                            s()
+                            print("2: Throw a rusty spoon")
+                            s()
+                            print("3: Throw a throwing knife")
+                            s()
+                            print("4: shoot an arrow")
+                            s()
+                            print("5: Use a mana potion")
+                            s()
+                            print("6: use the sheild")
+                            s()
+                            print("7: wear a fancy hat")
+                            s()
+                            print("8: wear sneakers")
+                            s()
+                            print("9: eat avocado")
+                            s()
+                            print("10: throw pit")
+                            s()
+                            print("11: eat whipped cream")
                             print("0: cancel")
+                            if glocks==1:
+                                print("100000: Shoot")
+                                s()
                             s()
                             itemchoice=int(input("What would you like to do?: "))
                             s()
-                            if itemchoice==1 and pots >= 1:
+                            if itemchoice==1 and p1pots >= 1:
                                 print("Player 1 Heals 5 health")
                                 s()
                                 P1HP=P1HP+5
@@ -1176,7 +1218,7 @@ while game==1:
                                 print("Player 1 has " + str(P1HP) + " HP")
                                 s()
                                 p1pots=p1pots-1
-                            elif itemchoice==3 and knives>=1:
+                            elif itemchoice==3 and p1knives>=1:
                                 print("Player 1 threw a knife")
                                 s()
                                 knifedamage=random.randint(1,5)
@@ -1186,7 +1228,7 @@ while game==1:
                                 print("Player 2 has " + str(P2HP) + " HP left")
                                 s()
                                 p1knives=p1knives-1
-                            elif itemchoice==2 and spoons>=1:
+                            elif itemchoice==2 and p1spoons>=1:
                                 print("Player 1 threw a Spoon")
                                 s()
                                 spooncrit=random.randint(1,100)
@@ -1211,14 +1253,90 @@ while game==1:
                                     P2HP=0
                                 else:
                                     print("ERROR ERROR")
-                            elif itemchoice==10 and glocks>=1:
+                                p1spoons=p1spoons-1
+                            elif itemchoice==100000 and p1GLOCK19s>=1:
                                 print("player 2 was shot and died")
                                 P2HP=0
                                 print("stop gun voilence")
                             elif itemchoice==0:
                                 print("")
+                            elif itemchoice==4 and p1bows==1 and p1arrows>=1:
+                                arrowdamage=random.randint(2,5)
+                                P2HP=P2HP-arrowdamage
+                                print("You shot an arrow at player 2 doing " + str(arrowdamage) + " damage to Player 2, Player 2 has " + str(P2HP) + " HP left")
+                                p1arrows=p1arrows-1
+                                bbreak=random.randint(1,50)
+                                if bbreak==50:
+                                    p1bows=0
+                                    print("your bow broke")
+                            elif itemchoice==5 and p1mpots >= 1:
+                                print("Player 1 regains 5 mana")
+                                s()
+                                P1MP=P1MP+5
+                                if P1MAXMP<=P1MP:
+                                    P1MP=P1MAXMP
+                                print("Player 1 has " + str(P1MP) + " MP")
+                                s()
+                                p1mpots=p1mpots-1
+                            elif itemchoice==6 and p1sheilds >= 1:
+                                print("Player 1 sheilds themself and gains 2 def")
+                                s()
+                                P1DEF=P1DEF+2
+                                p1sheilds=p1sheilds-1
+                            elif itemchoice==7 and p1hats >= 1:
+                                print("Player 1 wears the fancy hat and their max health goes up by 5 and they regain all missing health")
+                                s()
+                                P1MAXHP=P1MAXHP+5
+                                P1HP=P1MAXHP
+                                print("Player 1 has " + str(P1HP) + " HP")
+                                s()
+                                p1hats=p1hats-1
+                            elif itemchoice==8 and p1shoes >= 1:
+                                print("Player 1 wears the pair of sneaker and their Speed goes up by 5 and increase Speed bon by 1")
+                                s()
+                                P1SPD=P1SPD+5
+                                P1SPDBON=P1SPDBON+.5
+                                s()
+                                p1shoes=p1shoes-1
+                            elif itemchoice==9 and p1avocado >= 1:
+                                print("Player 1 Heals 3 health")
+                                s()
+                                P1HP=P1HP+3
+                                if P1MAXHP<=P1HP:
+                                    P1HP=P1MAXHP
+                                print("Player 1 has " + str(P1HP) + " HP")
+                                s()
+                                p1pits=p1pits+1
+                                p1avocado=p1avocado-1
+                            elif itemchoice==10 and p1pits>=1:
+                                print("Player 1 threw a pit")
+                                s()
+                                knifedamage=random.randint(1,3)
+                                P2HP=P2HP-knifedamage
+                                print("Player 1 did " + str(knifedamage) + " Damage to Player 2")
+                                s()
+                                print("Player 2 has " + str(P2HP) + " HP left")
+                                s()
+                                p1pits=p1pits-1
+                            elif itemchoice==11 and p1cream >= 1:
+                                c02pois=random.randit(1-10)
+                                if c02pois==10:
+                                    print("player 1 died to carbon dioxide poisening")
+                                    P1HP=0
+                                    break
+                                elif c02pois!=10:
+                                    print("Player 1 Heals 5 health")
+                                    s()
+                                    P1HP=P1HP+3
+                                    if P1MAXHP<=P1HP:
+                                        P1HP=P1MAXHP
+                                    print("Player 1 has " + str(P1HP) + " HP")
+                                    s()
+                                    p1creams=p1creams-1
                             else:
-                                print("Please use a valid number")
+                                print("you either didnt have the item or you typed in a unavalible number either way your an idiot")
+                                s()
+
                         elif option==5:
                             print("You pass you're turn")
                             turn = 2

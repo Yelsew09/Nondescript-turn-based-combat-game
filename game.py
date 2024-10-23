@@ -27,7 +27,7 @@
                                             pillow- sleep-- -30 spd go back to max health
                                             wishbone- one player gets a wish
                                             bag-get 1-5 items (random)
-                                            umbrella- nothing
+                                            umbrella-chance to remove all enemy mana
                                             hamster- deal 3-7 damage but they heal 1-5 health
                                             cat- deals 5 damage to both players
                                             dictionary- increase max mana by 1

@@ -1,4 +1,67 @@
-
+"""
+                                            mana potion- regain mana 
+                                            fancy hat-idk
+                                            sheild-+def
+                                            poisun mechanic-damage every turn
+                                            shoes-+spd
+                                            avocado-heal and gain pit
+                                            pit-throw for damage
+                                            can of whipped cream-heal 5 + 1 spd
+                                            slowdown- slow enemy
+                                            bandana-+1 def - 1 to enemy atk
+                                            plastic fork- throw to -1hp
+                                            steakknife- 5 damage
+                                            pants- +1 def
+                                            pair of tongs- steal an item from enemy
+                                            bag of popcorn-heal 1-5
+                                            container of pudding- heal 8
+                                            dog- +1 max hp
+                                            handheld game system- -1 def
+                                            pair of scissors- 1-10 damage
+                                            toothpick- +1 hp
+                                            incense holder- - both players spd
+                                            cookie jar- open for 1-5 cookies
+                                            cookies-heal 1-3 health
+                                            spool of ribbon- -speed 5-20
+                                            chair- chair
+                                            pillow- sleep-- -30 spd go back to max health
+                                            wishbone- one player gets a wish
+                                            bag-get 1-5 items (random)
+                                            umbrella- nothing
+                                            hamster- deal 3-7 damage but they heal 1-5 health
+                                            cat- deals 5 damage to both players
+                                            dictionary- increase max mana by 1
+                                            candle- use 3 mana to light it once you light it you gain +1 to spdbon
+                                            marble- chance to make the enemy slip
+                                            nail clippers- -1 atk +1 looking nice
+                                            feather duster- clean up the place
+                                            pool stick- 50/50 to do 1 damage or nothing
+                                            spool of string- chance to knit a sweater
+                                            sweater- +1 drip
+                                            glasses- +1 max mana
+                                            shopping bag- -all your mana for 5 items
+                                            game cd- throw for 1-3 damage if you have handheld consol you can input one code 
+                                            lace-thats some weird fabric -10000 aura
+                                            picture frame- you think back to better times +1 mana
+                                            toilet- you become very skibidi do 5 damge
+                                            tennis ball- 3 damage but they enemy gets the ball afterward
+                                            drawer-chance to get an item or throw for 4 damage
+                                            rubber stamp- -1 spd
+                                            pocket watch- +1spd bon +3spd
+                                            lotion- does nothing or -1 spd if you have tissues AYO
+                                            tissues- +1 health
+                                            statuette- deal 3 damage chance to split and deal an extra 3 damage
+                                            beaded bracelet- throw with a chance to exsplode dealing 10 damage to everyone
+                                            game cartidge- PUT IT BACKKKK set health to 1
+                                            bottle of lotion- gain 1-10 lotions
+                                            thread- chance to gain 2def
+                                            shell- it crumbles into dust
+                                            glass- throw to deal 2 damage but they gain 1-3 broken glass
+                                            stop sign- both players reset to 0 spd
+                                            safty pin- reset both player to max health
+                                            sheet of paper- write down enemy weaknesses -enemy defense
+                                            mirror- you mirror your enemys health
+                                            """
 import random
 import time
 def s():
@@ -620,28 +683,35 @@ while game==1:
                     s()
                     cc=1
                     rc=1
-        winner=1
-        roundnumber = 1  
-        DMGBUFFP1=0
-        DMGBUFFP2=0
-        dmgp1=1
-        dmgp2=1
-        rollp1=1
-        rollp2=1
-        rolladp1=1
-        rolladp2=2
-        p1pots=1
-        p2pots=1
-        p1spoons=0
-        p2spoons=0
-        p1GLOCK19s=0
-        p2GLOCK19s=0
-        p1knives=0
-        p2knives=0
-        p1bows=0
-        p1bows=0 
-        p2arrows=0
-        p2arrows=0
+        for i in range(1):
+            winner=1
+            roundnumber = 1  
+            DMGBUFFP1=0
+            DMGBUFFP2=0
+            dmgp1=1
+            dmgp2=1
+            rollp1=1
+            rollp2=1
+            rolladp1=1
+            rolladp2=2
+            p1pots=1
+            p2pots=1
+            p1spoons=0
+            p2spoons=0
+            p1GLOCK19s=0
+            p2GLOCK19s=0
+            p1knives=0
+            p2knives=0
+            p1bows=0
+            p2bows=0 
+            p1arrows=0
+            p2arrows=0
+            p1mpots=0
+            p2mpots=0
+            p1hats=0
+            p2hats=0
+            p1sheilds=0
+            p2sheilds=0
         print("Player 1 HP ",P1HP)
         s()
         print("Player 2 HP ",P2HP)
@@ -883,10 +953,71 @@ while game==1:
                                 elif magic_option==0:
                                     print("")
                                 elif magic_option==2:
+                                    """
+                                            poisun mechanic-damage every turn
+                                            shoes-+spd
+                                            avocado-heal and gain pit
+                                            pit-throw for damage
+                                            can of whipped cream-heal 5 + 1 spd
+                                            slowdown- slow enemy
+                                            bandana-+1 def - 1 to enemy atk
+                                            plastic fork- throw to -1hp
+                                            steakknife- 5 damage
+                                            pants- +1 def
+                                            pair of tongs- steal an item from enemy
+                                            bag of popcorn-heal 1-5
+                                            container of pudding- heal 8
+                                            dog- +1 max hp
+                                            handheld game system- -1 def
+                                            pair of scissors- 1-10 damage
+                                            toothpick- +1 hp
+                                            incense holder- - both players spd
+                                            cookie jar- open for 1-5 cookies
+                                            cookies-heal 1-3 health
+                                            spool of ribbon- -speed 5-20
+                                            chair- chair
+                                            pillow- sleep-- -30 spd go back to max health
+                                            wishbone- one player gets a wish
+                                            bag-get 1-5 items (random)
+                                            umbrella- nothing
+                                            hamster- deal 3-7 damage but they heal 1-5 health
+                                            cat- deals 5 damage to both players
+                                            dictionary- increase max mana by 1
+                                            candle- use 3 mana to light it once you light it you gain +1 to spdbon
+                                            marble- chance to make the enemy slip
+                                            nail clippers- -1 atk +1 looking nice
+                                            feather duster- clean up the place
+                                            pool stick- 50/50 to do 1 damage or nothing
+                                            spool of string- chance to knit a sweater
+                                            sweater- +1 drip
+                                            glasses- +1 max mana
+                                            shopping bag- -all your mana for 5 items
+                                            game cd- throw for 1-3 damage if you have handheld consol you can input one code 
+                                            lace-thats some weird fabric -10000 aura
+                                            picture frame- you think back to better times +1 mana
+                                            toilet- you become very skibidi do 5 damge
+                                            tennis ball- 3 damage but they enemy gets the ball afterward
+                                            drawer-chance to get an item or throw for 4 damage
+                                            rubber stamp- -1 spd
+                                            pocket watch- +1spd bon +3spd
+                                            lotion- does nothing or -1 spd if you have tissues AYO
+                                            tissues- +1 health
+                                            statuette- deal 3 damage chance to split and deal an extra 3 damage
+                                            beaded bracelet- throw with a chance to exsplode dealing 10 damage to everyone
+                                            game cartidge- PUT IT BACKKKK set health to 1
+                                            bottle of lotion- gain 1-10 lotions
+                                            thread- chance to gain 2def
+                                            shell- it crumbles into dust
+                                            glass- throw to deal 2 damage but they gain 1-3 broken glass
+                                            stop sign- both players reset to 0 spd
+                                            safty pin- reset both player to max health
+                                            sheet of paper- write down enemy weaknesses -enemy defense
+                                            mirror- you mirror your enemys health
+                                            """
                                     print("Player 1 used gain a random item")
                                     s()
                                     P1MP = P1MP - magic_option
-                                    itemspin=random.randint(1,100)
+                                    itemspin=random.randint(1,1000)
                                     print("You rolled a " + str(itemspin) + " ")
                                     s()
                                     if itemspin >= 1 and itemspin<= 5:
@@ -895,18 +1026,18 @@ while game==1:
                                         print("what a waste of a turn")
                                         s()
                                         p1spoons=p1spoons+1
-                                    elif itemspin >= 6 and itemspin<= 39:
+                                    elif itemspin >= 6 and itemspin<= 10:
                                         print("You Conjured Throwing knives")
                                         s()
                                         p1knives=p1knives+3
-                                    elif itemspin >= 50 and itemspin<= 99:
+                                    elif itemspin >= 11 and itemspin<= 15:
                                         print("Player 1 Conjured a healing potion")
                                         s()
                                         p1pots=p1pots+1
-                                    elif itemspin >=40 and itemspin<=49:
-                                        arrow=random.randint(1,3)
-                                        if p1bows>1:
-                                            print("Player 1 conjured " + str(arrow) + " arrow")
+                                    elif itemspin >=16 and itemspin<=20:
+                                        arrow=random.randint(2,4)
+                                        if p1bows>=1:
+                                            print("Player 1 conjured " + str(arrow) + " arrows")
                                         elif p1bows==0:
                                             print("player 1 conjured a bow and arrow")
                                             s()
@@ -914,18 +1045,19 @@ while game==1:
                                             p1arrows=p1arrows+1
                                         else:
                                             print("ERROR")
-                                            """
-                                            mana potion- regain mana 
-                                            fancy hat-idk
-                                            sheild-+def
-                                            poisun mechanic-damage every turn
-                                            shoes-+spd
-                                            avocado-heal and gain pit
-                                            pit-throw for damage
-                                            can of whipped cream-heal 5 + 1 spd
-                                            slowdown- slow enemy
-                                            """
-                                    elif itemspin == 100:
+                                    elif itemspin ==21:
+                                        print("Player 1 Conjured a fancy hat")
+                                        s()
+                                        p1hats=p1hats+1
+                                    elif itemspin >= 22 and itemspin<= 26:
+                                        print("Player 1 Conjured a mana potion")
+                                        s()
+                                        p1mpots=p1mpots+1
+                                    elif itemspin >= 27 and itemspin<= 31:
+                                        print("Player 1 Conjured a sheild")
+                                        s()
+                                        p1sheilds=p1sheilds+1
+                                    elif itemspin == 1000:
                                         print("Player 1 Conjured a...")
                                         s()
                                         s()
@@ -996,6 +1128,10 @@ while game==1:
                             spoons=0
                             glocks=0
                             knives=0
+                            sheilds=0
+                            hats=0
+                            bows=0
+                            mpots=0
                             if p1pots >= 1:
                                 print("Player 1 has " + str(p1pots) + " Healing Potions left")
                                 pots=1
@@ -1009,6 +1145,12 @@ while game==1:
                             if p1knives >=1:
                                 print("Player 1 has " + str(p1knives) + " Knives left")
                                 knives=1
+                            if p1bows >=1:
+                                print("Player 1 has a bow")
+                                bows=1
+                            if p1mpots >=1:
+                                print("Player 1 has " + str(p1mpots) + "  ") 
+                            print("")
                             if pots==1:
                                 print("1: Heal 5 Health")
                                 s()

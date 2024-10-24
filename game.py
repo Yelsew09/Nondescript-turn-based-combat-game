@@ -1,3 +1,5 @@
+p1score=0
+p2score=0
 """
                                             poisun mechanic-damage every turn
                                             avocado-heal and gain pit
@@ -722,6 +724,8 @@ while game==1:
             p2pits=0
             p1creams=0
             p2creams=0
+            p1webs=0
+            p2webs=0
         print("Player 1 HP ",P1HP)
         s()
         print("Player 2 HP ",P2HP)
@@ -740,11 +744,13 @@ while game==1:
                 print("Player 2 wins the game")
                 s()
                 winner=player2class
+                p2score=p2score+1
                 break
             elif P2HP <= 0:
                 print("Player 1 wins the game")
                 s()
-                winner=player2class
+                winner=player1class
+                p1score=p1score+1
                 break
             else:
                 print("")
@@ -964,7 +970,6 @@ while game==1:
                                     print("")
                                 elif magic_option==2:
                                     """
-                                            slowdown- slow enemy
                                             bandana-+1 def - 1 to enemy atk
                                             plastic fork- throw to -1hp
                                             steakknife- 5 damage
@@ -1024,7 +1029,7 @@ while game==1:
                                     print("Player 1 used gain a random item")
                                     s()
                                     P1MP = P1MP - magic_option
-                                    bestitem=191
+                                    bestitem=211
                                     itemspin=random.randint(1,bestitem)
                                     print("You rolled a " + str(itemspin) + " ")
                                     s()
@@ -1079,6 +1084,10 @@ while game==1:
                                         print("Player 1 Conjured a can of whipped cream")
                                         s()                                        
                                         p1creams=p1creams+1
+                                    elif itemspin >= 191 and itemspin<= 210:
+                                        print("Player 1 Conjured a spiderweb")
+                                        s()                                        
+                                        p1webs=p1webs+1
                                     elif itemspin == bestitem:
                                         print("Player 1 Conjured a...")
                                         s()
@@ -1175,7 +1184,7 @@ while game==1:
                             s()
                             print("player 1 has " + str(p1creams) + " Cans of whipped cream left")
                             s()
-
+                            print("player 1 has " + str(p1webs) + " webs of the spider left")
 
 
 
@@ -1202,6 +1211,9 @@ while game==1:
                             print("10: throw pit")
                             s()
                             print("11: eat whipped cream")
+                            s()
+                            print("12: shoot web")
+                            s()
                             print("0: cancel")
                             if glocks==1:
                                 print("100000: Shoot")
@@ -1325,14 +1337,23 @@ while game==1:
                                     P1HP=0
                                     break
                                 elif c02pois!=10:
-                                    print("Player 1 Heals 5 health")
+                                    print("Player 1 Heals 5 health and gains 1 Speed")
                                     s()
-                                    P1HP=P1HP+3
+                                    P1HP=P1HP+5
                                     if P1MAXHP<=P1HP:
                                         P1HP=P1MAXHP
                                     print("Player 1 has " + str(P1HP) + " HP")
                                     s()
+                                    P1SPD=P1SPD+1
                                     p1creams=p1creams-1
+                            elif itemchoice==12 and p1cream >= 1:
+                                print("Player 1 shoots a web and slows down player 2")
+                                s()
+                                webslow=random.randint(1,8)
+                                P2SPD=P2SPD-webslow
+                                print("player 2 is " + str(webslow) + " speed slower now")
+                                s()
+                                p1webs=p1webs-1
                             else:
                                 print("you either didnt have the item or you typed in a unavalible number either way your an idiot")
                                 s()
@@ -1774,6 +1795,7 @@ while game==1:
             s()
             print("Player 2 HP left ",P2HP)
         print("winner winner chicken dinner")
+        print("")
         s()
         print("")
         print("")

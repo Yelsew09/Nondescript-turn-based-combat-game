@@ -1761,7 +1761,7 @@ while game==1:
                                 print("THEY HAVE A GUNNN!!!!!!!!")
                                 s()
                                 glocks=1
-                            print("Player 2 has " + str(p1knives) + " Knives left")
+                            print("Player 2 has " + str(p2knives) + " Knives left")
                             s()
                             if p2bows==1:
                                 print("Player 2 has a bow and has " + str(p2arrows) + " arrows left")

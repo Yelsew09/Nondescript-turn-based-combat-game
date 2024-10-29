@@ -1684,4 +1684,4 @@ while ac == 1:
                 P2SPD = P2SPD + 1
             else:
                 print(errmsg)
-print(Winner + " won the game")
+print(winner + " won the game")

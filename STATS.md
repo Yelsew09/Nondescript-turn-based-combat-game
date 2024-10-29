@@ -1,3 +1,10 @@
+
+old stats (alot has changed)
+
+
+
+
+
 Character Stats:
 
 Knight stats:
@@ -19,7 +26,7 @@ Bard stats:
     HP: 37  ATK: 7(+1)  DEF: 13  MP: 17(+4)  SPD: 5
 
 Barbarian stats:
-    HP: 52 ATK: 14(+2) DEF: 11 MP: 2(0) SPD: 1
+    HP: 52 ATK: 14(+2) DEF: 11 MP: 2(.25) SPD: 1
 
 Character ideas:
     Cleric/healer - I could see this working, but in a doubles format which I will not be coding any time soon

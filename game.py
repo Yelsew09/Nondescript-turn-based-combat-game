@@ -171,17 +171,19 @@ while game==1:
                         print("the knights SPDBON is 2")
                         placeholder=input("Are you done reading")
                 elif info==3:
-                        print("Knights HP is 35")
-                        print("knights max hp is 35")
-                        print("the knight has an atk of 10")
-                        print("the knights atk bon is 2")
-                        print("the knights DEF is 14")
-                        print("the knights MP is 4")
-                        print("the knights max mp is 4")
-                        print("the knights mp bon is 1")
-                        print("the knights speed is 3")
-                        print("the knights SPDBON is 2")
+                        print("peashooters HP is 35")
+                        print("Peashooters max hp is 35")
+                        print("Peashooters has an atk of 10")
+                        print("Peashooters atk bon is 2")
+                        print("Peashooters DEF is 14")
+                        print("Peashooters MP is 5")
+                        print("Peashooters max mp is 5")
+                        print("Peashooters mp bon is 1")
+                        print("Peashooters speed is 6")
+                        print("Peashooters SPDBON is 2")
                         placeholder=input("Are you done reading")
+                else:
+                    print("coming soon")
             elif info==2:
                 print("Which Charcter's would you like to know about")
                 s()
@@ -205,46 +207,37 @@ while game==1:
                 s()
                 info=int(input("What would you like to know about?: "))
                 if info==1:
-                    print("coming soon")
+                    print("They were taken to fight for all eternity they will never age eventually they will be numb to the pain of fighting day after day")
                     placeholder=input("Are you done reading")
                     s()
                 elif info==2:
-                    print("coming soon")
+                    print("on his way to save a princess he was dragged into the arena to fight he weilds his sword with as much coarage as he can muster")
                     placeholder=input("Are you done reading")
                     s()
                 elif info==3:
-                    print("coming soon")
+                    print("right before he was eaten by a zombie he was brought to the arena to fight a difrent enemy")
                     placeholder=input("Are you done reading")
                     s()
                 elif info==4:
-                    print("coming soon")
+                    print("he was chilling in his tower when he was taken into the arena he holds his wand high and his hat higher")
                     placeholder=input("Are you done reading")
                     s()
                 elif info==5:
-                    print("coming soon")
+                    print("after stealing from some children the rouge ran home but before they could put away their earnings they slipped into the void to never be seen again forced to fight in the arena for all eternity")
                     placeholder=input("Are you done reading")
                     s()
                 elif info==6:
-                    print("coming soon")
+                    print("he was taking a nap in his grave but when he awoke he was no longer in his tomb he was in the arena")
                     placeholder=input("Are you done reading")
                     s()
                 elif info==7:
-                    print("coming soon")
+                    print("after playing some music for the townsfolk they taken in the cover of the night into the arena")
                     placeholder=input("Are you done reading")
                     s()
                 elif info==8:
-                    print("coming soon")
+                    print("he willingly went into the arena for he loved the thrill of the fight")
                     placeholder=input("Are you done reading")
                     s()
-                elif info==9:
-                    print("coming soon")
-                    placeholder=input("Are you done reading")
-                    s()
-                elif info==10:
-                    print("coming soon")
-                    placeholder=input("Are you done reading")
-                    s()
-                elif info==0:
                     print("")
                 else:
                     print("error")
@@ -444,8 +437,8 @@ while game==1:
                         P1MP = 15
                         P1MAXMP = P1MP
                         P1MPBON = 3
-                        P1SPD = 8
-                        P1SPDBON = 4
+                        P1SPD = 7
+                        P1SPDBON = 2
                         cc=2
                         rc=2
                     elif player1class == 6:
@@ -457,7 +450,7 @@ while game==1:
                         P1DEF = 13
                         P1MP = 17
                         P1MAXMP = P1MP
-                        P1MPBON = 4
+                        P1MPBON = 3
                         P1SPD = 5
                         P1SPDBON = 2
                         cc=2
@@ -471,7 +464,7 @@ while game==1:
                         P1DEF = 11
                         P1MP = 2
                         P1MAXMP = P1MP
-                        P1MPBON = .25
+                        P1MPBON = .5
                         P1SPD = 4
                         P1SPDBON = 2
                         cc=2
@@ -1236,7 +1229,48 @@ while game==1:
                                 print("100000: Shoot")
                                 s()
                             itemss=1
-                            while itemss==1:
+                            firsttime=1
+                            while itemss>=1:
+                                if firsttime==2:
+                                    glocks=0
+                                    print("Player 1 has " + str(p1pots) + " Healing Potions left")
+                                    s()
+                                    print("Player 1 has " + str(p1spoons) + " Rusty spoons left")
+                                    s()
+                                    if p1GLOCK19s>=1:
+                                        print("THEY HAVE A GUNNN!!!!!!!!")
+                                        s()
+                                        glocks=1
+                                    print("Player 1 has " + str(p1knives) + " Knives left")
+                                    s()
+                                    if p1bows==1:
+                                        print("Player 1 has a bow and has " + str(p1arrows) + " arrows left")
+                                        s()
+                                    elif p1bows==0:
+                                        print("player 1 doesnt have a bow and has " + str(p1arrows) + " arrows left")
+                                    print("player 1 has " + str(p1hats) + " Fancy hats left")   
+                                    s()
+                                    print("Player 1 has " + str(p1mpots) + " Mana potions left")
+                                    s()
+                                    print("player 1 had " + str(p1sheilds) + " sheilds left")
+                                    s()
+                                    print("player 1 has " + str(p1shoes) + " pairs of sneaker left")
+                                    s()
+                                    print("player 1 has " + str(p1avocado) + " avocado's left")
+                                    s()
+                                    print("player 1 has " + str(p1pits) + " Pits left")
+                                    s()
+                                    print("player 1 has " + str(p1creams) + " Cans of whipped cream left")
+                                    s()
+                                    print("player 1 has " + str(p1webs) + " webs of the spider left")
+                                    s()
+                                    print("player 1 has " + str(p1dictionarys) + " dictionarys left")
+                                    s()
+                                    print("player 1 has " + str(p1elmos) + " talking elmos left")
+                                    s()
+                                    print("Player 1 has " + str(p1popbags) + " popcorn bags left")
+                                    s()
+                                    print("player 1 has " + str(p1pop) + " peices of popcorn left")
                                 s()
                                 itemchoice=int(input("What would you like to do?: "))
                                 s()
@@ -1395,6 +1429,7 @@ while game==1:
                                 elif itemchoice==16 and p1popbags >= 1 and P1MP>=3:
                                     print("Player 1 uses 3 mana to heat up some popcorn")
                                     s()
+                                    P1MP=P1MP-3
                                     popcorn=random.randint(1,20)
                                     p1pop=p1pop+popcorn
                                     p1popbags=p1popbags-1
@@ -1416,6 +1451,7 @@ while game==1:
                                 else:
                                     print("you either didnt have the item or you typed in a unavalible number either way your an idiot")
                                     s()
+                                firsttime=firsttime+1
 
                         elif option==5:
                             print("You pass you're turn")
@@ -1876,9 +1912,49 @@ while game==1:
                             if glocks==1:
                                 print("100000: Shoot")
                                 s()
-                            
+                            firsttime=1
                             itemss=1
                             while itemss==1:
+                                if firsttime>2:
+                                    glocks=0
+                                    print("Player 2 has " + str(p2pots) + " Healing Potions left")
+                                    s()
+                                    print("Player 2 has " + str(p2spoons) + " Rusty spoons left")
+                                    s()
+                                    if p2GLOCK19s>=1:
+                                        print("THEY HAVE A GUNNN!!!!!!!!")
+                                        s()
+                                        glocks=1
+                                    print("Player 2 has " + str(p1knives) + " Knives left")
+                                    s()
+                                    if p2bows==1:
+                                        print("Player 2 has a bow and has " + str(p2arrows) + " arrows left")
+                                        s()
+                                    elif p2bows==0:
+                                        print("player 2 doesnt have a bow and has " + str(p2arrows) + " arrows left")
+                                    print("player 2 has " + str(p2hats) + " Fancy hats left")   
+                                    s()
+                                    print("Player 2 has " + str(p2mpots) + " Mana potions left")
+                                    s()
+                                    print("player 2 had " + str(p2sheilds) + " sheilds left")
+                                    s()
+                                    print("player 2 has " + str(p2shoes) + " pairs of sneaker left")
+                                    s()
+                                    print("player 2 has " + str(p2avocado) + " avocado's left")
+                                    s()
+                                    print("player 2 has " + str(p2pits) + " Pits left")
+                                    s()
+                                    print("player 2 has " + str(p2creams) + " Cans of whipped cream left")
+                                    s()
+                                    print("player 2 has " + str(p2webs) + " webs of the spider left")
+                                    s()
+                                    print("player 2 has " + str(p2dictionarys) + " dictionarys left")
+                                    s()
+                                    print("player 2 has " + str(p2elmos) + " talking elmos left")
+                                    s()
+                                    print("Player 2 has " + str(p2popbags) + " popcorn bags left")
+                                    s()
+                                    print("player 2 has " + str(p2pop) + " peices of popcorn left")
                                 s()
                                 itemchoice=int(input("What would you like to do?: "))
                                 s()
@@ -2037,13 +2113,14 @@ while game==1:
                                 elif itemchoice==16 and p2popbags >= 1 and P2MP>=3:
                                     print("Player 2 uses 3 mana to heat up some popcorn")
                                     s()
+                                    P2MP=P2MP-3
                                     popcorn=random.randint(1,20)
                                     p2pop=p2pop+popcorn
                                     p2popbags=p2popbags-1
                                 elif itemchoice==16 and p2popbags >=1 and P2MP<3:
                                     print("you dont enough mana to pop this bag")
                                     s()
-                                elif itemchoice==17 and p1pop >= 1:
+                                elif itemchoice==17 and p2pop >= 1:
                                     eat=int(input("how many peices of popcorn would you like to eat?"))
                                     popcorn=random.randint(1,2)
                                     popcorn=popcorn*eat
@@ -2058,6 +2135,7 @@ while game==1:
                                 else:
                                     print("you either didnt have the item or you typed in a unavalible number either way your an idiot")
                                     s()
+                                firsttime=firsttime+1,
 
                         elif option==5:
                             print("You pass you're turn")

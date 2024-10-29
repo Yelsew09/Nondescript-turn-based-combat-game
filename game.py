@@ -41,7 +41,7 @@ print("3: Mage")
 wait(.15)
 print("4: Rouge")
 wait(.15)
-print("5: Sans")
+print("5: Skele")
 wait(.15)
 print("6: Bard")
 wait(.15)
@@ -69,7 +69,6 @@ while ac == 0:
                 P1MPBON = 1
                 P1MAXMP = P1MP
                 P1SPD = 3
-                P1SPDBON = 2
                 cc = 1
                 rc = 1
             elif player1class == 2:
@@ -83,7 +82,6 @@ while ac == 0:
                 P1MPBON = 1
                 P1MAXMP = P1MP
                 P1SPD = 6
-                P1SPDBON = 2
                 cc = 1
                 rc = 1
             elif player1class == 3:
@@ -97,7 +95,6 @@ while ac == 0:
                 P1MPBON = 5
                 P1MAXMP = P1MP
                 P1SPD = 2
-                P1SPDBON = 2
                 cc = 1
                 rc = 1
             elif player1class == 4:
@@ -111,21 +108,19 @@ while ac == 0:
                 P1MPBON = 1
                 P1MAXMP = P1MP
                 P1SPD = 7
-                P1SPDBON = 3
                 cc = 1
                 rc = 1
             elif player1class == 5:
-                player1class = "Sans"
-                P1HP = 1
+                player1class = "Skele"
+                P1HP = 33
                 P1MAXHP = P1HP
                 P1ATK = 20
-                P1ATKBON = 4
+                P1ATKBON = 6
                 P1DEF = 20
                 P1MP = 15
                 P1MPBON = 3
                 P1MAXMP = P1MP
                 P1SPD = 4
-                P1SPDBON = 2
                 cc = 1
                 rc = 1
             elif player1class == 6:
@@ -139,7 +134,6 @@ while ac == 0:
                 P1MPBON = 4
                 P1MAXMP = P1MP
                 P1SPD = 5
-                P1SPDBON = 2
                 cc = 1
                 rc = 1
             elif player1class == 7:
@@ -153,7 +147,6 @@ while ac == 0:
                 P1MPBON = .25
                 P1MAXMP = P1MP
                 P1SPD = 4
-                P1SPDBON = 2
                 cc = 1
                 rc = 1
             elif player1class == 88224646790:
@@ -167,7 +160,6 @@ while ac == 0:
                 P1MPBON = 88224646790
                 P1MAXMP = P1MP
                 P1SPD = 88224646790
-                P1SPDBON = 88224646790
                 cc = 1
                 rc = 1
             elif player1class == 8:
@@ -220,7 +212,6 @@ while ac == 0:
                 P2MPBON = 1
                 P2MAXMP = P2MP
                 P2SPD = 3
-                P2SPDBON = 2
                 cc = 1
                 rc = 1
             elif player2class == 2:
@@ -234,7 +225,6 @@ while ac == 0:
                 P2MPBON = 1
                 P2MAXMP = P2MP
                 P2SPD = 6
-                P2SPDBON = 2
                 cc = 1
                 rc = 1
             elif player2class == 3:
@@ -248,7 +238,6 @@ while ac == 0:
                 P2MPBON = 5
                 P2MAXMP = P2MP
                 P2SPD = 2
-                P2SPDBON = 2
                 cc = 1
                 rc = 1
             elif player2class == 4:
@@ -262,21 +251,19 @@ while ac == 0:
                 P2MPBON = 1
                 P2MAXMP = P2MP
                 P2SPD = 7
-                P2SPDBON = 3
                 cc = 1
                 rc = 1
             elif player2class == 5:
-                player2class = "Sans"
-                P2HP = 1
+                player2class = "Skele"
+                P2HP = 33
                 P2MAXHP = P2HP
                 P2ATK = 20
-                P2ATKBON = 4
-                P2DEF = 20
+                P2ATKBON = 6
+                P2DEF = 12
                 P2MP = 15
                 P2MPBON = 3
                 P2MAXMP = P2MP
                 P2SPD = 4
-                P2SPDBON = 2
                 cc = 1
                 rc = 1
             elif player2class == 6:
@@ -290,7 +277,6 @@ while ac == 0:
                 P2MPBON = 4
                 P2MAXMP = P2MP
                 P2SPD = 5
-                P2SPDBON = 2
                 cc = 1
                 rc = 1
             elif player2class == 7:
@@ -301,10 +287,9 @@ while ac == 0:
                 P2ATKBON = 2
                 P2DEF = 11
                 P2MP = 2
-                P2MPBON = 0
+                P2MPBON = .25
                 P2MAXMP = P2MP
                 P2SPD = 4
-                P2SPDBON = 2
                 cc = 1
                 rc = 1
             elif player2class == 88224646790:
@@ -318,7 +303,6 @@ while ac == 0:
                 P2MPBON = 88224646790
                 P2MAXMP = P2MP
                 P2SPD = 88224646790
-                P2SPDBON = 88224646790
                 cc = 1
                 rc = 1
             elif player2class == 8:

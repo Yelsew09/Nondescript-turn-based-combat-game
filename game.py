@@ -1528,7 +1528,7 @@ while game==1:
                             s()
                             print("Player 2 Rolled a ", critnumber)
                             s()
-                            TOTDMG= (critnumber+P2ATK)-P2DEF
+                            TOTDMG= (critnumber+P2ATK)-P1DEF
                             if TOTDMG < 0:
                                 TOTDMG=0
                             print("Player 2 did " + str(TOTDMG) + " Damage to Player 1")
@@ -2458,7 +2458,7 @@ while game==1:
                         P2DEF= 11
                         P2MP= 2
                         P2MAXMP = P2MP
-                        P2MPBON= 0.25
+                        P2MPBON= 1
                         P2SPD= 4
                         P2SPDBON = 2
                         cc=2
@@ -2658,7 +2658,7 @@ while game==1:
                             s()
                             print("0: Cancel")
                             s()
-                            print("1: Gain +1 DEF")
+                            print("1: Gain +3 DEF")
                             s()
                             print("2: Gain an item")
                             s()
@@ -2678,7 +2678,7 @@ while game==1:
                                 s()
                             elif P1MP >= magic_option:
                                 if magic_option == 1:
-                                    P1DEF=P1DEF+1
+                                    P1DEF=P1DEF+3
                                     P1MP = P1MP - magic_option
                                     turn = 2
                                     P2SPD = P2SPD + P2SPDBON
@@ -3319,7 +3319,7 @@ while game==1:
                             s()
                             print("Player 2 Rolled a ", critnumber)
                             s()
-                            TOTDMG= (critnumber+P2ATK)-P2DEF
+                            TOTDMG= (critnumber+P2ATK)-P1DEF
                             if TOTDMG < 0:
                                 TOTDMG=0
                             print("Player 2 did " + str(TOTDMG) + " Damage to Player 1")
@@ -3373,6 +3373,8 @@ while game==1:
                             pcmp=P2MP
                             if pcmp>6:
                                 pcmp=6
+                            if pcmp<1:
+                                pcmp=0
                             magic_option=random.randint(1,pcmp)
                             print("")
                             print("The bot used option " + str(magic_option) + " ")

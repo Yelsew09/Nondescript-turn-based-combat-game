@@ -1,10 +1,3 @@
-
-old stats (alot has changed)
-
-
-
-
-
 Character Stats:
 
 Knight stats:
@@ -23,7 +16,7 @@ Skele stats:
     HP: 33  ATK: 20(+6)  DEF: 12  MP: 15(+3)  SPD: 4
 
 Bard stats:
-    HP: 37  ATK: 7(+1)  DEF: 13  MP: 17(+4)  SPD: 5
+    HP: 37  ATK: 7(+1)  DEF: 13  MP: 14(+4)  SPD: 5
 
 Barbarian stats:
     HP: 52 ATK: 14(+2) DEF: 11 MP: 2(.25) SPD: 1
@@ -33,4 +26,4 @@ Character ideas:
     Druid - Taking a turn to turn into a different form with wildly different stats
     
 Gameplay ideas:
-Items
+Moar items

@@ -42,47 +42,233 @@ while me == 0:
     option = int(input("We need an option from you. Please give one. "))
     wait(.7)
     if option == 2:
-        print("1: How to play")
-        wait(.15)
-        print("2: Attacking system")
-        wait(.15)
-        print("3: Magic system")
-        wait(.15)
-        print("4: Items and how to get them")
-        wait(.15)
-        print("5: Characters")
-        wait(.15)
-        print("6: Other features")
-        wait(.15)
-        option = int(input("What would you like to know more about? "))
-        wait(.7)
-        if option == 1:
-            print("Give tutorial on a turn")
-        elif option == 2:
-            print("Explain how attack rolls are calculated")
-        elif option == 3:
-            print("Explain MP and MPBON, along with spell costs")
-        elif option == 4:
-            print("Explain items and the itemspin")
-        elif option == 5:
-            cc = 1
-            print("1: Stats")
+        ac = 0
+        while ac == 0:
+            print("1: How to play")
             wait(.15)
-            print("2: Lore")
+            print("2: Attacking system")
             wait(.15)
-            while cc == 1:
-                option = int(input("What would you like to learn more about? "))
-                wait(.7)
-                if option == 1:
-                    print("Put stats here")
-                    cc = 0
-                elif option == 2:
-                    print("Put backstories here")
-                    cc = 0
-                else:
-                    print("Please give a valid option")
+            print("3: Magic system")
+            wait(.15)
+            print("4: Items and how to get them")
+            wait(.15)
+            print("5: Characters")
+            wait(.15)
+            print("6: Other features")
+            wait(.15)
+            option = int(input("What would you like to know more about? "))
+            print("")
+            wait(.7)
+            if option == 1:
+                print("Whoever goes first is determined by the whoever has the better speed stat")
+                wait(3)
+                print("When you start your turn, you will be offered these options:")
+                wait(.2)
+                print("1: Attack")
+                wait(.15)
+                print("2: Magic")
+                wait(.15)
+                print("3: Use an item")
+                wait(.15)
+                print("4: Pass turn")
+                wait(.15)
+                print("5: Run away (forfeit)")
+                print(.15)
+                print("Attacking is the main way a lot of characters do damage.")
+                wait(1)
+                print("You can hit, miss, and crit. For more information on how this is found, see attacking system.")
+                wait(1.5)
+                print("On a crit, you do double damage. On a hit, normal and on a miss none.")
+                wait(1)
+                print("Magic can give a lot of miscellaneous effects.")
+                wait(1)
+                print("All things you do with magic requires mana.")
+                wait(1)
+                print("For more information, see spell descriptions in-game or see magic system.")
+                wait(2)
+                print("Items provide even more miscellaneous effects, but you can use as as many of them as you like during your turn, AND you can attack.")
+                wait(3)
+                print("When you don't want to do anything on your turn, you can pass turn.")
+                wait(6)
+                print("Don't know why you would want to do that, but you do you.")
+                wait(3)
+                print("If you're confident you won't win the match, you may forefit with 'run away', ending the game and giving the win to the other player.")
+                wait(4)
+            elif option == 2:
+                print("When you attack, a random number is generated.")
+                wait(2)
+                print("This number is anything 1-20")
+                wait(1)
+                print("This is then added to your attack bonus (ATKBON)(or the other way around).")
+                wait(3)
+                print("If that number is greater than your oppenent's DEF, then the attack hits.")
+                wait(3)
+                print("If it's less than their DEF, then the attack misses.")
+                wait(3)
+                print("If you roll a 20 off this, you will have landed a critical hit, doing double damage.")
+                wait(3)
+                print("Now advantage and disadvantage complicate things a little bit.")
+                wait(3)
+                print("Both have you roll 2 numbers, with advantage taking the higher number, and disadvantage taking the lower result.")
+                wait(4)
+                print("Damage is determined with 3 variables: Base attack (ATK), damage boost (DMGBOOST), and if you crit or not.")
+                wait(4)
+                print("You take the base damage, add the damage boost, then multiply by 2 if you landed a crit or not.")
+                wait(4)
+            elif option == 3:
+                print("There are many options when it comes to magic. When you select magic, you are given these options:")
+                wait(4)
+                print("1: Cancel")
+                wait(.15)
+                print("2: Firball - 5MP")
+                wait(.15)
+                print("3: Summon a random item - 2MP")
+                wait(.15)
+                print("4: Gain advantage on your next turn - 5MP")
+                wait(.15)
+                print("5: Impose disadvantage on your opponent's  - 6MP")
+                wait(.15)
+                print("6: Heal 20 percent of your max health - 6MP")
+                wait(.15)
+                print("7: Gain a damage boost on your next attack - Varies")
+                wait(.15)
+                print("Currently 8 - Descriptions")
+                wait(.15)
+                print("Upon casting a spell, you spend MP. If you don't have enough MP, you can't cast the spell.")
+                wait(3)
+                print("If you do, you will be given the effects of a spell.")
+                ync = 0
+                print("1: Yes")
+                wait(.15)
+                print("2: No")
+                wait(.15)
+                while ync == 0:
+                    yesorno = int(input("Would you like to hear descriptions of the spells? "))
+                    wait(.5)
+                    print("")
+                    if yesorno == 1:
+                        print("Fireball: Cast a fireball, doing 12-18 damage and ignoring all defence. Costs 5MP")
+                        wait(.15)
+                        print("Random Item: Summon a random item, being a rusty spoon, 3 throwing knvies, or a healing potion. Costs 2MP")
+                        wait(.15)
+                        print("Gain Advantage: When attacking, you add your attack bonus to a random number, being 1-20. Advantage lets you roll twice and take the higher number. Costs 5MP")
+                        wait(.15)
+                        print("Impose Disadvantage: When attacking, you add your attack bonus to a random number, being 1-20. Disadvantage forces you to roll twice and take the lower number. This spell puts disadvantage on your opponent Costs 6MP")
+                        wait(.15)
+                        print("Heal: You may heal 20 percent of your max HP, rounded down. Costs 6MP")
+                        wait(.15)
+                        print("Damage Boost: For every point of MP you put into this spell, your next attack will do 2 more damage. Costs however much MP you want it to")
+                        wait(.7)
+                        ync = 1
+                    elif yesorno == 2:
+                        ync = 1
+                    else:
+                        print("Please give a valid option.")
+                print("Rembember, by choosing the 8th option, you may get a reminder of what each spell does during a match.")
+                wait(3)
+                print("At the end of your turn, you will regian MP equal to your MPBON")
+            elif option == 4:
+                print("When you use the Random Item for magic, a random number 1-100 is generated.")
+                wait(3)
+                print("As time goes on, more items will be added, but for now you can get:")
+                wait(1)
+                print("Rusty spoons")
+                wait(.15)
+                print("Healing potions")
+                wait(.15)
+                print("Throwing knives")
+                wait(.15)
+                print("You may use as many items on your turn")
+                wait(.5)
+            elif option == 5:
+                cc = 1
+                print("1: Stats")
+                wait(.15)
+                print("2: Lore")
+                wait(.15)
+                while cc == 1:
+                    option = int(input("What would you like to learn more about? "))
+                    wait(.7)
+                    if option == 1:
+                        print("Here is a list of stats for all the characters:")
+                        print("Knight stats:")
+                        wait(.15)
+                        print("     Health: 42  Base attack: 12  Attack bonus: 2  Defence: 14  Mana points: 4  Mana points bonus: 1  Speed: 3")
+                        wait(.15)
+                        print("Peashooter stats")
+                        wait(.15)
+                        print("     Health: 35  Base attack: 10  Attack bonus: 1  Defence: 10  Mana points: 8  Mana points bonus: 2  Speed: 6")
+                        wait(.15)
+                        print("Mage stats:")
+                        wait(.15)
+                        print("     Health: 29  Base attack: 7  Attack bonus: 2  Defence: 10  Mana points: 20  Mana points bonus: 5  Speed: 2")
+                        wait(.15)
+                        print("Rouge stats:")
+                        wait(.15)
+                        print("     Health: 31  Base attack: 13  Attack bonus: 4 Defence: 14  Mana points: 6  Mana points bonus: 1 Speed: 7")
+                        wait(.15)
+                        print("Skele stats:")
+                        wait(.15)
+                        print("    Health: 33  Base attack: 20  Attack bonus: 6  Defence: 12  Mana ponts: 15  Mana points bonus: 3  Speed: 4")
+                        wait(.15)
+                        print("Bard stats:")
+                        wait(.15)
+                        print("    Haelth: 37  Base attack: 7  Attack bonus: 1  Defence: 13  Mana points: 14  Mana points bonus: 4  Speed: 5")
+                        wait(.15)
+                        print("Barbarian stats:")
+                        wait(.15)
+                        print("    Health: 52  Base attack: 14 Attack bonus: 2  Defence: 11  Mana points: 2  Mana points bonus: .25  Speed: 1")
+                        wait(10)
+                        cc = 0
+                    elif option == 2:
+                        bc = 0
+                        print("Just a heads-up, backtories are unfinished")
+                        wait(1)
+                        print("1: Knight")
+                        wait(.15)
+                        print("2: Peashooter")
+                        wait(.15)
+                        print("3: Mage")
+                        wait(.15)
+                        print("4: Rouge")
+                        wait(.15)
+                        print("5: Skele")
+                        wait(.15)
+                        print("6: Bard")
+                        wait(.15)
+                        print("7: Barbarian")
+                        wait(.15)
+                        while bc == 0:
+                            option = int(input("Who's backstory would you like to hear? "))
+                            wait(.7)
+                            if option == 1:
+                                print("Knight's backstory")
+                                bc = 1
+                            elif option == 2:
+                                print("Peashooter's backstory")
+                                bc = 1
+                            elif option == 3:
+                                print("Mage's backstory")
+                                bc = 1
+                            elif option == 4:
+                                print("Rouge's backstory")
+                                bc = 1
+                            elif option == 5:
+                                print("Skele's backstory")
+                                bc = 1
+                            elif option == 6:
+                                print("Bard's backstory")
+                                bc = 1
+                            elif option == 7:
+                                print("Barbarian's backstory")
+                                bc = 1
+                            else:
+                                print("Please provide a valid option")
+                        cc = 0
+                    else:
+                        print("Please give a valid option")
     elif option == 3:
-        print("Give options to the player")
+        print("We're still working on that")
     
     
     
@@ -188,7 +374,7 @@ while me == 0:
                         P1ATK = 7
                         P1ATKBON = 1
                         P1DEF = 13
-                        P1MP = 17
+                        P1MP = 14
                         P1MPBON = 4
                         P1MAXMP = P1MP
                         P1SPD = 5
@@ -229,26 +415,31 @@ while me == 0:
             wait(.15)
             print("2: No")
             wait(.15)
-            yesorno = int(input("You have chosen " + str(player1class) + ". Is this correct?: "))
-            wait(.5)
-            if yesorno == 1:
-                print("Player 1 has chosen the " + str(player1class) + " class.")
-                wait(.15)
-                ac = 1
-                rc = 1
-                cc = 1
-            elif yesorno == 2:
-                print("Repick your charcter.")
-                wait(.7)
-                player1class = 0
-                ac = 0
-                rc = 1
-                cc = 0
-            else:
-                print(errmsg)
-                wait(.7)
-                rc = 1
-                cc = 0
+            ync = 0
+            while ync == 0:
+                yesorno = int(input("You have chosen " + str(player1class) + ". Is this correct?: "))
+                wait(.5)
+                if yesorno == 1:
+                    print("Player 1 has chosen the " + str(player1class) + " class.")
+                    wait(.15)
+                    ac = 1
+                    rc = 1
+                    cc = 1
+                    ync = 1
+                elif yesorno == 2:
+                    print("Repick your charcter.")
+                    wait(.7)
+                    player1class = 0
+                    ac = 0
+                    rc = 1
+                    cc = 0
+                    ync = 1
+                else:
+                    print(errmsg)
+                    wait(.7)
+                    rc = 1
+                    cc = 0
+                    ync = 0
         cc = 0
         ac = 0
         #Player 2 selects a class
@@ -332,7 +523,7 @@ while me == 0:
                         P2ATK = 7
                         P2ATKBON = 1
                         P2DEF = 13
-                        P2MP = 17
+                        P2MP = 14
                         P2MPBON = 4
                         P2MAXMP = P2MP
                         P2SPD = 5
@@ -373,25 +564,29 @@ while me == 0:
             wait(.15)
             print("2: No")
             wait(.15)
-            yesorno = int(input("You have chosen " + str(player2class) + ". Is this correct?: "))
-            wait(.5)
-            if yesorno == 1:
-                print("Player 2 has chosen the " + str(player2class) + " class.")
-                wait(.7)
-                rc = 1
-                cc = 1
-                ac = 1
-            elif yesorno == 2:
-                player2class = 0
-                print("Repick your charcter.")
-                wait(.7)
-                rc = 1
-                cc = 0
-            else:
-                print("Please try again")
-                wait(.7)
-                rc = 1
-                cc = 0
+            ync = 0
+            while ync == 0:
+                yesorno = int(input("You have chosen " + str(player2class) + ". Is this correct?: "))
+                wait(.5)
+                if yesorno == 1:
+                    print("Player 2 has chosen the " + str(player2class) + " class.")
+                    wait(.7)
+                    rc = 1
+                    cc = 1
+                    ac = 1
+                    ync = 1
+                elif yesorno == 2:
+                    player2class = 0
+                    print("Repick your charcter.")
+                    wait(.7)
+                    rc = 1
+                    cc = 0
+                    ync = 1
+                else:
+                    print("Please try again")
+                    wait(.7)
+                    rc = 1
+                    cc = 0
         ac = 1
         mc = 0
         ic = 0
@@ -720,6 +915,7 @@ while me == 0:
                                 wait(.15)
                                 print("2: No")
                                 wait(.15)
+                                BEGIN HERE
                                 yesorno = int(input("Are you sure you want to forfeit the match"))
                                 wait(.5)
                                 if yesorno == 1:

@@ -1,8 +1,8 @@
 # Dungeons & Damage
 <p>This is an experimental rpg that will get updated as time goes on</p>
 <p>Also there are no dungeons. It's a pvp game set in a gladiator arena</p>
+<p>You can play as:</p>
 
-# Play as
 ## Knight
 <p>A man who fought valiantly and for honor for his kingdom. Now, he’s been captured and put to fight in the arena. If he wins, he will be allowed to leave.</p>
 

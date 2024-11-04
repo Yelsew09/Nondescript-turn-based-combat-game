@@ -915,7 +915,6 @@ while me == 0:
                                 wait(.15)
                                 print("2: No")
                                 wait(.15)
-                                BEGIN HERE
                                 yesorno = int(input("Are you sure you want to forfeit the match"))
                                 wait(.5)
                                 if yesorno == 1:
@@ -1945,14 +1944,18 @@ while me == 0:
             wait(.15)
             print("2: No")
             wait(.15)
-            yesorno = int(input("Would you like to play again? "))
-            wait(.5)
-            if yesorno == 1:
-                gc = 0
-                ac = 1
-                cc = 0
-                ic = 0
-                mc = 0
-            elif yesorno == 2:
-                print("")
-                gc = 1
+            ync = 0
+            while ync == 0:
+                yesorno = int(input("Would you like to play again? "))
+                wait(.5)
+                if yesorno == 1:
+                    gc = 0
+                    ac = 1
+                    cc = 0
+                    ic = 0
+                    mc = 0
+                elif yesorno == 2:
+                    print("")
+                    gc = 1
+                else:
+                    print("Please give a valid option.")

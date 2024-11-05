@@ -25,7 +25,8 @@ def critnum(AD):
 def wait(temporal_distance):
     time.sleep(temporal_distance)
 errmsg = "If you are seeing this, something went wrong. Please restart the program."
-
+def confirm():
+    confirm = input("")
 print("Welcome to Dungeons and Damage")
 wait(.15)
 print("Informally known as hell")

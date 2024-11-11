@@ -820,7 +820,7 @@ while game==1:
                         elif option == 1 and critnumber<20 and critnumber>=2:
                             q("Player 1 used Attack\n")
                             s()
-                            q("Player 1 Rolled a ",critnumber)
+                            q("Player 1 Rolled a "+str(critnumber)+"\n")
                             s()
                             TOTDMG = (critnumber+(P1ATK))-P2DEF
                             if TOTDMG < 0:
@@ -1516,7 +1516,7 @@ while game==1:
                             q("\n")
                             q("Player 2 used Attack\n")
                             s()
-                            q("Player 2 Rolled a ",critnumber)
+                            q("Player 2 Rolled a "+str(critnumber) +"\n")
                             s()
                             q("Its a Criticle hit!!!\n")
                             s()

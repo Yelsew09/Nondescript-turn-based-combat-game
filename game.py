@@ -89,10 +89,11 @@ while ac == 0:
             q("7: Barbarian\n")
             wait(.15)
             q("8: Random\n")
-            cc = 0
-            while cc == 0:
+            oc = 0
+            while oc == 0:
                 q("Please select a class, Player 1\n")
                 option = boom()
+                wait(.5)
                 rc = 0
                 while rc == 0:
                     if option == 1:
@@ -195,11 +196,177 @@ while ac == 0:
                         option = random.randint(1,7)
                     else:
                         q("Please choose a valid option")
+                        wait(.15)
                 ync = 0
                 while ync == 0:
                     q("1: Yes\n")
                     wait(.15)
                     q("2: No\n")
                     wait(.15)
-                    q("Player 1 has chosen the " + str(option) + " class, is this correct? ")
-                
+                    q("Player 1 has chosen the " + str(option) + " class, is this correct? \n")
+                    yesorno = int(input(''))
+                    wait(.3)
+                    if yesorno == 1:
+                        q("Player 1 has chosen the " + str(option) + " class.\n")
+                        wait(.15)
+                        ync = 1
+                        oc = 1
+                    elif yesorno == 2:
+                        q("Repick your character.\n")
+                        wait(.15)
+                        ync = 1
+                    else:
+                        q("Please choose a valid option.\n")
+            oc = 0
+            while oc == 0:
+                q("1: Knight\n")
+                wait(.15)
+                q("2: Peashooter\n")
+                wait(.15)
+                q("3: Mage\n")
+                wait(.15)
+                q("4: Rouge\n")
+                wait(.15)
+                q("5: Skele\n")
+                wait(.15)
+                q("6: Bard\n")
+                wait(.15)
+                q("7: Barbarian\n")
+                wait(.15)
+                q("8: Random\n")
+                wait(.15)
+                q("Please choose a class, player 2.\n")
+                boom()
+                if option == 1:
+                    option = "Knight"
+                    P2HP = 42
+                    P2MAXHP = P2HP
+                    P2ATK = 12
+                    P2ATKBON = 2
+                    P2DEF = 14
+                    P2MP = 4
+                    P2MPBON = 1
+                    P2MAXMP = P2MP
+                    P2SPD = 3
+                    rc = 1
+                elif option == 2:
+                    option = "Peashooter"
+                    P2HP = 35
+                    P2MAXHP = P2HP
+                    P2ATK = 10
+                    P2ATKBON = 1
+                    P2DEF = 14
+                    P2MP = 5
+                    P2MPBON = 1
+                    P2MAXMP = P2MP
+                    P2SPD = 6
+                    rc = 1
+                elif option == 3:
+                    option = "Mage"
+                    P2HP = 29
+                    P2MAXHP = P2HP
+                    P2ATK = 7
+                    P2ATKBON = 2
+                    P2DEF = 10
+                    P2MP = 20
+                    P2MPBON = 5
+                    P2MAXMP = P2MP
+                    P2SPD = 2
+                    rc = 1
+                elif option == 4:
+                    option = "Rouge"
+                    P2HP = 31
+                    P2MAXHP = P2HP
+                    P2ATK = 13
+                    P2ATKBON = 4
+                    P2DEF = 14
+                    P2MP = 6
+                    P2MPBON = 1
+                    P2MAXMP = P2MP
+                    P2SPD = 7
+                    rc = 1
+                elif option == 5:
+                    option = "Skele"
+                    P2HP = 33
+                    P2MAXHP = P2HP
+                    P2ATK = 20
+                    P2ATKBON = 6
+                    P2DEF = 20
+                    P2MP = 15
+                    P2MPBON = 3
+                    P2MAXMP = P2MP
+                    P2SPD = 4
+                    rc = 1
+                elif option == 6:
+                    option = "Bard"
+                    P2HP = 37
+                    P2MAXHP = P2HP
+                    P2ATK = 7
+                    P2ATKBON = 1
+                    P2DEF = 13
+                    P2MP = 14
+                    P2MPBON = 4
+                    P2MAXMP = P2MP
+                    P2SPD = 5
+                    rc = 1
+                elif option == 7:
+                    option = "Barbarian"
+                    P2HP = 52
+                    P2MAXHP = P2HP
+                    P2ATK = 14
+                    P2ATKBON = 2
+                    P2DEF = 11
+                    P2MP = 2
+                    P2MPBON = .25
+                    P2MAXMP = P2MP
+                    P2SPD = 4
+                    rc = 1
+                elif option == 88224646790:
+                    option = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
+                    P2HP = 88224646790
+                    P2MAXHP = P2HP
+                    P2ATK = 88224646790
+                    P2ATKBON = 88224646790
+                    P2DEF = 88224646790
+                    P2MP = 88224646790
+                    P2MPBON = 88224646790
+                    P2MAXMP = P1MP
+                    P2SPD = 88224646790
+                    rc = 1
+                elif option == 8:
+                    option = random.randint(1,7)
+                else:
+                    q("Please choose a valid option.\n")
+                    wait(.15)
+                ync = 0
+                while ync == 0:
+                    q("1: Yes\n")
+                    wait(.15)
+                    q("2: No\n")
+                    wait(.15)
+                    q("Player 2 has chosen the " + str(option) + " class, is this correct? ")
+                    yesorno = int(input(''))
+                    wait(.3)
+                    if yesorno == 1:
+                        q("Player 2 has chosen the " + str(option) + " class.\n")
+                        wait(.15)
+                        ync = 1
+                        oc = 1
+                    elif yesorno == 2:
+                        q("Repick your character.\n")
+                        wait(.15)
+                        ync = 1
+                    else:
+                        q("Please choose a valid option\n")
+            if P1SPD > P2SPD:
+                Let player 1 go first, then player 2
+            elif P2SPD > P1SPD:
+                Let player 2 go first, then player 1
+            elif P1SPD == P2SPD:
+                option = random.randint (1,2)
+                if option == 1:
+                    P1SPD = P1SPD + 1
+                elif option == 2:
+                    P2SPD = P2SPD + 1
+                else:
+                    crash()

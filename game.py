@@ -51,6 +51,8 @@ q("2: Guide\n")
 wait(.15)
 q("3: Options\n")
 wait(.15)
+q("4: Quit\n")
+wait(.15)
 
 
 ac = 0
@@ -214,6 +216,8 @@ while ac == 0:
                         ync = 1
                     else:
                         q("Please choose a valid option.\n")
+
+
             oc = 0
             while oc == 0:
                 q("1: Knight\n")
@@ -357,6 +361,8 @@ while ac == 0:
                         ync = 1
                     else:
                         q("Please choose a valid option\n")
+
+
             cc = 0
             while cc == 0:
                 if P1SPD > P2SPD:
@@ -372,13 +378,34 @@ while ac == 0:
                         q("2: No")
                         wait(.15)
                         q("Play again? ")
-                        option = int(input(''))
-                        if option == 1:
-                            rc = 0
-                            oc = 0
-                            gc = 0
-                            cc = 0
-                            q("")
+                        oc = 0
+                        while oc == 0:
+                            option = int(input(''))
+                            if option == 1:
+                                oc = 1
+                                cc = 1
+                                gc = 0
+                                q("Restarting the program, please wait.\n")
+                                wait(5)
+                            elif option == 2:
+                                oc = 1
+                                gc = 1
+                                cc = 1
+                                wait(5)
+                            else:
+                                q("Please give a valid option\n")
+                    elif P2HP <= 0:
+                        q("Player 2 has " + str(P2HP) + " left.\n")
+                        wait(.15)
+                        q("This, fortunately, means he is dead and cannot continue on.\n")
+                        wait(.15)
+                        q("Player 1 wins!!!\n")
+                        wait(.15)
+                        q("1: Yes\n")
+                        wait(.15)
+                        q("2: No\n")
+                        wait(.15)
+                        q("Play again?")
                 elif P2SPD > P1SPD:
                     q("Let player 2 go first, then player 1\n")
                     gc = 1

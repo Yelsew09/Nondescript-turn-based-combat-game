@@ -8,6 +8,7 @@ def q(str):
         print(char, end='')
         sys.stdout.flush()
         time.sleep(.02)
+    time.sleep(1)
 def s():
     time.sleep(.15)
 game=1
@@ -788,7 +789,7 @@ while game==1:
                             q("\n")
                             q("Player 1 used Attack\n")
                             s()
-                            q("Player 1 Rolled a ",critnumber)
+                            q("Player 1 Rolled a "+str(critnumber) +"\n")
                             s()
                             q("Its a Criticle hit!!!\n")
                             s()
@@ -2158,7 +2159,7 @@ while game==1:
                                 else:
                                     q("you either didnt have the item or you typed in a unavalible number either way your an idiot\n")
                                     s()
-                                firsttime=firsttime+1,
+                                firsttime=firsttime+1
 
                         elif option==5:
                             q("You pass you're turn\n")
@@ -2538,15 +2539,15 @@ while game==1:
             p2popbags=0
             p1pop=0
             p2pop=0
-        q("Player 1 HP ",P1HP)
+        q("Player 1 HP "+str(P1HP) +"\n")
         s()
-        q("Player 2 HP ",P2HP)
+        q("Player 2 HP "+str(P2HP) +"\n")
         s()
         q("\n")
         #round start
-        q("Player 1 Speed ",P1SPD)
+        q("Player 1 Speed "+str(P1SPD) +"\n")
         s()
-        q("Player 2 Speed ",P2SPD )
+        q("Player 2 Speed "+str(P2SPD) +"\n")
         s()
         while roundnumber < 100:
             turn=1
@@ -2591,7 +2592,7 @@ while game==1:
                             q("\n")
                             q("Player 1 used Attack\n")
                             s()
-                            q("Player 1 Rolled a ",critnumber)
+                            q("Player 1 Rolled a "+str(critnumber) +"\n")
                             s()
                             q("Its a Criticle hit!!!\n")
                             s()
@@ -2623,7 +2624,7 @@ while game==1:
                         elif option == 1 and critnumber<20 and critnumber>=2:
                             q("Player 1 used Attack\n")
                             s()
-                            q("Player 1 Rolled a ",critnumber)
+                            q("Player 1 Rolled a "+str(critnumber) +"\n")
                             s()
                             TOTDMG = (critnumber+(P1ATK))-P2DEF
                             if TOTDMG < 0:
@@ -3307,7 +3308,7 @@ while game==1:
                             q("\n")
                             q("Player 2 used Attack\n")
                             s()
-                            q("Player 2 Rolled a ",critnumber)
+                            q("Player 2 Rolled a "+str(critnumber) +"\n")
                             s()
                             q("Its a Criticle hit!!!\n")
                             s()
@@ -3339,7 +3340,7 @@ while game==1:
                         elif option == 1 and critnumber<20 and critnumber>=2:
                             q("Player 2 used Attack\n")
                             s()
-                            q("Player 2 Rolled a ", critnumber)
+                            q("Player 2 Rolled a "+str( critnumber) +"\n")
                             s()
                             TOTDMG= (critnumber+P2ATK)-P1DEF
                             if TOTDMG < 0:
@@ -3940,7 +3941,7 @@ while game==1:
                                 else:
                                     q("you either didnt have the item or you typed in a unavalible number either way your an idiot\n")
                                     s()
-                                firsttime=firsttime+1,
+                                firsttime=firsttime+1
 
                         elif option==5:
                             q("You pass you're turn\n")
@@ -3970,9 +3971,9 @@ while game==1:
                 else:
                     q("UH OH\n")
             q("\n")
-            q("Player 1 HP left ",P1HP)
+            q("Player 1 HP left "+str(P1HP) +"\n")
             s()
-            q("Player 2 HP left ",P2HP)
+            q("Player 2 HP left "+str(P2HP) +"\n")
         q("winner winner chicken dinner\n")
         q("\n")
         s()
@@ -4158,236 +4159,53 @@ while game==1:
                     q("Something went wrong please try again\n")
                     s()
                     cc=1
-        cc=1
-        rc=1
-        allcorrect=1
-        #Player 2 selects a class
-        while allcorrect==1:
-            while cc==1:
-                q("Please select a classs, player 2\n")
-                s()
-                rc=1
-                player2class = int(input("Choose 1 from the list above (please choose a number): \n"))
-                while rc==1:
-                    s()
-                    if player2class == 1:
-                        player2class = "Knight"
-                        P2HP = 42
-                        P2MAXHP = P2HP
-                        P2ATK = 12
-                        P2ATKBON = P2ATK + 2
-                        P2DEF = 14
-                        P2MP = 4
-                        P2MAXMP = P2MP
-                        P2MPBON = 1
-                        P2SPD = 3
-                        P2SPDBON = 2
-                        cc=2
-                        rc=2
-                    elif player2class == 2:
-                        player2class = "Peashooter"
-                        P2HP = 35
-                        P2MAXHP = P2HP
-                        P2ATK = 10
-                        P2ATKBON = P2ATK + 2
-                        P2DEF = 14
-                        P2MP = 5
-                        P2MAXMP = P2MP
-                        P2MPBON = 1
-                        P2SPD = 6
-                        P2SPDBON = 2
-                        cc=2
-                        rc=2
-                    elif player2class == 3:
-                        player2class = "Mage"
-                        P2HP = 29
-                        P2MAXHP = P2HP
-                        P2ATK = 7
-                        P2ATKBON = P2ATK + 2
-                        P2DEF = 10
-                        P2MP = 20
-                        P2MAXMP = P2MP
-                        P2MPBON = 5
-                        P2SPD = 2
-                        P2SPDBON = 2
-                        cc=2
-                        rc=2
-                    elif player2class == 4:
-                        player2class = "Rouge"
-                        P2HP = 31
-                        P2MAXHP = P2HP
-                        P2ATK = 13
-                        P2ATKBON = P2ATK + 2
-                        P2DEF = 14
-                        P2MP = 6
-                        P2MAXMP = P2MP
-                        P2MPBON = 1
-                        P2SPD = 7
-                        P2SPDBON = 3
-                        cc=2
-                    elif player2class == 5:
-                        player2class = "Skele"
-                        P2HP = 20
-                        P2MAXHP = P2HP
-                        P2ATK = 20
-                        P2ATKBON = P2ATK + 2
-                        P2DEF = 10
-                        P2MP = 15
-                        P2MAXMP = P2MP
-                        P2MPBON = 3
-                        P2SPD = 8
-                        P2SPDBON = 4
-                        cc=2
-                        rc=2
-                    elif player2class == 6:
-                        player2class = "Bard"
-                        P2HP = 37
-                        P2MAXHP = P2HP
-                        P2ATK = 7
-                        P2ATKBON = P2ATK + 2
-                        P2DEF = 13
-                        P2MP = 17
-                        P2MAXMP = P2MP
-                        P2MPBON = 4
-                        P2SPD = 5
-                        P2SPDBON = 2
-                        cc=2
-                        rc=2
-                    elif player2class ==7:
-                        player2class = "Barbrian"
-                        P2HP= 52
-                        P2MAXHP = P2HP
-                        P2ATK= 14
-                        P2ATKBON = P2ATK + 2
-                        P2DEF= 11
-                        P2MP= 2
-                        P2MAXMP = P2MP
-                        P2MPBON= 0.25
-                        P2SPD= 4
-                        P2SPDBON = 2
-                        cc=2
-                        rc=2
-                    elif player2class ==88224646790:
-                        player2class = "Sigma"
-                        P2HP= 88224646790
-                        P2MAXHP = P2HP
-                        P2ATK= 88224646790
-                        P2ATKBON= 88224646790
-                        P2DEF= 88224646790
-                        P2MP= 88224646790
-                        P2MAXMP = P2MP
-                        P2MPBON= 88224646790
-                        P2SPD= 88224646790
-                        P2SPDBON = 88224646790
-                        cc=2
-                        rc=2
-                    elif player2class==8:
-                        q("you have chosen random\n")
-                        player2class=random.randint(1,7)
-                        cc=2
-                    else:
-                        q("Next time put in a valid number \n")
-                        s()
-                q("1: Yes\n")
-                s()
-                q("2: No\n")
-                s()
-                yesorno = int(input("you have chosen " + str(player2class) + ". Is this correct?: \n"))
-                s()
-                if yesorno == 1:
-                    q("Player 2 has chosen the " + str(player2class) + " class.\n")
-                    s()
-                    q("\n")
-                    allcorrect=2
-                elif yesorno == 2:
-                    q("repick your charcter.\n")
-                    s()
-                    cc=1
-                    rc=1
-                else:
-                    q("please try again\n")
-                    s()
-                    cc=1
-                    rc=1
+        
         for i in range(1):
             winner=1
             roundnumber = 1  
             DMGBUFFP1=0
-            DMGBUFFP2=0
             dmgp1=1
-            dmgp2=1
             rollp1=1
-            rollp2=1
             rolladp1=1
-            rolladp2=2
             p1pots=1
-            p2pots=1
             p1spoons=0
-            p2spoons=0
             p1GLOCK19s=0
-            p2GLOCK19s=0
             p1knives=0
-            p2knives=0
             p1bows=0
-            p2bows=0 
             p1arrows=0
-            p2arrows=0
             p1mpots=0
-            p2mpots=0
             p1hats=0
-            p2hats=0
             p1sheilds=0
-            p2sheilds=0
             p1shoes=0
-            p2shoes=0
             p1avocado=0
-            p2avocado=0
             p1pits=0
-            p2pits=0
             p1creams=0
-            p2creams=0
             p1webs=0
-            p2webs=0
             p1bandanas=0
-            p2bandanas=0
             p1dictionarys=0
-            p2dictionarys=0
             p1elmos=0
-            p2elmos=0
             p1popbags=0
-            p2popbags=0
             p1pop=0
-            p2pop=0
-        q("Player 1 HP ",P1HP)
-        s()
-        q("Player 2 HP ",P2HP)
+        q("Player 1 HP "+str(P1HP) +"\n")
         s()
         q("\n")
         #round start
-        q("Player 1 Speed ",P1SPD)
+        q("Player 1 Speed "+str(P1SPD) +"\n")
         s()
-        q("Player 2 Speed ",P2SPD )
-        s()
-        q("efuifbwwwo\n")
+        q("you wake up in a cold dark cell someone yells for you and you walk out into a bright large arena standing on the other side is your oppenent the horns sound and people start chanting FIGHT you bravely step forward taking in a deep breath knowing this could be your last\n")
         while roundnumber < 100:
             turn=1
             q("Round " + str(roundnumber) + " \n")
             s()
             if P1HP <= 0:
-                q("Player 2 wins the game\n")
+                q("YOU DIED\n")
                 s()
                 winner=player2class
                 p2score=p2score+1
                 break
-            elif P2HP <= 0:
-                q("Player 1 wins the game\n")
-                s()
-                winner=player1class
-                p1score=p1score+1
-                break
             else:
                 q("\n")
-                if P1SPD > P2SPD:
+                if P1SPD > 1:
                     q("player 1's turn\n")
                     s()
                     q("player 1 has "+ str(P1MP) +" MP left\n")
@@ -4412,7 +4230,7 @@ while game==1:
                             q("\n")
                             q("Player 1 used Attack\n")
                             s()
-                            q("Player 1 Rolled a ",critnumber)
+                            q("Player 1 Rolled a "+str(critnumber) +"\n")
                             s()
                             q("Its a Criticle hit!!!\n")
                             s()
@@ -4444,7 +4262,7 @@ while game==1:
                         elif option == 1 and critnumber<20 and critnumber>=2:
                             q("Player 1 used Attack\n")
                             s()
-                            q("Player 1 Rolled a ",critnumber)
+                            q("Player 1 Rolled a "+str(critnumber) +"\n")
                             s()
                             TOTDMG = (critnumber+(P1ATK))-P2DEF
                             if TOTDMG < 0:
@@ -5089,7 +4907,7 @@ while game==1:
                             q("\n")
                             q("Player 2 used Attack\n")
                             s()
-                            q("Player 2 Rolled a ",critnumber)
+                            q("Player 2 Rolled a "+str(critnumber) +"\n")
                             s()
                             q("Its a Criticle hit!!!\n")
                             s()
@@ -5121,7 +4939,7 @@ while game==1:
                         elif option == 1 and critnumber<20 and critnumber>=2:
                             q("Player 2 used Attack\n")
                             s()
-                            q("Player 2 Rolled a ", critnumber)
+                            q("Player 2 Rolled a "+str( critnumber) +"\n")
                             s()
                             TOTDMG= (critnumber+P2ATK)-P1DEF
                             if TOTDMG < 0:
@@ -5731,7 +5549,7 @@ while game==1:
                                 else:
                                     q("you either didnt have the item or you typed in a unavalible number either way your an idiot\n")
                                     s()
-                                firsttime=firsttime+1,
+                                firsttime=firsttime+1
 
                         elif option==5:
                             q("You pass you're turn\n")
@@ -5761,9 +5579,9 @@ while game==1:
                 else:
                     q("UH OH\n")
             q("\n")
-            q("Player 1 HP left ",P1HP)
+            q("Player 1 HP left "+str(P1HP) +"\n")
             s()
-            q("Player 2 HP left ",P2HP)
+            q("Player 2 HP left "+str(P2HP) +"\n")
         q("winner winner chicken dinner\n")
         q("\n")
         s()

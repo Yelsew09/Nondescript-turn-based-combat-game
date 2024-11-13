@@ -55,8 +55,27 @@ def reset():
     P2GLOCK = 0
     P1SEEGUN = 0
     P2SEEGUN = 0
-    return P1AD,P2AD,P1ADTR,P2ADTR,P1DMGBOOST,P2DMGBOOST,P1SPOON,P2SPOON,P1KNIVES,P2KNIVES,P1POTS,P2POTS,P1GLOCK,P2GLOCK,P1SEEGUN,P2SEEGUN
-
+    P1NARRATORS = 0
+    P2NARRATORS = 0
+    return P1AD,P2AD,P1ADTR,P2ADTR,P1DMGBOOST,P2DMGBOOST,P1SPOON,P2SPOON,P1KNIVES,P2KNIVES,P1POTS,P2POTS,P1GLOCK,P2GLOCK,P1SEEGUN,P2SEEGUN,P1NARRATORS,P2NARRATORS
+P1AD = 0
+P2AD = 0
+P1ADTR = 0
+P2ADTR = 0
+P1DMGBOOST = 0
+P2DMGBOOST = 0
+P1SPOON = 0
+P2SPOON = 0
+P1KNIVES = 0
+P2KNIVES = 0
+P1POTS = 0
+P2POTS = 0
+P1GLOCK = 0
+P2GLOCK = 0
+P1SEEGUN = 0
+P2SEEGUN = 0
+P1NARRATORS = 0
+P2NARRATORS = 0
 
 ac = 0
 while ac == 0:
@@ -528,9 +547,29 @@ while ac == 0:
                                         if critnumber >= 1 and critnumber <= 10:
                                             q("You conjured up a...\n",0)
                                             wait(.5)
-                                            q("Rusty...")
+                                            q("Rusty...",.5)
                                             wait(.6)
-                                            
+                                            q("Spoon?\n",0)
+                                            P1SPOON = P1SPOON + 1
+                                        elif critnumber >= 11 and critnumber <= 55:
+                                            q("You conjured up a few throwing knives\n",0)
+                                            wait(.25)
+                                            P1KNIVES = P1KNIVES + 3
+                                        elif critnumber >= 56 and critnumber <= 99:
+                                            q("You got a healing potion!\n",0)
+                                            wait(.2)
+                                            P1POTS = P1POTS + 1
+                                        elif critnumber == 100:
+                                            if P1GLOCK == 0 and P2NARRATORS == 1:
+                                                q("Ok, great. Now the OTHER guy has a gun.\n",.2)
+                                                wait(.3)
+                                                q("I'm leaving.\n",.2)
+                                                wait(.5)
+                                                P1NARRATORS = 1
+                                            elif P1NARRATORS > 0:
+                                                q("You did it again.\n",.4)
+                                                wait(1)
+                                                q("Landed a 1 in 100 chance to get a literal GUN.\n",.3)
                 elif P2SPD > P1SPD:
                     q("Let player 2 go first, then player 1\n",0)
                     gc = 1

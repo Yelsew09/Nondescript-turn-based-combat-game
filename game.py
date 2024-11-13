@@ -56,32 +56,32 @@ def reset():
     P1SEEGUN = 0
     P2SEEGUN = 0
     return P1AD,P2AD,P1ADTR,P2ADTR,P1DMGBOOST,P2DMGBOOST,P1SPOON,P2SPOON,P1KNIVES,P2KNIVES,P1POTS,P2POTS,P1GLOCK,P2GLOCK,P1SEEGUN,P2SEEGUN
-reset()
-q("Welcome to Dungeons and Damage.\n",0)
-wait(.5)
-q("Not to be confused with Dungeons and Dragons.\n",0)
-wait(.5)
-q("There are no dungeons here, but there is a lot of damage.\n",0)
-wait(.5)
-q("Informally known as HELL.\n",0)
-wait(.5)
-q("1: Play the game\n",0)
-wait(.15)
-q("2: Guide\n",0)
-wait(.15)
-q("3: Options\n",0)
-wait(.15)
-q("4: Quit\n",0)
-wait(.15)
 
 
 ac = 0
 while ac == 0:
+    reset()
+    q("Welcome to Dungeons and Damage.\n",0)
+    wait(.5)
+    q("Not to be confused with Dungeons and Dragons.\n",0)
+    wait(.5)
+    q("There are no dungeons here, but there is a lot of damage.\n",0)
+    wait(.5)
+    q("Informally known as HELL.\n",0)
+    wait(.5)
+    q("1: Play the game\n",0)
+    wait(.15)
+    q("2: Guide\n",0)
+    wait(.15)
+    q("3: Options\n",0)
+    wait(.15)
+    q("4: Quit\n",0)
+    wait(.15)
     q("What would you like to do? ",0)
     option = int(input(''))
     wait(.5)
-    
-    
+
+
     if option == 2:
         q("Guide coming soon\n",0)
     

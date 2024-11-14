@@ -1,10 +1,10 @@
 import random, time, sys
-def crash():
-    print("Something went wrong. Crashing...")
+def explode():
+    print("Something went wrong. explodeing...")
     try:
-        crash()
+        explode()
     except:
-        crash()
+        explode()
 def wait(temporal_distance):
     time.sleep(temporal_distance)
 def confirm():
@@ -508,13 +508,13 @@ while ac == 0:
                                 elif critnumber + P1ATKBON < P2DEF:
                                     q("Player 1 rolled a " + str(critnumber) + ", missing their attack.\n",0)
                                 else:
-                                    crash()
+                                    explode()
                             elif option == 2:
                                 q("1: Fireball - 5MP\n",0)
                                 wait(.15)
                                 q("2: Summon a random item - 2MP\n",0)
                                 wait(.15)
-                                q("3: Gain advantage on your next turn - 4MP\n",0)
+                                q("3: Gain advantage on your next turn - 5MP\n",0)
                                 wait(.15)
                                 q("4: Impose disadvantage on your opponent's next attack - 5MP\n",0)
                                 wait(.15)
@@ -541,7 +541,7 @@ while ac == 0:
                                             wait(.15)
                                             P1MP = P1MP - 5
                                         else:
-                                            crash()
+                                            explode()
                                     elif option == 2:
                                         critnumber = critnum(0,1,100)
                                         if critnumber >= 1 and critnumber <= 10:
@@ -570,6 +570,68 @@ while ac == 0:
                                                 q("You did it again.\n",.4)
                                                 wait(1)
                                                 q("Landed a 1 in 100 chance to get a literal GUN.\n",.3)
+                                                wait(1)
+                                                q("That thing could've won you the game intstanly.\n",.1)
+                                                wait(1)
+                                                q("And you kept going.",.1)
+                                                wait(.8)
+                                                print(" ")
+                                                q("WHY?!?!?\n",0)
+                                                wait(1)
+                                                q("Alright, I'm ending this here and now.\n",0)
+                                                wait(1)
+                                                q("God landed a destructive hit, doing " + str(999+P2HP) + " damage to player 2.\n",0)
+                                                wait(.15)
+                                                q("Player 2 has " + str(P2HP) + "HP left.\n",0)
+                                                wait(.5)
+                                            elif P1GLOCK == 0 and not P2NARRATORS == 1:
+                                                q("You conjured up a...",0)
+                                                wait(.2)
+                                                q("GUN?!?!?!?\n",.01)
+                                                wait(.2)
+                                                q("Like, not even an old gun like a musket.\n",0)
+                                                wait(.4)
+                                                q("It's just a Glock-19\n",0)
+                                                wait(5)
+                                                q("I quit\n",0)
+                                                wait(.5)
+                                            else:
+                                                explode()
+                                        else:
+                                            explode()
+                                    elif option == 5:
+                                        if P1MP < 4:
+                                            q("You don't have enough MP for that.\n",0)
+                                            wait(.5)
+                                        else:
+                                            q("You gained advantage on your next turn.\n",0)
+                                            wait(.5)
+                                            P1AD = 1
+                                            P1ADTR = 2
+                                            P1MP = P1MP - 5
+                                            mc = 1
+                                            oc = 1
+                                    elif option == 4:
+                                        if P1MP < 5:
+                                            q("You don't have enough MP for that\n",0)
+                                            wait(.5)
+                                        else:
+                                            if P2AD == 1:
+                                                q("You got rid of your opponent's advantage.")
+                                                wait(.5)
+                                                P2AD = 0
+                                                P2ADTR = 0
+                                                mc = 1
+                                                oc = 1
+                                    elif option == 5:
+                                        if P1MP < 5:
+                                            q("You don't have enough MP for that.\n",0)
+                                            wait(.15)
+                                        else:
+                                            HEAL = P1HP/5
+                                            HEAL = round(HEAL,0)
+                                            q("Player 1 healed " + str(HEAL) + "HP.\n"0)
+                                            
                 elif P2SPD > P1SPD:
                     q("Let player 2 go first, then player 1\n",0)
                     gc = 1
@@ -585,7 +647,7 @@ while ac == 0:
                         P2SPD = P2SPD + 1
                         q("Player 2 is going first.\n",0)
                     else:
-                        crash()
+                        explode()
                 else:
-                    crash()
+                    explode()
 q("End of program\n",0)

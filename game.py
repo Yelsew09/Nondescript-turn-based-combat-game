@@ -630,7 +630,8 @@ while ac == 0:
                                         else:
                                             HEAL = P1HP/5
                                             HEAL = round(HEAL,0)
-                                            q("Player 1 healed " + str(HEAL) + "HP.\n"0)
+                                            q("Player 1 healed " + str(HEAL) + "HP.\n",0)
+                                            
                                             
                 elif P2SPD > P1SPD:
                     q("Let player 2 go first, then player 1\n",0)

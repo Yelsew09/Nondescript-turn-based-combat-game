@@ -44,7 +44,8 @@ def q(str,t):
     for char in str:
         print(char, end='')
         sys.stdout.flush()
-        time.sleep(t)
+        time.sleep(.05)
+    time.sleep(t)
 def reset():
     P1AD = 0
     P2AD = 0
@@ -143,7 +144,7 @@ while ac == 0:
         #Starts the game part of the program
         #GameCorrect. Allows for someone to go back and play the game again if they want to. 
         q("1: Single player\n",.1)
-        q("2: Co-op")
+        q("2: Co-op\n",.1)
         q("How would you like to play?",0)
         multiplayer=int(input(": "))
         q("\n",0)
@@ -184,6 +185,7 @@ while ac == 0:
                             
                     rc = 0
                     while rc == 0:
+                        Player1class=option
                         if option == 1:
                             option = "Knight"
                             P1HP = 42
@@ -274,7 +276,7 @@ while ac == 0:
                             P1MAXMP = P1MP
                             P1SPD = 4
                             rc = 1
-                            bard1story=1
+                            barbarian1story=1
                         elif option == 88224646790:
                             option = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
                             P1HP = 88224646790
@@ -322,7 +324,7 @@ while ac == 0:
                                 ec = 0
                                 
 
-
+                
                 oc = 0
                 while oc == 0:
                     q("1: Knight\n",0)
@@ -344,10 +346,16 @@ while ac == 0:
                     ec = 0
                     while ec == 0:
                         try:
+                            
                             q("Please choose a class, player 2. ",0)
                             option = int(input(''))
-                            ec = 1
                             
+                            if option==Player1class:
+                                q("this class has already been chosen\n",0)
+                                q("Please try again\n",0)
+                            else:
+                                ec = 1
+
                         except ValueError:
                             q("Please give a number.\n",0)
                             ec = 0
@@ -365,6 +373,7 @@ while ac == 0:
                             P2MAXMP = P2MP
                             P2SPD = 3
                             rc = 1
+                            knight2story=1
                         elif option == 2:
                             option = "Peashooter"
                             P2HP = 35
@@ -377,6 +386,7 @@ while ac == 0:
                             P2MAXMP = P2MP
                             P2SPD = 6
                             rc = 1
+                            peashooter2story=1
                         elif option == 3:
                             option = "Mage"
                             P2HP = 29
@@ -389,6 +399,7 @@ while ac == 0:
                             P2MAXMP = P2MP
                             P2SPD = 2
                             rc = 1
+                            mage2story=1
                         elif option == 4:
                             option = "Rouge"
                             P2HP = 31
@@ -401,6 +412,7 @@ while ac == 0:
                             P2MAXMP = P2MP
                             P2SPD = 7
                             rc = 1
+                            rouge2story=1
                         elif option == 5:
                             option = "Skele"
                             P2HP = 33
@@ -413,6 +425,7 @@ while ac == 0:
                             P2MAXMP = P2MP
                             P2SPD = 4
                             rc = 1
+                            skele2story=1
                         elif option == 6:
                             option = "Bard"
                             P2HP = 37
@@ -425,6 +438,7 @@ while ac == 0:
                             P2MAXMP = P2MP
                             P2SPD = 5
                             rc = 1
+                            bard2story=1
                         elif option == 7:
                             option = "Barbarian"
                             P2HP = 52
@@ -437,6 +451,7 @@ while ac == 0:
                             P2MAXMP = P2MP
                             P2SPD = 4
                             rc = 1
+                            barbarian2story=1
                         elif option == 88224646790:
                             option = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
                             P2HP = 88224646790
@@ -449,6 +464,7 @@ while ac == 0:
                             P2MAXMP = P1MP
                             P2SPD = 88224646790
                             rc = 1
+                            secret2story=1
                         elif option == 8:
                             option = random.randint(1,7)
                         else:
@@ -481,6 +497,89 @@ while ac == 0:
                             except ValueError:
                                 q("Please give a number.\n",0)
                                 ec = 0
+                if knight1story==1:
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif peashooter1story==1:
+                    if knight2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif mage1story==1:
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif rouge1story==1:
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif skele1story==1:
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif bard1story==1:
+                    q("\n",.3)
+                elif barbarian1story==1:
+                    q("\n",.3)
+                elif secret1story==1:
+                    q("\n",.3)
+                #story starts
+                
                 q("er;lnjrgifdsgdsjgsdbosodhsdfhddsbsdbsdoubsdjfbdsjbfdsjklfbhdosbhosdfbhs\n",2)
         else:
             q("coming soon\n",.1)                     

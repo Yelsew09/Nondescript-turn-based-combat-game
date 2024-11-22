@@ -495,7 +495,60 @@ while ac == 0:
             cc = 0
             while cc == 0:
                 if P1SPD > P2SPD:
-                    q("Player 1 first, then player 2\n",0)
+                    
+                    #Player 1's turn when they go first
+                    #OptionCorrect
+                    oc = 0
+                    while oc == 0:
+                        q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left\n",0)
+                        confirm()
+                        q("Player 2 has + " + str(P2HP) + "/" + str(P2MAXHP) + "HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + "MP left\n",0)
+                        confirm()
+                        q("1: Attack\n",0)
+                        wait(.15)
+                        q("2: Magic\n",0)
+                        wait(.15)
+                        q("3: Use an item\n",0)
+                        wait(.15)
+                        q("4: Pass turn\n",0)
+
+                        #ErrorCorrect
+                        ec = 0
+                        while ec == 0:
+                            try:
+                                q("What would you like to do? ",0)
+                                option = int(input(''))
+                                if option == 1:
+
+                                    #Attack
+                                    critnumber = critnum(P1AD,1,20)
+                                    q("You rolled a " + str(critnumber) + "\n",0)
+                                    if critnumber == 20:
+                                        
+                                        #Critical hit
+                                        q("IT'S A CRITICAL HIT!!!\n",0)
+                                        q("Player 1 did " + str(P1ATK*2) + " damage to player 2\n",0)
+                                        P2HP = P2HP - (P1ATK*2)
+                                        ec = 1
+                                        oc = 1
+                                    elif critnumber + P1ATKBON > P2DEF:
+                                        
+                                        #Hit
+                                        q("Player 1 landed a hit, doing " + str(P1ATK) + " damage to Player 2.\n")
+                                        wait(.5)
+                                        P2HP = P2HP - P1ATK
+                                        ec = 1
+                                        oc = 1
+                                    elif critnumber + P1ATKBON < P2DEF:
+                                        
+                                        #Miss
+                                        q("Player 1 missed their attack.")
+                                        wait(.5)
+                                        ec = 1
+                                        oc = 1
+                            except ValueError:
+                                q("Please give a number.\n",0)
+                                ec = 0
                 elif P2SPD > P1SPD:
                     q("Player 2 first, then player 1\n",0)
                 else:

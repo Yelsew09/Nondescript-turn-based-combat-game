@@ -69,27 +69,28 @@ def reset():
     P1NARRATORS = 0
     P2NARRATORS = 0
     return P1AD,P2AD,P1ADTR,P2ADTR,P1DMGBOOST,P2DMGBOOST,P1SPOON,P2SPOON,P1KNIVES,P2KNIVES,P1POTS,P2POTS,P1GLOCK,P2GLOCK,P1SEEGUN,P2SEEGUN,P1NARRATORS,P2NARRATORS
-P1AD = 0
-P2AD = 0
-P1ADTR = 0
-P2ADTR = 0
-P1DMGBOOST = 0
-P2DMGBOOST = 0
-P1SPOON = 0
-P2SPOON = 0
-P1KNIVES = 0
-P2KNIVES = 0
-P1POTS = 0
-P2POTS = 0
-P1GLOCK = 0
-P2GLOCK = 0
-P1SEEGUN = 0
-P2SEEGUN = 0
-P1NARRATORS = 0
-P2NARRATORS = 0
 
+for i in range(1):
+    P1AD = 0
+    P2AD = 0
+    P1ADTR = 0
+    P2ADTR = 0
+    P1DMGBOOST = 0
+    P2DMGBOOST = 0
+    P1SPOON = 0
+    P2SPOON = 0
+    P1KNIVES = 0
+    P2KNIVES = 0
+    P1POTS = 0
+    P2POTS = 0
+    P1GLOCK = 0
+    P2GLOCK = 0
+    P1SEEGUN = 0
+    P2SEEGUN = 0
+    P1NARRATORS = 0
+    P2NARRATORS = 0
 
-reset()
+#THE GAME
 q("Welcome to Dungeons and Damage.\n",0)
 wait(.5)
 q("Not to be confused with Dungeons and Dragons.\n",0)
@@ -120,8 +121,10 @@ while ac == 0:
             ec = 1
             wait(.5)
         except ValueError:
+            wait(.5)
             q("Please give a number.\n",0)
             oc = 0
+            wait(.5)
 
     if option == 2:
         
@@ -165,6 +168,7 @@ while ac == 0:
             oc = 0
             while oc == 0:
                 
+                #Character select screen
                 #ErrorCorrect
                 ec = 0
                 while ec == 0:
@@ -177,6 +181,8 @@ while ac == 0:
                         q("Please give a number.\n",0)
                         ec = 0
                         wait(.5)
+                
+                #RandomCorrect. Used specifically here and used for determining a random character
                 rc = 0
                 while rc == 0:
                     if option == 1:
@@ -281,12 +287,16 @@ while ac == 0:
                         q("Please choose a valid option\n",0)
                         rc = 1
                         wait(.5)
+                
+                #YesNoCorrect. Used for a yes/no situation
                 ync = 0
                 while ync == 0:
                     q("1: Yes\n",0)
                     wait(.15)
                     q("2: No\n",0)
                     wait(.15)
+                    
+                    #ErrorCorrect
                     ec = 0
                     while ec == 0:
                         try:
@@ -299,7 +309,7 @@ while ac == 0:
                                 ync = 1
                                 oc = 1
                             elif yesorno == 2:
-                                q("Repeck your character.\n",0)
+                                q("Repick your character.\n",0)
                                 wait(.5)
                                 ync = 1
                             else:
@@ -310,7 +320,7 @@ while ac == 0:
                             ec = 0
                             wait(.5)
 
-
+            #OptionCorrect
             oc = 0
             while oc == 0:
                 q("1: Knight\n",0)
@@ -329,6 +339,8 @@ while ac == 0:
                 wait(.15)
                 q("8: Random\n",0)
                 wait(.15)
+                
+                #ErrorCorrect
                 ec = 0
                 while ec == 0:
                     try:
@@ -339,6 +351,8 @@ while ac == 0:
                     except ValueError:
                         q("Please give a number.\n",0)
                         ec = 0
+                
+                #RandomCorrect
                 rc = 0
                 while rc == 0:
                     if option == 1:
@@ -443,12 +457,16 @@ while ac == 0:
                         q("Please choose a valid option.\n",0)
                         rc = 1
                         wait(.5)
+                
+                #YesNoCorrect
                 ync = 0
                 while ync == 0:
                     q("1: Yes\n",0)
                     wait(.15)
                     q("2: No\n",0)
                     wait(.15)
+                    
+                    #ErrorCorrect
                     ec = 0
                     while ec == 0:
                         try:
@@ -461,7 +479,7 @@ while ac == 0:
                                 ync = 1
                                 oc = 1
                             elif yesorno == 2:
-                                q("Repeck your character.\n",0)
+                                q("Repick your character.\n",0)
                                 wait(.15)
                                 ync = 1
                             else:
@@ -471,6 +489,77 @@ while ac == 0:
                             q("Please give a number.\n",0)
                             ec = 0
                             wait(.5)
+            
+            #CombatCorrect. Used for combat
+            #Will stop when either or both characters reach 0 HP
+            cc = 0
+            while cc == 0:
+                if P1SPD > P2SPD:
+                    
+                    #Player 1's turn when they go first
+                    #OptionCorrect
+                    oc = 0
+                    while oc == 0:
+                        q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left\n",0)
+                        confirm()
+                        q("Player 2 has + " + str(P2HP) + "/" + str(P2MAXHP) + "HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + "MP left\n",0)
+                        confirm()
+                        q("1: Attack\n",0)
+                        wait(.15)
+                        q("2: Magic\n",0)
+                        wait(.15)
+                        q("3: Use an item\n",0)
+                        wait(.15)
+                        q("4: Pass turn\n",0)
+
+                        #ErrorCorrect
+                        ec = 0
+                        while ec == 0:
+                            try:
+                                q("What would you like to do? ",0)
+                                option = int(input(''))
+                                if option == 1:
+
+                                    #Attack
+                                    critnumber = critnum(P1AD,1,20)
+                                    q("You rolled a " + str(critnumber) + "\n",0)
+                                    if critnumber == 20:
+                                        
+                                        #Critical hit
+                                        q("IT'S A CRITICAL HIT!!!\n",0)
+                                        q("Player 1 did " + str(P1ATK*2) + " damage to player 2\n",0)
+                                        P2HP = P2HP - (P1ATK*2)
+                                        ec = 1
+                                        oc = 1
+                                    elif critnumber + P1ATKBON > P2DEF:
+                                        
+                                        #Hit
+                                        q("Player 1 landed a hit, doing " + str(P1ATK) + " damage to Player 2.\n")
+                                        wait(.5)
+                                        P2HP = P2HP - P1ATK
+                                        ec = 1
+                                        oc = 1
+                                    elif critnumber + P1ATKBON < P2DEF:
+                                        
+                                        #Miss
+                                        q("Player 1 missed their attack.")
+                                        wait(.5)
+                                        ec = 1
+                                        oc = 1
+                            except ValueError:
+                                q("Please give a number.\n",0)
+                                ec = 0
+                elif P2SPD > P1SPD:
+                    q("Player 2 first, then player 1\n",0)
+                else:
+                    q("Since you have the same speed, we are randomly going to pick a character to go first.\n",0)
+                    option = random.randint(1,2)
+                    if option == 1:
+                        P1SPD = P1SPD + 1
+                    elif option == 2:
+                        P2SPD = P2SPD + 1
+                    else:
+                        explode()
     else:
         q("Please give a valid option.\n",0)
         wait(.5)

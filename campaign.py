@@ -513,6 +513,70 @@ while ac == 0:
                     elif secret2story==1:
                         q("\n",.2)
                 elif peashooter1story==1:
+                    if knight2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif mage1story==1:
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif rouge1story==1:
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif skele1story==1:
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
+                elif bard1story==1:
+                    q("\n",.3)
+                elif barbarian1story==1:
+                    q("\n",.3)
+                elif secret1story==1:
                     q("\n",.3)
                 #story starts
                 

@@ -44,7 +44,7 @@ def q(str,t):
     for char in str:
         print(char, end='')
         sys.stdout.flush()
-        time.sleep(.05)
+        time.sleep(.04)
     time.sleep(t)
 def reset():
     P1AD = 0
@@ -85,7 +85,6 @@ for i in range(1):
     P2SEEGUN = 0
     P1NARRATORS = 0
     P2NARRATORS = 0
-
 #intro to the game
 q("Welcome to Dungeons and Damage.\n",.1)
  
@@ -94,7 +93,8 @@ q("Not to be confused with Dungeons and Dragons.\n",.1)
 q("There are no dungeons here, but there is a lot of damage.\n",.1)
  
 q("Informally known as HELL.\n",.1)
- 
+
+q("\n",.1)
 
 #AllCorrect. The main while loop that loops the ENTIRE PROGRAM
 ac = 0
@@ -112,7 +112,7 @@ while ac == 0:
     ec = 0
     while ec == 0:
         try:
-            q("What would you like to do? ",0)
+            q("What would you like to do?: ",0)
             option = int(input(''))
             q("\n",0)
             ec = 1
@@ -139,7 +139,7 @@ while ac == 0:
     elif option == 1:
         
         q("This is the campaign Version of the game if you would like the pvp or pvc version please go to combat.py\n",.5)
-        
+        q("\n",0)
         
         #Starts the game part of the program
         #GameCorrect. Allows for someone to go back and play the game again if they want to. 
@@ -175,7 +175,7 @@ while ac == 0:
                     ec = 0
                     while ec == 0:
                         try:
-                            q("Please select a class, Player 1. ",0)
+                            q("Please select a class, Player 1: ",0)
                             option = int(input(''))
                             q("\n",0)
                             ec = 1
@@ -197,6 +197,7 @@ while ac == 0:
                             P1MPBON = 1
                             P1MAXMP = P1MP
                             P1SPD = 3
+                            P1SPDBON = 3
                             rc = 1
                             knight1story=1
                         elif option == 2:
@@ -210,6 +211,7 @@ while ac == 0:
                             P1MPBON = 1
                             P1MAXMP = P1MP
                             P1SPD = 6
+                            P1SPDBON = 3
                             rc = 1
                             peashooter1story=1
                         elif option == 3:
@@ -223,6 +225,7 @@ while ac == 0:
                             P1MPBON = 5
                             P1MAXMP = P1MP
                             P1SPD = 2
+                            P1SPDBON = 3
                             rc = 1
                             mage1story=1
                         elif option == 4:
@@ -236,6 +239,7 @@ while ac == 0:
                             P1MPBON = 1
                             P1MAXMP = P1MP
                             P1SPD = 7
+                            P1SPDBON = 3
                             rc = 1
                             rouge1story=1
                         elif option == 5:
@@ -249,6 +253,7 @@ while ac == 0:
                             P1MPBON = 3
                             P1MAXMP = P1MP
                             P1SPD = 4
+                            P1SPDBON = 3
                             rc = 1
                             skele1story=1
                         elif option == 6:
@@ -262,6 +267,7 @@ while ac == 0:
                             P1MPBON = 4
                             P1MAXMP = P1MP
                             P1SPD = 5
+                            P1SPDBON = 3
                             rc = 1
                             bard1story=1
                         elif option == 7:
@@ -275,6 +281,7 @@ while ac == 0:
                             P1MPBON = .25
                             P1MAXMP = P1MP
                             P1SPD = 4
+                            P1SPDBON = 3
                             rc = 1
                             barbarian1story=1
                         elif option == 88224646790:
@@ -288,6 +295,7 @@ while ac == 0:
                             P1MPBON = 88224646790
                             P1MAXMP = P1MP
                             P1SPD = 88224646790
+                            P1SPDBON = 3
                             rc = 1
                             secret1story=1
                         elif option == 8:
@@ -305,11 +313,12 @@ while ac == 0:
                         ec = 0
                         while ec == 0:
                             try:
-                                q("Player 1 has chosen the " + str(option) + " class, is this correct? ",0)
+                                q("Player 1 has chosen the " + str(option) + " class, is this correct?: ",0)
                                 yesorno = int(input(''))
+                                q("\n",0)
                                 if yesorno == 1:
                                     q("Player 1 has chosen the " + str(option) + " class.\n",0)
-                                    
+                                    q("\n",0)
                                     ync = 1
                                     oc = 1
                                 elif yesorno == 2:
@@ -323,7 +332,6 @@ while ac == 0:
                                 q("Please give a number.\n",0)
                                 ec = 0
                                 
-
                 
                 oc = 0
                 while oc == 0:
@@ -347,9 +355,9 @@ while ac == 0:
                     while ec == 0:
                         try:
                             
-                            q("Please choose a class, player 2. ",0)
+                            q("Please choose a class, player 2: ",0)
                             option = int(input(''))
-                            
+                            q("\n",0)
                             if option==Player1class:
                                 q("this class has already been chosen\n",0)
                                 q("Please try again\n",0)
@@ -372,6 +380,7 @@ while ac == 0:
                             P2MPBON = 1
                             P2MAXMP = P2MP
                             P2SPD = 3
+                            P2SPDBON = 3
                             rc = 1
                             knight2story=1
                         elif option == 2:
@@ -385,6 +394,7 @@ while ac == 0:
                             P2MPBON = 1
                             P2MAXMP = P2MP
                             P2SPD = 6
+                            P2SPDBON = 3
                             rc = 1
                             peashooter2story=1
                         elif option == 3:
@@ -398,6 +408,7 @@ while ac == 0:
                             P2MPBON = 5
                             P2MAXMP = P2MP
                             P2SPD = 2
+                            P2SPDBON = 3
                             rc = 1
                             mage2story=1
                         elif option == 4:
@@ -411,6 +422,7 @@ while ac == 0:
                             P2MPBON = 1
                             P2MAXMP = P2MP
                             P2SPD = 7
+                            P2SPDBON = 3
                             rc = 1
                             rouge2story=1
                         elif option == 5:
@@ -424,6 +436,7 @@ while ac == 0:
                             P2MPBON = 3
                             P2MAXMP = P2MP
                             P2SPD = 4
+                            P2SPDBON = 3
                             rc = 1
                             skele2story=1
                         elif option == 6:
@@ -437,6 +450,7 @@ while ac == 0:
                             P2MPBON = 4
                             P2MAXMP = P2MP
                             P2SPD = 5
+                            P2SPDBON = 3
                             rc = 1
                             bard2story=1
                         elif option == 7:
@@ -450,6 +464,7 @@ while ac == 0:
                             P2MPBON = .25
                             P2MAXMP = P2MP
                             P2SPD = 4
+                            P2SPDBON = 3
                             rc = 1
                             barbarian2story=1
                         elif option == 88224646790:
@@ -463,6 +478,7 @@ while ac == 0:
                             P2MPBON = 88224646790
                             P2MAXMP = P1MP
                             P2SPD = 88224646790
+                            P2SPDBON = 3
                             rc = 1
                             secret2story=1
                         elif option == 8:
@@ -482,6 +498,7 @@ while ac == 0:
                             try:
                                 q("Player 2 has chosen the " + str(option) + " class, is this correct? ",0)
                                 yesorno = int(input(''))
+                                q("\n",0)
                                 if yesorno == 1:
                                     q("Player 2 has chosen the " + str(option) + " class.\n",0)
                                     
@@ -499,7 +516,94 @@ while ac == 0:
                                 ec = 0
                 if knight1story==1:
                     if peashooter2story==1:
-                        q("\n",.2)
+                        q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                        enemychose=random.randint(1,5)
+                        if enemychose==1:
+                            enemy="spider"
+                            EHP = 20
+                            EMAXHP = EHP
+                            EATK = 15
+                            EATKBON = 5
+                            EDEF = 5
+                            EMP = 5
+                            EMPBON = 2
+                            EMAXMP = EMP
+                            ESPD = 4
+                            ESPDBON = 3
+                        elif enemychose==2:
+                            enemy="fairy"
+                            EHP = 10
+                            EMAXHP = EHP
+                            EATK = 10
+                            EATKBON = 6
+                            EDEF = 5
+                            EMP = 10
+                            EMPBON = 5
+                            EMAXMP = EMP
+                            ESPD = 15
+                            ESPDBON = 5
+                        elif enemychose==3:
+                            enemy="evil tree"
+                            EHP = 50
+                            EMAXHP = EHP
+                            EATK = 10
+                            EATKBON = 5
+                            EDEF = 20
+                            EMP = 3
+                            EMPBON = 3
+                            EMAXMP = EMP
+                            ESPD = 5
+                            ESPDBON = 2
+                        elif enemychose==4:
+                            enemy="wolf"
+                            EHP = 20
+                            EMAXHP = EHP
+                            EATK = 15
+                            EATKBON = 8
+                            EDEF = 9
+                            EMP = 4
+                            EMPBON = 2
+                            EMAXMP = EMP
+                            ESPD = 10
+                            ESPDBON = 3
+                        elif enemychose==5:
+                            enemy="evil version of the peashooter also known as the frozo pea"
+                            EHP = 35
+                            EMAXHP = EHP
+                            EATK = 10
+                            EATKBON = 1
+                            EDEF = 14
+                            EMP = 5
+                            EMPBON = 1
+                            EMAXMP = EMP
+                            ESPD = 6
+                            ESPDBON = 3
+                        q("while travling through the forest the 2 come across a " + str(enemy) + " you prepare for the fight\n",2)
+                        q("\n",0)
+                        q("Player 1's Health " + str(P1HP) + "\n",.1)
+                        q("Player 2's Health " + str(P2HP) + "\n",.1)
+                        q( str(enemy) + "'s Health " + str(EHP) + "\n",.1)
+                        q("\n",1)
+                        fight=1
+                        fightround=1
+                        while fight==1:
+                            q("Round " + str(fightround) + " fight\n",.1)
+                            q("\n",0)
+                            if P1SPD>ESPD and P1SPD>P2SPD:
+                                q("Player 1's turn\n",.1)
+                                q("\n",0)
+                                q("1: Attack\n",.1)
+                                q("2: Magic\n",.1)
+                                q("3: Items\n",.1)
+                                q("4: Forfiet\n",.1)
+                                q("What would you like to do?: \n",.0)
+                                turnmove=int(input(""))
+                                q("\n",0)
+                                if turnmove==1:
+                                    print("sdf")
+                            else:
+                                fight=2
+
                     elif mage2story==1:
                         q("\n",.2)
                     elif rouge2story==1:
@@ -573,11 +677,50 @@ while ac == 0:
                     elif secret2story==1:
                         q("\n",.2)
                 elif bard1story==1:
-                    q("\n",.3)
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
                 elif barbarian1story==1:
-                    q("\n",.3)
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
+                    elif secret2story==1:
+                        q("\n",.2)
                 elif secret1story==1:
-                    q("\n",.3)
+                    if peashooter2story==1:
+                        q("\n",.2)
+                    elif mage2story==1:
+                        q("\n",.2)
+                    elif rouge2story==1:
+                        q("\n",.2)
+                    elif skele2story==1:
+                        q("\n",.2)
+                    elif bard2story==1:
+                        q("\n",.2)
+                    elif barbarian2story==1:
+                        q("\n",.2)
+                    elif knight2story==1:
+                        q("\n",.2)
                 #story starts
                 
                 q("er;lnjrgifdsgdsjgsdbosodhsdfhddsbsdbsdoubsdjfbdsjbfdsjklfbhdosbhosdfbhs\n",2)

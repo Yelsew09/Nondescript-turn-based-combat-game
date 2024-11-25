@@ -69,6 +69,18 @@ def reset():
     P1NARRATORS = 0
     P2NARRATORS = 0
     return P1AD,P2AD,P1ADTR,P2ADTR,P1DMGBOOST,P2DMGBOOST,P1SPOON,P2SPOON,P1KNIVES,P2KNIVES,P1POTS,P2POTS,P1GLOCK,P2GLOCK,P1SEEGUN,P2SEEGUN,P1NARRATORS,P2NARRATORS
+def ask(question):
+    ec = 0
+    while ec == 0:
+        try:
+            q(question,0)
+            option = int(input(''))
+            ec = 1
+        except ValueError:
+            wait(.5)
+            q("Please give a numerical value.\n",0)
+            ec = 0
+    return option
 
 for i in range(1):
     P1AD = 0
@@ -112,19 +124,7 @@ while ac == 0:
     q("4: Quit\n",0)
     wait(.15)
     
-    #ErrorCorrect. Allows for a repeat if a ValueError occurs
-    ec = 0
-    while ec == 0:
-        try:
-            q("What would you like to do? ",0)
-            option = int(input(''))
-            ec = 1
-            wait(.5)
-        except ValueError:
-            wait(.5)
-            q("Please give a number.\n",0)
-            oc = 0
-            wait(.5)
+    option = ask("What would you like to do? ")
 
     if option == 2:
         
@@ -165,22 +165,11 @@ while ac == 0:
             q("8: Random\n",0)
             
             #OptionCorrect. Used for when the user could give a bad input. Not needed in the menus b/c it can just loop to the begining of AllCorrect
+            #Character select for player 1
             oc = 0
             while oc == 0:
-                
-                #Character select screen
-                #ErrorCorrect
-                ec = 0
-                while ec == 0:
-                    try:
-                        q("Please select a class, Player 1. ",0)
-                        option = int(input(''))
-                        ec = 1
-                        wait(.5)
-                    except ValueError:
-                        q("Please give a number.\n",0)
-                        ec = 0
-                        wait(.5)
+
+                option = ask("Please select a class, player 1. ")
                 
                 #RandomCorrect. Used specifically here and used for determining a random character
                 rc = 0
@@ -296,31 +285,24 @@ while ac == 0:
                     q("2: No\n",0)
                     wait(.15)
                     
-                    #ErrorCorrect
-                    ec = 0
-                    while ec == 0:
-                        try:
-                            q("Player 1 has chosen the " + str(option) + " class, is this correct? ",0)
-                            yesorno = int(input(''))
-                            wait(.3)
-                            if yesorno == 1:
-                                q("Player 1 has chosen the " + str(option) + " class.\n",0)
-                                wait(.5)
-                                ync = 1
-                                oc = 1
-                            elif yesorno == 2:
-                                q("Repick your character.\n",0)
-                                wait(.5)
-                                ync = 1
-                            else:
-                                q("Please choose a valid option.\n",0)
-                            ec = 1
-                        except ValueError:
-                            q("Please give a number.\n",0)
-                            ec = 0
-                            wait(.5)
+                    yesorno = ask("Player 1 has choesn the " + str(option) + " class. Is this correct? ")
+                    if yesorno == 1:
+                        q("Player 1 has chosen the " + str(option) + "class.\n",0)
+                        ync = 1
+                        oc = 1
+                        wait(.5)
+                    elif yesorno == 2:
+                        q("Repick your character.\n",0)
+                        oc = 0
+                        ync = 1
+                        wait(.5)
+                    else:
+                        q("Pleae give a valid number.\n",0)
+                        ync = 0
+                        wait(.5)
 
             #OptionCorrect
+            #Character select for player 2
             oc = 0
             while oc == 0:
                 q("1: Knight\n",0)
@@ -340,17 +322,8 @@ while ac == 0:
                 q("8: Random\n",0)
                 wait(.15)
                 
-                #ErrorCorrect
-                ec = 0
-                while ec == 0:
-                    try:
-                        q("Please choose a class, player 2. ",0)
-                        option = int(input(''))
-                        ec = 1
-                        wait(.5)
-                    except ValueError:
-                        q("Please give a number.\n",0)
-                        ec = 0
+                q("Please select a class, player 2. ")
+                option = ask('')
                 
                 #RandomCorrect
                 rc = 0
@@ -466,29 +439,7 @@ while ac == 0:
                     q("2: No\n",0)
                     wait(.15)
                     
-                    #ErrorCorrect
-                    ec = 0
-                    while ec == 0:
-                        try:
-                            q("Player 2 has chosen the " + str(option) + " class, is this correct? ",0)
-                            yesorno = int(input(''))
-                            wait(.3)
-                            if yesorno == 1:
-                                q("Player 2 has chosen the " + str(option) + " class.\n",0)
-                                wait(.15)
-                                ync = 1
-                                oc = 1
-                            elif yesorno == 2:
-                                q("Repick your character.\n",0)
-                                wait(.15)
-                                ync = 1
-                            else:
-                                q("Please choose a valid option\n",0)
-                            ec = 1
-                        except ValueError:
-                            q("Please give a number.\n",0)
-                            ec = 0
-                            wait(.5)
+                    yesorno = ask("Player 2 has chosen the ")
             
             #CombatCorrect. Used for combat
             #Will stop when either or both characters reach 0 HP
@@ -511,6 +462,7 @@ while ac == 0:
                         q("3: Use an item\n",0)
                         wait(.15)
                         q("4: Pass turn\n",0)
+                        wait(.15)
 
                         #ErrorCorrect
                         ec = 0
@@ -518,37 +470,106 @@ while ac == 0:
                             try:
                                 q("What would you like to do? ",0)
                                 option = int(input(''))
-                                if option == 1:
-
-                                    #Attack
-                                    critnumber = critnum(P1AD,1,20)
-                                    q("You rolled a " + str(critnumber) + "\n",0)
-                                    if critnumber == 20:
-                                        
-                                        #Critical hit
-                                        q("IT'S A CRITICAL HIT!!!\n",0)
-                                        q("Player 1 did " + str(P1ATK*2) + " damage to player 2\n",0)
-                                        P2HP = P2HP - (P1ATK*2)
-                                        ec = 1
-                                        oc = 1
-                                    elif critnumber + P1ATKBON > P2DEF:
-                                        
-                                        #Hit
-                                        q("Player 1 landed a hit, doing " + str(P1ATK) + " damage to Player 2.\n")
-                                        wait(.5)
-                                        P2HP = P2HP - P1ATK
-                                        ec = 1
-                                        oc = 1
-                                    elif critnumber + P1ATKBON < P2DEF:
-                                        
-                                        #Miss
-                                        q("Player 1 missed their attack.")
-                                        wait(.5)
-                                        ec = 1
-                                        oc = 1
+                                ec = 1
                             except ValueError:
-                                q("Please give a number.\n",0)
+                                wait(.5)
+                                q("Please give a numerical value.\n",0)
                                 ec = 0
+                        if option == 1:
+
+                            #Attack
+                            critnumber = critnum(P1AD,1,20)
+                            q("You rolled a " + str(critnumber) + "\n",0)
+                            if critnumber == 20:
+        
+                                #Critical hit
+                                q("IT'S A CRITICAL HIT!!!\n",0)
+                                q("Player 1 did " + str(P1ATK*2) + " damage to player 2\n",0)
+                                confirm()
+                                P2HP = P2HP - (P1ATK*2)
+                                ec = 1
+                                oc = 1
+                            elif critnumber + P1ATKBON > P2DEF:
+                                    
+                                #Hit
+                                q("Player 1 landed a hit, doing " + str(P1ATK) + " damage to Player 2.\n")
+                                confirm()
+                                wait(.5)
+                                P2HP = P2HP - P1ATK
+                                ec = 1
+                                oc = 1
+                            elif critnumber + P1ATKBON < P2DEF:
+                                        
+                                #Miss
+                                q("Player 1 missed their attack.")
+                                confirm()
+                                wait(.5)
+                                ec = 1
+                                oc = 1
+                            else:
+                                explode()
+                            P1ATKBON = 0
+                        elif option == 2:
+                            q("1: Fireball - 5MP\n",0)
+                            wait(.15)
+                            q("2: Summon a random item - 2MP\n",0)
+                            wait(.15)
+                            q("3: Gain advantage on your next turn - 5MP\n",0)
+                            wait(.15)
+                            q("4: Impose disadvantage on your opponent's next attack - 5MP\n",0)
+                            wait(.15)
+                            q("5: Heal 20 percent of your max health - 5MP\n",0)
+                            wait(.15)
+                            q("6: Gain a damage boost on your next attack - Varies\n",0)
+                            wait(.15)
+                            q("Currently 7: Spell descriptions\n",0)
+                            wait(.15)
+                            q("0: Cancel\n",0)
+                            wait(.15)
+                                
+                            #MagicCorrect. We can't use OptionCorrect, so we have to use a more specific variable
+                            #On a basic level, its purpose is the same as OptionCorrect
+                            mc = 0
+                            while mc == 0:
+                                #ErrorCorrect
+                                ec = 0
+                                while ec == 0:    
+                                    try:
+                                        q("What would you like to do?",0)
+                                        option = int(input(''))
+                                        ec = 1
+                                        wait(.5)
+                                    except ValueError:
+                                        wait(.5)
+                                        q("Please give a numerical value.\n",0)
+                                        ec = 0
+                                        wait(.5)
+                                if option == 1:
+                                    if P1MP < 5:
+                                        q("You don't have enough MP for that.\n",0)
+                                        confirm()
+                                        wait(.3)
+                                        ec = 0
+                                        mc = 0
+                                    else:
+                                        critnumber = critnum(1,12,18)
+                                        q("Player 1 did " + str(critnumber) + " damage to player 2\n",0)
+                                        P2HP = P2HP - critnumber
+                                        P1MP = P1MP - 5
+                                        ec = 0
+                                        mc = 0
+
+                                elif option == 2:
+                                    q("")
+                        elif option == 3:
+                            q("Items\n",0)
+                        elif option == 4:
+                            q("Pass turn\n",0)
+                        else:
+                            q("Please give a valid number.\n",0)
+                            ec = 0
+                            oc = 0
+                            wait(.5)
                 elif P2SPD > P1SPD:
                     q("Player 2 first, then player 1\n",0)
                 else:

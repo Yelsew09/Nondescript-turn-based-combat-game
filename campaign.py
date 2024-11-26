@@ -496,7 +496,7 @@ while ac == 0:
                         ec = 0
                         while ec == 0:
                             try:
-                                q("Player 2 has chosen the " + str(option) + " class, is this correct? ",0)
+                                q("Player 2 has chosen the " + str(option) + " class, is this correct?: ",0)
                                 yesorno = int(input(''))
                                 q("\n",0)
                                 if yesorno == 1:
@@ -622,13 +622,13 @@ while ac == 0:
                                     elif critnumber==20:
                                         q("Critical hit!\n",.1)
                                         damage=(P1ATK*2)+critnumber
-                                        q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
-                                        q("The " + str(enemy) + " Blocked " + str(EDEF) +  " Damage\n",.1)
-                                        damage=damage-EDEF
-                                        if damage<=0:
+                                        if damage>EDEF:
+                                            q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
+                                        elif damage<=EDEF:
+                                            q("The enemy blocked the hit\n",.1)
                                             damage=0
                                         EHP=EHP-damage
-                                        if EHP>0:
+                                        if EHP<0:
                                             EHP=0
                                         q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
                                         prevmp=P1MP
@@ -647,13 +647,13 @@ while ac == 0:
                                         q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
                                     elif critnumber>1 and critnumber<20:
                                         damage=P1ATK+critnumber
-                                        q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
-                                        q("The " + str(enemy) + " Blocked " + str(EDEF) +  " Damage\n",.1)
-                                        damage=damage-EDEF
-                                        if damage<=0:
+                                        if damage>EDEF:
+                                            q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
+                                        elif damage<=EDEF:
+                                            q("The enemy blocked the hit\n",.1)
                                             damage=0
                                         EHP=EHP-damage
-                                        if EHP>0:
+                                        if EHP<0:
                                             EHP=0
                                         q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
                                         prevmp=P1MP
@@ -671,23 +671,58 @@ while ac == 0:
                                         P2SPD=P2SPD+P2SPDBON
                                         q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
                                 elif turnmove==2:
-                                    q("Magic coming soon OvO\n",.1)
-                                    q("1: Gain 1 permanant defense (defense reduces damage effectivly agaisnt attacks but is only half as effective agaisnt magic attacks)\n",.1)
+                                    q("1: choose someone to gain 1 permanant defense (defense reduces damage effectivly agaisnt attacks but is only half as effective agaisnt magic attacks)\n",.1)
                                     q("2: Gain a random item\n",.1)
-                                    q("3: \n",.1)
-                                    prevmp=P1MP
-                                    P1MP=P1MP+P1MPBON
-                                    prevmp=P1MP-prevmp
-                                    
-                                    q("\n")
-                                    if P1MP>P1MAXMP:
-                                        P1MP=P1MAXMP
-                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
-                                    q("You now have " + str(P1MP) + "\n",.1)
-                                    ESPD=ESPD+ESPDBON
-                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                    P2SPD=P2SPD+P2SPDBON
-                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                    q("3: Gain advantage\n",.1)
+                                    q("4: Apply disadvantage\n")
+                                    q("5: Heal your teammate or you for 20 pecent of health of max health\n",.1)
+                                    q("6: Fireball\n",.1)
+                                    q("0: Cancel\n",.1)
+                                    q("What would you like to do?: \n",0)
+                                    magicinput=int(input(""))
+                                    q("\n",.1)
+                                    if magicinput>P1MP:
+                                        q("You can't do this\n",.1)
+                                    if magicinput==1:
+                                        P1MP=P1MP-magicinput
+                                        q("1: You\n",0.1)
+                                        q("2: Teammate",0.1)
+                                        q("Who would you like to give the defense buff to?: ",.0)
+                                        defchoose=int(input(""))
+                                        if defchoose==1:
+                                            q("You gain 1 defense\n",.1)
+                                            P1DEF=P1DEF+1
+                                            prevmp=P1MP
+                                            P1MP=P1MP+P1MPBON
+                                            prevmp=P1MP-prevmp
+                                            q("\n")
+                                            if P1MP>P1MAXMP:
+                                                P1MP=P1MAXMP
+                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                            q("You now have " + str(P1MP) + "\n",.1)
+                                            ESPD=ESPD+ESPDBON
+                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                            P2SPD=P2SPD+P2SPDBON
+                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                        elif defchoose==2:
+                                            q("You give your teammate a defense buff\n",.1)
+                                            P2DEF=P2DEF+1
+                                            prevmp=P1MP
+                                            P1MP=P1MP+P1MPBON
+                                            prevmp=P1MP-prevmp
+                                            q("\n",.1)
+                                            if P1MP>P1MAXMP:
+                                                P1MP=P1MAXMP
+                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                            q("You now have " + str(P1MP) + "\n",.1)
+                                            ESPD=ESPD+ESPDBON
+                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                            P2SPD=P2SPD+P2SPDBON
+                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                    elif magicinput==2:
+                                        P1MP=P1MP-magicinput
+                                        q("you conjour a random item to aid you in your fight",.1)
+                                        itemlist=random.randint(1,1000)
                                 elif turnmove==3:
                                     q("Items arnt ready yet O~O\n",.1)
                                     prevmp=P1MP
@@ -845,5 +880,9 @@ while ac == 0:
             q("coming soon\n",.1)                     
     else:
         q("Please give a valid option.\n",0)
-         
+    q("1: Yes\n",.1)
+    q("2: No\n",.1)
+    q("Play again?: \n",0)
+    ac=int(input(""))
+    q("\n",.1)
 q("End of program\n",0)

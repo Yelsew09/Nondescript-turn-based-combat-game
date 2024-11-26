@@ -595,12 +595,129 @@ while ac == 0:
                                 q("1: Attack\n",.1)
                                 q("2: Magic\n",.1)
                                 q("3: Items\n",.1)
-                                q("4: Forfiet\n",.1)
+                                q("4: Pass turn\n",.1)
                                 q("What would you like to do?: \n",.0)
                                 turnmove=int(input(""))
                                 q("\n",0)
                                 if turnmove==1:
-                                    print("sdf")
+                                    critnumber=critnum(P1AD,1,20)
+                                    if critnumber==1:
+                                        q("Crital fail!\n",.1)
+                                        q("You Wiffed hard and wasted your turn\n",.1)
+                                        q("\n",.1)
+                                        prevmp=P1MP
+
+                                        P1MP=P1MP+P1MPBON
+                                        prevmp=P1MP-prevmp
+                                        
+                                        q("\n")
+                                        if P1MP>P1MAXMP:
+                                            P1MP=P1MAXMP
+                                        q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                        q("You now have " + str(P1MP) + "\n",.1)
+                                        ESPD=ESPD+ESPDBON
+                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                        P2SPD=P2SPD+P2SPDBON
+                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)                                  
+                                    elif critnumber==20:
+                                        q("Critical hit!\n",.1)
+                                        damage=(P1ATK*2)+critnumber
+                                        q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
+                                        q("The " + str(enemy) + " Blocked " + str(EDEF) +  " Damage\n",.1)
+                                        damage=damage-EDEF
+                                        if damage<=0:
+                                            damage=0
+                                        EHP=EHP-damage
+                                        if EHP>0:
+                                            EHP=0
+                                        q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
+                                        prevmp=P1MP
+
+                                        P1MP=P1MP+P1MPBON
+                                        prevmp=P1MP-prevmp
+                                        
+                                        q("\n")
+                                        if P1MP>P1MAXMP:
+                                            P1MP=P1MAXMP
+                                        q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                        q("You now have " + str(P1MP) + "\n",.1)
+                                        ESPD=ESPD+ESPDBON
+                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                        P2SPD=P2SPD+P2SPDBON
+                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                    elif critnumber>1 and critnumber<20:
+                                        damage=P1ATK+critnumber
+                                        q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
+                                        q("The " + str(enemy) + " Blocked " + str(EDEF) +  " Damage\n",.1)
+                                        damage=damage-EDEF
+                                        if damage<=0:
+                                            damage=0
+                                        EHP=EHP-damage
+                                        if EHP>0:
+                                            EHP=0
+                                        q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
+                                        prevmp=P1MP
+
+                                        P1MP=P1MP+P1MPBON
+                                        prevmp=P1MP-prevmp
+                                        
+                                        q("\n")
+                                        if P1MP>P1MAXMP:
+                                            P1MP=P1MAXMP
+                                        q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                        q("You now have " + str(P1MP) + "\n",.1)
+                                        ESPD=ESPD+ESPDBON
+                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                        P2SPD=P2SPD+P2SPDBON
+                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                elif turnmove==2:
+                                    q("Magic coming soon OvO\n",.1)
+                                    q("1: Gain 1 permanant defense (defense reduces damage effectivly agaisnt attacks but is only half as effective agaisnt magic attacks)\n",.1)
+                                    q("2: Gain a random item\n",.1)
+                                    q("3: \n",.1)
+                                    prevmp=P1MP
+                                    P1MP=P1MP+P1MPBON
+                                    prevmp=P1MP-prevmp
+                                    
+                                    q("\n")
+                                    if P1MP>P1MAXMP:
+                                        P1MP=P1MAXMP
+                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                    q("You now have " + str(P1MP) + "\n",.1)
+                                    ESPD=ESPD+ESPDBON
+                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                    P2SPD=P2SPD+P2SPDBON
+                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                elif turnmove==3:
+                                    q("Items arnt ready yet O~O\n",.1)
+                                    prevmp=P1MP
+                                    P1MP=P1MP+P1MPBON
+                                    prevmp=P1MP-prevmp
+                                    
+                                    q("\n")
+                                    if P1MP>P1MAXMP:
+                                        P1MP=P1MAXMP
+                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                    q("You now have " + str(P1MP) + "\n",.1)
+                                    ESPD=ESPD+ESPDBON
+                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                    P2SPD=P2SPD+P2SPDBON
+                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                elif turnmove==4:
+                                    q("You skip you're turn\n",.1)
+                                    prevmp=P1MP
+                                    P1MP=P1MP+P1MPBON
+                                    prevmp=P1MP-prevmp
+                                    
+                                    q("\n")
+                                    if P1MP>P1MAXMP:
+                                        P1MP=P1MAXMP
+                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                    q("You now have " + str(P1MP) + "\n",.1)
+                                    ESPD=ESPD+ESPDBON
+                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                    P2SPD=P2SPD+P2SPDBON
+                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
                             else:
                                 fight=2
 

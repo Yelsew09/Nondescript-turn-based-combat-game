@@ -561,7 +561,7 @@ while ac == 0:
                             wait(.15)
                             q("3: Gain advantage on your next turn - 5MP\n",0)
                             wait(.15)
-                            q("4: Impose disadvantage on your opponent's next attack - 5MP\n",0)
+                            q("4: Impose disadvantage on your opponent's next turn - 5MP\n",0)
                             wait(.15)
                             q("5: Heal 20 percent of your max health - 5MP\n",0)
                             wait(.15)
@@ -661,16 +661,15 @@ while ac == 0:
                                                 q("That thing could've won you the game intstanly.\n",.1)
                                                 confirm()
                                                 wait(.15)
-                                                q("And you kept going.",.1)
-                                                confirm()
-                                                wait(.15)
+                                                q("And you kept going.\n",.1)
+                                                wait(2)
                                                 print(" ")
-                                                q("WHY?!?!?\n",0)
+                                                print("WHY?!?!?")
                                                 confirm()
                                                 wait(.15)
                                                 q("Alright, I'm ending this here and now.\n",0)
                                                 confirm()
-                                                wait(.15)
+                                                wait(.5)
                                                 q("God landed a destructive hit, doing " + str(999+P2HP) + " damage to player 2.\n",0)
                                                 confirm()
                                                 wait(.5)
@@ -681,8 +680,6 @@ while ac == 0:
                                                     wait(.3)
                                                     print("Retrying...")
                                                     wait(.2)
-                                                    if not i == 0 or not i == 5:
-                                                        print("Attempt #", str(i))
                                                 q("Player 2 has " + str(P2HP) + "HP left.\n",0)
                                                 confirm()
                                                 wait(.5)
@@ -690,16 +687,22 @@ while ac == 0:
                                             elif P1GLOCK == 0 and not P2NARRATORS == 1:
                                                 
                                                 #The first gun in the game
-                                                q("You conjured up a...",0)
-                                                wait(.2)
-                                                q("GUN?!?!?!?\n",.01)
-                                                wait(.2)
+                                                q("You conjured up a... ",0)
+                                                confirm()
+                                                wait(.15)
+                                                print("GUN?!?!?!?")
+                                                confirm()
+                                                wait(.15)
                                                 q("Like, not even an old gun like a musket.\n",0)
-                                                wait(.4)
+                                                confirm()
+                                                wait(.15)
                                                 q("It's just a Glock-19\n",0)
-                                                wait(5)
+                                                confirm()
+                                                wait(.15)
                                                 q("I quit\n",0)
+                                                confirm()
                                                 wait(.5)
+                                                P1NARRATORS = 1
                                             
                                             else:
                                                 
@@ -710,12 +713,68 @@ while ac == 0:
                                             #If all else fails...
                                             explode()
                                         oc = 1
+                                        P1MP = P1MP - 2
                                     mc = 1
 
                                 elif option == 3:
-                                    q("You don't have enough MP for that")
-                                    confirm()
-                                    wait(.5)
+                                    if P1MP < 5:
+                                        q("You don't have enough MP for that")
+                                        confirm()
+                                        wait(.5)
+                                    else:
+                                        q("You gained advantage on your next turn.\n",0)
+                                        confirm()
+                                        wait(.5)
+                                        P1AD = 1
+                                        P1ADTR = 2
+                                        oc = 0
+                                        P1MP = P1MP - 5
+                                    mc = 0
+                                
+                                elif option == 4:
+                                    if P1MP < 5:
+                                        q("You don't have enough MP for that\n",0)
+                                        confirm()
+                                        wait(.5)
+                                    else:
+                                        if P2AD == 1:
+                                            q("You got rid of Player 2's advantage.\n",0)
+                                            confirm()
+                                            wait(.5)
+                                            P2AD = 0
+                                            P2ADTR = 0
+                                        else:
+                                            q("You gave Player 2 disadvantage on their next turn.\n",0)
+                                            confirm()
+                                            wait(.5)
+                                            P2AD = 2
+                                            P2ADTR = 1
+                                        oc = 0
+                                        P1MP = P1MP - 5
+                                    mc = 0
+                                
+                                elif option == 5:
+                                    if P1MP < 5:
+                                        q("You don't have enough MP for that.\n",0)
+                                        confirm()
+                                        wait(.5)
+                                    else:
+                                        HEAL = round(P1MAXHP/5)
+                                        q("You healed " + str(HEAL) + " damage.\n",0)
+                                        P1HP = P1HP + HEAL
+                                        if P1HP > P1MAXHP:
+                                            q("But, that would've brought you over your maximum health.\n",0)
+                                            P1HP = P1MAXHP
+                                        P1MP = P1MP - 5
+                                        oc = 1
+                                    mc = 1
+                                
+                                elif option == 6:
+                                    if P1MP < 1:
+                                        q("You have no MP, so therefor you cannot use this spell.\n",0)
+                                        confirm()
+                                        wait(.5)
+
                         elif option == 3:
 
                             #Use an item

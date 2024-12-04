@@ -7,6 +7,7 @@
 #Time, which is used in all points in the program. Literally. The q command has the wait command, and the wait command is after every q command or input command
 #Sys, IDK what it does. All I know is that it's used in the 
 from tkinter import *
+import random, time, sys
 root = Tk()
 canvas_width = 1000
 canvas_height = 1000
@@ -27,7 +28,7 @@ screen.create_text(500, 400, text="but there is a lot of damage", fill="black", 
 sleep.time(2)
 fr=input("bhk")
 screen.delete('all')
-import random, time, sys
+
 def explode():
 
     #A command used for crashing the game. Very useful if something seems impossible

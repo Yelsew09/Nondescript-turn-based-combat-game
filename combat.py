@@ -496,7 +496,9 @@ while ac == 0:
                     
                     #Player 1's turn when they go first
                     #OptionCorrect
+                    #The ic's there to stop a bug
                     oc = 0
+                    ic = 1
                     while oc == 0:
                         q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left\n",0)
                         confirm()
@@ -512,6 +514,8 @@ while ac == 0:
                         wait(.15)
                         
                         option = ask("What would you like to do? ")
+                        
+                        #Attack
                         if option == 1:
 
                             #Attack
@@ -555,6 +559,7 @@ while ac == 0:
                                 explode()
                             P1ATKBON = 0
                         
+                        #Magic
                         elif option == 2:
 
                             #Magic
@@ -841,7 +846,7 @@ while ac == 0:
                                     confirm()
                                     wait(.2)
 
-                        #Use an item
+                        #Item
                         elif option == 3:
                             q("1: Spoons - " + str(P1SPOON) + "\n",0)
                             wait(.15)
@@ -854,7 +859,6 @@ while ac == 0:
                             
                             #Item correct
                             #The item correction
-                            ic = 0
                             while ic <= 2:
                                 ask("What would you like to use (You may use 3 items in a turn)? ")
         
@@ -876,6 +880,30 @@ while ac == 0:
                                 elif option == 2:
                                     if P1KNIVES <= 0:
                                         q("You don't have any knives. You can't throw what you don't have")
+                                    else:
+                                        critnumber = critnum(0,1,5)
+                                        q("You threw a knife, doing " + str(critnumber) + " damage to player 2.\n",0)
+                                        confirm()
+                                        wait(.2)
+                                        ic = ic + 1
+                                        P2HP + P2HP - critnumber
+                                        P1KNIVES = P1KNIVES - 1
+                                        wait(.2)
+                                elif option == 3:
+                                    if P1POTS <= 0:
+                                        q("You don't have any potions. Use a healing spell.\n",0)
+                                    else:
+                                        HEAL = critnum(0,3,7)
+                                        q("You healed " + str(HEAL) + "HP.\n",0)
+                                        P1HP = P1HP + HEAL
+                                        if P1HP > P1MAXHP:
+                                            q("But that would've taken you over your maximum HP.\n",0)
+                                            confirm()
+                                            wait(.2)
+                                            P1HP + P1MAXHP
+                                        else:
+                                            confirm()
+                                            wait(.2)
 
                         #Pass turn
                         elif option == 4:

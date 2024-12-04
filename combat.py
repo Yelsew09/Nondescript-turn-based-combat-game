@@ -19,7 +19,9 @@ def explode():
 def wait(temporal_distance):
     time.sleep(temporal_distance)
 def confirm():
-    confirm = input("")
+    confirm = input('')
+
+
 def critnum(AD,num1,num2):
     
     #Used to generate random numbers
@@ -754,6 +756,8 @@ while ac == 0:
                                     mc = 0
                                 
                                 elif option == 5:
+
+                                    #Heal 20%
                                     if P1MP < 5:
                                         q("You don't have enough MP for that.\n",0)
                                         confirm()
@@ -773,7 +777,30 @@ while ac == 0:
                                     if P1MP < 1:
                                         q("You have no MP, so therefor you cannot use this spell.\n",0)
                                         confirm()
+                                    else:
+                                        q("For every MP you put into this spell, you will get a +2 damage boost to your next attack.\n",0)
+                                        wait(.15)
+                                        P1DMGBOOST = ask("How much MP would you like to put into this spell? ")
                                         wait(.5)
+                                        if P1DMGBOOST == 0:
+                                            q("You canceled your damage boost.\n",0)
+                                        else:
+                                            if P1MP < P1DMGBOOST:
+                                                q("You don't have enough MP for that amount of damage boost.\n",0)
+                                                confirm()
+                                            else:
+                                                P1MP = P1MP - P1DMGBOOST
+                                                P1DMGBOOST = P1DMGBOOST * 2
+                                                q("You gained a buff of +" + str(P1DMGBOOST) + " damage on your next attack.\n",0)
+                                                confirm()
+                                                mc = 1
+                                                oc = 1
+                                    wait(.5)
+                                            
+                                elif option == 7:
+                                    q("Spell descriptions: \n",0)
+                                    wait(.15)
+                                    q("Fireball. Costs 5MP. Create a ball of fire that crashes down on the target, doing 12-18 unblockable damage. ")
 
                         elif option == 3:
 

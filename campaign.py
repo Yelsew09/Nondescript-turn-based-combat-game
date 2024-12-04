@@ -6,6 +6,27 @@
 #Imports random, which is used to generate random numbers used for combat within the game
 #Time, which is used in all points in the program. Literally. The q command has the wait command, and the wait command is after every q command or input command
 #Sys, IDK what it does. All I know is that it's used in the 
+from tkinter import *
+root = Tk()
+canvas_width = 1000
+canvas_height = 1000
+# Create canvas
+screen = Canvas(root, width=canvas_width, height=canvas_height, bg="blue")
+screen.pack()
+screen.create_text(500, 100, text="Welcome To", fill="black", font=('Newspaper 45 bold'))
+sleep.time(2)
+screen.create_text(500, 150, text="Dungeons & Damage", fill="black", font=('Newspaper 45 bold'))
+sleep.time(2)
+screen.create_text(500, 250, text="Not to be confused with", fill="black", font=('Newspaper 45 bold'))
+sleep.time(2)
+screen.create_text(500, 300, text="Dungeons & Dragons", fill="black", font=('Newspaper 45 bold'))
+sleep.time(2)
+screen.create_text(500, 350, text="There are no dungeons here", fill="black", font=('Newspaper 45 bold'))
+sleep.time(2)
+screen.create_text(500, 400, text="but there is a lot of damage", fill="black", font=('Newspaper 45 bold'))
+sleep.time(2)
+fr=input("bhk")
+screen.delete('all')
 import random, time, sys
 def explode():
 
@@ -732,7 +753,7 @@ while ac == 0:
                                             q("3: Enemy\n",.1)
                                             q("What would you like to do?",0)
                                             w=int(input(""))
-                                            
+
                                         P2SPOON = 0
                                         P1KNIVES = 0
                                         P1POTS = 0

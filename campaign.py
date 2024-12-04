@@ -723,6 +723,33 @@ while ac == 0:
                                         P1MP=P1MP-magicinput
                                         q("you conjour a random item to aid you in your fight",.1)
                                         itemlist=random.randint(1,1000)
+
+                                        if itemlist>=1 and itemlist <=333:
+                                            q("You conjured a spoon\n",.1)
+                                            q("Who would you like to give the spoon to?\n",.1)
+                                            q("1: You\n",.1)
+                                            q("2: Your teammate\n",.1)
+                                            q("3: Enemy\n",.1)
+                                            q("What would you like to do?",0)
+                                            w=int(input(""))
+                                            
+                                        P2SPOON = 0
+                                        P1KNIVES = 0
+                                        P1POTS = 0
+                                        P1GLOCK = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 elif turnmove==3:
                                     q("Items arnt ready yet O~O\n",.1)
                                     prevmp=P1MP

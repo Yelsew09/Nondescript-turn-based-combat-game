@@ -91,7 +91,7 @@ q("Welcome to Dungeons and Damage.\n",.1)
 q("Not to be confused with Dungeons and Dragons.\n",.1)
  
 q("There are no dungeons here, but there is a lot of damage.\n",.1)
- 
+
 q("Informally known as HELL.\n",.1)
 
 q("\n",.1)

@@ -69,22 +69,30 @@ def reset():
 for i in range(1):
     P1AD = 0
     P2AD = 0
+    EAD=0
     P1ADTR = 0
     P2ADTR = 0
+    EADTR=0
     P1DMGBOOST = 0
     P2DMGBOOST = 0
+    EDMGBOOST=0
     P1SPOON = 0
     P2SPOON = 0
+    ESPOON=0
     P1KNIVES = 0
     P2KNIVES = 0
+    EKNIVES=0
     P1POTS = 0
     P2POTS = 0
+    EPOTS=0
     P1GLOCK = 0
     P2GLOCK = 0
+    EGLOCK=0
     P1SEEGUN = 0
     P2SEEGUN = 0
     P1NARRATORS = 0
     P2NARRATORS = 0
+    ENARRATORS=0
 #intro to the game
 q("Welcome to Dungeons and Damage.\n",.1)
  
@@ -732,14 +740,121 @@ while ac == 0:
                                             q("3: Enemy\n",.1)
                                             q("What would you like to do?",0)
                                             w=int(input(""))
-
-                                        P2SPOON = 0
-                                        P1KNIVES = 0
-                                        P1POTS = 0
-                                        P1GLOCK = 0
-
-
-
+                                            if w==1:
+                                                P1SPOON=P1SPOON+1
+                                                q("you now have " + str(P1SPOON) +" spoons\n",.1)
+                                            elif w==2:    
+                                                P2SPOON = P2SPOON+1
+                                                q("you now have " + str(P2SPOON) +" spoons\n",.1)
+                                            elif w==3:    
+                                                ESPOON = ESPOON+1
+                                                q("you now have " + str(ESPOON) +" spoons\n",.1)
+                                        elif itemlist>=334 and itemlist <=666:
+                                            q("You conjured a knife\n",.1)
+                                            q("Who would you like to give the knife to?\n",.1)
+                                            q("1: You\n",.1)
+                                            q("2: Your teammate\n",.1)
+                                            q("3: Enemy\n",.1)
+                                            q("What would you like to do?",0)
+                                            w=int(input(""))
+                                            if w==1:
+                                                P1KNIVES=P1KNIVES+1
+                                                q("you now have " + str(P1KNIVES) +" knife\n",.1)
+                                            elif w==2:    
+                                                P2KNIVES = P2KNIVES+1
+                                                q("you now have " + str(P2KNIVES) +" knife\n",.1)
+                                            elif w==3:    
+                                                EKNIVES = EKNIVES+1
+                                                q("you now have " + str(EKNIVES) +" knife\n",.1) 
+                                        elif itemlist>=667 and itemlist <=999:
+                                            q("You conjured a knife\n",.1)
+                                            q("Who would you like to give the knife to?\n",.1)
+                                            q("1: You\n",.1)
+                                            q("2: Your teammate\n",.1)
+                                            q("3: Enemy\n",.1)
+                                            q("What would you like to do?",0)
+                                            w=int(input(""))
+                                            if w==1:
+                                                P1POTS=P1POTS+1
+                                                q("you now have " + str(P1POTS) +" healing potions\n",.1)
+                                            elif w==2:    
+                                                P2POTS = P2POTS+1
+                                                q("you now have " + str(P2POTS) +" healing potions\n",.1)
+                                            elif w==3:    
+                                                EPOTS = EPOTS+1
+                                                q("you now have " + str(EPOTS) +" healing potions\n",.1) 
+                                        elif itemlist==1000:
+                                            q("You conjured a\n",1)
+                                            q("alright whos the funny guy trying to add this to the game\n",5)
+                                            q("This is stupid im not giving them this\n",1)
+                                            q("seriosly i have to do it or im fired\n",4)
+                                            q("you know what",.5)
+                                            q(" i quit get someone else to do this stupid job\n",10)
+                                            q("alright so what am i doing?\n",2)
+                                            q("that sounds pretty easy \n",3)
+                                            q("Alright let me read the script here\n",.3)
+                                            q("You Conjured a\n",2)
+                                            q("am i reading this right?\n",2)
+                                            q("you conjuered a",.8)
+                                            q("...",.5)
+                                            q("a glock-19 pistol with a switch and a scope\n",.5)
+                                            q("Who would you like to give the glock to?\n",.1)
+                                            q("1: You\n",.1)
+                                            q("2: Your teammate\n",.1)
+                                            q("3: Enemy\n",.1)
+                                            q("What would you like to do?",0)
+                                            w=int(input(""))
+                                            if w==1:
+                                                P1GLOCK=P1GLOCK+1
+                                                q("you now have " + str(P1GLOCK) +" glocks\n",.1)
+                                            elif w==2:    
+                                                P2GLOCK = P2GLOCK+1
+                                                q("you now have " + str(P2GLOCK) +" glockS\n",.1)
+                                            elif w==3:    
+                                                EGLOCK = EGLOCK+1
+                                                q("uhhh weird choice but ok")
+                                                q("you now have " + str(EGLOCK) +" glocks\n",.1) 
+                                        P1MP=P1MP+P1MPBON
+                                        prevmp=P1MP-prevmp
+                                        q("\n",.1)
+                                        if P1MP>P1MAXMP:
+                                           P1MP=P1MAXMP
+                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                        q("You now have " + str(P1MP) + "\n",.1)
+                                        ESPD=ESPD+ESPDBON
+                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                        P2SPD=P2SPD+P2SPDBON
+                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                    elif magicinput==3:
+                                        P1AD=1
+                                        P1ADTR=2
+                                        prevmp=P1MP
+                                        P1MP=P1MP+P1MPBON
+                                        prevmp=P1MP-prevmp
+                                        q("\n",.1)
+                                        if P1MP>P1MAXMP:
+                                            P1MP=P1MAXMP
+                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                        q("You now have " + str(P1MP) + "\n",.1)
+                                        ESPD=ESPD+ESPDBON
+                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                        P2SPD=P2SPD+P2SPDBON
+                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                    elif magicinput==4:
+                                        EAD=2
+                                        EADTR=2
+                                        prevmp=P1MP
+                                        P1MP=P1MP+P1MPBON
+                                        prevmp=P1MP-prevmp
+                                        q("\n",.1)
+                                        if P1MP>P1MAXMP:
+                                            P1MP=P1MAXMP
+                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                        q("You now have " + str(P1MP) + "\n",.1)
+                                        ESPD=ESPD+ESPDBON
+                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                        P2SPD=P2SPD+P2SPDBON
+                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
 
 
 
@@ -780,6 +895,10 @@ while ac == 0:
                                     q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
                                     P2SPD=P2SPD+P2SPDBON
                                     q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                if P1ADTR>0:
+                                    P1ADTR=P1ADTR-1
+                                if P1ADTR==0:
+                                    P1AD=0
                             else:
                                 fight=2
 

@@ -93,6 +93,21 @@ for i in range(1):
     P1NARRATORS = 0
     P2NARRATORS = 0
     ENARRATORS=0
+def ask(question):
+    
+    #Ask. Replaces error correct
+    #Asks a question and repeats until the user gives a numerical input
+    ec = 0
+    while ec == 0:
+        try:
+            q(question,0)
+            option = int(input(''))
+            ec = 1
+        except ValueError:
+            q("Please give a Valid option.\n",0)
+            ec = 0
+            
+    return option
 #intro to the game
 q("Welcome to Dungeons and Damage.\n",.1)
  
@@ -117,17 +132,7 @@ while ac == 0:
      
     
     #ErrorCorrect. Allows for a repeat if a ValueError occurs
-    ec = 0
-    while ec == 0:
-        try:
-            q("What would you like to do?: ",0)
-            option = int(input(''))
-            q("\n",0)
-            ec = 1
-             
-        except ValueError:
-            q("Please give a number.\n",0)
-
+    option=ask("What would you like to to?: ")
     if option == 2:
         
         #Guide
@@ -154,7 +159,17 @@ while ac == 0:
         q("1: Single player\n",.1)
         q("2: Co-op\n",.1)
         q("How would you like to play?",0)
-        multiplayer=int(input(": "))
+        ec = 0
+        while ec == 0:
+            try:
+                q("What would you like to do?: ",0)
+                option = int(input(''))
+                q("\n",0)
+                ec = 1
+             
+            except ValueError:
+                q("Please give a valid number.\n",0)
+        multiplayer=option
         q("\n",0)
         if multiplayer==2:
             gc = 0
@@ -679,12 +694,12 @@ while ac == 0:
                                         P2SPD=P2SPD+P2SPDBON
                                         q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
                                 elif turnmove==2:
-                                    q("1: choose someone to gain 1 permanant defense (defense reduces damage effectivly agaisnt attacks but is only half as effective agaisnt magic attacks)\n",.1)
+                                    q("1: choose someone to gain 1 permanant defense (defense reduces damage effectivly agaisnt attacks but is only a quarter as effective agaisnt magic attacks)\n",.1)
                                     q("2: Gain a random item\n",.1)
                                     q("3: Gain advantage\n",.1)
                                     q("4: Apply disadvantage\n")
                                     q("5: Heal your teammate or you for 20 pecent of health of max health\n",.1)
-                                    q("6: Fireball\n",.1)
+                                    q("6: Fireball-Does more damage the more mana you have\n",.1)
                                     q("0: Cancel\n",.1)
                                     q("What would you like to do?: \n",0)
                                     magicinput=int(input(""))
@@ -855,31 +870,73 @@ while ac == 0:
                                         q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
                                         P2SPD=P2SPD+P2SPDBON
                                         q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-
-
-
-
-
-
-
-
-
-
+                                    elif magicinput==5:
+                                        P1MP=P1MP-magicinput
+                                        q("1: You\n",0.1)
+                                        q("2: Teammate",0.1)
+                                        q("Who would you like to give the healing to?: ",.0)
+                                        defchoose=int(input(""))
+                                        if defchoose==1:
+                                            P1HPGAIN=P1HP+round(P1MAXHP/5,0)
+                                            P1HP=P1HP+P1HPGAIN
+                                            if P1HP>P1MAXHP:
+                                                P1HP=P1MAXHP
+                                            q("You gain " + str(P1HPGAIN) + " health back\n",.1)
+                                            q("you have " + str(P1HP) + " health\n",.3)
+                                            prevmp=P1MP
+                                            P1MP=P1MP+P1MPBON
+                                            prevmp=P1MP-prevmp
+                                            q("\n")
+                                            if P1MP>P1MAXMP:
+                                                P1MP=P1MAXMP
+                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                            q("You now have " + str(P1MP) + "\n",.1)
+                                            ESPD=ESPD+ESPDBON
+                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                            P2SPD=P2SPD+P2SPDBON
+                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                        elif defchoose==2:
+                                            P2HPGAIN=P2HP+round(P2MAXHP/5,0)
+                                            P2HP=P2HP+P2HPGAIN
+                                            if P2HP>P2MAXHP:
+                                                P2HP=P2MAXHP
+                                            q("You gain " + str(P2HPGAIN) + " health back\n",.1)
+                                            q("you have " + str(P2HP) + " health\n",.3)
+                                            prevmp=P1MP
+                                            P1MP=P1MP+P1MPBON
+                                            prevmp=P1MP-prevmp
+                                            q("\n")
+                                            if P1MP>P1MAXMP:
+                                                P1MP=P1MAXMP
+                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                            q("You now have " + str(P1MP) + "\n",.1)
+                                            ESPD=ESPD+ESPDBON
+                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                            P2SPD=P2SPD+P2SPDBON
+                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                    elif magicinput==6:
+                                        q("You Cast fire ball\n",.2)
+                                        fireballdamage=random.randint(round(P1MAXMP/2,0),P1MAXMP)
+                                        if fireballdamage<EDEF/4:
+                                            q("the magic was blocked")
+                                        else:
+                                            q("")
                                 elif turnmove==3:
-                                    q("Items arnt ready yet O~O\n",.1)
-                                    prevmp=P1MP
-                                    P1MP=P1MP+P1MPBON
-                                    prevmp=P1MP-prevmp
-                                    
-                                    q("\n")
-                                    if P1MP>P1MAXMP:
-                                        P1MP=P1MAXMP
-                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
-                                    q("You now have " + str(P1MP) + "\n",.1)
-                                    ESPD=ESPD+ESPDBON
-                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                    P2SPD=P2SPD+P2SPDBON
-                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                    q("You have " + str(P1SPOON) + " spoons left\n",.1)
+                                    q("You have " + str(P1KNIVES) + " knives left\n",.1)
+                                    q("You have " + str(P1POTS) + " Healing potions left\n",.1)
+                                    if P1GLOCK>0:
+                                        q("You have " + str(P1GLOCK) + " Glock-19's left\n",.1)
+                                    q("\n",.2)
+                                    q("1: use spoon \n",.1)
+                                    q("2: use knife\n",.1)
+                                    q("3: use healing potion\n",.1)
+                                    if P1GLOCK>0:
+                                            q("1234567890: use Glock-19\n",.1)
+                                    q("What would you like to use?: \n",.1)
+                                    itemuse=int(input(""))
+                                    if itemuse==1 and P1SPOON>0:
+                                        q("\n",.3)
                                 elif turnmove==4:
                                     q("You skip you're turn\n",.1)
                                     prevmp=P1MP
@@ -1031,4 +1088,4 @@ while ac == 0:
     q("Play again?: \n",0)
     ac=int(input(""))
     q("\n",.1)
-q("End of program\n",0)
+q("End of program OvO\n",0)

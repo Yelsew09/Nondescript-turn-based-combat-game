@@ -26,7 +26,7 @@ def explode():
 def wait(temporal_distance):
     time.sleep(temporal_distance)
 def confirm(temporal_distance):
-    confirm = input(' >')
+    input(' >')
     wait(temporal_distance)
 def critnum(AD,num1,num2,show):
     

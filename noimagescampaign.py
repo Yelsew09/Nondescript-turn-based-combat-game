@@ -158,17 +158,8 @@ while ac == 0:
         #GameCorrect. Allows for someone to go back and play the game again if they want to. 
         q("1: Single player\n",.1)
         q("2: Co-op\n",.1)
-        q("How would you like to play?",0)
-        ec = 0
-        while ec == 0:
-            try:
-                q("What would you like to do?: ",0)
-                option = int(input(''))
-                q("\n",0)
-                ec = 1
-             
-            except ValueError:
-                q("Please give a valid number.\n",0)
+        q("",0)
+        option=ask("How would you like to play?: ")
         multiplayer=option
         q("\n",0)
         if multiplayer==2:
@@ -195,17 +186,7 @@ while ac == 0:
                 while oc == 0:
                     
                     #ErrorCorrect
-                    ec = 0
-                    while ec == 0:
-                        try:
-                            q("Please select a class, Player 1: ",0)
-                            option = int(input(''))
-                            q("\n",0)
-                            ec = 1
-                            
-                        except ValueError:
-                            q("Please give a number.\n",0)
-                            
+                    option=ask("Select a class player 1: ")
                     rc = 0
                     while rc == 0:
                         Player1class=option
@@ -374,22 +355,7 @@ while ac == 0:
                     
                     q("8: Random\n",0)
                     
-                    ec = 0
-                    while ec == 0:
-                        try:
-                            
-                            q("Please choose a class, player 2: ",0)
-                            option = int(input(''))
-                            q("\n",0)
-                            if option==Player1class:
-                                q("this class has already been chosen\n",0)
-                                q("Please try again\n",0)
-                            else:
-                                ec = 1
-
-                        except ValueError:
-                            q("Please give a number.\n",0)
-                            ec = 0
+                    option=ask("please select a class player 2: ")
                     rc = 0
                     while rc == 0:
                         if option == 1:
@@ -619,8 +585,9 @@ while ac == 0:
                                 q("2: Magic\n",.1)
                                 q("3: Items\n",.1)
                                 q("4: Pass turn\n",.1)
-                                q("What would you like to do?: \n",.0)
-                                turnmove=int(input(""))
+                                
+                                option=ask("what would you like to do?: ")
+                                turnmove=option
                                 q("\n",0)
                                 if turnmove==1:
                                     critnumber=critnum(P1AD,1,20)
@@ -701,8 +668,8 @@ while ac == 0:
                                     q("5: Heal your teammate or you for 20 pecent of health of max health\n",.1)
                                     q("6: Fireball-Does more damage the more mana you have\n",.1)
                                     q("0: Cancel\n",.1)
-                                    q("What would you like to do?: \n",0)
-                                    magicinput=int(input(""))
+                                    option=ask("What would you like to do?: ")
+                                    magicinput=option
                                     q("\n",.1)
                                     if magicinput>P1MP:
                                         q("You can't do this\n",.1)
@@ -933,10 +900,80 @@ while ac == 0:
                                     q("3: use healing potion\n",.1)
                                     if P1GLOCK>0:
                                             q("1234567890: use Glock-19\n",.1)
-                                    q("What would you like to use?: \n",.1)
-                                    itemuse=int(input(""))
+                                    option=ask("What would you like to use?: \n")
+                                    itemuse=option
                                     if itemuse==1 and P1SPOON>0:
-                                        q("\n",.3)
+                                        P1POTS=P1POTS-1
+                                        potionheal=random.randint(2,5)
+                                        Priorhp=P1HP
+                                        P1HP=P1HP+potionheal
+                                        if P1HP>P1MAXHP:
+                                            P1HP=P1MAXHP
+                                        Priorhp=P1HP-Priorhp
+                                        q("you drink a healing potion and heal for " + str(Priorhp) + " health and now have " + str(P1HP) + " health\n",.3)
+                                    elif itemuse==2 and P1KNIVES>0:
+                                        P1KNIVES=P1KNIVES-1
+                                        knifedamage=random.randint(1,50)
+                                        if knifedamage==1:
+                                            q("your throw was so weak it fell on the floor infront of your enemy and he picked it up\n",.2)
+                                            EKNIVES=EKNIVES+1
+                                            
+                                        else:
+                                            knifedamage=knifedamage/10
+                                            round(knifedamage,0)
+                                            EHP=EHP-knifedamage
+                                            if EHP<0:
+                                                EHP=0
+                                            q("You throw a knife at the enemy dealing " + str(knifedamage) + " damage to the enemy the enemy is left with " + str(EHP) + " Health left\n",.2)
+                                    elif itemuse==3 and P1SPOON>0:
+                                        P1SPOON=P1SPOON-1
+                                        spooncrit=random.randint(1,1000)
+                                        if spooncrit==1000:
+                                            q("You threw your spoon so well (or the rust on it) killed the enemy instantly\n",.1)
+                                            EHP=0
+                                            
+
+                                            
+                                        else:
+                                            spoondamage=random.randint(1,3)
+                                            EHP=EHP-spoondamage
+                                            if EHP<0:
+                                                EHP=0
+                                            q("You throw a spoon at the enemy dealing " + str(spoondamage) + " damage to the enemy the enemy is left with " + str(EHP) + " Health left\n",.2)
+                                    elif itemuse==1234567890 and P1GLOCK>0:
+                                        P1GLOCK=P1GLOCK-1
+                                        gunmiss=random.randint(1,1000)
+                                        if gunmiss==1000:
+                                            q("You...\n",2)
+                                            q("You somehow manegded to get a gun and you...\n",1)
+                                            q("You...\n",2)
+                                            q("You MISSED AHAHHAHAHAHAHAHAHAHAH LOOK AT THIS IDIOT AHAHAHAHAHHAAHHAHAHAHAHAH\n",2)
+                                            q("how did you even manage that\n",2)
+                                            q("well next time dont break the game and things like this wont happen\n",2)
+                                            q("Anyways back to the game\n",2)
+                                        else:
+                                            
+                                            q("oh...\n",2)
+                                            q("You used it...\n",2)
+                                            q("was it worth it?...\n",2)
+                                            q("You won the fight\n",2)
+                                            q("You killed them\n",2)
+                                            q("did you enjoy it?\n",2)
+                                            q("they probally had a family\n",2)
+                                            q("now there over no life in their eyes\n",2)
+                                            q("dead\n",2)
+                                            q("i quit im not doing this anymore\n",30)
+                                            q("Alrighty lets get started on this new job\n",.1)
+                                            q("lets see here\n",.2)
+                                            q("welcome...\n",.2)
+                                            q("too...\n",2)
+                                            q("dungeons...\n",2)
+                                            q("and--\n",2)
+                                            q("what?\n",2)
+                                            q("oh sorry let me find that\n",2)
+                                            q("ahh here it is\n",2)
+                                            q("You pulled out the glock with the switch a lit them up?\n",2)
+                                            q("am i reading this right or is my demantia kicking in haha\n",2)
                                 elif turnmove==4:
                                     q("You skip you're turn\n",.1)
                                     prevmp=P1MP

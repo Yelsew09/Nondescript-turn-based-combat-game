@@ -26,9 +26,9 @@ def explode():
 def wait(temporal_distance):
     time.sleep(temporal_distance)
 def confirm(temporal_distance):
-    confirm = input('')
+    input(' >')
     wait(temporal_distance)
-def critnum(AD,num1,num2):
+def critnum(AD,num1,num2,show):
     
     #Used to generate random numbers
     #If advantage isn't being used, put 0 in for the first number
@@ -52,25 +52,9 @@ def critnum(AD,num1,num2):
             critnumber = critnumber2
     else:
         critnumber = random.randint(num1,num2)
+    if show:
+        q("You rolled a " + str(critnumber) + "\n",0)
     return critnumber
-def reset():
-    P1AD = 0
-    P2AD = 0
-    P1ADTR = 0
-    P2ADTR = 0
-    P1DMGBOOST = 0
-    P2DMGBOOST = 0
-    P1SPOONS = 0
-    P2SPOONS = 0
-    P1KNIVES = 0
-    P2KNIVES = 0
-    P1POTS = 0
-    P2POTS = 0
-    P1GLOCK = 0
-    P2GLOCK = 0
-    P1SEEGUN = 0
-    P2SEEGUN = 0
-    return P1AD,P2AD,P1ADTR,P2ADTR,P1DMGBOOST,P2DMGBOOST,P1SPOONS,P2SPOONS,P1KNIVES,P2KNIVES,P1POTS,P2POTS,P1GLOCK,P2GLOCK,P1SEEGUN,P2SEEGUN
 def ask(question):
     
     #Ask. Replaces error correct
@@ -87,23 +71,8 @@ def ask(question):
             ec = 0
     return option
 
-for i in range(1):
-    P1AD = 0
-    P2AD = 0
-    P1ADTR = 0
-    P2ADTR = 0
-    P1DMGBOOST = 0
-    P2DMGBOOST = 0
-    P1SPOONS = 500
-    P2SPOONS = 0
-    P1KNIVES = 0
-    P2KNIVES = 0
-    P1POTS = 0
-    P2POTS = 0
-    P1GLOCK = 0
-    P2GLOCK = 0
-    P1SEEGUN = 0
-    P2SEEGUN = 0
+
+print_random = True
 
 #THE GAME
 q("Welcome to Dungeons and Damage.\n",0)
@@ -118,6 +87,21 @@ wait(.5)
 #AllCorrect. The main while loop that loops the ENTIRE PROGRAM
 ac = 0
 while ac == 0:
+    for i in range (1):
+        P1AD = 0
+        P2AD = 0
+        P1ADTR = 0
+        P2ADTR = 0
+        P1DMGBOOST = 0
+        P2DMGBOOST = 0
+        P1SPOONS = 500
+        P2SPOONS = 0
+        P1KNIVES = 0
+        P2KNIVES = 0
+        P1POTS = 0
+        P2POTS = 0
+        P1GLOCK = 0
+        P2GLOCK = 0
     q("1: Play the game\n",0)
     wait(.15)
     q("2: Guide\n",0)
@@ -129,17 +113,33 @@ while ac == 0:
 
     option = ask("What would you like to do? ")
 
+    #Guide
     if option == 2:
-
-        #Guide
-        q("Guide coming soon\n",0)
+        q("Guide coming soon",0)
         confirm(.5)
 
+    #Options
     elif option == 3:
-
-        #Options
-        q("Options coming soon\n",0)
-        confirm(.5)
+        q("1: Print randomly generated numbers. Currently set to - " + str(print_random) + "\n",0)
+        wait(.15)
+        
+        #Menu correct
+        #I know it's magic correct later, but we'll ignore that
+        mc = 0
+        while mc == 0:
+            ask("What would you like to change? ")
+            if option == 1:
+                if print_random:
+                    print_random = False
+                    mc = 1
+                elif not print_random:
+                    print_random = True
+                    mc = 1
+                else:
+                    explode()
+            else:
+                q("Please give a valid option.")
+                wait(.5)
 
     elif option == 4:
         #Ends program
@@ -287,7 +287,7 @@ while ac == 0:
                         option = random.randint(1,7)
                     
                     else:
-                        q("Please choose a valid option\n",0)
+                        q("Please choose a valid option",0)
                         confirm(.5)
                         rc = 1
                 
@@ -301,13 +301,13 @@ while ac == 0:
                     yesorno = ask("Player 1 has choesn the " + str(option) + " class. Is this correct? ")
                     
                     if yesorno == 1:
-                        q("Player 1 has chosen the " + str(option) + " class.\n",0)
+                        q("Player 1 has chosen the " + str(option) + " class.",0)
                         confirm(.5)
                         ync = 1
                         oc = 1
                     
                     elif yesorno == 2:
-                        q("Repick your character.\n",0)
+                        q("Repick your character.",0)
                         confirm(.5)
                         oc = 0
                         ync = 1
@@ -465,13 +465,13 @@ while ac == 0:
                     yesorno = ask("Player 2 has chosen the " + str(option) + " class, is this correct? ")
                     
                     if yesorno == 1:
-                        q("Player 2 has chosen the " + str(option) + " class.\n",0)
+                        q("Player 2 has chosen the " + str(option) + " class.",0)
                         confirm(.5)
                         oc = 1
                         ync = 1
                     
                     elif yesorno == 2:
-                        q("Repick your character.\n",0)
+                        q("Repick your character.",0)
                         confirm(.5)
                         ync = 1
 
@@ -491,14 +491,13 @@ while ac == 0:
                     #OptionCorrect
                     #The ic's there to stop a bug
                     oc = 0
-                    ic = 0
                     items_left = 3
                     turn = turn + 1
                     q("This is turn " + str(turn) + "\n",0)
                     wait(.3)
-                    q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left\n",0)
+                    q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left",0)
                     confirm(.3)
-                    q("Player 2 has + " + str(P2HP) + "/" + str(P2MAXHP) + "HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + "MP left\n",0)
+                    q("Player 2 has + " + str(P2HP) + "/" + str(P2MAXHP) + "HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + "MP left",0)
                     confirm(.3)
 
                     oc = 0
@@ -516,15 +515,16 @@ while ac == 0:
                         #Attack
                         if option == 1:
 
-                            critnumber = critnum(P1AD,1,20)
-                            q("You rolled a " + str(critnumber) + "\n",0)
+                            critnumber = critnum(P1AD,1,20,print_random)
+                            if not print_random:
+                                q("You rolled a " + str(critnumber),0)
                             confirm(.5)
 
                             #Critical hit
                             if critnumber == 20:
                                 q("IT'S A CRITICAL HIT!!!\n",0)
                                 wait(.15)
-                                q("Player 1 did " + str(P1ATK*2) + " damage to player 2\n",0)
+                                q("Player 1 did " + str(P1ATK*2) + " damage to player 2",0)
                                 confirm(.5)
                                 P2HP = P2HP - (P1ATK*2)
                                 ec = 1
@@ -533,7 +533,7 @@ while ac == 0:
                             elif critnumber + P1ATKBON > P2DEF:
                                     
                                 #Hit
-                                q("Player 1 landed a hit, doing " + str(P1ATK) + " damage to Player 2.\n")
+                                q("Player 1 landed a hit, doing " + str(P1ATK) + " damage to Player 2.",0)
                                 confirm(.5)
                                 P2HP = P2HP - P1ATK
                                 ec = 1
@@ -542,7 +542,7 @@ while ac == 0:
                             elif critnumber + P1ATKBON < P2DEF:
                                             
                                 #Miss
-                                q("Player 1 missed their attack.")
+                                q("Player 1 missed their attack.",0)
                                 confirm(.5)
                                 ec = 1
                                 oc = 1
@@ -583,19 +583,19 @@ while ac == 0:
                                         
                                     #Not enough MP
                                     if P1MP < 5:
-                                        q("You don't have enough MP for that.\n",0)
+                                        q("You don't have enough MP for that.",0)
                                         confirm(.5)
                                     
                                     else:
-                                        critnumber = critnum(0,round(P1MAXMP/2,0),P1MAXMP)
+                                        critnumber = critnum(0,round(P1MAXMP/2,0),P1MAXMP,print_random)
 
                                         #If the magic is so bad, it will get blocked
                                         if round(P2DEF/4,0) >= critnumber:
-                                            q("Your opponent's defence blocked the " + str(critnumber) + " damage you tried to do.\n",0)
+                                            q("Your opponent's defence blocked the " + str(critnumber) + " damage you tried to do.",0)
                                             confirm(.5)
                                         
                                         else:
-                                            q("Player 1 did " + str(critnumber) + " damage to player 2.\n",0)
+                                            q("Player 1 did " + str(critnumber) + " damage to player 2.",0)
                                             confirm(.5)
                                             P2HP = P2HP - critnumber
                                             P1MP = P1MP - 5
@@ -607,11 +607,11 @@ while ac == 0:
 
                                     #Not enough MP
                                     if P1MP < 2:
-                                        q("You don't have enough MP for that.")
+                                        q("You don't have enough MP for that.",0)
                                         confirm(.5)
                                         
                                     else:
-                                        critnumber = critnum(0,1,100)
+                                        critnumber = critnum(0,1,100,print_random)
                                         q("You rolled a " + str(critnumber) + ".\n",0)
                                         confirm(.5)
                                             
@@ -759,16 +759,22 @@ while ac == 0:
                                     if P1MP < 5:
                                         q("You don't have enough MP for that.\n",0)
                                         confirm(.5)
-
+                                    elif P1HP >= P1MAXHP:
+                                        q("You are already at maximum HP.\n",0)
+                                        confirm(.5)
+                                        P1HP = P1MAXHP
                                     else:
                                         HEAL = round(P1MAXHP/5)
                                         q("You healed " + str(HEAL) + " damage.\n",0)
+                                        confirm(.2)
                                         P1HP = P1HP + HEAL
 
                                         #If healing would put you over your MAXHP
                                         if P1HP > P1MAXHP:
                                             q("But, that would've brought you over your maximum health.\n",0)
+                                            confirm(.2)
                                             P1HP = P1MAXHP
+                                        wait(.3)
                                         P1MP = P1MP - 5
                                         oc = 1
                                     mc = 1
@@ -830,7 +836,6 @@ while ac == 0:
                         #Item
                         elif option == 3:
                             
-                            
                             yesorno = 1
 
                             #If there are no item uses left and you just selected it from the menu
@@ -847,15 +852,102 @@ while ac == 0:
                             else:
                                 q("You can use " + str(items_left) + " more items on this turn")
                                 confirm(.3)
-                                q("Spoons - " + str(P1SPOONS) + "\n",0)
+                                q("1: Spoons - " + str(P1SPOONS) + "\n",0)
                                 wait(.15)
-                                q("")
+                                q("2: Knives - " + str(P1KNIVES) + "\n",0)
+                                wait(.15)
+                                q("3: Healing Potions - " + str(P1POTS) + "\n",0)
+                                wait(.15)
+                                if P1GLOCK >= 1:
+                                    q("4: Glock 19\n",0)
+                                    wait(.15)
+                                    q("5: Cancel\n",0)
+                                else:
+                                    q("4: Cancel\n",0)
+                                wait(.15)
+                                
+                                ic = 0
+                                while ic == 0:
+                                    if items_left == 0:
+                                        ic = 1
+                                        option = 0
+                                    else:
+                                        option = ask("What would you like to use? ")
+                                        
+                                        #Spoon
+                                        if option == 1:
+                                            if P1SPOONS < 1:
+                                                q("You don't have any spoons. No soup for you.\n",0)
+                                                confirm(.5)
+                                            else:
+                                                critnumber = critnum(0,1,1000,print_random)
+                                                if critnumber == 1000:
+                                                    q("Player 2 got tetanus, dying on the spot.\n",0)
+                                                    confirm(.5)
+                                                    ic = 1
+                                                    oc = 1
+                                                    P2HP = P2HP - P2HP
+                                                elif critnumber == 1:
+                                                    q("Player 1 got tetanus, dying on the spot.\n",0)
+                                                    confirm(.5)
+                                                    ic = 1
+                                                    oc = 1
+                                                    P1HP = P1HP - P1HP
+                                                else:
+                                                    q("You threw a spoon, doing 1 point of damage to Player 2")
+                                                    confirm(.5)
+                                                    P2HP = P2HP - 1
+                                                items_left = items_left - 1
+                                                P1SPOON = P1SPOON - 1
+                                        
+                                        #Knife
+                                        elif option == 2:
+                                            if P1KNIVES < 1:
+                                                input("You don't have any knives. Want a pencil instead? ")
+                                                wait(.3)
+                                                q("Well I don't have any.\n",0)
+                                                wait(.5)
+                                            else:
+                                                critnumber = critnum(0,1,50,print_random)
+                                                if critnumber == 50:
+                                                    q("You threw a knive, completely missing your opponent.\n",0)
+                                                
+                                                critnumber = critnum(0,1,5,print_random)
+                                                q("Player 1 threw a knife, doing " + str(critnumber) + " damage to player 2\n",0)
+                                                P2HP = P2HP - critnumber
+                                                P1KNIVES = P1KNIVES - 1
+                                                items_left = items_left - 1
+                                        
+                                        #Healing Potion
+                                        elif option == 3:
+                                            if P1POTS < 1:
+                                                q("You don't have any healing potions.\n",0)
+                                                confirm(.5)
+                                            elif P1HP >= P1MAXHP:
+                                                q("You are already at maximum health.\n",0)
+                                                confirm(.5)
+                                                P1HP = P1MAXHP
+                                            else:
+                                                HEAL = critnum(0,2,5,print_random)
+                                                q("Player 1 healed " + str(HEAL) + " damage")
+                                                confirm(.2)
+                                                if P1HP > P1MAXHP:
+                                                    q("But that would've taken you over your maximum HP.\n",0)
+                                                    confirm(.2)
+                                                    P1HP = P1MAXHP
+                                                wait(.3)
+                                                P1POTS = P1POTS - 1
+                                                items_left = items_left - 1
+                                        
+                                        #Shoot the gun (if you have it)
+                                        elif option == 4 and P1GLOCK > 0:
+                                            critnumber = critnum(0,1,1000)
+                                            if critnumber == 1:
+                                                q("You missed.",0)
+                                                confirm(.2)
+                                                q("I'm making that the end of your turn")
 
-                        
-                        
-                        
-                        
-                        
+
                         #Pass turn
                         elif option == 4:
                                 q("You passed your turn.\n",0)

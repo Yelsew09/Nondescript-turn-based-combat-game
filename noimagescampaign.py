@@ -82,9 +82,9 @@ for i in range(1):
     P1KNIVES = 0
     P2KNIVES = 0
     EKNIVES=0
-    P1POTS = 0
-    P2POTS = 0
-    EPOTS=0
+    P1POTS = 1
+    P2POTS = 1
+    EPOTS=1
     P1GLOCK = 0
     P2GLOCK = 0
     EGLOCK=0
@@ -93,22 +93,15 @@ for i in range(1):
     P1NARRATORS = 0
     P2NARRATORS = 0
     ENARRATORS=0
-    barbarian2story=0
-    barbarian1story=0
-    knight1story=0
-    peashooter1story=0
-    mage1story=0
-    rouge1story=0
-    skele1story=0
-    bard1story=0
-    secret1story=0
-    knight2story=0
-    peashooter2story=0
-    mage2story=0
-    rouge2story=0
-    skele2story=0
-    bard2story=0
-    secret2story=0
+    barbarianstory=0
+    
+    knightstory=0
+    peashooterstory=0
+    magestory=0
+    rougestory=0
+    skelestory=0
+    bardstory=0
+    secretstory=0
     playagain=0
 def ask(question):
     
@@ -208,6 +201,7 @@ while ac == 0:
                             co=1
                             while co==1:
                                 #ErrorCorrect
+
                                 option=ask("Select a class player 1: ")
                                 rc = 0
                                 while rc == 0:
@@ -225,8 +219,15 @@ while ac == 0:
                                         P1SPD = 3
                                         P1SPDBON = 3
                                         rc = 1
-                                        knight1story=1
+                                        knightstory=1
                                         co=0
+                                        peashooterstory=0
+                                        magestory=0
+                                        rougestory=0
+                                        skelestory=0
+                                        bardstory=0
+                                        barbarianstory=0
+                                        secretstory=0
                                     elif option == 2:
                                         option = "Peashooter"
                                         P1HP = 35
@@ -240,7 +241,14 @@ while ac == 0:
                                         P1SPD = 6
                                         P1SPDBON = 3
                                         rc = 1
-                                        peashooter1story=1
+                                        peashooterstory=1
+                                        knightstory=0
+                                        magestory=0
+                                        rougestory=0
+                                        skelestory=0
+                                        bardstory=0
+                                        barbarianstory=0
+                                        secretstory=0
                                         co=0
                                     elif option == 3:
                                         option = "Mage"
@@ -255,7 +263,14 @@ while ac == 0:
                                         P1SPD = 2
                                         P1SPDBON = 3
                                         rc = 1
-                                        mage1story=1
+                                        magestory=1
+                                        knightstory=0
+                                        peashooterstory=0
+                                        rougestory=0
+                                        skelestory=0
+                                        bardstory=0
+                                        barbarianstory=0
+                                        secretstory=0
                                         co=0
                                     elif option == 4:
                                         option = "Rouge"
@@ -270,7 +285,14 @@ while ac == 0:
                                         P1SPD = 7
                                         P1SPDBON = 3
                                         rc = 1
-                                        rouge1story=1
+                                        knightstory=0
+                                        peashooterstory=0
+                                        magestory=0
+                                        rougestory=1
+                                        skelestory=0
+                                        bardstory=0
+                                        barbarianstory=0
+                                        secretstory=0
                                         co=0
                                     elif option == 5:
                                         option = "Skele"
@@ -285,7 +307,14 @@ while ac == 0:
                                         P1SPD = 4
                                         P1SPDBON = 3
                                         rc = 1
-                                        skele1story=1
+                                        knightstory=0
+                                        peashooterstory=0
+                                        magestory=0
+                                        rougestory=0
+                                        skelestory=1
+                                        bardstory=0
+                                        barbarianstory=0
+                                        secretstory=0
                                         co=0
                                     elif option == 6:
                                         option = "Bard"
@@ -300,7 +329,14 @@ while ac == 0:
                                         P1SPD = 5
                                         P1SPDBON = 3
                                         rc = 1
-                                        bard1story=1
+                                        knightstory=0
+                                        peashooterstory=0
+                                        magestory=0
+                                        rougestory=0
+                                        skelestory=0
+                                        bardstory=1
+                                        barbarianstory=0
+                                        secretstory=0
                                         co=0
                                     elif option == 7:
                                         option = "Barbarian"
@@ -315,7 +351,14 @@ while ac == 0:
                                         P1SPD = 4
                                         P1SPDBON = 3
                                         rc = 1
-                                        barbarian1story=1
+                                        knightstory=0
+                                        peashooterstory=0
+                                        magestory=0
+                                        rougestory=0
+                                        skelestory=0
+                                        bardstory=0
+                                        barbarianstory=1
+                                        secretstory=0
                                         co=0
                                     elif option == 88224646790:
                                         option = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
@@ -330,7 +373,14 @@ while ac == 0:
                                         P1SPD = 88224646790
                                         P1SPDBON = 3
                                         rc = 1
-                                        secret1story=1
+                                        knightstory=0
+                                        peashooterstory=0
+                                        magestory=0
+                                        rougestory=0
+                                        skelestory=0
+                                        bardstory=0
+                                        barbarianstory=0
+                                        secretstory=1
                                         co=0
                                     elif option == 8:
                                         option = random.randint(1,7)
@@ -405,7 +455,7 @@ while ac == 0:
                                             P2SPD = 3
                                             P2SPDBON = 3
                                             rc = 1
-                                            knight2story=1
+                                            knightstory=1
                                             co=0
                                         elif option2 == 2:
                                             option2 = "Peashooter"
@@ -420,7 +470,7 @@ while ac == 0:
                                             P2SPD = 6
                                             P2SPDBON = 3
                                             rc = 1
-                                            peashooter2story=1
+                                            peashooterstory=1
                                             co=0
                                         elif option2 == 3:
                                             option2 = "Mage"
@@ -435,7 +485,7 @@ while ac == 0:
                                             P2SPD = 2
                                             P2SPDBON = 3
                                             rc = 1
-                                            mage2story=1
+                                            magestory=1
                                             co=0
                                         elif option2 == 4:
                                             option2 = "Rouge"
@@ -450,7 +500,7 @@ while ac == 0:
                                             P2SPD = 7
                                             P2SPDBON = 3
                                             rc = 1
-                                            rouge2story=1
+                                            rougestory=1
                                             co=0
                                         elif option2 == 5:
                                             option2 = "Skele"
@@ -465,7 +515,7 @@ while ac == 0:
                                             P2SPD = 4
                                             P2SPDBON = 3
                                             rc = 1
-                                            skele2story=1
+                                            skelestory=1
                                             co=0
                                         elif option2 == 6:
                                             option2 = "Bard"
@@ -480,7 +530,7 @@ while ac == 0:
                                             P2SPD = 5
                                             P2SPDBON = 3
                                             rc = 1
-                                            bard2story=1
+                                            bardstory=1
                                             co=0
                                         elif option2 == 7:
                                             option2 = "Barbarian"
@@ -495,7 +545,7 @@ while ac == 0:
                                             P2SPD = 4
                                             P2SPDBON = 3
                                             rc = 1
-                                            barbarian2story=1
+                                            barbarianstory=1
                                             co=0
                                         elif option2 == 88224646790:
                                             option2 = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
@@ -510,7 +560,7 @@ while ac == 0:
                                             P2SPD = 88224646790
                                             P2SPDBON = 3
                                             rc = 1
-                                            secret2story=1
+                                            secretstory=1
                                             co=0
                                         elif option2 == 8:
                                             option2 = random.randint(1,7)
@@ -551,8 +601,8 @@ while ac == 0:
                                             except ValueError:
                                                 q("Please give a number.\n",0)
                                                 ec = 0
-                        if knight1story==1:
-                            if peashooter2story==1:
+                        if knightstory==1:
+                            if peashooterstory==1:
                                 q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
                                 enemychose=random.randint(1,5)
                                 if enemychose==1:

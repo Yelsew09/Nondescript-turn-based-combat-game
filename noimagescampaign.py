@@ -7,6 +7,8 @@
 #Time, which is used in all points in the program. Literally. The q command has the wait command, and the wait command is after every q command or input command
 #Sys, IDK what it does. All I know is that it's used in the 
 import random, time, sys
+
+from campaign import EMAXHP
 def explode():
 
     #A command used for crashing the game. Very useful if something seems impossible
@@ -94,7 +96,14 @@ for i in range(1):
     P2NARRATORS = 0
     ENARRATORS=0
     barbarianstory=0
-    
+    secret="-.- --- -. .- -- .. ....... -.-. --- -.. ."
+    knight="Knight"
+    peashooter="Peashooter"
+    mage="Mage"
+    rouge="Rouge"
+    skele="Skele"
+    bard="Bard"
+    barb="Barbarian"
     knightstory=0
     peashooterstory=0
     magestory=0
@@ -206,6 +215,7 @@ while ac == 0:
                                 rc = 0
                                 while rc == 0:
                                     Player1class=option
+
                                     if option == 1:
                                         option = "Knight"
                                         P1HP = 42
@@ -219,15 +229,8 @@ while ac == 0:
                                         P1SPD = 3
                                         P1SPDBON = 3
                                         rc = 1
-                                        knightstory=1
                                         co=0
-                                        peashooterstory=0
-                                        magestory=0
-                                        rougestory=0
-                                        skelestory=0
-                                        bardstory=0
-                                        barbarianstory=0
-                                        secretstory=0
+                                        P1STORY = option
                                     elif option == 2:
                                         option = "Peashooter"
                                         P1HP = 35
@@ -241,14 +244,7 @@ while ac == 0:
                                         P1SPD = 6
                                         P1SPDBON = 3
                                         rc = 1
-                                        peashooterstory=1
-                                        knightstory=0
-                                        magestory=0
-                                        rougestory=0
-                                        skelestory=0
-                                        bardstory=0
-                                        barbarianstory=0
-                                        secretstory=0
+                                        P1STORY = option
                                         co=0
                                     elif option == 3:
                                         option = "Mage"
@@ -263,14 +259,7 @@ while ac == 0:
                                         P1SPD = 2
                                         P1SPDBON = 3
                                         rc = 1
-                                        magestory=1
-                                        knightstory=0
-                                        peashooterstory=0
-                                        rougestory=0
-                                        skelestory=0
-                                        bardstory=0
-                                        barbarianstory=0
-                                        secretstory=0
+                                        P1STORY = option
                                         co=0
                                     elif option == 4:
                                         option = "Rouge"
@@ -285,14 +274,7 @@ while ac == 0:
                                         P1SPD = 7
                                         P1SPDBON = 3
                                         rc = 1
-                                        knightstory=0
-                                        peashooterstory=0
-                                        magestory=0
-                                        rougestory=1
-                                        skelestory=0
-                                        bardstory=0
-                                        barbarianstory=0
-                                        secretstory=0
+                                        P1STORY = option
                                         co=0
                                     elif option == 5:
                                         option = "Skele"
@@ -307,14 +289,7 @@ while ac == 0:
                                         P1SPD = 4
                                         P1SPDBON = 3
                                         rc = 1
-                                        knightstory=0
-                                        peashooterstory=0
-                                        magestory=0
-                                        rougestory=0
-                                        skelestory=1
-                                        bardstory=0
-                                        barbarianstory=0
-                                        secretstory=0
+                                        P1STORY = option
                                         co=0
                                     elif option == 6:
                                         option = "Bard"
@@ -329,14 +304,7 @@ while ac == 0:
                                         P1SPD = 5
                                         P1SPDBON = 3
                                         rc = 1
-                                        knightstory=0
-                                        peashooterstory=0
-                                        magestory=0
-                                        rougestory=0
-                                        skelestory=0
-                                        bardstory=1
-                                        barbarianstory=0
-                                        secretstory=0
+                                        P1STORY = option
                                         co=0
                                     elif option == 7:
                                         option = "Barbarian"
@@ -351,14 +319,7 @@ while ac == 0:
                                         P1SPD = 4
                                         P1SPDBON = 3
                                         rc = 1
-                                        knightstory=0
-                                        peashooterstory=0
-                                        magestory=0
-                                        rougestory=0
-                                        skelestory=0
-                                        bardstory=0
-                                        barbarianstory=1
-                                        secretstory=0
+                                        P1STORY = option
                                         co=0
                                     elif option == 88224646790:
                                         option = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
@@ -373,15 +334,8 @@ while ac == 0:
                                         P1SPD = 88224646790
                                         P1SPDBON = 3
                                         rc = 1
-                                        knightstory=0
-                                        peashooterstory=0
-                                        magestory=0
-                                        rougestory=0
-                                        skelestory=0
-                                        bardstory=0
-                                        barbarianstory=0
-                                        secretstory=1
-                                        co=0
+                                        P1STORY = option
+                                        co=1
                                     elif option == 8:
                                         option = random.randint(1,7)
                                     else:
@@ -455,7 +409,7 @@ while ac == 0:
                                             P2SPD = 3
                                             P2SPDBON = 3
                                             rc = 1
-                                            knightstory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 2:
                                             option2 = "Peashooter"
@@ -470,7 +424,7 @@ while ac == 0:
                                             P2SPD = 6
                                             P2SPDBON = 3
                                             rc = 1
-                                            peashooterstory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 3:
                                             option2 = "Mage"
@@ -485,7 +439,7 @@ while ac == 0:
                                             P2SPD = 2
                                             P2SPDBON = 3
                                             rc = 1
-                                            magestory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 4:
                                             option2 = "Rouge"
@@ -500,7 +454,7 @@ while ac == 0:
                                             P2SPD = 7
                                             P2SPDBON = 3
                                             rc = 1
-                                            rougestory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 5:
                                             option2 = "Skele"
@@ -515,7 +469,7 @@ while ac == 0:
                                             P2SPD = 4
                                             P2SPDBON = 3
                                             rc = 1
-                                            skelestory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 6:
                                             option2 = "Bard"
@@ -530,7 +484,7 @@ while ac == 0:
                                             P2SPD = 5
                                             P2SPDBON = 3
                                             rc = 1
-                                            bardstory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 7:
                                             option2 = "Barbarian"
@@ -545,7 +499,7 @@ while ac == 0:
                                             P2SPD = 4
                                             P2SPDBON = 3
                                             rc = 1
-                                            barbarianstory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 88224646790:
                                             option2 = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
@@ -560,7 +514,7 @@ while ac == 0:
                                             P2SPD = 88224646790
                                             P2SPDBON = 3
                                             rc = 1
-                                            secretstory=1
+                                            P2STORY = option2
                                             co=0
                                         elif option2 == 8:
                                             option2 = random.randint(1,7)
@@ -601,202 +555,318 @@ while ac == 0:
                                             except ValueError:
                                                 q("Please give a number.\n",0)
                                                 ec = 0
-                        if knightstory==1:
-                            if peashooterstory==1:
-                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
-                                enemychose=random.randint(1,5)
-                                if enemychose==1:
-                                    enemy="spider"
-                                    EHP = 20
-                                    EMAXHP = EHP
-                                    EATK = 15
-                                    EATKBON = 5
-                                    EDEF = 5
-                                    EMP = 5
-                                    EMPBON = 2
-                                    EMAXMP = EMP
-                                    ESPD = 4
-                                    ESPDBON = 3
-                                elif enemychose==2:
-                                    enemy="fairy"
-                                    EHP = 10
-                                    EMAXHP = EHP
-                                    EATK = 10
-                                    EATKBON = 6
-                                    EDEF = 5
-                                    EMP = 10
-                                    EMPBON = 5
-                                    EMAXMP = EMP
-                                    ESPD = 15
-                                    ESPDBON = 5
-                                elif enemychose==3:
-                                    enemy="evil tree"
-                                    EHP = 50
-                                    EMAXHP = EHP
-                                    EATK = 10
-                                    EATKBON = 5
-                                    EDEF = 20
-                                    EMP = 3
-                                    EMPBON = 3
-                                    EMAXMP = EMP
-                                    ESPD = 5
-                                    ESPDBON = 2
-                                elif enemychose==4:
-                                    enemy="wolf"
-                                    EHP = 20
-                                    EMAXHP = EHP
-                                    EATK = 15
-                                    EATKBON = 8
-                                    EDEF = 9
-                                    EMP = 4
-                                    EMPBON = 2
-                                    EMAXMP = EMP
-                                    ESPD = 10
-                                    ESPDBON = 3
-                                elif enemychose==5:
-                                    enemy="evil version of the peashooter also known as the frozo pea"
-                                    EHP = 35
-                                    EMAXHP = EHP
-                                    EATK = 10
-                                    EATKBON = 1
-                                    EDEF = 14
-                                    EMP = 5
-                                    EMPBON = 1
-                                    EMAXMP = EMP
-                                    ESPD = 6
-                                    ESPDBON = 3
-                                q("while travling through the forest the 2 come across a " + str(enemy) + " you prepare for the fight\n",2)
-                                q("\n",0)
-                                q("Player 1's Health " + str(P1HP) + "\n",.1)
-                                q("Player 2's Health " + str(P2HP) + "\n",.1)
-                                q( str(enemy) + "'s Health " + str(EHP) + "\n",.1)
-                                q("\n",1)
-                                fight=1
-                                fightround=1
-                                while fight==1:
-                                    q("Round " + str(fightround) + " fight\n",.1)
+                                def whatenemy():
+                                    enemychose=random.randint(1,5)
+                                    if enemychose==1:
+                                        enemy="spider"
+                                        EHP = 20
+                                        EMAXHP = EHP
+                                        EATK = 15
+                                        EATKBON = 5
+                                        EDEF = 5
+                                        EMP = 5
+                                        EMPBON = 2
+                                        EMAXMP = EMP
+                                        ESPD = 4
+                                        ESPDBON = 3
+                                    elif enemychose==2:
+                                        enemy="fairy"
+                                        EHP = 10
+                                        EMAXHP = EHP
+                                        EATK = 10
+                                        EATKBON = 6
+                                        EDEF = 5
+                                        EMP = 10
+                                        EMPBON = 5
+                                        EMAXMP = EMP
+                                        ESPD = 15
+                                        ESPDBON = 5
+                                    elif enemychose==3:
+                                        enemy="evil tree"
+                                        EHP = 50
+                                        EMAXHP = EHP
+                                        EATK = 10
+                                        EATKBON = 5
+                                        EDEF = 20
+                                        EMP = 3
+                                        EMPBON = 3
+                                        EMAXMP = EMP
+                                        ESPD = 5
+                                        ESPDBON = 2
+                                    elif enemychose==4:
+                                        enemy="wolf"
+                                        EHP = 20
+                                        EMAXHP = EHP
+                                        EATK = 15
+                                        EATKBON = 8
+                                        EDEF = 9
+                                        EMP = 4
+                                        EMPBON = 2
+                                        EMAXMP = EMP
+                                        ESPD = 10
+                                        ESPDBON = 3
+                                    elif enemychose==5:
+                                        enemy="evil version of the peashooter also known as the frozo pea"
+                                        EHP = 35
+                                        EMAXHP = EHP
+                                        EATK = 10
+                                        EATKBON = 1
+                                        EDEF = 14
+                                        EMP = 5
+                                        EMPBON = 1
+                                        EMAXMP = EMP
+                                        ESPD = 6
+                                        ESPDBON = 3
+                                    return enemy,EHP, EMAXHP, EATK, EATKBON, EDEF, EMP,EMPBON, EMAXMP, ESPD,ESPDBON
+                                enemy,EHP, EMAXHP, EATK, EATKBON, EDEF, EMP,EMPBON, EMAXMP, ESPD,ESPDBON = whatenemy()
+                                def combat():
+                                    print("testing")
+                                
+                                    q("while travling through the forest the 2 come across a " + str(enemy) + " you prepare for the fight\n",2)
                                     q("\n",0)
-                                    if P1SPD>ESPD and P1SPD>P2SPD:
-                                        q("Player 1's turn\n",.1)
+                                    q("Player 1's Health " + str(P1HP) + "\n",.1)
+                                    q("Player 2's Health " + str(P2HP) + "\n",.1)
+                                    q( str(enemy) + "'s Health " + str(EHP) + "\n",.1)
+                                    q("\n",1)
+                                    fight=1
+                                    fightround=1
+                                    while fight==1:
+                                        q("Round " + str(fightround) + " fight\n",.1)
                                         q("\n",0)
-                                        q("1: Attack\n",.1)
-                                        q("2: Magic\n",.1)
-                                        q("3: Items\n",.1)
-                                        q("4: Pass turn\n",.1)
-                                        co=1
-                                        if co==1:
-                                            option=ask("what would you like to do?: ")
-                                            turnmove=option
+                                        if P1SPD>ESPD and P1SPD>P2SPD:
+                                            q("Player 1's turn\n",.1)
                                             q("\n",0)
-                                            if turnmove==1:
-                                                critnumber=critnum(P1AD,1,20)
-                                                if critnumber==1:
-                                                    q("Crital fail!\n",.1)
-                                                    q("You Wiffed hard and wasted your turn\n",.1)
-                                                    q("\n",.1)
-                                                    prevmp=P1MP
-
-                                                    P1MP=P1MP+P1MPBON
-                                                    prevmp=P1MP-prevmp
-                                                    
-                                                    q("\n")
-                                                    if P1MP>P1MAXMP:
-                                                        P1MP=P1MAXMP
-                                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
-                                                    q("You now have " + str(P1MP) + "\n",.1)
-                                                    ESPD=ESPD+ESPDBON
-                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                    P2SPD=P2SPD+P2SPDBON
-                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)                                  
-                                                elif critnumber==20:
-                                                    q("Critical hit!\n",.1)
-                                                    damage=(P1ATK*2)+critnumber
-                                                    if damage>EDEF:
-                                                        q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
-                                                    elif damage<=EDEF:
-                                                        q("The enemy blocked the hit\n",.1)
-                                                        damage=0
-                                                    EHP=EHP-damage
-                                                    if EHP<0:
-                                                        EHP=0
-                                                    q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
-                                                    prevmp=P1MP
-
-                                                    P1MP=P1MP+P1MPBON
-                                                    prevmp=P1MP-prevmp
-                                                    
-                                                    q("\n")
-                                                    if P1MP>P1MAXMP:
-                                                        P1MP=P1MAXMP
-                                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
-                                                    q("You now have " + str(P1MP) + "\n",.1)
-                                                    ESPD=ESPD+ESPDBON
-                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                    P2SPD=P2SPD+P2SPDBON
-                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                elif critnumber>1 and critnumber<20:
-                                                    damage=P1ATK+critnumber
-                                                    if damage>EDEF:
-                                                        q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
-                                                    elif damage<=EDEF:
-                                                        q("The enemy blocked the hit\n",.1)
-                                                        damage=0
-                                                    EHP=EHP-damage
-                                                    if EHP<0:
-                                                        EHP=0
-                                                    q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
-                                                    prevmp=P1MP
-
-                                                    P1MP=P1MP+P1MPBON
-                                                    prevmp=P1MP-prevmp
-                                                    
-                                                    q("\n")
-                                                    if P1MP>P1MAXMP:
-                                                        P1MP=P1MAXMP
-                                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
-                                                    q("You now have " + str(P1MP) + "\n",.1)
-                                                    ESPD=ESPD+ESPDBON
-                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                    P2SPD=P2SPD+P2SPDBON
-                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                co=0
-                                            elif turnmove==2:
-                                                q("1: choose someone to gain 1 permanant defense (defense reduces damage effectivly agaisnt attacks but is only a quarter as effective agaisnt magic attacks)\n",.1)
-                                                q("2: Gain a random item\n",.1)
-                                                q("3: Gain advantage\n",.1)
-                                                q("4: Apply disadvantage\n")
-                                                q("5: Heal your teammate or you for 20 pecent of health of max health\n",.1)
-                                                q("6: Fireball-Does more damage the more mana you have\n",.1)
-                                                q("0: Cancel\n",.1)
-                                                option=ask("What would you like to do?: ")
-                                                magicinput=option
-                                                q("\n",.1)
-                                                if magicinput>P1MP:
-                                                    q("You can't do this\n",.1)
-                                                if magicinput==1:
-                                                    P1MP=P1MP-magicinput
-                                                    q("1: You\n",0.1)
-                                                    q("2: Teammate",0.1)
-                                                    q("Who would you like to give the defense buff to?: ",.0)
-                                                    defchoose=int(input(""))
-                                                    if defchoose==1:
-                                                        q("You gain 1 defense\n",.1)
-                                                        P1DEF=P1DEF+1
+                                            q("1: Attack\n",.1)
+                                            q("2: Magic\n",.1)
+                                            q("3: Items\n",.1)
+                                            q("4: Pass turn\n",.1)
+                                            co=1
+                                            if co==1:
+                                                option=ask("what would you like to do?: ")
+                                                turnmove=option
+                                                q("\n",0)
+                                                if turnmove==1:
+                                                    critnumber=critnum(P1AD,1,20)
+                                                    if critnumber==1:
+                                                        q("Crital fail!\n",.1)
+                                                        q("You Wiffed hard and wasted your turn\n",.1)
+                                                        q("\n",.1)
                                                         prevmp=P1MP
+
                                                         P1MP=P1MP+P1MPBON
                                                         prevmp=P1MP-prevmp
+                                                        
                                                         q("\n")
                                                         if P1MP>P1MAXMP:
                                                             P1MP=P1MAXMP
-                                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                        q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                                        q("You now have " + str(P1MP) + "\n",.1)
+                                                        ESPD=ESPD+ESPDBON
+                                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                        P2SPD=P2SPD+P2SPDBON
+                                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)                                  
+                                                    elif critnumber==20:
+                                                        q("Critical hit!\n",.1)
+                                                        damage=(P1ATK*2)+critnumber
+                                                        if damage>EDEF:
+                                                            q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
+                                                        elif damage<=EDEF:
+                                                            q("The enemy blocked the hit\n",.1)
+                                                            damage=0
+                                                        EHP=EHP-damage
+                                                        if EHP<0:
+                                                            EHP=0
+                                                        q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
+                                                        prevmp=P1MP
+
+                                                        P1MP=P1MP+P1MPBON
+                                                        prevmp=P1MP-prevmp
+                                                        
+                                                        q("\n")
+                                                        if P1MP>P1MAXMP:
+                                                            P1MP=P1MAXMP
+                                                        q("You gained back " + str(prevmp) + " Mana Points back\n")
                                                         q("You now have " + str(P1MP) + "\n",.1)
                                                         ESPD=ESPD+ESPDBON
                                                         q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
                                                         P2SPD=P2SPD+P2SPDBON
                                                         q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                    elif defchoose==2:
-                                                        q("You give your teammate a defense buff\n",.1)
-                                                        P2DEF=P2DEF+1
+                                                    elif critnumber>1 and critnumber<20:
+                                                        damage=P1ATK+critnumber
+                                                        if damage>EDEF:
+                                                            q("You Deal " + str(damage) + " Damage to the " + str(enemy) + "\n",.1)
+                                                        elif damage<=EDEF:
+                                                            q("The enemy blocked the hit\n",.1)
+                                                            damage=0
+                                                        EHP=EHP-damage
+                                                        if EHP<0:
+                                                            EHP=0
+                                                        q("The " + str(enemy) + " Has " + str(EHP) + " Health left\n",.1)
+                                                        prevmp=P1MP
+
+                                                        P1MP=P1MP+P1MPBON
+                                                        prevmp=P1MP-prevmp
+                                                        
+                                                        q("\n")
+                                                        if P1MP>P1MAXMP:
+                                                            P1MP=P1MAXMP
+                                                        q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                                        q("You now have " + str(P1MP) + "\n",.1)
+                                                        ESPD=ESPD+ESPDBON
+                                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                        P2SPD=P2SPD+P2SPDBON
+                                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                    co=0
+                                                elif turnmove==2:
+                                                    q("1: choose someone to gain 1 permanant defense (defense reduces damage effectivly agaisnt attacks but is only a quarter as effective agaisnt magic attacks)\n",.1)
+                                                    q("2: Gain a random item\n",.1)
+                                                    q("3: Gain advantage\n",.1)
+                                                    q("4: Apply disadvantage\n")
+                                                    q("5: Heal your teammate or you for 20 pecent of health of max health\n",.1)
+                                                    q("6: Fireball-Does more damage the more mana you have\n",.1)
+                                                    q("0: Cancel\n",.1)
+                                                    option=ask("What would you like to do?: ")
+                                                    magicinput=option
+                                                    q("\n",.1)
+                                                    if magicinput>P1MP:
+                                                        q("You can't do this\n",.1)
+                                                    if magicinput==1:
+                                                        P1MP=P1MP-magicinput
+                                                        q("1: You\n",0.1)
+                                                        q("2: Teammate",0.1)
+                                                        q("Who would you like to give the defense buff to?: ",.0)
+                                                        defchoose=int(input(""))
+                                                        if defchoose==1:
+                                                            q("You gain 1 defense\n",.1)
+                                                            P1DEF=P1DEF+1
+                                                            prevmp=P1MP
+                                                            P1MP=P1MP+P1MPBON
+                                                            prevmp=P1MP-prevmp
+                                                            q("\n")
+                                                            if P1MP>P1MAXMP:
+                                                                P1MP=P1MAXMP
+                                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                            q("You now have " + str(P1MP) + "\n",.1)
+                                                            ESPD=ESPD+ESPDBON
+                                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                            P2SPD=P2SPD+P2SPDBON
+                                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                        elif defchoose==2:
+                                                            q("You give your teammate a defense buff\n",.1)
+                                                            P2DEF=P2DEF+1
+                                                            prevmp=P1MP
+                                                            P1MP=P1MP+P1MPBON
+                                                            prevmp=P1MP-prevmp
+                                                            q("\n",.1)
+                                                            if P1MP>P1MAXMP:
+                                                                P1MP=P1MAXMP
+                                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                            q("You now have " + str(P1MP) + "\n",.1)
+                                                            ESPD=ESPD+ESPDBON
+                                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                            P2SPD=P2SPD+P2SPDBON
+                                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                    elif magicinput==2:
+                                                        P1MP=P1MP-magicinput
+                                                        q("you conjour a random item to aid you in your fight",.1)
+                                                        itemlist=random.randint(1,1000)
+
+                                                        if itemlist>=1 and itemlist <=333:
+                                                            q("You conjured a spoon\n",.1)
+                                                            q("Who would you like to give the spoon to?\n",.1)
+                                                            q("1: You\n",.1)
+                                                            q("2: Your teammate\n",.1)
+                                                            q("3: Enemy\n",.1)
+                                                            q("What would you like to do?",0)
+                                                            w=int(input(""))
+                                                            if w==1:
+                                                                P1SPOON=P1SPOON+1
+                                                                q("you now have " + str(P1SPOON) +" spoons\n",.1)
+                                                            elif w==2:    
+                                                                P2SPOON = P2SPOON+1
+                                                                q("you now have " + str(P2SPOON) +" spoons\n",.1)
+                                                            elif w==3:    
+                                                                ESPOON = ESPOON+1
+                                                                q("you now have " + str(ESPOON) +" spoons\n",.1)
+                                                        elif itemlist>=334 and itemlist <=666:
+                                                            q("You conjured a knife\n",.1)
+                                                            q("Who would you like to give the knife to?\n",.1)
+                                                            q("1: You\n",.1)
+                                                            q("2: Your teammate\n",.1)
+                                                            q("3: Enemy\n",.1)
+                                                            q("What would you like to do?",0)
+                                                            w=int(input(""))
+                                                            if w==1:
+                                                                P1KNIVES=P1KNIVES+1
+                                                                q("you now have " + str(P1KNIVES) +" knife\n",.1)
+                                                            elif w==2:    
+                                                                P2KNIVES = P2KNIVES+1
+                                                                q("you now have " + str(P2KNIVES) +" knife\n",.1)
+                                                            elif w==3:    
+                                                                EKNIVES = EKNIVES+1
+                                                                q("you now have " + str(EKNIVES) +" knife\n",.1) 
+                                                        elif itemlist>=667 and itemlist <=999:
+                                                            q("You conjured a knife\n",.1)
+                                                            q("Who would you like to give the knife to?\n",.1)
+                                                            q("1: You\n",.1)
+                                                            q("2: Your teammate\n",.1)
+                                                            q("3: Enemy\n",.1)
+                                                            q("What would you like to do?",0)
+                                                            w=int(input(""))
+                                                            if w==1:
+                                                                P1POTS=P1POTS+1
+                                                                q("you now have " + str(P1POTS) +" healing potions\n",.1)
+                                                            elif w==2:    
+                                                                P2POTS = P2POTS+1
+                                                                q("you now have " + str(P2POTS) +" healing potions\n",.1)
+                                                            elif w==3:    
+                                                                EPOTS = EPOTS+1
+                                                                q("you now have " + str(EPOTS) +" healing potions\n",.1) 
+                                                        elif itemlist==1000:
+                                                            q("You conjured a\n",1)
+                                                            q("alright whos the funny guy trying to add this to the game\n",5)
+                                                            q("This is stupid im not giving them this\n",1)
+                                                            q("seriosly i have to do it or im fired\n",4)
+                                                            q("you know what",.5)
+                                                            q(" i quit get someone else to do this stupid job\n",10)
+                                                            q("alright so what am i doing?\n",2)
+                                                            q("that sounds pretty easy \n",3)
+                                                            q("Alright let me read the script here\n",.3)
+                                                            q("You Conjured a\n",2)
+                                                            q("am i reading this right?\n",2)
+                                                            q("you conjuered a",.8)
+                                                            q("...",.5)
+                                                            q("a glock-19 pistol with a switch and a scope\n",.5)
+                                                            q("Who would you like to give the glock to?\n",.1)
+                                                            q("1: You\n",.1)
+                                                            q("2: Your teammate\n",.1)
+                                                            q("3: Enemy\n",.1)
+                                                            q("What would you like to do?",0)
+                                                            w=int(input(""))
+                                                            if w==1:
+                                                                P1GLOCK=P1GLOCK+1
+                                                                q("you now have " + str(P1GLOCK) +" glocks\n",.1)
+                                                            elif w==2:    
+                                                                P2GLOCK = P2GLOCK+1
+                                                                q("you now have " + str(P2GLOCK) +" glockS\n",.1)
+                                                            elif w==3:    
+                                                                EGLOCK = EGLOCK+1
+                                                                q("uhhh weird choice but ok")
+                                                                q("you now have " + str(EGLOCK) +" glocks\n",.1) 
+                                                        P1MP=P1MP+P1MPBON
+                                                        prevmp=P1MP-prevmp
+                                                        q("\n",.1)
+                                                        if P1MP>P1MAXMP:
+                                                            P1MP=P1MAXMP
+                                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                            q("You now have " + str(P1MP) + "\n",.1)
+                                                            ESPD=ESPD+ESPDBON
+                                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                            P2SPD=P2SPD+P2SPDBON
+                                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                    elif magicinput==3:
+                                                        P1AD=1
+                                                        P1ADTR=2
                                                         prevmp=P1MP
                                                         P1MP=P1MP+P1MPBON
                                                         prevmp=P1MP-prevmp
@@ -809,418 +879,316 @@ while ac == 0:
                                                         q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
                                                         P2SPD=P2SPD+P2SPDBON
                                                         q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                elif magicinput==2:
-                                                    P1MP=P1MP-magicinput
-                                                    q("you conjour a random item to aid you in your fight",.1)
-                                                    itemlist=random.randint(1,1000)
-
-                                                    if itemlist>=1 and itemlist <=333:
-                                                        q("You conjured a spoon\n",.1)
-                                                        q("Who would you like to give the spoon to?\n",.1)
-                                                        q("1: You\n",.1)
-                                                        q("2: Your teammate\n",.1)
-                                                        q("3: Enemy\n",.1)
-                                                        q("What would you like to do?",0)
-                                                        w=int(input(""))
-                                                        if w==1:
-                                                            P1SPOON=P1SPOON+1
-                                                            q("you now have " + str(P1SPOON) +" spoons\n",.1)
-                                                        elif w==2:    
-                                                            P2SPOON = P2SPOON+1
-                                                            q("you now have " + str(P2SPOON) +" spoons\n",.1)
-                                                        elif w==3:    
-                                                            ESPOON = ESPOON+1
-                                                            q("you now have " + str(ESPOON) +" spoons\n",.1)
-                                                    elif itemlist>=334 and itemlist <=666:
-                                                        q("You conjured a knife\n",.1)
-                                                        q("Who would you like to give the knife to?\n",.1)
-                                                        q("1: You\n",.1)
-                                                        q("2: Your teammate\n",.1)
-                                                        q("3: Enemy\n",.1)
-                                                        q("What would you like to do?",0)
-                                                        w=int(input(""))
-                                                        if w==1:
-                                                            P1KNIVES=P1KNIVES+1
-                                                            q("you now have " + str(P1KNIVES) +" knife\n",.1)
-                                                        elif w==2:    
-                                                            P2KNIVES = P2KNIVES+1
-                                                            q("you now have " + str(P2KNIVES) +" knife\n",.1)
-                                                        elif w==3:    
-                                                            EKNIVES = EKNIVES+1
-                                                            q("you now have " + str(EKNIVES) +" knife\n",.1) 
-                                                    elif itemlist>=667 and itemlist <=999:
-                                                        q("You conjured a knife\n",.1)
-                                                        q("Who would you like to give the knife to?\n",.1)
-                                                        q("1: You\n",.1)
-                                                        q("2: Your teammate\n",.1)
-                                                        q("3: Enemy\n",.1)
-                                                        q("What would you like to do?",0)
-                                                        w=int(input(""))
-                                                        if w==1:
-                                                            P1POTS=P1POTS+1
-                                                            q("you now have " + str(P1POTS) +" healing potions\n",.1)
-                                                        elif w==2:    
-                                                            P2POTS = P2POTS+1
-                                                            q("you now have " + str(P2POTS) +" healing potions\n",.1)
-                                                        elif w==3:    
-                                                            EPOTS = EPOTS+1
-                                                            q("you now have " + str(EPOTS) +" healing potions\n",.1) 
-                                                    elif itemlist==1000:
-                                                        q("You conjured a\n",1)
-                                                        q("alright whos the funny guy trying to add this to the game\n",5)
-                                                        q("This is stupid im not giving them this\n",1)
-                                                        q("seriosly i have to do it or im fired\n",4)
-                                                        q("you know what",.5)
-                                                        q(" i quit get someone else to do this stupid job\n",10)
-                                                        q("alright so what am i doing?\n",2)
-                                                        q("that sounds pretty easy \n",3)
-                                                        q("Alright let me read the script here\n",.3)
-                                                        q("You Conjured a\n",2)
-                                                        q("am i reading this right?\n",2)
-                                                        q("you conjuered a",.8)
-                                                        q("...",.5)
-                                                        q("a glock-19 pistol with a switch and a scope\n",.5)
-                                                        q("Who would you like to give the glock to?\n",.1)
-                                                        q("1: You\n",.1)
-                                                        q("2: Your teammate\n",.1)
-                                                        q("3: Enemy\n",.1)
-                                                        q("What would you like to do?",0)
-                                                        w=int(input(""))
-                                                        if w==1:
-                                                            P1GLOCK=P1GLOCK+1
-                                                            q("you now have " + str(P1GLOCK) +" glocks\n",.1)
-                                                        elif w==2:    
-                                                            P2GLOCK = P2GLOCK+1
-                                                            q("you now have " + str(P2GLOCK) +" glockS\n",.1)
-                                                        elif w==3:    
-                                                            EGLOCK = EGLOCK+1
-                                                            q("uhhh weird choice but ok")
-                                                            q("you now have " + str(EGLOCK) +" glocks\n",.1) 
-                                                    P1MP=P1MP+P1MPBON
-                                                    prevmp=P1MP-prevmp
-                                                    q("\n",.1)
-                                                    if P1MP>P1MAXMP:
-                                                        P1MP=P1MAXMP
+                                                    elif magicinput==4:
+                                                        EAD=2
+                                                        EADTR=2
+                                                        prevmp=P1MP
+                                                        P1MP=P1MP+P1MPBON
+                                                        prevmp=P1MP-prevmp
+                                                        q("\n",.1)
+                                                        if P1MP>P1MAXMP:
+                                                            P1MP=P1MAXMP
                                                         q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
                                                         q("You now have " + str(P1MP) + "\n",.1)
                                                         ESPD=ESPD+ESPDBON
                                                         q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
                                                         P2SPD=P2SPD+P2SPDBON
                                                         q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                elif magicinput==3:
-                                                    P1AD=1
-                                                    P1ADTR=2
-                                                    prevmp=P1MP
-                                                    P1MP=P1MP+P1MPBON
-                                                    prevmp=P1MP-prevmp
-                                                    q("\n",.1)
-                                                    if P1MP>P1MAXMP:
-                                                        P1MP=P1MAXMP
-                                                    q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
-                                                    q("You now have " + str(P1MP) + "\n",.1)
-                                                    ESPD=ESPD+ESPDBON
-                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                    P2SPD=P2SPD+P2SPDBON
-                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                elif magicinput==4:
-                                                    EAD=2
-                                                    EADTR=2
-                                                    prevmp=P1MP
-                                                    P1MP=P1MP+P1MPBON
-                                                    prevmp=P1MP-prevmp
-                                                    q("\n",.1)
-                                                    if P1MP>P1MAXMP:
-                                                        P1MP=P1MAXMP
-                                                    q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
-                                                    q("You now have " + str(P1MP) + "\n",.1)
-                                                    ESPD=ESPD+ESPDBON
-                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                    P2SPD=P2SPD+P2SPDBON
-                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                elif magicinput==5:
-                                                    P1MP=P1MP-magicinput
-                                                    q("1: You\n",0.1)
-                                                    q("2: Teammate",0.1)
-                                                    q("Who would you like to give the healing to?: ",.0)
-                                                    defchoose=int(input(""))
-                                                    if defchoose==1:
-                                                        P1HPGAIN=P1HP+round(P1MAXHP/5,0)
-                                                        P1HP=P1HP+P1HPGAIN
+                                                    elif magicinput==5:
+                                                        P1MP=P1MP-magicinput
+                                                        q("1: You\n",0.1)
+                                                        q("2: Teammate",0.1)
+                                                        q("Who would you like to give the healing to?: ",.0)
+                                                        defchoose=int(input(""))
+                                                        if defchoose==1:
+                                                            P1HPGAIN=P1HP+round(P1MAXHP/5,0)
+                                                            P1HP=P1HP+P1HPGAIN
+                                                            if P1HP>P1MAXHP:
+                                                                P1HP=P1MAXHP
+                                                            q("You gain " + str(P1HPGAIN) + " health back\n",.1)
+                                                            q("you have " + str(P1HP) + " health\n",.3)
+                                                            prevmp=P1MP
+                                                            P1MP=P1MP+P1MPBON
+                                                            prevmp=P1MP-prevmp
+                                                            q("\n")
+                                                            if P1MP>P1MAXMP:
+                                                                P1MP=P1MAXMP
+                                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                            q("You now have " + str(P1MP) + "\n",.1)
+                                                            ESPD=ESPD+ESPDBON
+                                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                            P2SPD=P2SPD+P2SPDBON
+                                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                        elif defchoose==2:
+                                                            P2HPGAIN=P2HP+round(P2MAXHP/5,0)
+                                                            P2HP=P2HP+P2HPGAIN
+                                                            if P2HP>P2MAXHP:
+                                                                P2HP=P2MAXHP
+                                                            q("You gain " + str(P2HPGAIN) + " health back\n",.1)
+                                                            q("you have " + str(P2HP) + " health\n",.3)
+                                                            prevmp=P1MP
+                                                            P1MP=P1MP+P1MPBON
+                                                            prevmp=P1MP-prevmp
+                                                            q("\n")
+                                                            if P1MP>P1MAXMP:
+                                                                P1MP=P1MAXMP
+                                                            q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                            q("You now have " + str(P1MP) + "\n",.1)
+                                                            ESPD=ESPD+ESPDBON
+                                                            q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                            P2SPD=P2SPD+P2SPDBON
+                                                            q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                    elif magicinput==6:
+                                                        q("You Cast fire ball\n",.2)
+                                                        fireballdamage=random.randint(round(P1MAXMP/2,0),P1MAXMP)
+                                                        if fireballdamage<EDEF/4:
+                                                            q("the magic was blocked")
+                                                        else:
+                                                            q("")
+                                                    co=0
+                                                elif turnmove==3:
+                                                    q("You have " + str(P1SPOON) + " spoons left\n",.1)
+                                                    q("You have " + str(P1KNIVES) + " knives left\n",.1)
+                                                    q("You have " + str(P1POTS) + " Healing potions left\n",.1)
+                                                    if P1GLOCK>0:
+                                                        q("You have " + str(P1GLOCK) + " Glock-19's left\n",.1)
+                                                    q("\n",.2)
+                                                    q("1: use spoon \n",.1)
+                                                    q("2: use knife\n",.1)
+                                                    q("3: use healing potion\n",.1)
+                                                    if P1GLOCK>0:
+                                                            q("1234567890: use Glock-19\n",.1)
+                                                    option=ask("What would you like to use?: \n")
+                                                    itemuse=option
+                                                    if itemuse==1 and P1SPOON>0:
+                                                        P1POTS=P1POTS-1
+                                                        potionheal=random.randint(2,5)
+                                                        Priorhp=P1HP
+                                                        P1HP=P1HP+potionheal
                                                         if P1HP>P1MAXHP:
                                                             P1HP=P1MAXHP
-                                                        q("You gain " + str(P1HPGAIN) + " health back\n",.1)
-                                                        q("you have " + str(P1HP) + " health\n",.3)
-                                                        prevmp=P1MP
-                                                        P1MP=P1MP+P1MPBON
-                                                        prevmp=P1MP-prevmp
-                                                        q("\n")
-                                                        if P1MP>P1MAXMP:
-                                                            P1MP=P1MAXMP
-                                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
-                                                        q("You now have " + str(P1MP) + "\n",.1)
-                                                        ESPD=ESPD+ESPDBON
-                                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                        P2SPD=P2SPD+P2SPDBON
-                                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                    elif defchoose==2:
-                                                        P2HPGAIN=P2HP+round(P2MAXHP/5,0)
-                                                        P2HP=P2HP+P2HPGAIN
-                                                        if P2HP>P2MAXHP:
-                                                            P2HP=P2MAXHP
-                                                        q("You gain " + str(P2HPGAIN) + " health back\n",.1)
-                                                        q("you have " + str(P2HP) + " health\n",.3)
-                                                        prevmp=P1MP
-                                                        P1MP=P1MP+P1MPBON
-                                                        prevmp=P1MP-prevmp
-                                                        q("\n")
-                                                        if P1MP>P1MAXMP:
-                                                            P1MP=P1MAXMP
-                                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
-                                                        q("You now have " + str(P1MP) + "\n",.1)
-                                                        ESPD=ESPD+ESPDBON
-                                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                        P2SPD=P2SPD+P2SPDBON
-                                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                elif magicinput==6:
-                                                    q("You Cast fire ball\n",.2)
-                                                    fireballdamage=random.randint(round(P1MAXMP/2,0),P1MAXMP)
-                                                    if fireballdamage<EDEF/4:
-                                                        q("the magic was blocked")
-                                                    else:
-                                                        q("")
-                                                co=0
-                                            elif turnmove==3:
-                                                q("You have " + str(P1SPOON) + " spoons left\n",.1)
-                                                q("You have " + str(P1KNIVES) + " knives left\n",.1)
-                                                q("You have " + str(P1POTS) + " Healing potions left\n",.1)
-                                                if P1GLOCK>0:
-                                                    q("You have " + str(P1GLOCK) + " Glock-19's left\n",.1)
-                                                q("\n",.2)
-                                                q("1: use spoon \n",.1)
-                                                q("2: use knife\n",.1)
-                                                q("3: use healing potion\n",.1)
-                                                if P1GLOCK>0:
-                                                        q("1234567890: use Glock-19\n",.1)
-                                                option=ask("What would you like to use?: \n")
-                                                itemuse=option
-                                                if itemuse==1 and P1SPOON>0:
-                                                    P1POTS=P1POTS-1
-                                                    potionheal=random.randint(2,5)
-                                                    Priorhp=P1HP
-                                                    P1HP=P1HP+potionheal
-                                                    if P1HP>P1MAXHP:
-                                                        P1HP=P1MAXHP
-                                                    Priorhp=P1HP-Priorhp
-                                                    q("you drink a healing potion and heal for " + str(Priorhp) + " health and now have " + str(P1HP) + " health\n",.3)
-                                                elif itemuse==2 and P1KNIVES>0:
-                                                    P1KNIVES=P1KNIVES-1
-                                                    knifedamage=random.randint(1,50)
-                                                    if knifedamage==1:
-                                                        q("your throw was so weak it fell on the floor infront of your enemy and he picked it up\n",.2)
-                                                        EKNIVES=EKNIVES+1
-                                                        
-                                                    else:
-                                                        knifedamage=knifedamage/10
-                                                        round(knifedamage,0)
-                                                        EHP=EHP-knifedamage
-                                                        if EHP<0:
+                                                        Priorhp=P1HP-Priorhp
+                                                        q("you drink a healing potion and heal for " + str(Priorhp) + " health and now have " + str(P1HP) + " health\n",.3)
+                                                    elif itemuse==2 and P1KNIVES>0:
+                                                        P1KNIVES=P1KNIVES-1
+                                                        knifedamage=random.randint(1,50)
+                                                        if knifedamage==1:
+                                                            q("your throw was so weak it fell on the floor infront of your enemy and he picked it up\n",.2)
+                                                            EKNIVES=EKNIVES+1
+                                                            
+                                                        else:
+                                                            knifedamage=knifedamage/10
+                                                            round(knifedamage,0)
+                                                            EHP=EHP-knifedamage
+                                                            if EHP<0:
+                                                                EHP=0
+                                                            q("You throw a knife at the enemy dealing " + str(knifedamage) + " damage to the enemy the enemy is left with " + str(EHP) + " Health left\n",.2)
+                                                    elif itemuse==3 and P1SPOON>0:
+                                                        P1SPOON=P1SPOON-1
+                                                        spooncrit=random.randint(1,1000)
+                                                        if spooncrit==1000:
+                                                            q("You threw your spoon so well (or the rust on it) killed the enemy instantly\n",.1)
                                                             EHP=0
-                                                        q("You throw a knife at the enemy dealing " + str(knifedamage) + " damage to the enemy the enemy is left with " + str(EHP) + " Health left\n",.2)
-                                                elif itemuse==3 and P1SPOON>0:
-                                                    P1SPOON=P1SPOON-1
-                                                    spooncrit=random.randint(1,1000)
-                                                    if spooncrit==1000:
-                                                        q("You threw your spoon so well (or the rust on it) killed the enemy instantly\n",.1)
-                                                        EHP=0
-                                                        
+                                                            
 
-                                                        
-                                                    else:
-                                                        spoondamage=random.randint(1,3)
-                                                        EHP=EHP-spoondamage
-                                                        if EHP<0:
+                                                            
+                                                        else:
+                                                            spoondamage=random.randint(1,3)
+                                                            EHP=EHP-spoondamage
+                                                            if EHP<0:
+                                                                EHP=0
+                                                            q("You throw a spoon at the enemy dealing " + str(spoondamage) + " damage to the enemy the enemy is left with " + str(EHP) + " Health left\n",.2)
+                                                    elif itemuse==1234567890 and P1GLOCK>0:
+                                                        P1GLOCK=P1GLOCK-1
+                                                        gunmiss=random.randint(1,1000)
+                                                        if gunmiss==1000:
+                                                            q("You...\n",2)
+                                                            q("You somehow manegded to get a gun and you...\n",1)
+                                                            q("You...\n",2)
+                                                            q("You MISSED AHAHHAHAHAHAHAHAHAHAH LOOK AT THIS IDIOT AHAHAHAHAHHAAHHAHAHAHAHAH\n",2)
+                                                            q("how did you even manage that\n",2)
+                                                            q("well next time dont break the game and things like this wont happen\n",2)
+                                                            q("Anyways back to the game\n",2)
+                                                        else:
+                                                            
+                                                            q("oh...\n",2)
+                                                            q("You used it...\n",2)
+                                                            q("was it worth it?...\n",2)
+                                                            q("You won the fight\n",2)
+                                                            q("You killed them\n",2)
+                                                            q("did you enjoy it?\n",2)
+                                                            q("they probally had a family\n",2)
+                                                            q("now there over no life in their eyes\n",2)
+                                                            q("dead\n",2)
+                                                            q("i quit im not doing this anymore\n",30)
+                                                            q("Alrighty lets get started on this new job\n",.1)
+                                                            q("lets see here\n",.2)
+                                                            q("welcome...\n",.2)
+                                                            q("too...\n",2)
+                                                            q("dungeons...\n",2)
+                                                            q("and--\n",2)
+                                                            q("what?\n",2)
+                                                            q("oh sorry let me find that\n",2)
+                                                            q("ahh here it is\n",2)
+                                                            q("You pulled out the glock with the switch and light them up?\n",2)
+                                                            q("am i reading this right or is my demantia kicking in haha\n",2)
                                                             EHP=0
-                                                        q("You throw a spoon at the enemy dealing " + str(spoondamage) + " damage to the enemy the enemy is left with " + str(EHP) + " Health left\n",.2)
-                                                elif itemuse==1234567890 and P1GLOCK>0:
-                                                    P1GLOCK=P1GLOCK-1
-                                                    gunmiss=random.randint(1,1000)
-                                                    if gunmiss==1000:
-                                                        q("You...\n",2)
-                                                        q("You somehow manegded to get a gun and you...\n",1)
-                                                        q("You...\n",2)
-                                                        q("You MISSED AHAHHAHAHAHAHAHAHAHAH LOOK AT THIS IDIOT AHAHAHAHAHHAAHHAHAHAHAHAH\n",2)
-                                                        q("how did you even manage that\n",2)
-                                                        q("well next time dont break the game and things like this wont happen\n",2)
-                                                        q("Anyways back to the game\n",2)
-                                                    else:
-                                                        
-                                                        q("oh...\n",2)
-                                                        q("You used it...\n",2)
-                                                        q("was it worth it?...\n",2)
-                                                        q("You won the fight\n",2)
-                                                        q("You killed them\n",2)
-                                                        q("did you enjoy it?\n",2)
-                                                        q("they probally had a family\n",2)
-                                                        q("now there over no life in their eyes\n",2)
-                                                        q("dead\n",2)
-                                                        q("i quit im not doing this anymore\n",30)
-                                                        q("Alrighty lets get started on this new job\n",.1)
-                                                        q("lets see here\n",.2)
-                                                        q("welcome...\n",.2)
-                                                        q("too...\n",2)
-                                                        q("dungeons...\n",2)
-                                                        q("and--\n",2)
-                                                        q("what?\n",2)
-                                                        q("oh sorry let me find that\n",2)
-                                                        q("ahh here it is\n",2)
-                                                        q("You pulled out the glock with the switch and light them up?\n",2)
-                                                        q("am i reading this right or is my demantia kicking in haha\n",2)
-                                                        EHP=0
-                                            elif turnmove==4:
-                                                q("You skip you're turn\n",.1)
-                                                prevmp=P1MP
-                                                P1MP=P1MP+P1MPBON
-                                                prevmp=P1MP-prevmp
-                                                
-                                                q("\n")
-                                                if P1MP>P1MAXMP:
-                                                    P1MP=P1MAXMP
-                                                q("You gained back " + str(prevmp) + " Mana Points back\n")
-                                                q("You now have " + str(P1MP) + "\n",.1)
-                                                ESPD=ESPD+ESPDBON
-                                                q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                P2SPD=P2SPD+P2SPDBON
-                                                co=0
-                                                q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                            else:
-                                                q("not an avilible option\n",.1)
+                                                elif turnmove==4:
+                                                    q("You skip you're turn\n",.1)
+                                                    prevmp=P1MP
+                                                    P1MP=P1MP+P1MPBON
+                                                    prevmp=P1MP-prevmp
+                                                    
+                                                    q("\n")
+                                                    if P1MP>P1MAXMP:
+                                                        P1MP=P1MAXMP
+                                                    q("You gained back " + str(prevmp) + " Mana Points back\n")
+                                                    q("You now have " + str(P1MP) + "\n",.1)
+                                                    ESPD=ESPD+ESPDBON
+                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                    P2SPD=P2SPD+P2SPDBON
+                                                    co=0
+                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                else:
+                                                    q("not an avilible option\n",.1)
 
-                                        if P1ADTR>0:
-                                            P1ADTR=P1ADTR-1
-                                        if P1ADTR==0:
-                                            P1AD=0
-                                    
-                                    
-                                    
-                                    else:
-                                        fight=2
+                                            if P1ADTR>0:
+                                                P1ADTR=P1ADTR-1
+                                            if P1ADTR==0:
+                                                P1AD=0
+                                        
+                                        
+                                        
+                                        else:
+                                            fight=2
 
-                            elif mage2story==1:
+                        if P1STORY==knight or P2STORY==knight:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                            elif rouge2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                            elif skele2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                            elif bard2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                            elif barbarian2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                            elif secret2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
-                        elif peashooter1story==1:
-                            if knight2story==1:
+                        elif peashooterstory==1:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                            elif mage2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                            elif rouge2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                            elif skele2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                            elif bard2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                            elif barbarian2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
-                            elif secret2story==1:
+                        elif magestory==1:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                        elif mage1story==1:
-                            if peashooter2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                            elif knight2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                            elif rouge2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                            elif skele2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                            elif bard2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
-                            elif barbarian2story==1:
+                        elif rougestory==1:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                            elif secret2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                        elif rouge1story==1:
-                            if peashooter2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                            elif mage2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                            elif knight2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                            elif skele2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
-                            elif bard2story==1:
+                        elif skelestory==1:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                            elif barbarian2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                            elif secret2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                        elif skele1story==1:
-                            if peashooter2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                            elif mage2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                            elif rouge2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
-                            elif knight2story==1:
+                        elif bardstory==1:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                            elif bard2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                            elif barbarian2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                            elif secret2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                        elif bard1story==1:
-                            if peashooter2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                            elif mage2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
-                            elif rouge2story==1:
+                        elif barbarianstory==1:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                            elif skele2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                            elif knight2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                            elif barbarian2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                            elif secret2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                        elif barbarian1story==1:
-                            if peashooter2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
-                            elif mage2story==1:
+                        elif secretstory==1:
+                            if P1STORY==peashooter or P2STORY==peashooter:
+                                q("as the knight wanders through the mystical forest he comes across a weird looking vine but just as fast as he see's the vine in springs up and aims its mouth in a very threating way signaling that this plant is very dangeos but this plant has a mission to get to his home couidently enough the knight was heading the same way to meet the princess in the tower he needs to save so they embark on their journy to the town off neighborville\n",.2)
+                                
+                            elif P1STORY==mage or P2STORY==mage :
                                 q("\n",.2)
-                            elif rouge2story==1:
+                            elif P1STORY== rouge or P2STORY== rouge:
                                 q("\n",.2)
-                            elif skele2story==1:
+                            elif P1STORY== skele or P2STORY== skele:
                                 q("\n",.2)
-                            elif bard2story==1:
+                            elif P1STORY== bard or P2STORY== bard:
                                 q("\n",.2)
-                            elif knight2story==1:
+                            elif P1STORY== barb or P2STORY== barb:
                                 q("\n",.2)
-                            elif secret2story==1:
-                                q("\n",.2)
-                        elif secret1story==1:
-                            if peashooter2story==1:
-                                q("\n",.2)
-                            elif mage2story==1:
-                                q("\n",.2)
-                            elif rouge2story==1:
-                                q("\n",.2)
-                            elif skele2story==1:
-                                q("\n",.2)
-                            elif bard2story==1:
-                                q("\n",.2)
-                            elif barbarian2story==1:
-                                q("\n",.2)
-                            elif knight2story==1:
+                            elif P1STORY== secret or P2STORY== secret:
                                 q("\n",.2)
                         #story starts
                         

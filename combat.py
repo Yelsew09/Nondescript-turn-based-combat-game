@@ -109,6 +109,8 @@ while ac == 0:
         P2POTS = 0
         P1GLOCK = 0
         P2GLOCK = 0
+        P1WINS = 0
+        P2WINS = 0
     
     q("1: Play the game\n")
     wait(.15)
@@ -551,7 +553,6 @@ while ac == 0:
                                 q("Player 1 did " + str(P1ATK*2) + " damage to player 2")
                                 confirm(.5)
                                 P2HP = P2HP - (P1ATK*2)
-                                ec = 1
                                 oc = 1
                                 
                             #Hit
@@ -559,14 +560,12 @@ while ac == 0:
                                 q("Player 1 landed a hit, doing " + str(P1ATK) + " damage to Player 2.")
                                 confirm(.5)
                                 P2HP = P2HP - P1ATK
-                                ec = 1
                                 oc = 1
                                 
                             #Miss
                             elif critnumber + P1ATKBON < P2DEF:
                                 q("Player 1 missed their attack.")
                                 confirm(.5)
-                                ec = 1
                                 oc = 1
                                 
                             #If all else fails...
@@ -859,7 +858,6 @@ while ac == 0:
 
                         #Item
                         elif option == 3:
-                            
                             yesorno = 1
 
                             #If there are no item uses left and you just selected it from the menu
@@ -1037,16 +1035,91 @@ while ac == 0:
 
                         #Pass turn
                         elif option == 4:
-                                q("You passed your turn.\n")
-                                oc = 1
+                            q("You passed your turn.\n")
+                            oc = 1
                             
                         #Not a valid input
                         else:
-                                q("Please give an option we can use.\n")
-                                ec = 0
-                                oc = 0
-                                wait(.5)
-                
+                            q("Please give an option we can use.\n")
+                            ec = 0
+                            oc = 0
+                            wait(.5)
+                    
+                    #If player 1 is out of health
+                    if P1HP <= 0:
+                        q("Player 1 is out of health. They have lost the game.\n")
+                        confirm(.5)
+                        cc = 1
+                        P2WINS = P2WINS + 1
+                    
+                    #If player 2 is out of health
+                    elif P2HP <= 0:
+                        q("Player 2 is out of health. They have lost the game.\n")
+                        confirm(.5)
+                        cc = 1
+                        P1WINS = P1WINS + 1
+                    
+                    #Everyone's health
+                    else:
+                        q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left")
+                        confirm(.3)
+                        q("Player 2 has + " + str(P2HP) + "/" + str(P2MAXHP) + "HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + "MP left")
+                        confirm(.3)
+
+                        #OptionCorrect to mark the start of the turn
+                        oc = 0
+                        items_left = 3
+                        while oc == 0:
+                            q("1: Attack\n")
+                            wait(.15)
+                            q("2: Magic\n")
+                            wait(.15)
+                            q("3: Use an item\n")
+                            wait(.15)
+                            q("4: Pass turn\n")
+                            wait(.15)
+                            option = ask("What would you like to do? ")
+                            
+                            #Attack
+                            if option == 1:
+                                critnumber = critnum(P2AD,1,20)
+                                
+                                #This is a neccisary print
+                                if not print_random:
+                                    q("You rolled a " + str(critnumber) + "\n")
+                                
+                                #CRITICAL HIT
+                                if critnumber == 20:
+                                    q("IT'S A CRITICAL HIT!!!!")
+                                    wait(.3)
+                                    q("Player 2 did " + str(P2ATK*2) + " damage to player 2.\n")
+                                    confirm(.5)
+                                    P1HP = P1HP - P2ATK*2
+                                    oc = 1
+                                
+                                #Hit
+                                elif critnumber + P2ATKBON >= P1DEF:
+                                    q("Player 2 landed a hit, doing " + str(P2ATK) + " damage to player 1.\n")
+                                    confirm(.5)
+                                    P1HP = P1HP - P2ATK
+                                    oc = 1
+                                
+                                #Miss
+                                elif critnumber + P2ATKBON < P1DEF:
+                                    q("Player 2 missed their attack.\n")
+                                    oc = 1
+
+                                #If all else fails...
+                                else:
+                                    explode()
+                                P2DMGBOOST = 0
+                            
+                            #Magic
+                            elif option == 2:
+                                q("1: Fireball - 5MP\n")
+                                wait(.15)
+                                q("2: ")
+
                 elif P2SPD > P1SPD:
                     q("Player 2 first, then player 1\n")
                 
@@ -1061,6 +1134,7 @@ while ac == 0:
                     
                     else:
                         explode()
+            
     
     else:
         q("Please give an option we can use.\n")

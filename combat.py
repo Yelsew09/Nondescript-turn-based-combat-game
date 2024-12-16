@@ -634,13 +634,12 @@ while ac == 0:
                                         
                                     else:
                                         critnumber = critnum(0,1,100,print_random)
-                                        q("You rolled a " + str(critnumber))
-                                        confirm()
+                                        q("You conjured up ")
                                             
                                         #If critnumber is between 1 and 10:
                                         #Rusty Spoon
-                                        if critnumber >= 1 and critnumber <= 10:                                                
-                                            q("You conjured up a...\n")
+                                        if critnumber >= 1 and critnumber <= 10:
+                                            q("a... ")
                                             wait(.5)
                                             q("Rusty...",.5)
                                             wait(.6)
@@ -668,8 +667,7 @@ while ac == 0:
                                             #If P2 has a gun, now they both do
                                             if P1GLOCK == 0 and P2GLOCK == 1:
                                                 q("Ok, great. Now the OTHER guy has a gun.\n",.2)
-                                                wait(.3)
-                                                wait()
+                                                wait(.5)
                                                 q("I'm leaving.",.2)
                                                 confirm()
                                                 P1GLOCK = P1GLOCK + 1
@@ -852,6 +850,12 @@ while ac == 0:
                                     wait()
                                     q("Damage boost - Varies. Put as much MP as you want (and can) into this move, and have that amount multiplied by 1.25 and added to your next attack.")
                                     confirm()
+                                
+                                #Cancel
+                                elif option == 0:
+                                    q("You cenceled your magic\n")
+                                    wait()
+                                    mc = 1
                                 
                                 else:
                                     q("Please give an option we can use.\n")
@@ -1136,8 +1140,70 @@ while ac == 0:
                                 wait()
                                 q("0: Cancel\n")
                                 wait()
-                                option = ask("What would you like to do")
+                                
+                                #MagicCorrect
+                                mc = 0
+                                while mc == 0:
+                                    option = ask("What would you like to do")
+                                    wait(.5)
+                                    
+                                    #Fireball - 5MP
+                                    if option == 1:
+                                        
+                                        #Not enough MP
+                                        if P1MP > 5:
+                                            q("You don't have enough MP for that.\n")
+                                        
+                                        else:
+                                            critnumber = critnum(0,round(P2MAXMP/2),P2MAXMP,print_random)
+                                            
+                                            #If the magic was SO bad
+                                            if critnumber <= P1DEF/4:
+                                                q("That was pathetic. It didn't do anything.\n")
+                                            
+                                            else:
+                                                q("Player 2 did " + str(critnumber) + " damage to player 1\n")
+                                                P1HP = P1HP - critnumber
+                                                P2MP = P2MP - 5
+                                    
+                                    #Random item
+                                    elif option == 2:
+                                        critnumber = critnum(0,1,100,print_random)
+                                        q("You conjured up ")
+                                        
+                                        #If critnumber is between 1 and 10:
+                                        #Rusty Spoon
+                                        if critnumber >= 1 and critnumber <= 10:
+                                            q("a... ")
+                                            wait(.5)
+                                            q("Rusty...",.5)
+                                            wait(.6)
+                                            q("Spoon?")
+                                            confirm()
+                                            P2SPOONS + P2SPOONS + 1
+                                        
+                                        #If critnumber is between 11 and 55:
+                                        #Throwing knives
+                                        elif critnumber >= 11 and critnumber <= 55:
+                                            q("a few throwing knives!")
+                                            confirm()
+                                            P2KNIVES = P2KNIVES + 3
+                                        
+                                        #If critnumber is between 56 and 99:
+                                        #Healing potion
+                                        elif critnumber <-56 and critnumber <= 99:
+                                            q("a healing potion!")
+                                            confirm()
+                                            P2POTS = P2POTS + 1
+                                        
+                                        #HE HAS A GUN
+                                        elif critnumber == 100:
 
+                                            #If P1 has a gun, now they both do
+                                            if P2GLOCK == 0 and P1GLOCK == 1:
+                                                q("Ok, great. Now the OTHER guy has a gun\n",.2)
+                                                wait(.5)
+                                                q("I'm leaving.",.2)
                 elif P2SPD > P1SPD:
                     q("Player 2 first, then player 1\n")
                 

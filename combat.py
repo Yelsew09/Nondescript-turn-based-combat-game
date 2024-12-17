@@ -127,8 +127,7 @@ while ac == 0:
 
     #Guide
     if option == 2:
-        q("Guide coming soon")
-        confirm()
+        confirm("Guide coming soon")
 
     #Options
     elif option == 3:
@@ -150,11 +149,13 @@ while ac == 0:
             #Print random numbers
             elif option == 1:
                 
+                #Set to false
                 if print_random:
                     q("print_random has been set to False\n")
                     print_random = False
                     mc = 1
                 
+                #Set to True
                 elif not print_random:
                     q("print_random has been set to True\n")
                     print_random = True
@@ -163,9 +164,48 @@ while ac == 0:
                 else:
                     explode()
             
+            #Text speed
+            elif option == 2:
+                
+                #OptionCorrect. Used for when the user could give a bad input
+                oc = 0
+                while oc == 0:
+                    q("text_speed is currently set to " + str(text_speed) + "\n")
+                    option = ask("How fast would you like to scroll the text? ")
+                    
+                    #Too slow
+                    if option >= 1:
+                        confirm("That's too slow. Please give a number lower than that.")
+                    
+                    #0 or below
+                    elif option <= 0:
+                        text_speed = .02
+                    
+                    else:
+                        q("1: Yes\n")
+                        wait()
+                        q("2: No\n")
+                        wait()
+                        text_speed = option
+
+                        #YesNoCorrect
+                        ync = 0
+                        while ync == 0:
+                            yesorno = ask("Is this a good speed? ")
+                            
+                            #Yes
+                            if yesorno == 1:
+                                q("This is now the new text speed")
+                                ync = 1
+                                oc = 1
+                            
+                            #No
+                            elif y
+            
             else:
                 q("Please give an option we can use.")
                 wait(.5)
+            
 
     #Ends program
     elif option == 4:
@@ -195,7 +235,7 @@ while ac == 0:
             wait()
             q("8: Random\n")
 
-            #OptionCorrect. Used for when the user could give a bad input. Not needed in the menus b/c it can just loop to the begining of AllCorrect
+            #OptionCorrect
             #Character select for player 1
             oc = 0
             while oc == 0:

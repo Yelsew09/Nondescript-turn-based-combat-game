@@ -1,6 +1,4 @@
 import random, time, sys
-
-from campaign import EMAXHP
 def explode():
 
     #A command used for crashing the game. Very useful if something seems impossible
@@ -132,7 +130,7 @@ while ac == 0:
     #ErrorCorrect. Allows for a repeat if a ValueError occurs
     co=1
     while co==1:
-        option=ask("What would you like to do?: ")
+        option = ask("What would you like to do?: ")
         if option == 2:
             
             #Guide
@@ -909,54 +907,74 @@ while ac == 0:
                                                                 P1MP=P1MP-magicinput
                                                                 q("1: You\n",0.1)
                                                                 q("2: Teammate",0.1)
-                                                                q("Who would you like to give the healing to?: ",.0)
-                                                                defchoose=int(input(""))
-                                                                if defchoose==1:
-                                                                    P1HPGAIN=P1HP+round(P1MAXHP/5,0)
-                                                                    P1HP=P1HP+P1HPGAIN
-                                                                    if P1HP>P1MAXHP:
-                                                                        P1HP=P1MAXHP
-                                                                    q("You gain " + str(P1HPGAIN) + " health back\n",.1)
-                                                                    q("you have " + str(P1HP) + " health\n",.3)
-                                                                    prevmp=P1MP
-                                                                    P1MP=P1MP+P1MPBON
-                                                                    prevmp=P1MP-prevmp
-                                                                    q("\n")
-                                                                    if P1MP>P1MAXMP:
-                                                                        P1MP=P1MAXMP
-                                                                    q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
-                                                                    q("You now have " + str(P1MP) + "\n",.1)
-                                                                    ESPD=ESPD+ESPDBON
-                                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                                    P2SPD=P2SPD+P2SPDBON
-                                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
-                                                                elif defchoose==2:
-                                                                    P2HPGAIN=P2HP+round(P2MAXHP/5,0)
-                                                                    P2HP=P2HP+P2HPGAIN
-                                                                    if P2HP>P2MAXHP:
-                                                                        P2HP=P2MAXHP
-                                                                    q("You gain " + str(P2HPGAIN) + " health back\n",.1)
-                                                                    q("you have " + str(P2HP) + " health\n",.3)
-                                                                    prevmp=P1MP
-                                                                    P1MP=P1MP+P1MPBON
-                                                                    prevmp=P1MP-prevmp
-                                                                    q("\n")
-                                                                    if P1MP>P1MAXMP:
-                                                                        P1MP=P1MAXMP
-                                                                    q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
-                                                                    q("You now have " + str(P1MP) + "\n",.1)
-                                                                    ESPD=ESPD+ESPDBON
-                                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
-                                                                    P2SPD=P2SPD+P2SPDBON
-                                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                                co=1
+                                                                while co==1:    
+                                                                    option=ask("Who would you like to give the healing to?: ")
+                                                                    defchoose=option
+                                                                    if defchoose==1:
+                                                                        P1HPGAIN=P1HP+round(P1MAXHP/5,0)
+                                                                        P1HP=P1HP+P1HPGAIN
+                                                                        if P1HP>P1MAXHP:
+                                                                            P1HP=P1MAXHP
+                                                                        q("You gain " + str(P1HPGAIN) + " health back\n",.1)
+                                                                        q("you have " + str(P1HP) + " health\n",.3)
+                                                                        prevmp=P1MP
+                                                                        P1MP=P1MP+P1MPBON
+                                                                        prevmp=P1MP-prevmp
+                                                                        q("\n")
+                                                                        if P1MP>P1MAXMP:
+                                                                            P1MP=P1MAXMP
+                                                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                                        q("You now have " + str(P1MP) + "\n",.1)
+                                                                        ESPD=ESPD+ESPDBON
+                                                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                                        P2SPD=P2SPD+P2SPDBON
+                                                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
+                                                                        co=0
+                                                                    elif defchoose==2:
+                                                                        P2HPGAIN=P2HP+round(P2MAXHP/5,0)
+                                                                        P2HP=P2HP+P2HPGAIN
+                                                                        if P2HP>P2MAXHP:
+                                                                            P2HP=P2MAXHP
+                                                                        q("You gain " + str(P2HPGAIN) + " health back\n",.1)
+                                                                        q("you have " + str(P2HP) + " health\n",.3)
+                                                                        prevmp=P1MP
+                                                                        P1MP=P1MP+P1MPBON
+                                                                        prevmp=P1MP-prevmp
+                                                                        q("\n")
+                                                                        if P1MP>P1MAXMP:
+                                                                            P1MP=P1MAXMP
+                                                                        q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                                        q("You now have " + str(P1MP) + "\n",.1)
+                                                                        ESPD=ESPD+ESPDBON
+                                                                        q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                                        P2SPD=P2SPD+P2SPDBON
+                                                                        co=0
+                                                                        q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
                                                             elif magicinput==6:
                                                                 q("You Cast fire ball\n",.2)
                                                                 fireballdamage=random.randint(round(P1MAXMP/2,0),P1MAXMP)
                                                                 if fireballdamage<EDEF/4:
                                                                     q("the magic was blocked")
                                                                 else:
-                                                                    q("")
+                                                                    EHP=EHP-fireballdamage
+                                                                    if EHP<0:
+                                                                        EHP=0
+                                                                    q("you did " + str(fireballdamage) + " damage to the enemy leaving them with " + str(EHP) + " health left\n",.2)
                                                                     co=0
+                                                                    prevmp=P1MP
+                                                                    P1MP=P1MP+P1MPBON
+                                                                    prevmp=P1MP-prevmp
+                                                                    q("\n")
+                                                                    if P1MP>P1MAXMP:
+                                                                        P1MP=P1MAXMP
+                                                                    q("You gained back " + str(prevmp) + " Mana Points back\n",.1)
+                                                                    q("You now have " + str(P1MP) + "\n",.1)
+                                                                    ESPD=ESPD+ESPDBON
+                                                                    q("The " + str(enemy) + " gained " + str(ESPDBON) + " Speed back" + " and now has " + str(ESPD) + " Speed\n",.1)
+                                                                    P2SPD=P2SPD+P2SPDBON
+                                                                    co=0
+                                                                    q("Player 2 gained " + str(P2SPDBON) + " Speed back" + " and now has " + str(P2SPD) + " Speed\n",.1)
                                                 elif turnmove==3:
                                                     q("You have " + str(P1SPOON) + " spoons left\n",.1)
                                                     q("You have " + str(P1KNIVES) + " knives left\n",.1)

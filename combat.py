@@ -8,7 +8,7 @@
 #Imports sys, IDK what it does. All I know is that it's used in the q command
 import random, time, sys
 
-def q(str,temporal_distance = 0.02):
+def q(str,temporal_distance = .02):
     
     #Not entirely sure what this all does, all I know is that it rolls text instead of printing it all at once.
     for char in str:
@@ -165,7 +165,7 @@ while ac == 0:
                     explode()
             
             #Text speed
-            elif option == 2:
+            elif option == "Yes":
                 
                 #OptionCorrect. Used for when the user could give a bad input
                 oc = 0
@@ -195,12 +195,18 @@ while ac == 0:
                             
                             #Yes
                             if yesorno == 1:
-                                q("This is now the new text speed")
+                                q("This is now the new text speed\n")
                                 ync = 1
                                 oc = 1
                             
                             #No
-                            elif y
+                            elif yesorno == 2:
+                                text_speed = .02
+                                q("Please choose a new text speed\n")
+                                ync = 1
+                            
+                            else:
+                                q("Please give a valid option\n")
             
             else:
                 q("Please give an option we can use.")
